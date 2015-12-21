@@ -3,7 +3,7 @@ using System;
 
 namespace Lords {
 	public class Hex {
-		public const float HEX_SIZE = 1f;
+		public const float HEX_SIZE = 0.5f;
 		public float q, r;
 
 		public Hex(float q, float r) {
@@ -84,8 +84,8 @@ namespace Lords {
 		public static Vector3 HexToWorld(Hex hex) {
 			Vector3 result = new Vector3();
 			
-			result.x = hex.q * 1.5f;
-			result.y = Mathf.Sqrt(3) * (hex.r + hex.q / 2);
+			result.x = HEX_SIZE * Mathf.Sqrt(3) * (hex.q + hex.r/2);
+			result.y = HEX_SIZE * 3/2 * hex.r;
 			result.z = 0;
 			
 			return result;
@@ -94,8 +94,8 @@ namespace Lords {
 		public static Hex WorldToHex(Vector3 world) {
 			Hex result = new Hex();
 			
-			result.q = world.x * 2/3 / HEX_SIZE;
-			result.r = (-1 * world.x / 3 + Mathf.Sqrt(3) / 3 * world.y) / HEX_SIZE;
+			result.q = (world.x * Mathf.Sqrt(3)/3 - world.y / 3) / HEX_SIZE;
+			result.r = world.y * 2/3 / HEX_SIZE;
 			
 			return HexRound(result);
 		}

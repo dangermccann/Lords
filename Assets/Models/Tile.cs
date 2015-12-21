@@ -2,9 +2,37 @@
 
 namespace Lords {
 	public class Tile {
+
+		public Action<Tile> TypeChanged;
+		public Action<Tile> BuildingChanged;
+
 		public Hex Position { get; set; }
 		public City City { get; protected set; }
-		public TileType Type { get; protected set; }
+
+
+		protected TileType type;
+		public TileType Type {
+			get {
+				return type;
+			}
+			set {
+				type = value;
+				if(TypeChanged != null)
+					TypeChanged(this);
+			}
+		}
+
+		protected Building building = null;
+		public Building Building {
+			get {
+				return building;
+			}
+			set {
+				building = value;
+				if(BuildingChanged != null)
+					BuildingChanged(this);
+			}
+		}
 
 		public Tile(City city, Hex position) {
 			City = city;
@@ -14,6 +42,10 @@ namespace Lords {
 	}
 
 	public enum TileType {
-		Empty
+		Empty,
+		Sand,
+		Dirt,
+		Snow,
+		Grass
 	}
 }

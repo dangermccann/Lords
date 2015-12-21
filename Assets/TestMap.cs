@@ -5,6 +5,7 @@ using Lords;
 public class TestMap : MonoBehaviour {
 	public GameObject hoverTile;
 	City city;
+	BuildingType currentBuildingType = BuildingType.Villa;
 
 	// Use this for initialization
 	void Start () {
@@ -18,9 +19,13 @@ public class TestMap : MonoBehaviour {
 
 
 		foreach(Tile tile in city.Tiles.Values) {
-			GameObject go = (GameObject) Instantiate(Resources.Load("empty-hex"), tile.Position.ToWorld(), Quaternion.identity);
-			go.transform.parent = GameObject.Find("Map").transform;
-			go.name = String.Format("Tile ({0}, {1})", tile.Position.q, tile.Position.r);
+			GameObject go = GameAssets.MakeTile(GameObject.Find("Map").transform, tile);
+			tile.TypeChanged += (Tile tt) => {
+				GameAssets.RedrawTile(go, tt);
+			};
+			tile.BuildingChanged += (Tile tt) => {
+				GameAssets.MakeBuilding(go, tt.Building);
+			};
 		}
 	}
 	
@@ -28,9 +33,25 @@ public class TestMap : MonoBehaviour {
 	void Update () {
 		if(Input.GetMouseButtonDown(0)) {
 			Hex hex = Hex.WorldToHex(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-
 			Debug.Log(String.Format("({0}, {1})", hex.q, hex.r));
+
+			Tile tile = city.Tiles[hex];
+			Building building = new Building(tile, currentBuildingType);
+			tile.Building = building;
+			tile.Type = Building.BuildingTileMap[building.Type];
 		}
+
+		if(Input.GetKeyDown(KeyCode.Alpha1)) {
+			currentBuildingType = BuildingType.Villa;
+		}
+		if(Input.GetKeyDown(KeyCode.Alpha2)) {
+			currentBuildingType = BuildingType.Slums;
+		}
+		if(Input.GetKeyDown(KeyCode.Alpha3)) {
+			currentBuildingType = BuildingType.Church;
+		}
+
+
 
 		Hex hoverPointHex = Hex.WorldToHex(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
@@ -42,6 +63,7 @@ public class TestMap : MonoBehaviour {
 			hoverTile.SetActive(false);
 		}
 	}
-	
+
+
 
 }

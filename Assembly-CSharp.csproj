@@ -47,6 +47,8 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Controllers\CameraControl.cs" />
+     <Compile Include="Assets\Controllers\GameAssets.cs" />
+     <Compile Include="Assets\Models\Building.cs" />
      <Compile Include="Assets\Models\City.cs" />
      <Compile Include="Assets\Models\Hex.cs" />
      <Compile Include="Assets\Models\Tile.cs" />

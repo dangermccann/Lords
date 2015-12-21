@@ -4,11 +4,11 @@ using System.Collections;
 public class CameraControl : MonoBehaviour {
 	
 	Vector3 lastMousePosition = Vector3.zero; 
-	public Camera camera;
+	public Camera mainCamera;
 
 	void Start () {
-		if(camera == null) {
-			camera = Camera.main;
+		if(mainCamera == null) {
+			mainCamera = Camera.main;
 		}
 	}
 
@@ -21,24 +21,24 @@ public class CameraControl : MonoBehaviour {
 		float zoomChange = 0f;
 		float zoom = Input.GetAxis("Mouse ScrollWheel");
 		if (zoom > 0) {
-			zoomChange = -1 * camera.orthographicSize / 10;
+			zoomChange = -1 * mainCamera.orthographicSize / 10;
 		}
 		else if (zoom < 0) {
-			zoomChange = camera.orthographicSize / 10;
+			zoomChange = mainCamera.orthographicSize / 10;
 		}
 		
 		if(zoomChange != 0) {
-			camera.orthographicSize = Mathf.Max(Mathf.Min(camera.orthographicSize + zoomChange, 30), 4);
+			mainCamera.orthographicSize = Mathf.Max(Mathf.Min(mainCamera.orthographicSize + zoomChange, 30), 3);
 		}
 	}
 
 	void UpdatePosition() {
-		Vector3 currentPosition = camera.ScreenToWorldPoint(Input.mousePosition);
+		Vector3 currentPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
 		if(lastMousePosition != Vector3.zero) {
 			Vector3 diff = lastMousePosition - currentPosition;
-			camera.transform.position += diff;
-			lastMousePosition = camera.ScreenToWorldPoint(Input.mousePosition);
+			mainCamera.transform.position += diff;
+			lastMousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 		}
 		
 		

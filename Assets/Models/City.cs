@@ -1,9 +1,9 @@
-﻿using System;
+﻿using UnityEngine;
+using System;
 using System.Collections.Generic;
 
 namespace Lords {
 	public class City {
-		const float FOOD_MULTIPLIER = 100;
 
 		public string Name { get; protected set; }
 		public Dictionary<Hex, Tile> Tiles { get; protected set; }
@@ -49,7 +49,9 @@ namespace Lords {
 						popFactor = Math.Min(1, PopulationNearby(building.Tile) / minimumPop);
 					}
 
-					Primatives buildingYeild = Building.Yields[building.Type] * popFactor;
+					float timeFactor = Math.Min(1, (Time.fixedTime - building.CreateTime) / Building.BUILD_TIME);
+
+					Primatives buildingYeild = Building.Yields[building.Type] * popFactor * timeFactor;
 					result += buildingYeild;
 				}
 			}
@@ -58,17 +60,15 @@ namespace Lords {
 		}
 
 		public void UpdateScore() {
-			Score.Population = Math.Min(Primatives.Housing, Primatives.Food * FOOD_MULTIPLIER);
+			Score.Population = Math.Min(Primatives.Housing, Primatives.Food * Building.FARM_OUTPUT);
 			Score.Happiness = Math.Max(0, Primatives.Entertainment + Primatives.Health + Primatives.Security);
 			Score.Prosperity = Math.Max(0, Primatives.Productivity + Primatives.Literacy);
 			Score.Culture = Math.Max(0, Primatives.Faith + Primatives.Beauty);
 		}
 
 		float PopulationNearby(Tile tile) {
-			float foodLevel = Math.Min(1.0f, Primatives.Food * FOOD_MULTIPLIER / Primatives.Housing);
+			float foodLevel = Math.Min(1.0f, Primatives.Food * Building.FARM_OUTPUT / Primatives.Housing);
 			float population = 0;
-
-			List<Building> b = Buildings[BuildingType.Amphitheater];
 
 			List<BuildingType> types = new List<BuildingType> { BuildingType.Villa, BuildingType.Cottages, BuildingType.Slums };
 			foreach(BuildingType type in types) {

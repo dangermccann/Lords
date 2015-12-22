@@ -4,6 +4,9 @@ using UnityEngine;
 
 namespace Lords {
 	public class Building {
+		public const float FARM_OUTPUT = 20;
+		public const float BUILD_TIME = 10;
+
 		public static Dictionary<BuildingType, TileType> BuildingTileMap = new Dictionary<BuildingType, TileType> {
 			{ BuildingType.Villa, 			TileType.Sand },
 			{ BuildingType.Slums, 			TileType.Sand },
@@ -57,12 +60,12 @@ namespace Lords {
 
 		public Tile Tile { get; protected set; }
 		public BuildingType Type { get;  protected set; }
-		float createTime;
+		public float CreateTime { get; protected set; }
 
 		public Building (Tile tile, BuildingType type) {
 			this.Tile = tile;
 			this.Type = type;
-			createTime = Time.fixedTime;
+			CreateTime = Time.fixedTime;
 		}
 
 

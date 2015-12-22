@@ -5,6 +5,7 @@ using Lords;
 public class TestMap : MonoBehaviour {
 	BuildingType currentBuildingType = BuildingType.Villa;
 	float lastScoreUpdate = 0;
+	public float updateInterval = 0.25;
 
 	// Use this for initialization
 	void Start () {
@@ -57,7 +58,7 @@ public class TestMap : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if(Time.fixedTime - lastScoreUpdate > 1) {
+		if(Time.fixedTime - lastScoreUpdate > updateInterval) {
 			lastScoreUpdate = Time.fixedTime;
 
 			Game.CurrentCity.UpdatePrimatives();

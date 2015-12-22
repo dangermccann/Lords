@@ -1,19 +1,26 @@
 ﻿using UnityEngine;
 using System;
+using System.Collections.Generic;
 using Lords;
 
 public class TestMap : MonoBehaviour {
 	BuildingType currentBuildingType = BuildingType.Villa;
 	float lastScoreUpdate = 0;
-	public float updateInterval = 0.25;
+	public float updateInterval = 1f;
 
 	// Use this for initialization
 	void Start () {
-		int radius = 4;
-		Game.CurrentCity = new City(radius);
+		MapConfiguration mapConfig = Maps.Basic;
+		Game.CurrentCity = new City(mapConfig.Radius);
+
+		MapGenerator generator = new MapGenerator();
+		Map map = generator.GenerateMap(mapConfig.Radius, mapConfig.TileConfiguration, mapConfig.Seed);
 
 		foreach(Tile tile in Game.CurrentCity.Tiles.Values) {
+			tile.Type = map.GetTileTypeAt(tile.Position);
+
 			GameObject go = GameAssets.MakeTile(GameObject.Find("Map").transform, tile);
+
 			tile.TypeChanged += (Tile tt) => {
 				GameAssets.RedrawTile(go, tt);
 			};

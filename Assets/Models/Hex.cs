@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System;
 
+// http://www.redblobgames.com/grids/hexagons/
 namespace Lords {
 	public class Hex {
 		public const float HEX_SIZE = 0.5f;
@@ -46,6 +47,20 @@ namespace Lords {
 			return q.GetHashCode() ^ r.GetHashCode() << 2;
 		}
 
+		public static Vector2 CubeToAddQOffset(Vector3 cube) {
+			Vector2 result = new Vector2();
+			result.x = cube.x;
+			result.y = cube.z + (cube.x - ((int)cube.x & 1)) / 2;
+			return result;
+		}
+
+		public static Vector3 OddQOffsetToCube(Vector2 offset) {
+			Vector3 result = new Vector3();
+			result.x = offset.x;
+			result.z = offset.y - (offset.x - ((int)offset.x & 1)) / 2;
+			result.y = -result.x - result.z;
+			return result;
+		}
 		
 		public static Hex CubeToHex(Vector3 cube) {
 			return new Hex(cube.x, cube.z);

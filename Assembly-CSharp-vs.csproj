@@ -48,9 +48,12 @@
   <ItemGroup>
      <Compile Include="Assets\Controllers\CameraControl.cs" />
      <Compile Include="Assets\Controllers\GameAssets.cs" />
+     <Compile Include="Assets\Controllers\HoverControl.cs" />
+     <Compile Include="Assets\Game.cs" />
      <Compile Include="Assets\Models\Building.cs" />
      <Compile Include="Assets\Models\City.cs" />
      <Compile Include="Assets\Models\Hex.cs" />
+     <Compile Include="Assets\Models\Primatives.cs" />
      <Compile Include="Assets\Models\Tile.cs" />
      <Compile Include="Assets\TestMap.cs" />
   </ItemGroup>

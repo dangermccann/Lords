@@ -99,5 +99,11 @@ namespace Lords {
 			
 			return HexRound(result);
 		}
+
+		public static float Distance(Hex a, Hex b) {
+			Vector3 ac = HexToCube(a);
+			Vector3 bc = HexToCube(b);
+			return Mathf.Max(Math.Abs(ac.x - bc.x), Math.Abs(ac.y - bc.y), Math.Abs(ac.z - bc.z));
+		}
 	}
 }

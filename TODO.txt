@@ -1,0 +1,29 @@
+-- Title Options --
+ > Lords and Manors
+ > Lord Mayor
+
+
+-- Buildings --
+ > Housing        
+  - Villas        --> Housing & Literacy
+  - Cottages      --> Housing 
+  - Slums         --> Housing & -Security
+ > Workshop       --> Productivity & -Health
+ > Trading Post   --> Productivity & -Beauty
+ > Fort           --> Security & -Beauty
+ > Ampitheater    --> Entertainment & -Productivity
+ > Church         --> Faith & Beauty & -Literacy
+ > Farm           --> Food & -Literacy
+ > Tavern         --> Entertainment & -Security
+ > Garden         --> Beauty & -Productivity
+ > School         --> Literacy & -Entertainment
+ > Hospital       --> Health & -Faith
+
+ 
+-- Game Mechanics -- 
+ > Population => Food + Housing
+ > Happiness => Entertainment + Health + Security
+ > Prosperity => Productivity + Literacy
+ > Culture => Faith + Beauty
+ 
+ 

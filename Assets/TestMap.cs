@@ -3,22 +3,15 @@ using System;
 using Lords;
 
 public class TestMap : MonoBehaviour {
-	public GameObject hoverTile;
-	City city;
 	BuildingType currentBuildingType = BuildingType.Villa;
+	float lastScoreUpdate = 0;
 
 	// Use this for initialization
 	void Start () {
-		if(hoverTile == null) {
-			hoverTile = GameObject.Find("hover-hex");
-		}
-		hoverTile.SetActive(false);
-
 		int radius = 4;
-		city = new City(radius);
+		Game.CurrentCity = new City(radius);
 
-
-		foreach(Tile tile in city.Tiles.Values) {
+		foreach(Tile tile in Game.CurrentCity.Tiles.Values) {
 			GameObject go = GameAssets.MakeTile(GameObject.Find("Map").transform, tile);
 			tile.TypeChanged += (Tile tt) => {
 				GameAssets.RedrawTile(go, tt);
@@ -28,17 +21,22 @@ public class TestMap : MonoBehaviour {
 			};
 		}
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		if(Input.GetMouseButtonDown(0)) {
 			Hex hex = Hex.WorldToHex(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 			Debug.Log(String.Format("({0}, {1})", hex.q, hex.r));
 
-			Tile tile = city.Tiles[hex];
+			Tile tile = Game.CurrentCity.Tiles[hex];
+
+			if(tile.Building != null) {
+				Game.CurrentCity.RemoveBuilding(tile.Building);
+			}
+
 			Building building = new Building(tile, currentBuildingType);
 			tile.Building = building;
 			tile.Type = Building.BuildingTileMap[building.Type];
+			Game.CurrentCity.AddBuilding(building);
 		}
 
 		if(Input.GetKeyDown(KeyCode.Alpha1)) {
@@ -50,20 +48,24 @@ public class TestMap : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Alpha3)) {
 			currentBuildingType = BuildingType.Church;
 		}
-
-
-
-		Hex hoverPointHex = Hex.WorldToHex(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-
-		if(city.Tiles.ContainsKey(hoverPointHex)) {
-			hoverTile.transform.position = Hex.HexToWorld(hoverPointHex);
-			hoverTile.SetActive(true);
+		if(Input.GetKeyDown(KeyCode.Alpha4)) {
+			currentBuildingType = BuildingType.Wheat_Farm;
 		}
-		else {
-			hoverTile.SetActive(false);
+		if(Input.GetKeyDown(KeyCode.Alpha5)) {
+			currentBuildingType = BuildingType.Tavern;
 		}
 	}
 
+	void FixedUpdate() {
+		if(Time.fixedTime - lastScoreUpdate > 1) {
+			lastScoreUpdate = Time.fixedTime;
 
+			Game.CurrentCity.UpdatePrimatives();
+			Game.CurrentCity.UpdateScore();
+
+			Debug.Log(Game.CurrentCity.Primatives.ToString());
+			Debug.Log(Game.CurrentCity.Score.ToString());
+		}
+	}
 
 }

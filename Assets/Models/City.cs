@@ -51,7 +51,11 @@ namespace Lords {
 
 					float timeFactor = Math.Min(1, (Time.fixedTime - building.CreateTime) / Building.BUILD_TIME);
 
-					Primatives buildingYeild = Building.Yields[building.Type] * popFactor * timeFactor;
+					Primatives buildingYeild = Building.Yields[building.Type];
+					if(Building.Modifiers[building.Type].ContainsKey(building.Tile.Type)) {
+						buildingYeild += Building.Modifiers[building.Type][building.Tile.Type];
+					}
+					buildingYeild *= popFactor * timeFactor;
 					result += buildingYeild;
 				}
 			}

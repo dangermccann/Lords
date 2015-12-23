@@ -39,6 +39,10 @@ namespace Lords {
 			Position = position;
 			Type = TileType.Empty;
 		}
+
+		public bool CanBuildOn() {
+			return (Type != TileType.Water && Type != TileType.Mountains);
+		}
 	}
 
 	public enum TileType {
@@ -46,6 +50,11 @@ namespace Lords {
 		Sand,
 		Dirt,
 		Snow,
-		Grass
+		Grass,
+		Tundra,
+		Mountains,
+		Water,
+		Marsh,
+		Forest
 	}
 }

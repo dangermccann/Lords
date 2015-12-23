@@ -41,6 +41,43 @@ namespace Lords {
 			{ BuildingType.Workshop, 		new Primatives { Productivity = 4, Health = -1, Entertainment = -1 } },
 		};
 
+		public static Dictionary<BuildingType, Dictionary<TileType, Primatives>> Modifiers = new Dictionary<BuildingType, Dictionary<TileType, Primatives>> {
+			{ BuildingType.Villa, new Dictionary<TileType, Primatives>() },
+			{ BuildingType.Slums, new Dictionary<TileType, Primatives>() },
+			{ BuildingType.Cottages, new Dictionary<TileType, Primatives>() },
+			{ BuildingType.School, new Dictionary<TileType, Primatives>() },
+			{
+				BuildingType.Vegetable_Farm, new Dictionary<TileType, Primatives>() { 
+					{ TileType.Snow, new Primatives{ Food = -2 } },
+					{ TileType.Tundra, new Primatives{ Food = -1 } },
+					{ TileType.Marsh, new Primatives{ Food = -2 } },
+				}
+			},
+			{
+				BuildingType.Wheat_Farm, new Dictionary<TileType, Primatives>() { 
+					{ TileType.Snow, new Primatives{ Food = -3 } },
+					{ TileType.Tundra, new Primatives{ Food = -2 } },
+					{ TileType.Marsh, new Primatives{ Food = -3 } },
+				}
+			},
+			{ BuildingType.Tavern, new Dictionary<TileType, Primatives>() },
+			{ BuildingType.Amphitheater, new Dictionary<TileType, Primatives>() },
+			{ BuildingType.Trading_Post, new Dictionary<TileType, Primatives>() },
+			{ 
+				BuildingType.Fort, new Dictionary<TileType, Primatives>() {
+					{ TileType.Forest, new Primatives{ Security = 2 } },
+				}
+			},
+			{ BuildingType.Hospital, new Dictionary<TileType, Primatives>() },
+			{ 
+				BuildingType.Garden, new Dictionary<TileType, Primatives>() {
+					{ TileType.Marsh, new Primatives{ Beauty = -1 } },
+				}
+			},
+			{ BuildingType.Church, new Dictionary<TileType, Primatives>() },
+			{ BuildingType.Workshop, new Dictionary<TileType, Primatives>() },
+		};
+
 		public static Dictionary<BuildingType, float> PopulationMinimums = new Dictionary<BuildingType, float> {
 			{ BuildingType.Villa, 			0 },
 			{ BuildingType.Slums, 			0 },

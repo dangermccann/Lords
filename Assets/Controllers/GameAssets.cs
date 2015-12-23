@@ -10,11 +10,16 @@ namespace Lords {
 		const string TILE_TAG = "Tile";
 
 		public static Dictionary<TileType, int> TileIndexes = new Dictionary<TileType, int> {
-			{ TileType.Empty, 	16 },
-			{ TileType.Sand, 	14 },
-			{ TileType.Dirt, 	1 },
-			{ TileType.Snow, 	0 },
-			{ TileType.Grass,	15 },
+			{ TileType.Empty, 		16 },
+			{ TileType.Sand, 		14 },
+			{ TileType.Dirt, 		1 },
+			{ TileType.Snow, 		0 },
+			{ TileType.Grass,		15 },
+			{ TileType.Tundra,		16 },
+			{ TileType.Water,		19 },
+			{ TileType.Forest,		20 },
+			{ TileType.Marsh,		21 },
+			{ TileType.Mountains,	22 },
 		};
 
 		public static Dictionary<BuildingType, int> BuildingIndexes = new Dictionary<BuildingType, int> {
@@ -67,8 +72,6 @@ namespace Lords {
 			buildingGO.name = building.Type.ToString();
 			buildingGO.tag = BUILDING_TAG;
 			buildingGO.GetComponent<SpriteRenderer>().sprite = buildingSprite;
-
-			go.GetComponent<SpriteRenderer>().sprite = GetSprite(Building.BuildingTileMap[building.Type]);
 
 			return buildingGO;
 		}

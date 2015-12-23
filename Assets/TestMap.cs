@@ -6,11 +6,11 @@ using Lords;
 public class TestMap : MonoBehaviour {
 	BuildingType currentBuildingType = BuildingType.Villa;
 	float lastScoreUpdate = 0;
-	public float updateInterval = 1f;
+	public float updateInterval = 0.25f;
 
 	// Use this for initialization
 	void Start () {
-		MapConfiguration mapConfig = Maps.Basic;
+		MapConfiguration mapConfig = Maps.Tundra;
 		Game.CurrentCity = new City(mapConfig.Radius);
 
 		MapGenerator generator = new MapGenerator();
@@ -37,14 +37,15 @@ public class TestMap : MonoBehaviour {
 
 			Tile tile = Game.CurrentCity.Tiles[hex];
 
-			if(tile.Building != null) {
-				Game.CurrentCity.RemoveBuilding(tile.Building);
-			}
+			if(tile.CanBuildOn()) {
+				if(tile.Building != null) {
+					Game.CurrentCity.RemoveBuilding(tile.Building);
+				}
 
-			Building building = new Building(tile, currentBuildingType);
-			tile.Building = building;
-			tile.Type = Building.BuildingTileMap[building.Type];
-			Game.CurrentCity.AddBuilding(building);
+				Building building = new Building(tile, currentBuildingType);
+				tile.Building = building;
+				Game.CurrentCity.AddBuilding(building);
+			}
 		}
 
 		if(Input.GetKeyDown(KeyCode.Alpha1)) {

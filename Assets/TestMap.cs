@@ -72,8 +72,8 @@ public class TestMap : MonoBehaviour {
 			Game.CurrentCity.UpdatePrimatives();
 			Game.CurrentCity.UpdateScore();
 
-			Debug.Log(Game.CurrentCity.Primatives.ToString());
-			Debug.Log(Game.CurrentCity.Score.ToString());
+			//Debug.Log(Game.CurrentCity.Primatives.ToString());
+			//Debug.Log(Game.CurrentCity.Score.ToString());
 		}
 	}
 

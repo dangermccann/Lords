@@ -6,7 +6,7 @@ using Lords;
 public class TestMap : MonoBehaviour {
 	BuildingType currentBuildingType = BuildingType.Villa;
 	float lastScoreUpdate = 0;
-	public float updateInterval = 0.25f;
+	public float updateInterval = 5f;
 
 	// Use this for initialization
 	void Start () {
@@ -38,13 +38,21 @@ public class TestMap : MonoBehaviour {
 			Tile tile = Game.CurrentCity.Tiles[hex];
 
 			if(tile.CanBuildOn()) {
-				if(tile.Building != null) {
-					Game.CurrentCity.RemoveBuilding(tile.Building);
-				}
+				if(Game.CurrentCity.CanBuild(currentBuildingType)) {
+					if(tile.Building != null) {
+						Game.CurrentCity.RemoveBuilding(tile.Building);
+					}
 
-				Building building = new Building(tile, currentBuildingType);
-				tile.Building = building;
-				Game.CurrentCity.AddBuilding(building);
+					Building building = new Building(tile, currentBuildingType);
+					tile.Building = building;
+					Game.CurrentCity.AddBuilding(building);
+				}
+				else {
+					Debug.Log("Insufficient funds or raw materials");
+				}
+			}
+			else {
+				Debug.Log("Can't build on this tile");
 			}
 		}
 
@@ -66,14 +74,14 @@ public class TestMap : MonoBehaviour {
 	}
 
 	void FixedUpdate() {
-		if(Time.fixedTime - lastScoreUpdate > updateInterval) {
-			lastScoreUpdate = Time.fixedTime;
+		Game.CurrentCity.UpdateEverything(Time.fixedDeltaTime);
 
-			Game.CurrentCity.UpdatePrimatives();
-			Game.CurrentCity.UpdateScore();
+		if(Time.time - lastScoreUpdate > updateInterval) {
+			lastScoreUpdate = Time.time;
 
-			//Debug.Log(Game.CurrentCity.Primatives.ToString());
-			//Debug.Log(Game.CurrentCity.Score.ToString());
+			Debug.Log(Game.CurrentCity.Primatives.ToString());
+			Debug.Log(Game.CurrentCity.Score.ToString());
+			Debug.Log("funds: " + Game.CurrentCity.Funds + " materials: " + Game.CurrentCity.RawMaterials);
 		}
 	}
 

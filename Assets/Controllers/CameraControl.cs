@@ -5,7 +5,7 @@ public class CameraControl : MonoBehaviour {
 
 	public float intertiaTravelTime = 0.9f;
 	public float minZoom = 2;
-	public float maxZoom = 7.5;
+	public float maxZoom = 7.5f;
 	public float mapRadius = 10;
 
 	Vector3 lastMousePosition = Vector3.zero; 

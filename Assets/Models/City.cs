@@ -5,6 +5,9 @@ using System.Collections.Generic;
 namespace Lords {
 	public class City {
 
+		static float MAX_FUNDS = 10000;
+		static float MAX_RAW_MATERIALS = 10000;
+
 		public string Name { get; protected set; }
 		public Dictionary<Hex, Tile> Tiles { get; protected set; }
 		public int Radius { get; protected set; }
@@ -12,6 +15,15 @@ namespace Lords {
 		public Aggregates Score { get; protected set; }
 		public Aggregates VictoryConditions { get; protected set; }
 		public Dictionary<BuildingType, List<Building>> Buildings { get; protected set; }
+		public float RawMaterials { get; protected set; }
+		public float Funds { get; protected set; }
+
+		public float FoodLevel() {
+			if(Primatives.Housing > 0) {
+				return Math.Min(1.0f, Primatives.Food * Building.FARM_OUTPUT / Primatives.Housing);
+			}
+			else return 0;
+		}
 
 		public City(int radius) {
 			this.Radius = radius;
@@ -24,6 +36,10 @@ namespace Lords {
 			foreach(BuildingType type in Enum.GetValues(typeof(BuildingType))) {
 				Buildings[type] = new List<Building>();
 			}
+
+			// TODO: get from difficulty setting or somewhere else
+			Funds = 1000;
+			RawMaterials = 1000;
 
 			CreateTiles();
 		}
@@ -65,13 +81,61 @@ namespace Lords {
 
 		public void UpdateScore() {
 			Score.Population = Math.Min(Primatives.Housing, Primatives.Food * Building.FARM_OUTPUT);
-			Score.Happiness = Math.Max(0, Primatives.Entertainment + Primatives.Health + Primatives.Security);
-			Score.Prosperity = Math.Max(0, Primatives.Productivity + Primatives.Literacy);
-			Score.Culture = Math.Max(0, Primatives.Faith + Primatives.Beauty);
+			Score.Happiness = Primatives.Entertainment + Primatives.Health + Primatives.Security;
+			Score.Prosperity = Primatives.Productivity + Primatives.Literacy;
+			Score.Culture = Primatives.Faith + Primatives.Beauty;
+		}
+
+		public void UpdateFunds(float deltaTime) {
+			float foodLevel = FoodLevel();
+
+			foreach(List<Building> buildings in Buildings.Values) {
+				foreach(Building building in buildings) {
+					if(Building.TaxRates.ContainsKey(building.Type)) {
+						float housingYield = Building.Yields[building.Type].Housing;
+						float taxRate = Building.TaxRates[building.Type];
+						Funds += foodLevel * housingYield * taxRate * deltaTime;
+					}
+				}
+			}
+
+			Funds = Math.Min(Funds, MAX_FUNDS);
+		}
+
+		public void UpdateRawMaterials(float deltaTime) {
+			float foodLevel = FoodLevel();
+
+			foreach(List<Building> buildings in Buildings.Values) {
+				foreach(Building building in buildings) {
+					if(Building.RawMaterialProduction.ContainsKey(building.Type)) {
+						float housingYield = Building.Yields[building.Type].Housing;
+						float production = Building.RawMaterialProduction[building.Type];
+						RawMaterials += foodLevel * housingYield * production * deltaTime;
+					}
+				}
+			}
+
+			foreach(Building workshop in Buildings[BuildingType.Workshop]) {
+				float popFactor = 1.0f;
+				float minimumPop = Building.PopulationMinimums[BuildingType.Workshop];
+				if(minimumPop > 0) {
+					popFactor = Math.Min(1, PopulationNearby(workshop.Tile) / minimumPop);
+				}
+
+				RawMaterials += popFactor * Building.WORKSHOP_BONUS * deltaTime;
+			}
+
+			RawMaterials = Math.Min(RawMaterials, MAX_RAW_MATERIALS);
+		}
+
+		public void UpdateEverything(float deltaTime) {
+			UpdatePrimatives();
+			UpdateFunds(deltaTime);
+			UpdateRawMaterials(deltaTime);
+			UpdateScore();
 		}
 
 		float PopulationNearby(Tile tile) {
-			float foodLevel = Math.Min(1.0f, Primatives.Food * Building.FARM_OUTPUT / Primatives.Housing);
 			float population = 0;
 
 			List<BuildingType> types = new List<BuildingType> { BuildingType.Villa, BuildingType.Cottages, BuildingType.Slums };
@@ -79,7 +143,7 @@ namespace Lords {
 				List<Building> buildings = Buildings[type];
 				foreach(Building building in buildings) {
 					float distance = Hex.Distance(tile.Position, building.Tile.Position);
-					population += Building.Yields[building.Type].Housing * foodLevel / distance;
+					population += Building.Yields[building.Type].Housing * FoodLevel() / distance;
 				}
 			}
 
@@ -88,10 +152,16 @@ namespace Lords {
 
 		public void AddBuilding(Building b) {
 			Buildings[b.Type].Add(b);
+			Funds -= Building.RequiredFunds[b.Type];
+			RawMaterials -= Building.RequiredMaterials[b.Type];
 		}
 
 		public void RemoveBuilding(Building b) {
 			Buildings[b.Type].Remove(b);
+		}
+
+		public Boolean CanBuild(BuildingType type) {
+			return Funds >= Building.RequiredFunds[type] && RawMaterials >= Building.RequiredMaterials[type];
 		}
 	}
 	

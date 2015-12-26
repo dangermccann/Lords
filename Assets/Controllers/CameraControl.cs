@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using System.Collections;
 
 public class CameraControl : MonoBehaviour {
@@ -21,6 +22,10 @@ public class CameraControl : MonoBehaviour {
 	}
 
 	void Update () {
+		if(EventSystem.current.IsPointerOverGameObject()) {
+			return;
+		}
+
 		UpdateZoom();
 		UpdatePosition();
 	}

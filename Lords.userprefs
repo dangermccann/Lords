@@ -1,24 +1,23 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\TestMap.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/UI/StatsPanel.cs">
     <Files>
-      <File FileName="Assets\Models\City.cs" Line="71" Column="25" />
-      <File FileName="Assets\TestMap.cs" Line="8" Column="37" />
-      <File FileName="Assets\Models\Hex.cs" Line="1" Column="1" />
-      <File FileName="Assets\Models\Tile.cs" Line="1" Column="1" />
-      <File FileName="Assets\Controllers\CameraControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Controllers\GameAssets.cs" Line="1" Column="1" />
-      <File FileName="Assets\Models\Building.cs" Line="8" Column="32" />
-      <File FileName="Assets\Game.cs" Line="6" Column="22" />
-      <File FileName="Assets\Models\Primatives.cs" Line="21" Column="4" />
+      <File FileName="Assets/Controllers/CameraControl.cs" Line="10" Column="1" />
+      <File FileName="Assets/TestMap.cs" Line="1" Column="1" />
+      <File FileName="Assets/Models/City.cs" Line="42" Column="24" />
+      <File FileName="Assets/Models/Building.cs" Line="124" Column="33" />
+      <File FileName="Assets/UI/StatsPanel.cs" Line="7" Column="2" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Controllers" expanded="True" />
+            <Node name="Maps" expanded="True" />
             <Node name="Models" expanded="True" />
-            <Node name="TestMap.cs" selected="True" />
+            <Node name="UI" expanded="True">
+              <Node name="StatsPanel.cs" selected="True" />
+            </Node>
           </Node>
         </State>
       </Pad>

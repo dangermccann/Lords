@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.EventSystems;
 using System;
 using System.Collections.Generic;
 using Lords;
@@ -31,6 +32,28 @@ public class TestMap : MonoBehaviour {
 	}
 
 	void Update () {
+		if(Input.GetKeyDown(KeyCode.Alpha1)) {
+			currentBuildingType = BuildingType.Villa;
+		}
+		if(Input.GetKeyDown(KeyCode.Alpha2)) {
+			currentBuildingType = BuildingType.Slums;
+		}
+		if(Input.GetKeyDown(KeyCode.Alpha3)) {
+			currentBuildingType = BuildingType.Church;
+		}
+		if(Input.GetKeyDown(KeyCode.Alpha4)) {
+			currentBuildingType = BuildingType.Wheat_Farm;
+		}
+		if(Input.GetKeyDown(KeyCode.Alpha5)) {
+			currentBuildingType = BuildingType.Tavern;
+		}
+
+
+
+		if(EventSystem.current.IsPointerOverGameObject()) {
+			return;
+		}
+
 		if(Input.GetMouseButtonDown(0)) {
 			Hex hex = Hex.WorldToHex(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 			Debug.Log(String.Format("({0}, {1})", hex.q, hex.r));
@@ -54,22 +77,6 @@ public class TestMap : MonoBehaviour {
 			else {
 				Debug.Log("Can't build on this tile");
 			}
-		}
-
-		if(Input.GetKeyDown(KeyCode.Alpha1)) {
-			currentBuildingType = BuildingType.Villa;
-		}
-		if(Input.GetKeyDown(KeyCode.Alpha2)) {
-			currentBuildingType = BuildingType.Slums;
-		}
-		if(Input.GetKeyDown(KeyCode.Alpha3)) {
-			currentBuildingType = BuildingType.Church;
-		}
-		if(Input.GetKeyDown(KeyCode.Alpha4)) {
-			currentBuildingType = BuildingType.Wheat_Farm;
-		}
-		if(Input.GetKeyDown(KeyCode.Alpha5)) {
-			currentBuildingType = BuildingType.Tavern;
 		}
 	}
 

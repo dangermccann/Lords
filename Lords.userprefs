@@ -1,4 +1,5 @@
 ﻿<Properties>
+<<<<<<< Updated upstream
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/UI/StatsPanel.cs">
     <Files>
@@ -7,6 +8,20 @@
       <File FileName="Assets/Models/City.cs" Line="42" Column="24" />
       <File FileName="Assets/Models/Building.cs" Line="124" Column="33" />
       <File FileName="Assets/UI/StatsPanel.cs" Line="7" Column="2" />
+=======
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Models\Hex.cs">
+    <Files>
+      <File FileName="Assets\Models\City.cs" Line="42" Column="35" />
+      <File FileName="Assets\TestMap.cs" Line="9" Column="28" />
+      <File FileName="Assets\Models\Hex.cs" Line="103" Column="38" />
+      <File FileName="Assets\Models\Tile.cs" Line="44" Column="66" />
+      <File FileName="Assets\Controllers\CameraControl.cs" Line="1" Column="1" />
+      <File FileName="Assets\Controllers\GameAssets.cs" Line="73" Column="34" />
+      <File FileName="Assets\Models\Building.cs" Line="8" Column="38" />
+      <File FileName="Assets\Maps\Maps.cs" Line="28" Column="46" />
+      <File FileName="Assets\Controllers\HoverControl.cs" Line="14" Column="55" />
+>>>>>>> Stashed changes
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -14,9 +29,14 @@
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Controllers" expanded="True" />
             <Node name="Maps" expanded="True" />
+<<<<<<< Updated upstream
             <Node name="Models" expanded="True" />
             <Node name="UI" expanded="True">
               <Node name="StatsPanel.cs" selected="True" />
+=======
+            <Node name="Models" expanded="True">
+              <Node name="Hex.cs" selected="True" />
+>>>>>>> Stashed changes
             </Node>
           </Node>
         </State>

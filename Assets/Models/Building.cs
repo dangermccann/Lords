@@ -8,6 +8,23 @@ namespace Lords {
 		public const float BUILD_TIME = 10;
 		public const float WORKSHOP_BONUS = 0.1f;
 
+		public static HashSet<BuildingType> Types = new HashSet<BuildingType> () {
+			BuildingType.Villa,
+			BuildingType.Slums,
+			BuildingType.Cottages,
+			BuildingType.School,
+			BuildingType.Vegetable_Farm,
+			BuildingType.Wheat_Farm,
+			BuildingType.Tavern,
+			BuildingType.Amphitheater,
+			BuildingType.Trading_Post,
+			BuildingType.Fort,
+			BuildingType.Hospital,
+			BuildingType.Garden,
+			BuildingType.Church,
+			BuildingType.Workshop,
+		};
+
 		public static Dictionary<BuildingType, Primatives> Yields = new Dictionary<BuildingType, Primatives> {
 			{ BuildingType.Villa, 			new Primatives { Housing = 10, Literacy = 1 } },
 			{ BuildingType.Slums, 			new Primatives { Housing = 100, Security = -4 } },

@@ -60,6 +60,8 @@
      <Compile Include="Assets\Models\Primatives.cs" />
      <Compile Include="Assets\Models\Tile.cs" />
      <Compile Include="Assets\TestMap.cs" />
+     <Compile Include="Assets\UI\BuildingDialog.cs" />
+     <Compile Include="Assets\UI\Dialog.cs" />
      <Compile Include="Assets\UI\StatsPanel.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.7.0/Standalone/UnityEngine.UI.dll</HintPath>

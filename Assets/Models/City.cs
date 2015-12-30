@@ -33,7 +33,7 @@ namespace Lords {
 			VictoryConditions = new Aggregates();
 
 			Buildings = new Dictionary<BuildingType, List<Building>>();
-			foreach(BuildingType type in Enum.GetValues(typeof(BuildingType))) {
+			foreach(BuildingType type in Building.Types) {
 				Buildings[type] = new List<Building>();
 			}
 

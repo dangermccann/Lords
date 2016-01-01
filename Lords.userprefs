@@ -1,22 +1,23 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\UI\BuildingDialog.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\UI\Slider.cs">
     <Files>
       <File FileName="Assets\UI\StatsPanel.cs" Line="21" Column="1" />
       <File FileName="Assets\Models\City.cs" Line="36" Column="50" />
-      <File FileName="Assets\UI\BuildingDialog.cs" Line="17" Column="4" />
-      <File FileName="Assets\Models\Building.cs" Line="157" Column="26" />
+      <File FileName="Assets\UI\BuildingDialog.cs" Line="22" Column="4" />
+      <File FileName="Assets\Models\Building.cs" Line="1" Column="1" />
       <File FileName="Assets\TestMap.cs" Line="1" Column="1" />
-      <File FileName="Assets\Controllers\GameAssets.cs" Line="46" Column="33" />
+      <File FileName="Assets\Controllers\GameAssets.cs" Line="1" Column="1" />
+      <File FileName="Assets\UI\Dialog.cs" Line="30" Column="3" />
+      <File FileName="Assets\UI\Slider.cs" Line="5" Column="39" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Controllers" expanded="True" />
             <Node name="Models" expanded="True" />
             <Node name="UI" expanded="True">
-              <Node name="BuildingDialog.cs" selected="True" />
+              <Node name="Slider.cs" selected="True" />
             </Node>
           </Node>
         </State>

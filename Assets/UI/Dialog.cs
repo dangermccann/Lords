@@ -24,6 +24,12 @@ public class Dialog : MonoBehaviour {
 		}
 	}
 
+	public bool Visible {
+		get {
+			return thisGroup.alpha > 0;
+		}
+	}
+
 	public void FadeOut() {
 		StartCoroutine(FadeGroupOut(thisGroup));
 		

@@ -49,6 +49,7 @@
      <Compile Include="Assets\Controllers\CameraControl.cs" />
      <Compile Include="Assets\Controllers\GameAssets.cs" />
      <Compile Include="Assets\Controllers\HoverControl.cs" />
+     <Compile Include="Assets\Controllers\SelectionController.cs" />
      <Compile Include="Assets\Game.cs" />
      <Compile Include="Assets\Maps\Map.cs" />
      <Compile Include="Assets\Maps\MapConfiguration.cs" />
@@ -167,6 +168,7 @@
      <Compile Include="Assets\Strings.cs" />
      <Compile Include="Assets\TestMap.cs" />
      <Compile Include="Assets\UI\BuildingDialog.cs" />
+     <Compile Include="Assets\UI\Corner.cs" />
      <Compile Include="Assets\UI\Dialog.cs" />
      <Compile Include="Assets\UI\Slider.cs" />
      <Compile Include="Assets\UI\StatsPanel.cs" />

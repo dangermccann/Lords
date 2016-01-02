@@ -3,9 +3,12 @@ using Lords;
 
 public class HoverControl : MonoBehaviour {
 	Vector3 offscreen = new Vector3(0, 0, -100);
+	SpriteRenderer sprite;
 
 	void Start () {
+		sprite = GetComponent<SpriteRenderer>();
 		gameObject.transform.position = offscreen;
+		SelectionController.SelectionChanged += SelectionChanged;
 	}
 
 	void Update () {
@@ -25,6 +28,15 @@ public class HoverControl : MonoBehaviour {
 		}
 		else {
 			gameObject.transform.position = offscreen;
+		}
+	}
+
+	void SelectionChanged(Selection selection) {
+		if(selection.Operation == Operation.Build) {
+			sprite.sprite = GameAssets.GetSprite(selection.BuildingType);
+		}
+		else {
+			sprite.sprite = Resources.LoadAll<Sprite>("GUI-Sprite-Sheet")[5]; 
 		}
 	}
 

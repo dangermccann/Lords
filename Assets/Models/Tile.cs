@@ -41,6 +41,7 @@ namespace Lords {
 		}
 
 		public bool CanBuildOn() {
+			if(Building != null) return false;
 			return (Type != TileType.Water && Type != TileType.Mountains);
 		}
 	}

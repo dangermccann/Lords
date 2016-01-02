@@ -5,7 +5,6 @@ using System.Collections.Generic;
 using Lords;
 
 public class TestMap : MonoBehaviour {
-	BuildingType currentBuildingType = BuildingType.Villa;
 	float lastScoreUpdate = 0;
 	public float updateInterval = 5f;
 
@@ -33,19 +32,19 @@ public class TestMap : MonoBehaviour {
 
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Alpha1)) {
-			currentBuildingType = BuildingType.Villa;
+			SelectionController.selection.BuildingType = BuildingType.Villa;
 		}
 		if(Input.GetKeyDown(KeyCode.Alpha2)) {
-			currentBuildingType = BuildingType.Slums;
+			SelectionController.selection.BuildingType = BuildingType.Slums;
 		}
 		if(Input.GetKeyDown(KeyCode.Alpha3)) {
-			currentBuildingType = BuildingType.Church;
+			SelectionController.selection.BuildingType = BuildingType.Church;
 		}
 		if(Input.GetKeyDown(KeyCode.Alpha4)) {
-			currentBuildingType = BuildingType.Wheat_Farm;
+			SelectionController.selection.BuildingType = BuildingType.Wheat_Farm;
 		}
 		if(Input.GetKeyDown(KeyCode.Alpha5)) {
-			currentBuildingType = BuildingType.Tavern;
+			SelectionController.selection.BuildingType = BuildingType.Tavern;
 		}
 
 
@@ -60,12 +59,12 @@ public class TestMap : MonoBehaviour {
 			Tile tile = Game.CurrentCity.Tiles[hex];
 
 			if(tile.CanBuildOn()) {
-				if(Game.CurrentCity.CanBuild(currentBuildingType)) {
+				if(Game.CurrentCity.CanBuild(SelectionController.selection.BuildingType)) {
 					if(tile.Building != null) {
 						Game.CurrentCity.RemoveBuilding(tile.Building);
 					}
 
-					Building building = new Building(tile, currentBuildingType);
+					Building building = new Building(tile, SelectionController.selection.BuildingType);
 					tile.Building = building;
 					Game.CurrentCity.AddBuilding(building);
 				}

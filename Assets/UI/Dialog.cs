@@ -7,50 +7,56 @@ public class Dialog : MonoBehaviour {
 	public float fadeSpeed = 10.0f;
 	public GameObject shade = null;
 
-	UIPanel thisGroup, shadeGroup;
+	UIPanel thisPanel, shadePanel;
+
+	public static Dialog current = null;
 
 	void Start() {
-		thisGroup = this.GetComponent<UIPanel>();
+		thisPanel = this.GetComponent<UIPanel>();
 		if(shade != null) {
-			shadeGroup = shade.GetComponent<UIPanel>();
+			shadePanel = shade.GetComponent<UIPanel>();
 		}
 	}
 
 	public void FadeIn() {
-		StartCoroutine(FadeGroupIn(thisGroup));
+		StartCoroutine(FadeGroupIn(thisPanel));
 
-		if(shadeGroup != null) {
-			StartCoroutine(FadeGroupIn(shadeGroup));
+		if(shadePanel != null) {
+			StartCoroutine(FadeGroupIn(shadePanel));
 		}
+
+		current = this;
 	}
 
 	public bool Visible {
 		get {
-			return thisGroup.alpha > 0;
+			return thisPanel.alpha > 0;
 		}
 	}
 
 	public void FadeOut() {
-		StartCoroutine(FadeGroupOut(thisGroup));
+		StartCoroutine(FadeGroupOut(thisPanel));
 		
-		if(shadeGroup != null) {
-			StartCoroutine(FadeGroupOut(shadeGroup));
+		if(shadePanel != null) {
+			StartCoroutine(FadeGroupOut(shadePanel));
 		}
+
+		current = null;
 	}
 
-	IEnumerator FadeGroupIn(UIPanel group) {
-		while(group.alpha < 1) {
-			group.alpha += Time.deltaTime * fadeSpeed;
+	IEnumerator FadeGroupIn(UIPanel panel) {
+		while(panel.alpha < 1) {
+			panel.alpha += Time.deltaTime * fadeSpeed;
 			yield return null;
 		}
 
 		yield return null;
 	}
 
-	IEnumerator FadeGroupOut(UIPanel group) {
+	IEnumerator FadeGroupOut(UIPanel panel) {
 
-		while(group.alpha > 0) {
-			group.alpha -= Time.deltaTime * fadeSpeed;
+		while(panel.alpha > 0) {
+			panel.alpha -= Time.deltaTime * fadeSpeed;
 			yield return null;
 		}
 

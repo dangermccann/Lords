@@ -9,6 +9,8 @@ public class HoverControl : MonoBehaviour {
 		sprite = GetComponent<SpriteRenderer>();
 		gameObject.transform.position = offscreen;
 		SelectionController.SelectionChanged += SelectionChanged;
+
+		SelectionChanged(SelectionController.selection);
 	}
 
 	void Update () {

@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: 7c44d91f0e700fb40a6f38e022a632b8
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: ui-atlas_0
+    21300002: ui-atlas_1
+    21300004: ui-atlas_2
+    21300006: ui-atlas_3
+    21300008: ui-atlas_4
+    21300010: ui-atlas_5
+    21300012: ui-atlas_6
+    21300014: ui-atlas_7
+    21300016: ui-atlas_8
+    21300018: ui-atlas_9
+    21300020: ui-atlas_10
+    21300022: ui-atlas_11
+    21300024: ui-atlas_12
+    21300026: ui-atlas_13
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: 5
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: 2
+    aniso: 4
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 1
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: ui-atlas_0
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 518
+        width: 373
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ui-atlas_1
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 727
+        width: 327
+        height: 145
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ui-atlas_2
+      rect:
+        serializedVersion: 2
+        x: 1017
+        y: 456
+        width: 561
+        height: 459
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ui-atlas_3
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 588
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ui-atlas_4
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 593
+        width: 134
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ui-atlas_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 407
+        width: 98
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ui-atlas_6
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 432
+        width: 47
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ui-atlas_7
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 434
+        width: 49
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ui-atlas_8
+      rect:
+        serializedVersion: 2
+        x: 263
+        y: 389
+        width: 108
+        height: 120
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ui-atlas_9
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 323
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ui-atlas_10
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 323
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ui-atlas_11
+      rect:
+        serializedVersion: 2
+        x: 1037
+        y: 16
+        width: 506
+        height: 393
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ui-atlas_12
+      rect:
+        serializedVersion: 2
+        x: 446
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: ui-atlas_13
+      rect:
+        serializedVersion: 2
+        x: 882
+        y: 0
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

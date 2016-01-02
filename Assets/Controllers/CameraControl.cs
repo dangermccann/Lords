@@ -22,7 +22,7 @@ public class CameraControl : MonoBehaviour {
 	}
 
 	void Update () {
-		if(EventSystem.current.IsPointerOverGameObject()) {
+		if(HoverControl.IsOverUI()) {
 			return;
 		}
 

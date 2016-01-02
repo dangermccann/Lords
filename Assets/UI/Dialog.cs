@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class Dialog : MonoBehaviour {
 
 	public float fadeSpeed = 10.0f;
 	public GameObject shade = null;
 
-	CanvasGroup thisGroup, shadeGroup;
+	UIPanel thisGroup, shadeGroup;
 
 	void Start() {
-		thisGroup = this.GetComponent<CanvasGroup>();
+		thisGroup = this.GetComponent<UIPanel>();
 		if(shade != null) {
-			shadeGroup = shade.GetComponent<CanvasGroup>();
+			shadeGroup = shade.GetComponent<UIPanel>();
 		}
 	}
 
@@ -33,20 +32,16 @@ public class Dialog : MonoBehaviour {
 		}
 	}
 
-	IEnumerator FadeGroupIn(CanvasGroup group) {
+	IEnumerator FadeGroupIn(UIPanel group) {
 		while(group.alpha < 1) {
 			group.alpha += Time.deltaTime * fadeSpeed;
 			yield return null;
 		}
 
-		group.interactable = true;
-		group.blocksRaycasts = true;
 		yield return null;
 	}
 
-	IEnumerator FadeGroupOut(CanvasGroup group) {
-		group.interactable = false;
-		group.blocksRaycasts = false;
+	IEnumerator FadeGroupOut(UIPanel group) {
 
 		while(group.alpha > 0) {
 			group.alpha -= Time.deltaTime * fadeSpeed;

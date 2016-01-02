@@ -49,8 +49,7 @@ public class TestMap : MonoBehaviour {
 		}
 
 
-
-		if(EventSystem.current.IsPointerOverGameObject()) {
+		if(HoverControl.IsOverUI()) {
 			return;
 		}
 

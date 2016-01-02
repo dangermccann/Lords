@@ -1,21 +1,20 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 using Lords;
 
 public class StatsPanel : MonoBehaviour {
 	
-	Text population; 
+	UILabel population; 
 	Lords.Slider happiness, prosperity, culture;
 
 	void Start() {
-		population = GetUIText("PopulationValue");
-		happiness = GetSlider("HappinessSlider");
-		prosperity = GetSlider("ProsperitySlider");
-		culture = GetSlider("CultureSlider");
+		population = GetUIText("Table/PopulationValue");
+		happiness = GetSlider("Table/HappinessSlider");
+		prosperity = GetSlider("Table/ProsperitySlider");
+		culture = GetSlider("Table/CultureSlider");
 	}
 
-	Text GetUIText(string name) {
-		return transform.FindChild(name).gameObject.GetComponent<Text>();
+	UILabel GetUIText(string name) {
+		return transform.FindChild(name).gameObject.GetComponent<UILabel>();
 	}
 
 	Lords.Slider GetSlider(string name) {

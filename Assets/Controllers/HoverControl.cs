@@ -27,4 +27,8 @@ public class HoverControl : MonoBehaviour {
 			gameObject.transform.position = offscreen;
 		}
 	}
+
+	public static bool IsOverUI() { 
+		return UICamera.hoveredObject != null && UICamera.hoveredObject.name != "UI Root";
+	}
 }

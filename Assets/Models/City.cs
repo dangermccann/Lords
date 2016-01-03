@@ -13,7 +13,6 @@ namespace Lords {
 		public int Radius { get; protected set; }
 		public Primatives Primatives { get; protected set; }
 		public Aggregates Score { get; protected set; }
-		public Aggregates VictoryConditions { get; protected set; }
 		public Dictionary<BuildingType, List<Building>> Buildings { get; protected set; }
 		public float RawMaterials { get; protected set; }
 		public float Funds { get; protected set; }
@@ -25,21 +24,19 @@ namespace Lords {
 			else return 0;
 		}
 
-		public City(int radius) {
+		public City(int radius, float initialFunds, float initialMaterials) {
 			this.Radius = radius;
 			Tiles = new Dictionary<Hex, Tile>();
 			Primatives = new Primatives();
 			Score = new Aggregates();
-			VictoryConditions = new Aggregates();
 
 			Buildings = new Dictionary<BuildingType, List<Building>>();
 			foreach(BuildingType type in Building.Types) {
 				Buildings[type] = new List<Building>();
 			}
 
-			// TODO: get from difficulty setting or somewhere else
-			Funds = 1000;
-			RawMaterials = 1000;
+			Funds = initialFunds;
+			RawMaterials = initialMaterials;
 
 			CreateTiles();
 		}
@@ -164,18 +161,6 @@ namespace Lords {
 			return Funds >= Building.RequiredFunds[type] && 
 				RawMaterials >= Building.RequiredMaterials[type] &&
 				Score.Population >= Building.PopulationMinimums[type];
-		}
-	}
-	
-	public class Aggregates {
-		public float Population { get; set; }
-		public float Happiness { get; set; }
-		public float Prosperity { get; set; }
-		public float Culture { get; set; }
-
-		public override string ToString() {
-			return String.Format("Population: {0} | Happiness: {1} | Prosperity: {2} | Culture: {3}", 
-			                     Population, Happiness, Prosperity, Culture);
 		}
 	}
 }

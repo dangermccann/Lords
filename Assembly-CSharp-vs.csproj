@@ -52,10 +52,13 @@
      <Compile Include="Assets\Controllers\HoverControl.cs" />
      <Compile Include="Assets\Controllers\SelectionController.cs" />
      <Compile Include="Assets\Game.cs" />
+     <Compile Include="Assets\Levels\Level.cs" />
+     <Compile Include="Assets\Levels\Levels.cs" />
      <Compile Include="Assets\Maps\Map.cs" />
      <Compile Include="Assets\Maps\MapConfiguration.cs" />
      <Compile Include="Assets\Maps\MapGenerator.cs" />
      <Compile Include="Assets\Maps\Maps.cs" />
+     <Compile Include="Assets\Models\Aggregates.cs" />
      <Compile Include="Assets\Models\Building.cs" />
      <Compile Include="Assets\Models\City.cs" />
      <Compile Include="Assets\Models\Hex.cs" />

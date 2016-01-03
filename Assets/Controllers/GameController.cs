@@ -11,11 +11,11 @@ public class GameController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		MapConfiguration mapConfig = Maps.Tundra;
-		Game.CurrentCity = new City(mapConfig.Radius);
+		Level level = Levels.Tutorial;
+		Game.CurrentCity = new City(level.mapConfiguration.Radius, level.initialFunds, level.initialRawMaterials);
 
 		MapGenerator generator = new MapGenerator();
-		Map map = generator.GenerateMap(mapConfig.Radius, mapConfig.TileConfiguration, mapConfig.Seed);
+		Map map = generator.GenerateMap(level.mapConfiguration.Radius, level.mapConfiguration.TileConfiguration, level.mapConfiguration.Seed);
 
 		foreach(Tile tile in Game.CurrentCity.Tiles.Values) {
 			tile.Type = map.GetTileTypeAt(tile.Position);
@@ -78,6 +78,9 @@ public class GameController : MonoBehaviour {
 					Debug.Log("Nothing to destroy");
 				}
 			}
+			else if(SelectionController.selection.Operation == Operation.Info) {
+				SelectionController.selection.Tile = tile;
+			}
 		}
 	}
 
@@ -87,9 +90,9 @@ public class GameController : MonoBehaviour {
 		if(Time.time - lastScoreUpdate > updateInterval) {
 			lastScoreUpdate = Time.time;
 
-			Debug.Log(Game.CurrentCity.Primatives.ToString());
-			Debug.Log(Game.CurrentCity.Score.ToString());
-			Debug.Log("funds: " + Game.CurrentCity.Funds + " materials: " + Game.CurrentCity.RawMaterials);
+			//Debug.Log(Game.CurrentCity.Primatives.ToString());
+			//Debug.Log(Game.CurrentCity.Score.ToString());
+			//Debug.Log("funds: " + Game.CurrentCity.Funds + " materials: " + Game.CurrentCity.RawMaterials);
 		}
 	}
 

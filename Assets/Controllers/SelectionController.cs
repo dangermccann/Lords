@@ -16,6 +16,11 @@ namespace Lords {
 					SelectionChanged(selection);
 				}
 			};
+			selection.TileChanged += (Selection s) => {
+				if(SelectionChanged != null) {
+					SelectionChanged(selection);
+				}
+			};
 			selection.Operation = Operation.Build;
 			selection.BuildingType = BuildingType.Villa;
 		}
@@ -28,6 +33,7 @@ namespace Lords {
 	public class Selection {
 		public Action<Selection> OperationChanged;
 		public Action<Selection> BuildingTypeChanged;
+		public Action<Selection> TileChanged;
 
 		protected Operation operation;
 		public Operation Operation {
@@ -52,10 +58,23 @@ namespace Lords {
 					BuildingTypeChanged(this);
 			}
 		}
+
+		protected Tile tile;
+		public Tile Tile {
+			get {
+				return tile;
+			}
+			set {
+				tile = value;
+				if(TileChanged != null) 
+					TileChanged(this);
+			}
+		}
 	}
 
 	public enum Operation {
 		Build,
-		Destroy
+		Destroy,
+		Info
 	}
 }

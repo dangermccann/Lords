@@ -3,8 +3,15 @@ using UnityEngine;
 
 namespace Lords {
 	public class Corner : MonoBehaviour {
+		UI2DSprite icon;
+		UILabel title, yield, details;
+
 		void Start() {
 			SelectionController.SelectionChanged += SelectionChanged;
+			icon = transform.FindChild("SelectedHex/Icon").GetComponent<UI2DSprite>();
+			title = transform.FindChild("SelectedTitle").GetComponent<UILabel>();
+			yield = transform.FindChild("SelectedYield").GetComponent<UILabel>();
+			details = transform.FindChild("SelectedDetails").GetComponent<UILabel>();
 			Redraw();
 		}
 
@@ -15,15 +22,43 @@ namespace Lords {
 		void Redraw() {
 			BuildingType type = SelectionController.selection.BuildingType;
 			if(SelectionController.selection.Operation == Operation.Build) {
-				transform.FindChild("SelectedHex/Icon").GetComponent<UI2DSprite>().sprite2D = GameAssets.GetSprite(type);
-				transform.FindChild("SelectedTitle").GetComponent<UILabel>().text = Strings.BuildingTitle(type);
-				transform.FindChild("SelectedYield").GetComponent<UILabel>().text = "Cost: " + Strings.BuildingCost(type) + "\nYield: " + Strings.BuildingYield(type);
+				icon.sprite2D = GameAssets.GetSprite(type);
+				title.text = Strings.BuildingTitle(type);
+				yield.text = "Cost: " + Strings.BuildingCost(type) + "\nYield: " + Strings.BuildingYield(type);
+			}
+			else if(SelectionController.selection.Operation == Operation.Info) {
+				Tile tile = SelectionController.selection.Tile;
+				if(tile == null) {
+					icon.sprite2D = null;
+					title.text = "Select a tile for info";
+					yield.text = "";
+					details.text = "";
+				}
+				else { 
+					if(tile.Building != null) {
+						icon.sprite2D = GameAssets.GetSprite(tile.Building.Type);
+						title.text = Strings.BuildingTitle(type);
+						yield.text = Strings.BuildingYield(type);
+						details.text = Strings.BuildingModifier(tile);
+					}
+					else {
+						icon.sprite2D = GameAssets.GetSprite(tile.Type);
+						title.text = Strings.TileTitle(tile.Type);
+						yield.text = Strings.TileDescription(tile.Type);
+						details.text = "";
+					}
+				}
 			}
 
 		}
 
 		public void SelectionDestroy() {
 			SelectionController.selection.Operation = Operation.Destroy;
+		}
+
+		public void SeletionInfo() {
+			SelectionController.selection.Operation = Operation.Info;
+			SelectionController.selection.Tile = null;
 		}
 	}
 }

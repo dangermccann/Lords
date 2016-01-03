@@ -18,8 +18,28 @@ namespace Lords {
 			{ Colors.Requirement, "823111" },
 		};
 
+		static Dictionary<TileType, string> tileDescriptions = new Dictionary<TileType, string>() {
+			{ TileType.Empty, 		"" },
+			{ TileType.Dirt, 		"Ideal for all building types" },
+			{ TileType.Snow, 		String.Format("{0} :food: from Farms", ColorizeYield(-2)) },
+			{ TileType.Grass, 		"Ideal for all building types" },
+			{ TileType.Tundra, 		String.Format("{0} :food: from Farms", ColorizeYield(-1)) },
+			{ TileType.Mountains,	"Can not build on Mountains" },
+			{ TileType.Water, 		"Can not build on Water" },
+			{ TileType.Marsh, 		String.Format("{0} :beauty: from Gardens\n{1} :food: from Farms", ColorizeYield(-1), ColorizeYield(-2)) },
+			{ TileType.Forest, 		String.Format("{0} :security: from Forts", ColorizeYield(2)) },
+		};
+
 		public static string BuildingTitle(BuildingType type) {
 			return type.ToString().Replace('_', ' ');
+		}
+
+		public static string TileTitle(TileType type) {
+			return type.ToString();
+		}
+
+		public static string TileDescription(TileType type) {
+			return tileDescriptions[type];
 		}
 
 		public static string BuildingCost(BuildingType type) {
@@ -27,9 +47,10 @@ namespace Lords {
 		}
 
 		public static string BuildingYield(BuildingType type) {
-			string result = "";
-			Primatives p = Building.Yields[type];
+			return FormatPrimative(Building.Yields[type]);
+		}
 
+		public static string FormatPrimative(Primatives p) {
 			// Build a list of all non-zero yields so we can sort them
 			List<KeyValuePair<string, float>> yields = new List<KeyValuePair<string, float>>();
 			foreach(string property in Primatives.Properties()) {
@@ -38,17 +59,30 @@ namespace Lords {
 					yields.Add(new KeyValuePair<string, float>(property, value));
 				}
 			}
-
+			
 			// Sort descending 
 			yields.Sort((firstPair, nextPair) => {
 				return nextPair.Value.CompareTo(firstPair.Value);
 			});
-
+			
 			// build the result string using the sorted, non-zero yield values
+			string result = "";
 			foreach(KeyValuePair<string, float> pair in yields) {
 				result += Delimt(result) + ColorizeYield(pair.Value) + " " + YieldIcon(pair.Key);
 			}
 
+			return result;
+		}
+
+		public static string BuildingModifier(Tile tile) {
+			string result = TileTitle(tile.Type);
+
+			if(tile.Building != null) {
+				Dictionary<TileType, Primatives> modifiers = Building.Modifiers[tile.Building.Type];
+				if(modifiers.ContainsKey(tile.Type)) {
+					result += " (" + FormatPrimative(modifiers[tile.Type]) + ")";
+				}
+			}
 			return result;
 		}
 

@@ -46,11 +46,16 @@ public class HoverControl : MonoBehaviour {
 					gameObject.transform.position = OFFSCREEN;
 				}
 			}
-			else {
+			else if(SelectionController.selection.Operation == Operation.Destroy) {
 				Screen.showCursor = false;
 				Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
 				shovel.transform.position = new Vector3(pos.x, pos.y, 0);
 				gameObject.transform.position = Hex.HexToWorld(hoverPointHex);
+			}
+			else if(SelectionController.selection.Operation == Operation.Info) {
+				Screen.showCursor = true;
+				shovel.transform.position = OFFSCREEN;
+				gameObject.transform.position = OFFSCREEN;
 			}
 		}
 	}

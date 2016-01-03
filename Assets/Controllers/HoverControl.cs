@@ -25,11 +25,26 @@ public class HoverControl : MonoBehaviour {
 			tile = Game.CurrentCity.Tiles[hoverPointHex];
 		}
 
-		if(tile != null && tile.CanBuildOn()) {
-			gameObject.transform.position = Hex.HexToWorld(hoverPointHex);
+		if(IsOverUI() || tile == null || CameraControl.IsDragging) {
+			Screen.showCursor = true;
+			gameObject.transform.position = offscreen;
 		}
 		else {
-			gameObject.transform.position = offscreen;
+			if(SelectionController.selection.Operation == Operation.Build) {
+				Screen.showCursor = true;
+
+				if(tile.CanBuildOn()) {
+					gameObject.transform.position = Hex.HexToWorld(hoverPointHex);
+				}
+				else {
+					gameObject.transform.position = offscreen;
+				}
+			}
+			else {
+				Screen.showCursor = false;
+				Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+				gameObject.transform.position = new Vector3(pos.x, pos.y, 0);
+			}
 		}
 	}
 
@@ -38,7 +53,7 @@ public class HoverControl : MonoBehaviour {
 			sprite.sprite = GameAssets.GetSprite(selection.BuildingType);
 		}
 		else {
-			sprite.sprite = Resources.LoadAll<Sprite>("GUI-Sprite-Sheet")[5]; 
+			sprite.sprite = GameAssets.GetShovel();
 		}
 	}
 

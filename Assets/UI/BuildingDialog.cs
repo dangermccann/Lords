@@ -17,7 +17,7 @@ namespace Lords {
 				item.transform.SetParent(grid.transform);
 				item.transform.localScale = Vector3.one;
 				item.transform.FindChild("Title").gameObject.GetComponent<UILabel>().text = Strings.BuildingTitle(type);
-				item.transform.FindChild("Cost").gameObject.GetComponent<UILabel>().text = Strings.BuildingCost(type);
+				item.transform.FindChild("Cost").gameObject.GetComponent<UILabel>().text = Strings.BuildingYield(type);
 				//item.transform.FindChild("Yield").gameObject.GetComponent<UILabel>().text = Strings.BuildingYield(type);
 				item.transform.FindChild("Hex/Icon").gameObject.GetComponent<UI2DSprite>().sprite2D = GameAssets.GetSprite(type);
 

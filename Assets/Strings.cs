@@ -8,22 +8,22 @@ namespace Lords {
 		}
 
 		public static string BuildingCost(BuildingType type) {
-			return "Cost: " + Building.RequiredFunds[type] + ", " + Building.RequiredMaterials[type] + " mat";
+			return Building.RequiredFunds[type] + " :gold:   " + Building.RequiredMaterials[type] + " :rawmaterials:";
 		}
 
 		public static string BuildingYield(BuildingType type) {
 			string result = "";
 			Primatives p = Building.Yields[type];
 
-			if(p.Beauty != 0) result += Delimt(result) + PlusMinus(p.Beauty) + p.Beauty + " Beauty";
-			if(p.Entertainment != 0) result += Delimt(result) + PlusMinus(p.Entertainment) + p.Entertainment + " Entertainment";
-			if(p.Faith != 0) result += Delimt(result) + PlusMinus(p.Faith) + p.Faith + " Faith";
-			if(p.Food != 0) result += Delimt(result) + PlusMinus(p.Food) + p.Food + " Food";
-			if(p.Health != 0) result += Delimt(result) + PlusMinus(p.Health) + p.Health + " Health";
-			if(p.Housing != 0) result += Delimt(result) + PlusMinus(p.Housing) + p.Housing + " Housing";
-			if(p.Literacy != 0) result += Delimt(result) + PlusMinus(p.Literacy) + p.Literacy + " Literacy";
-			if(p.Productivity != 0) result += Delimt(result) + PlusMinus(p.Productivity) + p.Productivity + " Productivity";
-			if(p.Security != 0) result += Delimt(result) + PlusMinus(p.Security) + p.Security + " Security";
+			if(p.Beauty != 0) result += Delimt(result) + PlusMinus(p.Beauty) + p.Beauty + " :beauty:";
+			if(p.Entertainment != 0) result += Delimt(result) + PlusMinus(p.Entertainment) + p.Entertainment + " :entertainment:";
+			if(p.Faith != 0) result += Delimt(result) + PlusMinus(p.Faith) + p.Faith + " :faith:";
+			if(p.Food != 0) result += Delimt(result) + PlusMinus(p.Food) + p.Food + " :food:";
+			if(p.Health != 0) result += Delimt(result) + PlusMinus(p.Health) + p.Health + " :health:";
+			if(p.Housing != 0) result += Delimt(result) + PlusMinus(p.Housing) + p.Housing + " :housing:";
+			if(p.Literacy != 0) result += Delimt(result) + PlusMinus(p.Literacy) + p.Literacy + " :literacy:";
+			if(p.Productivity != 0) result += Delimt(result) + PlusMinus(p.Productivity) + p.Productivity + " :productivity:";
+			if(p.Security != 0) result += Delimt(result) + PlusMinus(p.Security) + p.Security + " :security:";
 
 			return result;
 		}
@@ -33,13 +33,13 @@ namespace Lords {
 				return "+";
 			}
 			else {
-				return "-";
+				return "";
 			}
 		}
 
 		static string Delimt(string str) {
 			if(str.Length > 0) {
-				return ", ";
+				return "  ";
 			}
 			return "";
 		}

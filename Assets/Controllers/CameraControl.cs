@@ -9,6 +9,8 @@ public class CameraControl : MonoBehaviour {
 	public float maxZoom = 7.5f;
 	public float mapRadius = 10;
 
+	public static bool IsDragging { get; protected set; }
+
 	Vector3 lastMousePosition = Vector3.zero; 
 	float currentVelocity, previousVelocity, inertiaTime;
 	Vector3 inertiaVector;
@@ -48,13 +50,18 @@ public class CameraControl : MonoBehaviour {
 	void UpdatePosition() {
 		Vector3 currentPosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 
-		if(Input.GetMouseButtonDown(1)) {
+		if(Input.GetMouseButtonDown(0)) {
 			lastMousePosition = currentPosition;
 			currentVelocity = previousVelocity = inertiaTime = 0;
 		}
 
 		if(lastMousePosition != Vector3.zero) {
 			Vector3 diff = lastMousePosition - currentPosition;
+
+			if(diff.magnitude > 0.005) {
+				IsDragging = true;
+			}
+
 			MoveCamera(mainCamera.transform.position + diff);
 
 			previousVelocity = currentVelocity;
@@ -71,7 +78,9 @@ public class CameraControl : MonoBehaviour {
 			inertiaTime -= Time.deltaTime;
 		}
 		
-		if(Input.GetMouseButtonUp(1)) {
+		if(Input.GetMouseButtonUp(0)) {
+			IsDragging = false;
+
 			lastMousePosition = Vector3.zero;
 
 			if(currentVelocity > 0) {

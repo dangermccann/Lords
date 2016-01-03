@@ -47,6 +47,10 @@ namespace Lords {
 			return Resources.LoadAll<Sprite>(SHEET)[BuildingIndexes[type]];
 		}
 
+		public static Sprite GetShovel() {
+			return Resources.LoadAll<Sprite>("GUI-Sprite-Sheet")[5];
+		}
+
 		public static void RemoveBuilding(GameObject go) {
 			GameObject buildingGO = GetBuilding(go);
 			if(buildingGO != null) {
@@ -97,7 +101,6 @@ namespace Lords {
 			}
 			return null;
 		}
-
 	}
 }
 

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Dialog : MonoBehaviour {
 
-	public float fadeSpeed = 10.0f;
+	public float fadeSpeed = 8.0f;
 	public GameObject shade = null;
 
 	UIPanel thisPanel, shadePanel;
@@ -19,10 +19,10 @@ public class Dialog : MonoBehaviour {
 	}
 
 	public void FadeIn() {
-		StartCoroutine(FadeGroupIn(thisPanel));
+		StartCoroutine(FadeGroupIn(thisPanel, 1));
 
 		if(shadePanel != null) {
-			StartCoroutine(FadeGroupIn(shadePanel));
+			StartCoroutine(FadeGroupIn(shadePanel, 0.85f));
 		}
 
 		current = this;
@@ -44,8 +44,8 @@ public class Dialog : MonoBehaviour {
 		current = null;
 	}
 
-	IEnumerator FadeGroupIn(UIPanel panel) {
-		while(panel.alpha < 1) {
+	IEnumerator FadeGroupIn(UIPanel panel, float targetAlpha) {
+		while(panel.alpha < targetAlpha) {
 			panel.alpha += Time.deltaTime * fadeSpeed;
 			yield return null;
 		}

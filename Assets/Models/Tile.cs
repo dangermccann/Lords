@@ -44,6 +44,15 @@ namespace Lords {
 			if(Building != null) return false;
 			return (Type != TileType.Water && Type != TileType.Mountains);
 		}
+
+		public void RemoveAllListeners() {
+			foreach(Delegate d in TypeChanged.GetInvocationList()) {
+				TypeChanged -= (Action<Tile>) d;
+			}
+			foreach(Delegate d in BuildingChanged.GetInvocationList()) {
+				BuildingChanged -= (Action<Tile>) d;
+			}
+		}
 	}
 
 	public enum TileType {

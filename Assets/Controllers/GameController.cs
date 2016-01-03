@@ -8,19 +8,27 @@ public class GameController : MonoBehaviour {
 	float lastScoreUpdate = 0;
 	public float updateInterval = 5f;
 	bool clickStarted = false;
+	GameObject mapRoot;
 
 	// Use this for initialization
 	void Start () {
-		Level level = Levels.Tutorial;
-		Game.CurrentCity = new City(level.mapConfiguration.Radius, level.initialFunds, level.initialRawMaterials);
+		mapRoot = GameObject.Find("Map");
+		LoadLevel(Levels.Tutorial);
+	}
 
+	public void LoadLevel(Level level) {
+		UnloadLevel();
+
+		Game.CurrentCity = new City(level.mapConfiguration.Radius, level.initialFunds, level.initialRawMaterials);
+		Game.CurrentLevel = level;
+		
 		MapGenerator generator = new MapGenerator();
 		Map map = generator.GenerateMap(level.mapConfiguration.Radius, level.mapConfiguration.TileConfiguration, level.mapConfiguration.Seed);
-
+		
 		foreach(Tile tile in Game.CurrentCity.Tiles.Values) {
 			tile.Type = map.GetTileTypeAt(tile.Position);
-
-			GameObject go = GameAssets.MakeTile(GameObject.Find("Map").transform, tile);
+			
+			GameObject go = GameAssets.MakeTile(mapRoot.transform, tile);
 
 			tile.TypeChanged += (Tile tt) => {
 				GameAssets.RedrawTile(go, tt);
@@ -28,6 +36,18 @@ public class GameController : MonoBehaviour {
 			tile.BuildingChanged += (Tile tt) => {
 				GameAssets.MakeBuilding(go, tt.Building);
 			};
+		}
+	}
+
+	public void UnloadLevel() {
+		if(Game.CurrentCity != null) {
+			foreach(Tile tile in Game.CurrentCity.Tiles.Values) {
+				tile.RemoveAllListeners();
+			}
+		}
+
+		foreach (Transform child in mapRoot.transform) {
+			GameObject.Destroy(child.gameObject);
 		}
 	}
 

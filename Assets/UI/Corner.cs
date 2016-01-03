@@ -27,6 +27,8 @@ namespace Lords {
 				yield.text = "Cost: " + Strings.BuildingCost(type) + "\nYield: " + Strings.BuildingYield(type);
 			}
 			else if(SelectionController.selection.Operation == Operation.Info) {
+				Debug.Log("heree");
+
 				Tile tile = SelectionController.selection.Tile;
 				if(tile == null) {
 					icon.sprite2D = null;
@@ -37,8 +39,8 @@ namespace Lords {
 				else { 
 					if(tile.Building != null) {
 						icon.sprite2D = GameAssets.GetSprite(tile.Building.Type);
-						title.text = Strings.BuildingTitle(type);
-						yield.text = Strings.BuildingYield(type);
+						title.text = Strings.BuildingTitle(tile.Building.Type);
+						yield.text = Strings.BuildingYield(tile.Building.Type);
 						details.text = Strings.BuildingModifier(tile);
 					}
 					else {

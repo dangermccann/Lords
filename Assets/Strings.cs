@@ -20,6 +20,7 @@ namespace Lords {
 
 		static Dictionary<TileType, string> tileDescriptions = new Dictionary<TileType, string>() {
 			{ TileType.Empty, 		"" },
+			{ TileType.Sand, 		String.Format("{0} :food: from Farms\n{1} :security: from Forts", ColorizeYield(-2), ColorizeYield(-2)) },
 			{ TileType.Dirt, 		"Ideal for all building types" },
 			{ TileType.Snow, 		String.Format("{0} :food: from Farms", ColorizeYield(-2)) },
 			{ TileType.Grass, 		"Ideal for all building types" },

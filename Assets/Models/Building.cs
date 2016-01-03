@@ -50,6 +50,7 @@ namespace Lords {
 			{
 				BuildingType.Vegetable_Farm, new Dictionary<TileType, Primatives>() { 
 					{ TileType.Snow, new Primatives{ Food = -2 } },
+					{ TileType.Sand, new Primatives{ Food = -2 } },
 					{ TileType.Tundra, new Primatives{ Food = -1 } },
 					{ TileType.Marsh, new Primatives{ Food = -2 } },
 				}
@@ -57,6 +58,7 @@ namespace Lords {
 			{
 				BuildingType.Wheat_Farm, new Dictionary<TileType, Primatives>() { 
 					{ TileType.Snow, new Primatives{ Food = -3 } },
+					{ TileType.Sand, new Primatives{ Food = -3 } },
 					{ TileType.Tundra, new Primatives{ Food = -2 } },
 					{ TileType.Marsh, new Primatives{ Food = -3 } },
 				}
@@ -67,6 +69,7 @@ namespace Lords {
 			{ 
 				BuildingType.Fort, new Dictionary<TileType, Primatives>() {
 					{ TileType.Forest, new Primatives{ Security = 2 } },
+					{ TileType.Sand, new Primatives{ Security = -1 } },
 				}
 			},
 			{ BuildingType.Hospital, new Dictionary<TileType, Primatives>() },

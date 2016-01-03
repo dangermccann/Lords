@@ -2,12 +2,16 @@
 using Lords;
 
 public class HoverControl : MonoBehaviour {
-	Vector3 offscreen = new Vector3(0, 0, -100);
+	static Vector3 OFFSCREEN = new Vector3(0, 0, -100);
+
 	SpriteRenderer sprite;
+	public GameObject shovel;
 
 	void Start () {
 		sprite = GetComponent<SpriteRenderer>();
-		gameObject.transform.position = offscreen;
+		gameObject.transform.position = OFFSCREEN;
+		shovel.transform.position = OFFSCREEN;
+
 		SelectionController.SelectionChanged += SelectionChanged;
 
 		SelectionChanged(SelectionController.selection);
@@ -27,23 +31,26 @@ public class HoverControl : MonoBehaviour {
 
 		if(IsOverUI() || tile == null || CameraControl.IsDragging) {
 			Screen.showCursor = true;
-			gameObject.transform.position = offscreen;
+			gameObject.transform.position = OFFSCREEN;
+			shovel.transform.position = OFFSCREEN;
 		}
 		else {
 			if(SelectionController.selection.Operation == Operation.Build) {
 				Screen.showCursor = true;
+				shovel.transform.position = OFFSCREEN;
 
 				if(tile.CanBuildOn()) {
 					gameObject.transform.position = Hex.HexToWorld(hoverPointHex);
 				}
 				else {
-					gameObject.transform.position = offscreen;
+					gameObject.transform.position = OFFSCREEN;
 				}
 			}
 			else {
 				Screen.showCursor = false;
 				Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-				gameObject.transform.position = new Vector3(pos.x, pos.y, 0);
+				shovel.transform.position = new Vector3(pos.x, pos.y, 0);
+				gameObject.transform.position = Hex.HexToWorld(hoverPointHex);
 			}
 		}
 	}
@@ -53,7 +60,7 @@ public class HoverControl : MonoBehaviour {
 			sprite.sprite = GameAssets.GetSprite(selection.BuildingType);
 		}
 		else {
-			sprite.sprite = GameAssets.GetShovel();
+			sprite.sprite = GameAssets.GetDeleteTile();
 		}
 	}
 

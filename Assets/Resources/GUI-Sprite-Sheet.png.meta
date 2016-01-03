@@ -122,8 +122,8 @@ TextureImporter:
         y: 517
         width: 47
         height: 47
-      alignment: 0
-      pivot: {x: .5, y: .5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
     - name: GUI-Sprite-Sheet_7
       rect:

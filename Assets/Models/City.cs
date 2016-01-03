@@ -161,7 +161,9 @@ namespace Lords {
 		}
 
 		public Boolean CanBuild(BuildingType type) {
-			return Funds >= Building.RequiredFunds[type] && RawMaterials >= Building.RequiredMaterials[type];
+			return Funds >= Building.RequiredFunds[type] && 
+				RawMaterials >= Building.RequiredMaterials[type] &&
+				Score.Population >= Building.PopulationMinimums[type];
 		}
 	}
 	

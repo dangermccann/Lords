@@ -1,4 +1,7 @@
 using System;
+using System.Reflection;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Lords {
 	public class Primatives {
@@ -13,6 +16,22 @@ namespace Lords {
 		public float Literacy { get; set; }
 
 		public Primatives() {}
+
+		static string[] properties;
+		static Primatives() {
+			// cache properties by name so we can access them dynamically 
+			PropertyInfo[] infos = new Primatives().GetType().GetProperties();
+			List<string> propNames = new List<string>();
+			
+			for(int i = 0; i < infos.Length; i++) {
+				
+				// exclude the square bracket accessor
+				if(infos[i].Name.Length > 0 && infos[i].Name != "Item") {
+					propNames.Add(infos[i].Name);
+				}
+			}
+			properties = propNames.ToArray();
+		}
 
 		public override string ToString() {
 			return String.Format("Food: {0} | Housing: {1} | Productivity: {2} | Health: {3} | " +
@@ -46,6 +65,20 @@ namespace Lords {
 			result.Entertainment = p1.Entertainment * f;
 			result.Literacy = p1.Literacy * f;
 			return result;
+		}
+
+		public static string[] Properties() {
+			return properties;
+		}
+
+		/// <summary>
+		/// Retrieves a property of this Primative by name.  
+		/// </summary>
+		/// <param name="prop">Property.</param>
+		public float this[string prop] {
+			get { 
+				return (float) this.GetType().GetProperty(prop).GetValue(this, null); 
+			}
 		}
 	}
 }

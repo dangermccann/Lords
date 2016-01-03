@@ -171,6 +171,7 @@
      <Compile Include="Assets\UI\Corner.cs" />
      <Compile Include="Assets\UI\Dialog.cs" />
      <Compile Include="Assets\UI\DialogShade.cs" />
+     <Compile Include="Assets\UI\InventoryLabel.cs" />
      <Compile Include="Assets\UI\Slider.cs" />
      <Compile Include="Assets\UI\StatsPanel.cs" />
      <None Include="Assets\NGUI\ReadMe - 3.9.6c.txt" />

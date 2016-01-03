@@ -48,7 +48,7 @@ namespace Lords {
 		}
 
 		public static Sprite GetShovel() {
-			return Resources.LoadAll<Sprite>("GUI-Sprite-Sheet")[5];
+			return Resources.LoadAll<Sprite>("GUI-Sprite-Sheet")[6];
 		}
 
 		public static void RemoveBuilding(GameObject go) {

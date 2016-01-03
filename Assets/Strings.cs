@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Lords {
 	public class Strings {
@@ -26,6 +27,10 @@ namespace Lords {
 			if(p.Security != 0) result += Delimt(result) + PlusMinus(p.Security) + p.Security + " :security:";
 
 			return result;
+		}
+
+		public static string CityInventory(City city) {
+			return String.Format ("{0} :gold: {1} :rawmaterials:", Mathf.Floor(city.Funds), Mathf.Floor(city.RawMaterials));
 		}
 
 		static string PlusMinus(float value) {

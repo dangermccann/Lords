@@ -23,8 +23,15 @@ public class StatsPanel : MonoBehaviour {
 	
 	void FixedUpdate() {
 		population.text = Mathf.Floor(Game.CurrentCity.Score.Population).ToString();
-		happiness.Value = Game.CurrentCity.Score.Happiness;
-		prosperity.Value = Game.CurrentCity.Score.Prosperity;
-		culture.Value = Game.CurrentCity.Score.Culture;
+		happiness.Value = SliderValue(Game.CurrentLevel.victoryConditions.Happiness, Game.CurrentCity.Score.Happiness);
+		prosperity.Value = SliderValue(Game.CurrentLevel.victoryConditions.Prosperity, Game.CurrentCity.Score.Prosperity);
+		culture.Value = SliderValue(Game.CurrentLevel.victoryConditions.Culture, Game.CurrentCity.Score.Culture);
+	}
+
+	float SliderValue(float target, float actual) {
+		if(target == 0) 
+			return 1 + actual / 100;
+
+		return actual / target * 0.5f + 0.5f;
 	}
 }

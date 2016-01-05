@@ -26,20 +26,20 @@ namespace Lords {
 		};
 
 		public static Dictionary<BuildingType, Primatives> Yields = new Dictionary<BuildingType, Primatives> {
-			{ BuildingType.Villa, 			new Primatives { Housing = 10, Literacy = 1 } },
+			{ BuildingType.Villa, 			new Primatives { Housing = 20, Literacy = 2 } },
 			{ BuildingType.Slums, 			new Primatives { Housing = 100, Security = -4 } },
-			{ BuildingType.Cottages, 		new Primatives { Housing = 25, Security = -1 } },
-			{ BuildingType.School, 			new Primatives { Literacy = 3, Entertainment = -1 } },
-			{ BuildingType.Vegetable_Farm,	new Primatives { Food = 3, Literacy = -1 } },
-			{ BuildingType.Wheat_Farm, 		new Primatives { Food = 5, Literacy = -2 } },
-			{ BuildingType.Tavern, 			new Primatives { Entertainment = 2, Security = -1 } },
-			{ BuildingType.Amphitheater, 	new Primatives { Entertainment = 4, Productivity = -2 } },
-			{ BuildingType.Trading_Post, 	new Primatives { Productivity = 2, Beauty = -1 } },
-			{ BuildingType.Fort, 			new Primatives { Security = 4, Beauty = -1 } },
-			{ BuildingType.Hospital, 		new Primatives { Health = 3, Faith = -1 } },
-			{ BuildingType.Garden, 			new Primatives { Beauty = 3, Productivity = -1 } },
-			{ BuildingType.Church, 			new Primatives { Faith = 2, Literacy = -1 } },
-			{ BuildingType.Workshop, 		new Primatives { Productivity = 4, Health = -1, Entertainment = -1 } },
+			{ BuildingType.Cottages, 		new Primatives { Housing = 45, Security = -2 } },
+			{ BuildingType.School, 			new Primatives { Literacy = 30, Entertainment = -4 } },
+			{ BuildingType.Vegetable_Farm,	new Primatives { Food = 7, Literacy = -3 } },
+			{ BuildingType.Wheat_Farm, 		new Primatives { Food = 10, Literacy = -5 } },
+			{ BuildingType.Tavern, 			new Primatives { Entertainment = 10, Security = -5 } },
+			{ BuildingType.Amphitheater, 	new Primatives { Entertainment = 20, Productivity = -5 } },
+			{ BuildingType.Trading_Post, 	new Primatives { Productivity = 20, Beauty = -4 } },
+			{ BuildingType.Fort, 			new Primatives { Security = 20, Beauty = -5 } },
+			{ BuildingType.Hospital, 		new Primatives { Health = 30, Faith = -10 } },
+			{ BuildingType.Garden, 			new Primatives { Beauty = 15, Productivity = -3 } },
+			{ BuildingType.Church, 			new Primatives { Faith = 20, Literacy = -5 } },
+			{ BuildingType.Workshop, 		new Primatives { Productivity = 20, Health = -5, Entertainment = -5 } },
 		};
 
 		public static Dictionary<BuildingType, Dictionary<TileType, Primatives>> Modifiers = new Dictionary<BuildingType, Dictionary<TileType, Primatives>> {
@@ -68,14 +68,14 @@ namespace Lords {
 			{ BuildingType.Trading_Post, new Dictionary<TileType, Primatives>() },
 			{ 
 				BuildingType.Fort, new Dictionary<TileType, Primatives>() {
-					{ TileType.Forest, new Primatives{ Security = 2 } },
-					{ TileType.Sand, new Primatives{ Security = -1 } },
+					{ TileType.Forest, new Primatives{ Security = 10 } },
+					{ TileType.Sand, new Primatives{ Security = -5 } },
 				}
 			},
 			{ BuildingType.Hospital, new Dictionary<TileType, Primatives>() },
 			{ 
 				BuildingType.Garden, new Dictionary<TileType, Primatives>() {
-					{ TileType.Marsh, new Primatives{ Beauty = -1 } },
+					{ TileType.Marsh, new Primatives{ Beauty = -5 } },
 				}
 			},
 			{ BuildingType.Church, new Dictionary<TileType, Primatives>() },
@@ -86,26 +86,26 @@ namespace Lords {
 			{ BuildingType.Villa, 			0 },
 			{ BuildingType.Slums, 			0 },
 			{ BuildingType.Cottages, 		0 },
-			{ BuildingType.School, 			500 },
+			{ BuildingType.School, 			200 },
 			{ BuildingType.Vegetable_Farm,	0 },
 			{ BuildingType.Wheat_Farm, 		0 },
 			{ BuildingType.Tavern, 			350 },
-			{ BuildingType.Amphitheater, 	450 },
-			{ BuildingType.Trading_Post, 	200 },
-			{ BuildingType.Fort, 			100 },
-			{ BuildingType.Hospital, 		100 },
-			{ BuildingType.Garden, 			500 },
-			{ BuildingType.Church, 			500 },
-			{ BuildingType.Workshop, 		200 },
+			{ BuildingType.Amphitheater, 	650 },
+			{ BuildingType.Trading_Post, 	400 },
+			{ BuildingType.Fort, 			450 },
+			{ BuildingType.Hospital, 		500 },
+			{ BuildingType.Garden, 			400 },
+			{ BuildingType.Church, 			300 },
+			{ BuildingType.Workshop, 		350 },
 		};
 
 		public static Dictionary<BuildingType, float> RequiredFunds = new Dictionary<BuildingType, float> {
-			{ BuildingType.Villa, 			100 },
-			{ BuildingType.Slums, 			100 },
-			{ BuildingType.Cottages, 		100 },
+			{ BuildingType.Villa, 			0 },
+			{ BuildingType.Slums, 			0 },
+			{ BuildingType.Cottages, 		0 },
 			{ BuildingType.School, 			500 },
-			{ BuildingType.Vegetable_Farm,	150 },
-			{ BuildingType.Wheat_Farm, 		150 },
+			{ BuildingType.Vegetable_Farm,	250 },
+			{ BuildingType.Wheat_Farm, 		250 },
 			{ BuildingType.Tavern, 			300 },
 			{ BuildingType.Amphitheater, 	600 },
 			{ BuildingType.Trading_Post, 	200 },
@@ -117,26 +117,26 @@ namespace Lords {
 		};
 
 		public static Dictionary<BuildingType, float> RequiredMaterials = new Dictionary<BuildingType, float> {
-			{ BuildingType.Villa, 			300 },
-			{ BuildingType.Slums, 			500 },
-			{ BuildingType.Cottages, 		400 },
+			{ BuildingType.Villa, 			200 },
+			{ BuildingType.Slums, 			350 },
+			{ BuildingType.Cottages, 		200 },
 			{ BuildingType.School, 			500 },
-			{ BuildingType.Vegetable_Farm,	250 },
-			{ BuildingType.Wheat_Farm, 		250 },
+			{ BuildingType.Vegetable_Farm,	0 },
+			{ BuildingType.Wheat_Farm, 		0 },
 			{ BuildingType.Tavern, 			600 },
 			{ BuildingType.Amphitheater, 	1000 },
 			{ BuildingType.Trading_Post, 	450 },
 			{ BuildingType.Fort, 			750 },
 			{ BuildingType.Hospital, 		1100 },
-			{ BuildingType.Garden, 			300 },
+			{ BuildingType.Garden, 			400 },
 			{ BuildingType.Church, 			350 },
-			{ BuildingType.Workshop, 		350 },
+			{ BuildingType.Workshop, 		450 },
 		};
 
 		public static Dictionary<BuildingType, float> TaxRates = new Dictionary<BuildingType, float> {
-			{ BuildingType.Villa, 		0.1f },
-			{ BuildingType.Slums, 		0.01f },
-			{ BuildingType.Cottages, 	0.025f },
+			{ BuildingType.Villa, 		0.3f },
+			{ BuildingType.Slums, 		0.03f },
+			{ BuildingType.Cottages, 	0.075f },
 		};
 
 		public static Dictionary<BuildingType, float> RawMaterialProduction = new Dictionary<BuildingType, float> {

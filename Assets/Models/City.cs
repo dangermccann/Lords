@@ -56,19 +56,13 @@ namespace Lords {
 			Primatives result = new Primatives();
 			foreach(List<Building> buildings in Buildings.Values) {
 				foreach(Building building in buildings) {
-					float popFactor = 1.0f;
-					float minimumPop = Building.PopulationMinimums[building.Type];
-					if(minimumPop > 0) {
-						popFactor = Math.Min(1, PopulationNearby(building.Tile) / minimumPop);
-					}
-
-					float timeFactor = Math.Min(1, (Time.fixedTime - building.CreateTime) / Building.BUILD_TIME);
+					float effectiveness = BuildingEffectiveness(building);
 
 					Primatives buildingYeild = Building.Yields[building.Type];
 					if(Building.Modifiers[building.Type].ContainsKey(building.Tile.Type)) {
 						buildingYeild += Building.Modifiers[building.Type][building.Tile.Type];
 					}
-					buildingYeild *= popFactor * timeFactor;
+					buildingYeild *= effectiveness;
 					result += buildingYeild;
 				}
 			}
@@ -76,6 +70,17 @@ namespace Lords {
 			Primatives = result;
 		}
 
+		public float BuildingEffectiveness(Building building) {
+			float popFactor = 1.0f;
+			float minimumPop = Building.PopulationMinimums[building.Type];
+			if(minimumPop > 0) {
+				popFactor = Math.Min(1, PopulationNearby(building.Tile) / minimumPop);
+			}
+			
+			float timeFactor = Math.Min(1, (Time.fixedTime - building.CreateTime) / Building.BUILD_TIME);
+			return popFactor * timeFactor;
+		}
+		
 		public void UpdateScore() {
 			Score.Population = Math.Min(Primatives.Housing, Primatives.Food * Building.FARM_OUTPUT);
 			Score.Happiness = Primatives.Entertainment + Primatives.Health + Primatives.Security;
@@ -161,6 +166,19 @@ namespace Lords {
 			return Funds >= Building.RequiredFunds[type] && 
 				RawMaterials >= Building.RequiredMaterials[type] &&
 				Score.Population >= Building.PopulationMinimums[type];
+		}
+
+		public bool MeetsVictoryConditions(Aggregates victoryConditions) {
+			return Score.Population >= victoryConditions.Population &&
+				Score.Happiness >= victoryConditions.Happiness &&
+				Score.Prosperity >= victoryConditions.Prosperity &&
+				Score.Culture >= victoryConditions.Culture;
+		}
+
+		public bool MeetsFailureConditions() {
+
+
+			return false;
 		}
 	}
 }

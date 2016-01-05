@@ -1,12 +1,12 @@
 using UnityEngine;
-using UnityEditor;
 using System;
 
 namespace Lords {
 	public class Slider : MonoBehaviour {
 		float _value = 0;
-		float max = 100;
-		float padding = 0;
+		float paddingLeft = 0, paddingRight = 10;
+		float width;
+		Transform knob;
 
 		public float Value {  
 			get { return _value; }
@@ -20,15 +20,13 @@ namespace Lords {
 		}
 
 		void Start() { 
+			width = GetComponent<UIWidget>().width - paddingRight;
+			knob = transform.FindChild("Knob");
 			Redraw();
 		}
 
 		public void Redraw() { 
-			float width = this.GetComponent<UIWidget>().width;
-
-			Transform knob = transform.FindChild("Knob");
-
-			knob.localPosition = new Vector3(Value / max * width - width/2 + padding, knob.localPosition.y, knob.localPosition.z);
+			knob.localPosition = new Vector3(Value * width + paddingLeft, knob.localPosition.y, knob.localPosition.z);
 		}
 	}
 }

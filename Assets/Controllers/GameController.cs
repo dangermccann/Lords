@@ -5,8 +5,6 @@ using System.Collections.Generic;
 using Lords;
 
 public class GameController : MonoBehaviour {
-	float lastScoreUpdate = 0;
-	public float updateInterval = 5f;
 	bool clickStarted = false;
 	GameObject mapRoot;
 
@@ -68,38 +66,43 @@ public class GameController : MonoBehaviour {
 			Hex hex = Hex.WorldToHex(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 			Debug.Log(String.Format("({0}, {1})", hex.q, hex.r));
 
-			Tile tile = Game.CurrentCity.Tiles[hex];
+			if(Game.CurrentCity.Tiles.ContainsKey(hex)) {
+				Tile tile = Game.CurrentCity.Tiles[hex];
 
-			if(SelectionController.selection.Operation == Operation.Build) {
-				if(tile.CanBuildOn()) {
-					if(Game.CurrentCity.CanBuild(SelectionController.selection.BuildingType)) {
-						if(tile.Building != null) {
-							Game.CurrentCity.RemoveBuilding(tile.Building);
+				if(SelectionController.selection.Operation == Operation.Build) {
+					if(tile.CanBuildOn()) {
+						if(Game.CurrentCity.CanBuild(SelectionController.selection.BuildingType)) {
+							if(tile.Building != null) {
+								Game.CurrentCity.RemoveBuilding(tile.Building);
+							}
+
+							Building building = new Building(tile, SelectionController.selection.BuildingType);
+							tile.Building = building;
+							Game.CurrentCity.AddBuilding(building);
 						}
-
-						Building building = new Building(tile, SelectionController.selection.BuildingType);
-						tile.Building = building;
-						Game.CurrentCity.AddBuilding(building);
+						else {
+							Debug.Log("Insufficient funds or raw materials");
+						}
 					}
 					else {
-						Debug.Log("Insufficient funds or raw materials");
+						Debug.Log("Can't build on this tile");
 					}
 				}
-				else {
-					Debug.Log("Can't build on this tile");
+				else if(SelectionController.selection.Operation == Operation.Destroy) {
+					if(tile.Building != null) {
+						Game.CurrentCity.RemoveBuilding(tile.Building);
+						tile.Building = null;
+					}
+					else {
+						Debug.Log("Nothing to destroy");
+					}
+				}
+				else if(SelectionController.selection.Operation == Operation.Info) {
+					SelectionController.selection.Tile = tile;
 				}
 			}
-			else if(SelectionController.selection.Operation == Operation.Destroy) {
-				if(tile.Building != null) {
-					Game.CurrentCity.RemoveBuilding(tile.Building);
-					tile.Building = null;
-				}
-				else {
-					Debug.Log("Nothing to destroy");
-				}
-			}
-			else if(SelectionController.selection.Operation == Operation.Info) {
-				SelectionController.selection.Tile = tile;
+			else {
+				Debug.Log("Not a tile");
 			}
 		}
 	}
@@ -107,12 +110,11 @@ public class GameController : MonoBehaviour {
 	void FixedUpdate() {
 		Game.CurrentCity.UpdateEverything(Time.fixedDeltaTime);
 
-		if(Time.time - lastScoreUpdate > updateInterval) {
-			lastScoreUpdate = Time.time;
-
-			//Debug.Log(Game.CurrentCity.Primatives.ToString());
-			//Debug.Log(Game.CurrentCity.Score.ToString());
-			//Debug.Log("funds: " + Game.CurrentCity.Funds + " materials: " + Game.CurrentCity.RawMaterials);
+		if(Game.CurrentCity.MeetsVictoryConditions(Game.CurrentLevel.victoryConditions)) {
+			Debug.Log("You win!");
+		}
+		if(Game.CurrentCity.MeetsFailureConditions()) {
+			Debug.Log("You lose");
 		}
 	}
 

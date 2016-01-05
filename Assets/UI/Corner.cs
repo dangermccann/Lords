@@ -27,21 +27,20 @@ namespace Lords {
 				yield.text = "Cost: " + Strings.BuildingCost(type) + "\nYield: " + Strings.BuildingYield(type);
 			}
 			else if(SelectionController.selection.Operation == Operation.Info) {
-				Debug.Log("heree");
 
 				Tile tile = SelectionController.selection.Tile;
 				if(tile == null) {
 					icon.sprite2D = null;
-					title.text = "Select a tile for info";
-					yield.text = "";
+					title.text = "";
+					yield.text = "Select a tile for info";
 					details.text = "";
 				}
 				else { 
 					if(tile.Building != null) {
 						icon.sprite2D = GameAssets.GetSprite(tile.Building.Type);
 						title.text = Strings.BuildingTitle(tile.Building.Type);
-						yield.text = Strings.BuildingYield(tile.Building.Type);
-						details.text = Strings.BuildingModifier(tile);
+						yield.text = Strings.BuildingYield(tile.Building.Type) + "\n" + Strings.BuildingModifier(tile);
+						details.text = Strings.BuildingNotes(Game.CurrentCity, tile.Building);
 					}
 					else {
 						icon.sprite2D = GameAssets.GetSprite(tile.Type);

@@ -13,7 +13,9 @@
  > Fort           --> Security & -Beauty
  > Ampitheater    --> Entertainment & -Productivity
  > Church         --> Faith & Beauty & -Literacy
- > Farm           --> Food & -Literacy
+ > Farms
+  - Wheat         --> Food & -Literacy
+  - Vegetable     --> Food & -Literacy
  > Tavern         --> Entertainment & -Security
  > Garden         --> Beauty & -Productivity
  > School         --> Literacy & -Entertainment

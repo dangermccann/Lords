@@ -87,6 +87,21 @@ namespace Lords {
 			return result;
 		}
 
+		public static string BuildingNotes(City city, Building building) {
+			if(building.Type == BuildingType.Villa || 
+			   building.Type == BuildingType.Cottages || 
+			   building.Type == BuildingType.Slums) {
+				return "Population: " + Mathf.Floor(city.FoodLevel() * city.BuildingEffectiveness(building) * Building.Yields[building.Type].Housing);
+			}
+			else {
+				// TODO: figure out how to add in modifiers
+				float value = city.BuildingEffectiveness(building);
+				return (Mathf.Round(value * 100)) + "% Effective";
+			}
+
+
+		}
+
 		public static string CityInventory(City city) {
 			return String.Format ("{0} :gold: {1} :rawmaterials:", Mathf.Floor(city.Funds), Mathf.Floor(city.RawMaterials));
 		}

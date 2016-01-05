@@ -6,8 +6,8 @@ namespace Lords {
 			name = "Tutorial",
 			victoryConditions = new Aggregates() { 
 				Population = 1000,
-				Happiness = 0,
-				Prosperity = 0,
+				Happiness = 5,
+				Prosperity = 5,
 				Culture = 0,
 			},
 			mapConfiguration = Maps.Basic,

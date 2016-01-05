@@ -13,7 +13,7 @@ namespace Lords {
 			set {
 				currentLevel = value;
 				if(LevelLoaded != null) {
-					LevelLoaded(currentLevel);
+					LevelLoaded(currentLevel); 
 				}
 			}
 		}

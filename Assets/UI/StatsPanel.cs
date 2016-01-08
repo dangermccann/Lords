@@ -30,7 +30,7 @@ public class StatsPanel : MonoBehaviour {
 
 	float SliderValue(float target, float actual) {
 		if(target == 0) 
-			return 1 + actual / 100;
+			return 1 + (actual / 10f);
 
 		return actual / target * 0.5f + 0.5f;
 	}

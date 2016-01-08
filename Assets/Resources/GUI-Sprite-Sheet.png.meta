@@ -15,6 +15,12 @@ TextureImporter:
     21300020: GUI-Sprite-Sheet_9
     21300022: GUI-Sprite-Sheet_11
     21300024: GUI-Sprite-Sheet_12
+    21300026: GUI-Sprite-Sheet_13
+    21300028: GUI-Sprite-Sheet_14
+    21300030: GUI-Sprite-Sheet_15
+    21300032: GUI-Sprite-Sheet_16
+    21300034: GUI-Sprite-Sheet_17
+    21300036: GUI-Sprite-Sheet_18
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -186,5 +192,65 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI-Sprite-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 586
+        width: 139
+        height: 41
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI-Sprite-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 635
+        y: 570
+        width: 139
+        height: 73
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI-Sprite-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 470
+        y: 534
+        width: 268
+        height: 16
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI-Sprite-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 670
+        width: 231
+        height: 89
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI-Sprite-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 808
+        y: 570
+        width: 231
+        height: 89
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: GUI-Sprite-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 68
+        width: 388
+        height: 347
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 103, y: 120, z: 103, w: 103}
   spritePackingTag: 
   userData: 

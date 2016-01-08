@@ -15,6 +15,17 @@ namespace Lords {
 			Redraw();
 		}
 
+		void Update() {
+			if(SelectionController.selection.Operation == Operation.Info) {
+				Tile tile = SelectionController.selection.Tile;
+				if(tile != null) {
+					if(tile.Building != null) {
+						details.text = Strings.BuildingNotes(Game.CurrentCity, tile.Building);
+					}
+				}
+			}
+		}
+
 		void SelectionChanged(Selection selection) {
 			Redraw();
 		}
@@ -25,6 +36,7 @@ namespace Lords {
 				icon.sprite2D = GameAssets.GetSprite(type);
 				title.text = Strings.BuildingTitle(type);
 				yield.text = "Cost: " + Strings.BuildingCost(type) + "\nYield: " + Strings.BuildingYield(type);
+				details.text = "";
 			}
 			else if(SelectionController.selection.Operation == Operation.Info) {
 
@@ -50,7 +62,6 @@ namespace Lords {
 					}
 				}
 			}
-
 		}
 
 		public void SelectionDestroy() {

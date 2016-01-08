@@ -2,6 +2,9 @@ using UnityEngine;
 
 namespace Lords {
 	public class MenuBar : MonoBehaviour {
+
+		public GameObject menuOverlay;
+
 		void Start() { 
 			if(Game.CurrentLevel != null) {
 				LevelLoaded(Game.CurrentLevel);
@@ -17,6 +20,7 @@ namespace Lords {
 
 		public void OnClick() {
 			Debug.Log(UICamera.hoveredObject.name);
+			menuOverlay.GetComponent<Dialog>().FadeIn();
 		}
 
 		public void Menu() {

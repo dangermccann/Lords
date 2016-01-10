@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace Lords {
 	public class Level {
@@ -7,6 +8,7 @@ namespace Lords {
 		public Aggregates victoryConditions;
 		public MapConfiguration mapConfiguration;
 		public float initialFunds, initialRawMaterials;
+		public Vector2 mapLocation;
 
 		public Level() {}
 	}

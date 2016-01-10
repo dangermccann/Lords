@@ -49,8 +49,6 @@ public class Dialog : MonoBehaviour {
 			panel.alpha += Time.deltaTime * fadeSpeed;
 			yield return null;
 		}
-
-		yield return null;
 	}
 
 	IEnumerator FadeGroupOut(UIPanel panel) {
@@ -59,7 +57,5 @@ public class Dialog : MonoBehaviour {
 			panel.alpha -= Time.deltaTime * fadeSpeed;
 			yield return null;
 		}
-
-		yield return null;
 	}
 }

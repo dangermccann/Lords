@@ -7,7 +7,7 @@ namespace Lords {
 
 		public static City CurrentCity;
 
-		static Level currentLevel;
+		static Level currentLevel = null;
 		public static Level CurrentLevel {
 			get { return currentLevel; }
 			set {

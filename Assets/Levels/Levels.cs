@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using UnityEngine;
 
 namespace Lords {
 	public class Levels {
@@ -13,7 +15,11 @@ namespace Lords {
 			mapConfiguration = Maps.Basic,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
+			mapLocation = new Vector2(200, 150),
 		};
 
+		public static List<Level> All = new List<Level> () {
+			Tutorial,
+		};
 	}
 }

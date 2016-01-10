@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mapRoot = GameObject.Find("Map");
-		LoadLevel(Levels.Tutorial);
+		LoadLevel(Game.CurrentLevel ?? Levels.Tutorial);
 	}
 
 	public void LoadLevel(Level level) {

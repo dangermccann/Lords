@@ -21,6 +21,7 @@ TextureImporter:
     21300032: GUI-Sprite-Sheet_16
     21300034: GUI-Sprite-Sheet_17
     21300036: GUI-Sprite-Sheet_18
+    21300038: GUI-Sprite-Sheet_19
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -252,5 +253,15 @@ TextureImporter:
       alignment: 0
       pivot: {x: .5, y: .5}
       border: {x: 103, y: 120, z: 103, w: 103}
+    - name: GUI-Sprite-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 727
+        width: 50
+        height: 46
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
   spritePackingTag: 
   userData: 

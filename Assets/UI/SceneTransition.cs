@@ -14,7 +14,19 @@ namespace Lords {
 		}
 
 		public static void LoadScene(string name) {
-			Instance.StartCoroutine(Instance.FadeOut(CreateShade(), name));
+			Instance.LoadLevel(name);
+		}
+
+		public void LoadLevel(string name) {
+			StartCoroutine(FadeOut(CreateShade(), name));
+		}
+
+		public void LoadMap() {
+			LoadLevel("map");
+		}
+
+		public void LoadMain() {
+			LoadLevel("main");
 		}
 
 		static Image CreateShade() {
@@ -31,7 +43,7 @@ namespace Lords {
 
 		IEnumerator FadeOut(Image image, string sceneName) {
 			while(image.color.a < 1) {
-				image.color = White(image.color.a + Time.deltaTime * fadeSpeed);
+				image.color = White(image.color.a + Time.unscaledDeltaTime * fadeSpeed);
 				yield return null;
 			}
 
@@ -51,7 +63,7 @@ namespace Lords {
 
 		IEnumerator FadeIn(Image image) {
 			while(image.color.a > 0) {
-				image.color = White(image.color.a - Time.deltaTime * fadeSpeed);
+				image.color = White(image.color.a - Time.unscaledDeltaTime * fadeSpeed);
 				yield return null;
 			}
 

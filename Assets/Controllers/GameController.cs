@@ -35,6 +35,8 @@ public class GameController : MonoBehaviour {
 				GameAssets.MakeBuilding(go, tt.Building);
 			};
 		}
+
+		Game.Resume();
 	}
 
 	public void UnloadLevel() {
@@ -50,6 +52,10 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Update () {
+		if(Input.GetKeyDown(KeyCode.Escape)) {
+			GameObject.Find("MenuOverlay").GetComponent<MenuOverlay>().Show();
+		}
+
 		if(HoverControl.IsOverUI()) {
 			return;
 		}
@@ -112,9 +118,12 @@ public class GameController : MonoBehaviour {
 
 		if(Game.CurrentCity.MeetsVictoryConditions(Game.CurrentLevel.victoryConditions)) {
 			Debug.Log("You win!");
+			Game.Pause();
+			GameObject.Find("VictoryOverlay").GetComponent<Dialog>().FadeIn();
 		}
 		if(Game.CurrentCity.MeetsFailureConditions()) {
 			Debug.Log("You lose");
+			Game.Pause();
 		}
 	}
 

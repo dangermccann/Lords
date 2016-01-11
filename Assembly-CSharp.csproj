@@ -177,6 +177,7 @@
      <Compile Include="Assets\UI\InventoryLabel.cs" />
      <Compile Include="Assets\UI\MapNavigator.cs" />
      <Compile Include="Assets\UI\MenuBar.cs" />
+     <Compile Include="Assets\UI\MenuOverlay.cs" />
      <Compile Include="Assets\UI\SceneTransition.cs" />
      <Compile Include="Assets\UI\Slider.cs" />
      <Compile Include="Assets\UI\StatsPanel.cs" />

@@ -13,6 +13,10 @@ namespace Lords {
 			Game.LevelLoaded += LevelLoaded;
 		}
 
+		void OnDestroy() {
+			Game.LevelLoaded -= LevelLoaded;
+		}
+
 		void LevelLoaded(Level level) {
 			UILabel cityName = transform.FindChild("CityName").gameObject.GetComponent<UILabel>();
 			cityName.text = level.name;
@@ -20,7 +24,7 @@ namespace Lords {
 
 		public void OnClick() {
 			Debug.Log(UICamera.hoveredObject.name);
-			menuOverlay.GetComponent<Dialog>().FadeIn();
+			menuOverlay.GetComponent<MenuOverlay>().Show();
 		}
 
 		public void Menu() {

@@ -11,14 +11,14 @@ public class Dialog : MonoBehaviour {
 
 	public static Dialog current = null;
 
-	void Start() {
+	protected virtual void Start() {
 		thisPanel = this.GetComponent<UIPanel>();
 		if(shade != null) {
 			shadePanel = shade.GetComponent<UIPanel>();
 		}
 	}
 
-	public void FadeIn() {
+	public virtual void FadeIn() {
 		StartCoroutine(FadeGroupIn(thisPanel, 1));
 
 		if(shadePanel != null) {
@@ -34,7 +34,11 @@ public class Dialog : MonoBehaviour {
 		}
 	}
 
-	public void FadeOut() {
+	public virtual bool IsDismissible() {
+		return true;
+	}
+
+	public virtual void FadeOut() {
 		StartCoroutine(FadeGroupOut(thisPanel));
 		
 		if(shadePanel != null) {

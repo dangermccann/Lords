@@ -1,29 +1,31 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\UI\MapNavigator.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="c:\Users\John McCann\Documents\Lords\Assets\NGUI\Scripts\Interaction\UIKeyNavigation.cs">
     <Files>
       <File FileName="Assets\UI\Corner.cs" Line="23" Column="77" />
       <File FileName="Assets\UI\BuildingDialog.cs" Line="1" Column="1" />
-      <File FileName="Assets\Strings.cs" Line="1" Column="1" />
-      <File FileName="Assets\UI\Dialog.cs" Line="1" Column="1" />
-      <File FileName="Assets\Controllers\GameController.cs" Line="1" Column="1" />
+      <File FileName="Assets\Strings.cs" Line="142" Column="40" />
+      <File FileName="Assets\UI\Dialog.cs" Line="37" Column="16" />
+      <File FileName="Assets\Controllers\GameController.cs" Line="56" Column="69" />
       <File FileName="Assets\Models\Building.cs" Line="1" Column="1" />
-      <File FileName="Assets\Models\City.cs" Line="1" Column="1" />
+      <File FileName="Assets\Models\City.cs" Line="106" Column="3" />
       <File FileName="Assets\Models\Primatives.cs" Line="1" Column="1" />
       <File FileName="Assets\Models\Tile.cs" Line="1" Column="1" />
-      <File FileName="Assets\UI\MenuBar.cs" Line="23" Column="37" />
-      <File FileName="Assets\UI\Slider.cs" Line="1" Column="1" />
-      <File FileName="Assets\Game.cs" Line="1" Column="1" />
-      <File FileName="Assets\UI\StatsPanel.cs" Line="1" Column="1" />
-      <File FileName="Assets\Levels\Levels.cs" Line="1" Column="1" />
-      <File FileName="Assets\UI\MapNavigator.cs" Line="11" Column="19" />
+      <File FileName="Assets\UI\MenuBar.cs" Line="27" Column="23" />
+      <File FileName="Assets\Game.cs" Line="30" Column="16" />
+      <File FileName="Assets\Levels\Levels.cs" Line="18" Column="40" />
+      <File FileName="Assets\UI\MapNavigator.cs" Line="43" Column="21" />
+      <File FileName="Assets\Controllers\GameAssets.cs" Line="72" Column="48" />
+      <File FileName="Assets\Levels\Level.cs" Line="11" Column="30" />
+      <File FileName="Assets\UI\SceneTransition.cs" Line="29" Column="19" />
+      <File FileName="Assets\UI\MenuOverlay.cs" Line="15" Column="18" />
+      <File FileName="Assets\UI\VictoryOverlay.cs" Line="9" Column="4" />
+      <File FileName="c:\Users\John McCann\Documents\Lords\Assets\NGUI\Scripts\Interaction\UIKeyNavigation.cs" Line="172" Column="48" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
-          <Node name="Assembly-CSharp" expanded="True" selected="True">
-            <Node name="UI" expanded="True" />
-          </Node>
+          <Node name="Assembly-CSharp" expanded="True" selected="True" />
         </State>
       </Pad>
     </Pads>

@@ -24,7 +24,7 @@ namespace Lords {
 
 		public void OnClick() {
 			Debug.Log(UICamera.hoveredObject.name);
-			menuOverlay.GetComponent<MenuOverlay>().Show();
+			menuOverlay.GetComponent<MenuOverlay>().FadeIn();
 		}
 
 		public void Menu() {

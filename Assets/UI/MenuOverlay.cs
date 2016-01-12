@@ -1,22 +1,24 @@
 using UnityEngine;
 
 namespace Lords {
-	public class MenuOverlay : MonoBehaviour {
+	public class MenuOverlay : Dialog {
 
 
-		public void Show() {
+		public override void FadeIn() {
+			base.FadeIn();
 			Game.Pause();
 			Redraw();
-			GetComponent<Dialog>().FadeIn();
 		}
 
-		public void Hide() {
+		public override void FadeOut() {
+			base.FadeOut();
 			Game.Resume();
-			GetComponent<Dialog>().FadeOut();
 		}
 
 		public void Redraw() {
 			transform.FindChild("Background/Title").GetComponent<UILabel>().text = Game.CurrentLevel.name;
+			transform.FindChild("Background/Description").GetComponent<UILabel>().text = Strings.LevelDescription(Game.CurrentLevel);
+
 
 			string victory = Game.CurrentLevel.victoryConditions.Population + "\n"
 					+ Game.CurrentLevel.victoryConditions.Happiness + "\n"

@@ -53,7 +53,7 @@ public class GameController : MonoBehaviour {
 
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Escape)) {
-			GameObject.Find("MenuOverlay").GetComponent<MenuOverlay>().Show();
+			GameObject.Find("MenuOverlay").GetComponent<MenuOverlay>().FadeIn();
 		}
 
 		if(HoverControl.IsOverUI()) {
@@ -116,11 +116,12 @@ public class GameController : MonoBehaviour {
 	void FixedUpdate() {
 		Game.CurrentCity.UpdateEverything(Time.fixedDeltaTime);
 
-		if(Game.CurrentCity.MeetsVictoryConditions(Game.CurrentLevel.victoryConditions)) {
+		if(Input.GetKeyDown(KeyCode.V) || Game.CurrentCity.MeetsVictoryConditions(Game.CurrentLevel.victoryConditions)) {
+			GameObject.Find("VictoryOverlay").GetComponent<VictoryOverlay>().FadeIn();
 			Debug.Log("You win!");
 			Game.Pause();
-			GameObject.Find("VictoryOverlay").GetComponent<Dialog>().FadeIn();
 		}
+
 		if(Game.CurrentCity.MeetsFailureConditions()) {
 			Debug.Log("You lose");
 			Game.Pause();

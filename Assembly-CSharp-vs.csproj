@@ -181,6 +181,7 @@
      <Compile Include="Assets\UI\SceneTransition.cs" />
      <Compile Include="Assets\UI\Slider.cs" />
      <Compile Include="Assets\UI\StatsPanel.cs" />
+     <Compile Include="Assets\UI\VictoryOverlay.cs" />
      <None Include="Assets\NGUI\ReadMe - 3.9.6c.txt" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Transparent Masked 1.shader" />
      <None Include="Assets\NGUI\Resources\Shaders\Unlit - Text 2.shader" />

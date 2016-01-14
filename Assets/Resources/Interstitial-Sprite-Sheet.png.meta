@@ -1,0 +1,289 @@
+fileFormatVersion: 2
+guid: e43206cea04f4489ba11f5571c03c2fd
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Interstitial-Sprite-Sheet_0
+    21300002: Interstitial-Sprite-Sheet_1
+    21300004: Interstitial-Sprite-Sheet_2
+    21300006: Interstitial-Sprite-Sheet_3
+    21300008: Interstitial-Sprite-Sheet_4
+    21300010: Interstitial-Sprite-Sheet_5
+    21300012: Interstitial-Sprite-Sheet_21
+    21300014: Interstitial-Sprite-Sheet_7
+    21300016: Interstitial-Sprite-Sheet_8
+    21300018: Interstitial-Sprite-Sheet_9
+    21300020: Interstitial-Sprite-Sheet_10
+    21300022: Interstitial-Sprite-Sheet_11
+    21300024: Interstitial-Sprite-Sheet_12
+    21300026: Interstitial-Sprite-Sheet_13
+    21300028: Interstitial-Sprite-Sheet_14
+    21300030: Interstitial-Sprite-Sheet_15
+    21300032: Interstitial-Sprite-Sheet_16
+    21300034: Interstitial-Sprite-Sheet_17
+    21300036: Interstitial-Sprite-Sheet_18
+    21300038: Interstitial-Sprite-Sheet_19
+    21300040: Interstitial-Sprite-Sheet_20
+    21300042: Interstitial-Sprite-Sheet_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 4096
+  textureSettings:
+    filterMode: 1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Interstitial-Sprite-Sheet_0
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 16
+        width: 269
+        height: 137
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 520
+        width: 499
+        height: 200
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_2
+      rect:
+        serializedVersion: 2
+        x: 520
+        y: 646
+        width: 262
+        height: 68
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_3
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 542
+        width: 185
+        height: 146
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1004
+        y: 568
+        width: 227
+        height: 145
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_5
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 519
+        width: 228
+        height: 93
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_21
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 289
+        width: 219
+        height: 212
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 78, y: 78, z: 78, w: 78}
+    - name: Interstitial-Sprite-Sheet_7
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 448
+        width: 417
+        height: 18
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_8
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 378
+        width: 140
+        height: 181
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_9
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 394
+        width: 49
+        height: 32
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_10
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 274
+        width: 142
+        height: 77
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_11
+      rect:
+        serializedVersion: 2
+        x: 513
+        y: 206
+        width: 120
+        height: 170
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_12
+      rect:
+        serializedVersion: 2
+        x: 686
+        y: 222
+        width: 85
+        height: 139
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_13
+      rect:
+        serializedVersion: 2
+        x: 811
+        y: 208
+        width: 176
+        height: 164
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_14
+      rect:
+        serializedVersion: 2
+        x: 1039
+        y: 219
+        width: 167
+        height: 142
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_15
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 241
+        width: 197
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_16
+      rect:
+        serializedVersion: 2
+        x: 47
+        y: 217
+        width: 196
+        height: 11
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_17
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 24
+        width: 106
+        height: 160
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_18
+      rect:
+        serializedVersion: 2
+        x: 191
+        y: 9
+        width: 169
+        height: 172
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_19
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 14
+        width: 218
+        height: 151
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_20
+      rect:
+        serializedVersion: 2
+        x: 899
+        y: 15
+        width: 238
+        height: 161
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Interstitial-Sprite-Sheet_6
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 214
+        width: 142
+        height: 40
+      alignment: 0
+      pivot: {x: .5, y: .5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 

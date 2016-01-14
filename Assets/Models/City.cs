@@ -8,9 +8,8 @@ namespace Lords {
 		static float MAX_FUNDS = 10000;
 		static float MAX_RAW_MATERIALS = 10000;
 
-		public string Name { get; protected set; }
 		public Dictionary<Hex, Tile> Tiles { get; protected set; }
-		public int Radius { get; protected set; }
+		public Level Level { get; protected set; }
 		public Primatives Primatives { get; protected set; }
 		public Aggregates Score { get; protected set; }
 		public Dictionary<BuildingType, List<Building>> Buildings { get; protected set; }
@@ -24,8 +23,8 @@ namespace Lords {
 			else return 0;
 		}
 
-		public City(int radius, float initialFunds, float initialMaterials) {
-			this.Radius = radius;
+		public City(Level level) {
+			this.Level = level;
 			Tiles = new Dictionary<Hex, Tile>();
 			Primatives = new Primatives();
 			Score = new Aggregates();
@@ -35,16 +34,17 @@ namespace Lords {
 				Buildings[type] = new List<Building>();
 			}
 
-			Funds = initialFunds;
-			RawMaterials = initialMaterials;
+			Funds = Level.initialFunds;
+			RawMaterials = Level.initialRawMaterials;
 
 			CreateTiles();
 		}
 
 		void CreateTiles() {
-			for(int x = -1 * Radius; x <= Radius; x++) {
-				for(int y = -1 * Radius; y <= Radius; y++) {
-					if(Math.Abs(x + y) <= Radius) {
+			int radius = Level.mapConfiguration.Radius;
+			for(int x = -1 * radius; x <= radius; x++) {
+				for(int y = -1 * radius; y <= radius; y++) {
+					if(Math.Abs(x + y) <= radius) {
 						Hex hex = new Hex(x, y);
 						Tiles.Add(hex, new Tile(this, hex));
 					}
@@ -168,17 +168,49 @@ namespace Lords {
 				Score.Population >= Building.PopulationMinimums[type];
 		}
 
-		public bool MeetsVictoryConditions(Aggregates victoryConditions) {
-			return Score.Population >= victoryConditions.Population &&
-				Score.Happiness >= victoryConditions.Happiness &&
-				Score.Prosperity >= victoryConditions.Prosperity &&
-				Score.Culture >= victoryConditions.Culture;
+		public bool MeetsVictoryConditions() {
+			return Score.Population >= Level.victoryConditions.Population &&
+				Score.Happiness >= Level.victoryConditions.Happiness &&
+				Score.Prosperity >= Level.victoryConditions.Prosperity &&
+				Score.Culture >= Level.victoryConditions.Culture;
 		}
 
 		public bool MeetsFailureConditions() {
 
 
 			return false;
+		}
+
+		public SavedCity SaveCity() {
+			SavedCity saved = new SavedCity();
+			saved.rawMaterials = this.RawMaterials;
+			saved.funds = this.Funds;
+			saved.level = this.Level.name;
+			
+			foreach(List<Building> buildings in this.Buildings.Values) {
+				foreach(Building building in buildings) {
+					SavedBuilding savedBuilding = new SavedBuilding();
+					savedBuilding.position = building.Tile.Position;
+					savedBuilding.type = building.Type;
+					saved.buildings.Add(savedBuilding);
+				}
+			}
+			
+			return saved;
+		}
+
+		public static City LoadCity(SavedCity saved) {
+			City city = new City(Levels.GetLevel(saved.level));
+			city.RawMaterials = saved.rawMaterials;
+			city.Funds = saved.funds;
+
+			foreach(SavedBuilding savedBuilding in saved.buildings) {
+				Building building = new Building(city.Tiles[savedBuilding.position], savedBuilding.type);
+				building.ResetCreateTime();
+				city.Buildings[building.Type].Add(building);
+			}
+
+			return city;
 		}
 	}
 }

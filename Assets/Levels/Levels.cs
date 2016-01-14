@@ -21,5 +21,15 @@ namespace Lords {
 		public static List<Level> All = new List<Level> () {
 			Tutorial,
 		};
+
+		public static Level GetLevel(string name) {
+			foreach(Level level in All) {
+				if(level.name == name) {
+					return level;
+				}
+			}
+
+			return null;
+		}
 	}
 }

@@ -17,7 +17,7 @@ public class GameController : MonoBehaviour {
 	public void LoadLevel(Level level) {
 		UnloadLevel();
 
-		Game.CurrentCity = new City(level.mapConfiguration.Radius, level.initialFunds, level.initialRawMaterials);
+		Game.CurrentCity = new City(level);
 		Game.CurrentLevel = level;
 		
 		MapGenerator generator = new MapGenerator();
@@ -116,7 +116,7 @@ public class GameController : MonoBehaviour {
 	void FixedUpdate() {
 		Game.CurrentCity.UpdateEverything(Time.fixedDeltaTime);
 
-		if(Input.GetKeyDown(KeyCode.V) || Game.CurrentCity.MeetsVictoryConditions(Game.CurrentLevel.victoryConditions)) {
+		if(Input.GetKeyDown(KeyCode.V) || Game.CurrentCity.MeetsVictoryConditions()) {
 			GameObject.Find("VictoryOverlay").GetComponent<VictoryOverlay>().FadeIn();
 			Debug.Log("You win!");
 			Game.Pause();

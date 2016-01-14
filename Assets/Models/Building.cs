@@ -154,6 +154,10 @@ namespace Lords {
 			CreateTime = Time.fixedTime;
 		}
 
+		public void ResetCreateTime() {
+			CreateTime = 0;
+		}
+
 
 	}
 

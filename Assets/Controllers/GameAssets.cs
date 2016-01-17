@@ -3,11 +3,29 @@ using System;
 using System.Collections.Generic;
 
 namespace Lords {
+	public enum LevelIllustration {
+		Drinks 		= 0,
+		Paddles 	= 2,
+		Pear 		= 3,
+		House 		= 4,
+		Fish 		= 5,
+		Clock 		= 8,
+		Drinker 	= 11,
+		Hourglass	= 12,
+		Sun 		= 13,
+		Scales 		= 14,
+		Grapes 		= 17,
+		Flowers 	= 18,
+		CoatOfArms	= 19,
+		Factory		= 20,
+	}
+
 	public class GameAssets {
 
 		const string SHEET = "Sprite-Sheet";
 		const string BUILDING_TAG = "Building";
 		const string TILE_TAG = "Tile";
+		const string INTERSTITIAL = "Interstitial-Sprite-Sheet";
 
 		public static Dictionary<TileType, int> TileIndexes = new Dictionary<TileType, int> {
 			{ TileType.Empty, 		16 },
@@ -100,6 +118,10 @@ namespace Lords {
 				}
 			}
 			return null;
+		}
+
+		public static Sprite LevelIllustration(LevelIllustration illustration) {
+			return Resources.LoadAll<Sprite>(INTERSTITIAL)[(int) illustration];
 		}
 	}
 }

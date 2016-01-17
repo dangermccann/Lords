@@ -9,6 +9,7 @@ namespace Lords {
 		public MapConfiguration mapConfiguration;
 		public float initialFunds, initialRawMaterials;
 		public Vector2 mapLocation;
+		public LevelIllustration illustration = LevelIllustration.Clock;
 
 		public Level() {}
 	}

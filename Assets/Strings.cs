@@ -139,6 +139,13 @@ namespace Lords {
 			return "You have achieved a satisfactory rating in the eyes of your contemporaries.";
 		}
 
+		public static string VictoryConditions(Level level) {
+			return level.victoryConditions.Population + "\n"
+					+ level.victoryConditions.Happiness + "\n"
+					+ level.victoryConditions.Prosperity + "\n"
+					+ level.victoryConditions.Culture;
+		}
+
 		public static string LevelDescription(Level level) {
 			// TODO: customize per level
 			return "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis pharetra odio a aliquet.";

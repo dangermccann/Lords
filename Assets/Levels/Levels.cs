@@ -16,6 +16,7 @@ namespace Lords {
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(200, 150),
+			illustration = LevelIllustration.House,
 		};
 
 		public static List<Level> All = new List<Level> () {

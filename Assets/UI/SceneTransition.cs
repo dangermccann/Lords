@@ -29,6 +29,10 @@ namespace Lords {
 			LoadLevel("main");
 		}
 
+		public void LoadInterstitial() {
+			LoadLevel("interstitial");
+		}
+
 		static Image CreateShade() {
 			GameObject canvas = GameObject.Find("Canvas");
 			GameObject shade = (GameObject) GameObject.Instantiate(Resources.Load ("transition"));

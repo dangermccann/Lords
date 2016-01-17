@@ -41,8 +41,7 @@ namespace Lords {
 		public void CityClicked(Level level) {
 			Debug.Log ("clicked " + level.name);
 			Game.CurrentLevel = level;
-			//Application.LoadLevel("main");
-			SceneTransition.LoadScene("main");
+			SceneTransition.LoadScene("interstitial");
 		}
 	}
 }

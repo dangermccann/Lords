@@ -8,6 +8,8 @@ namespace Lords {
 			base.FadeIn();
 			Game.Pause();
 			Redraw();
+
+			Game.Save();
 		}
 
 		public override void FadeOut() {

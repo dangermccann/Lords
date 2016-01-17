@@ -49,6 +49,7 @@
      <Compile Include="Assets\Controllers\CameraControl.cs" />
      <Compile Include="Assets\Controllers\GameAssets.cs" />
      <Compile Include="Assets\Controllers\GameController.cs" />
+     <Compile Include="Assets\Controllers\Home.cs" />
      <Compile Include="Assets\Controllers\HoverControl.cs" />
      <Compile Include="Assets\Controllers\Interstitial.cs" />
      <Compile Include="Assets\Controllers\SelectionController.cs" />

@@ -35,6 +35,8 @@ namespace Lords {
 		}
 
 		public static SavedGame Load() {
+			Debug.Log("Loading " + SaveLocation());
+
 			if(File.Exists(SaveLocation())) {
 				BinaryFormatter bf = new BinaryFormatter();
 				FileStream file = File.Open(SaveLocation(), FileMode.Open);
@@ -85,6 +87,15 @@ namespace Lords {
 	public class SavedGame {
 		public List<SavedCity> cities = new List<SavedCity>();
 		public List<string> completedLevels = new List<string>();
+
+		public SavedCity FindCity(string level) {
+			foreach(SavedCity city in cities) {
+				if(city.level == level) {
+					return city;
+				}
+			}
+			return null;
+		}
 	}
 
 	[System.Serializable] 

@@ -17,7 +17,21 @@ public class GameController : MonoBehaviour {
 	public void LoadLevel(Level level) {
 		UnloadLevel();
 
-		Game.CurrentCity = new City(level);
+		SavedGame saved = Game.Load();
+		if(saved != null) {
+			SavedCity savedCity = saved.FindCity(level.name);
+			if(savedCity != null) {
+				Game.CurrentCity = City.LoadCity(savedCity);
+			}
+			else {
+				Game.CurrentCity = new City(level);
+			}
+		}
+		else {
+			Game.CurrentCity = new City(level);
+		}
+
+
 		Game.CurrentLevel = level;
 		
 		MapGenerator generator = new MapGenerator();

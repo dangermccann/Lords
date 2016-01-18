@@ -4,33 +4,31 @@ using System;
 
 namespace Lords {
 	public class Home : MonoBehaviour {
-		Transform mapTransform;
+		RectTransform map;
 		Vector2 min, max, direction;
 		float speed = 25f;
 
 		void Start() {
 			RectTransform mask = transform.FindChild("Panel/Mask").gameObject.GetComponent<RectTransform>();
-			RectTransform map = transform.FindChild("Panel/Mask/Map").gameObject.GetComponent<RectTransform>();
-			mapTransform = map.gameObject.transform;
+			map = transform.FindChild("Panel/Mask/Map").gameObject.GetComponent<RectTransform>();
 
 			min = new Vector2(mask.rect.width - map.rect.width, mask.rect.height - map.rect.height);
 			max = new Vector2(0, 0);
-			mapTransform.position = new Vector3(0, 0, 0);
+			map.anchoredPosition = new Vector3(0, 0, 0);
 
-			Debug.Log(mapTransform.position);
+			Debug.Log(map.anchoredPosition);
 			Debug.Log("min: " + min);
+			Debug.Log("rect: " + map.rect);
 
 			direction = new Vector2(-0.5f, -0.5f);
 		}
 
 		void Update() {
-			//Debug.Log(mapTransform.position);
-
-			Vector3 pos = new Vector3(mapTransform.position.x, mapTransform.position.y, 0);
+			Vector3 pos = new Vector3(map.anchoredPosition.x, map.anchoredPosition.y, 0);
 			pos.x = pos.x + direction.x * Time.deltaTime * speed;
 			pos.y = pos.y + direction.y * Time.deltaTime * speed;
 
-			mapTransform.position = pos;
+			map.anchoredPosition = pos;
 
 			if(pos.x <= min.x && direction.x < 0) {
 				Debug.Log("Right edge: " + pos);

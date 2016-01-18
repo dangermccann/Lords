@@ -104,6 +104,11 @@ namespace Lords {
 			go.name = String.Format("Tile ({0}, {1})", tile.Position.q, tile.Position.r);
 			go.tag = TILE_TAG;
 			go.GetComponent<SpriteRenderer>().sprite = GetSprite(tile.Type);
+
+			if(tile.Building != null) {
+				GameAssets.MakeBuilding(go, tile.Building);
+			}
+
 			return go;
 		}
 

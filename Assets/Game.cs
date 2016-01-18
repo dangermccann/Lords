@@ -38,20 +38,41 @@ namespace Lords {
 			Debug.Log("Loading " + SaveLocation());
 
 			if(File.Exists(SaveLocation())) {
+				Debug.Log("file exists");
+
 				BinaryFormatter bf = new BinaryFormatter();
 				FileStream file = File.Open(SaveLocation(), FileMode.Open);
-				SavedGame saved = (SavedGame) bf.Deserialize(file);
-				file.Close();
-				return saved;
+				try {
+					SavedGame saved = (SavedGame) bf.Deserialize(file);
+					Debug.Log("successfully loaded game");
+					return saved;
+				}
+				catch(IOException ioe) {
+					Debug.LogException(ioe);
+				}
+				finally {
+					file.Close();
+				}
 			}
 			return null;
 		}
 
 		public static void Save() {
+			Debug.Log("Trying to save game");
+			SavedGame saved = GenerateSavedGame();
+
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Create(SaveLocation());
-			bf.Serialize(file, GenerateSavedGame());
-			file.Close();
+			try {
+				bf.Serialize(file, saved);
+				Debug.Log("successfully saved game");
+			}
+			catch(IOException ioe) {
+				Debug.LogException(ioe);
+			}
+			finally {
+				file.Close();
+			}
 		}
 
 		public static SavedGame GenerateSavedGame() {

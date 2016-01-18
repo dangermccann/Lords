@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour {
 		if(saved != null) {
 			SavedCity savedCity = saved.FindCity(level.name);
 			if(savedCity != null) {
+				Debug.Log("Found saved version of " + level.name);
 				Game.CurrentCity = City.LoadCity(savedCity);
 			}
 			else {
@@ -36,10 +37,9 @@ public class GameController : MonoBehaviour {
 		
 		MapGenerator generator = new MapGenerator();
 		Map map = generator.GenerateMap(level.mapConfiguration.Radius, level.mapConfiguration.TileConfiguration, level.mapConfiguration.Seed);
+		Game.CurrentCity.SetMap(map);
 		
 		foreach(Tile tile in Game.CurrentCity.Tiles.Values) {
-			tile.Type = map.GetTileTypeAt(tile.Position);
-			
 			GameObject go = GameAssets.MakeTile(mapRoot.transform, tile);
 
 			tile.TypeChanged += (Tile tt) => {

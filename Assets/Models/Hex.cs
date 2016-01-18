@@ -3,6 +3,7 @@ using System;
 
 // http://www.redblobgames.com/grids/hexagons/
 namespace Lords {
+	[System.Serializable] 
 	public class Hex {
 		public const float HEX_SIZE = 0.5f;
 		public float q, r;

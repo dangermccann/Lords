@@ -52,6 +52,12 @@ namespace Lords {
 			}
 		}
 
+		public void SetMap(Map map) {
+			foreach(Tile tile in Tiles.Values) {
+				tile.Type = map.GetTileTypeAt(tile.Position);
+			}
+		}
+
 		public void UpdatePrimatives() {
 			Primatives result = new Primatives();
 			foreach(List<Building> buildings in Buildings.Values) {
@@ -208,6 +214,7 @@ namespace Lords {
 				Building building = new Building(city.Tiles[savedBuilding.position], savedBuilding.type);
 				building.ResetCreateTime();
 				city.Buildings[building.Type].Add(building);
+				city.Tiles[savedBuilding.position].Building = building;
 			}
 
 			return city;

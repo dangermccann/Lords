@@ -7,13 +7,17 @@ using UnityEngine.UI;
 namespace Lords {
 	public class Interstitial : MonoBehaviour {
 		public float fadeSpeed = 1f;
-		public float delay = 0.5f;
+		const float DELAY = 0.5f;
 
-		List<CanvasGroup> items = new List<CanvasGroup>();
+		List<CanvasGroup> items;
 		GameObject continueButton;
 		int current;
 
 		void Start() {
+			Debug.Log("Starting interstitial");
+
+			items = new List<CanvasGroup>();
+
 			if(Game.CurrentLevel == null) {
 				Game.CurrentLevel = Levels.Tutorial;
 			}
@@ -44,20 +48,29 @@ namespace Lords {
 			StartCoroutine(FadeIn());
 		}
 
+		void OnDestroy() {
+			Debug.Log("Interstitial destroy");
+			StopAllCoroutines();
+		}
+
+		// NOTE: Time.timeScale has to be 1 for WaitForSeconds to work correctly. 
 		IEnumerator FadeIn() {
 			if(current == -1) { 
 				current++;
-				yield return new WaitForSeconds(delay * 2);
+				Debug.Log("Interstitial initial delay. current=" + current);
+				yield return new WaitForSeconds(DELAY * 2);
 			}
 
 			while(current < items.Count) {
 				if(items[current].alpha < 1) {
+					//Debug.Log("item " + items[current].alpha);
 					items[current].alpha += Time.unscaledDeltaTime * fadeSpeed;
 				}
 				else {
 					items[current].interactable = false;
 					current++;
-					yield return new WaitForSeconds(delay);
+					Debug.Log("Interstitial increment " + current);
+					yield return new WaitForSeconds(DELAY);
 				}
 
 				yield return null;

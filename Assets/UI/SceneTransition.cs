@@ -18,6 +18,7 @@ namespace Lords {
 		}
 
 		public void LoadLevel(string name) {
+			Game.Resume();
 			StartCoroutine(FadeOut(CreateShade(), name));
 		}
 

@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mapRoot = GameObject.Find("Map");
-		LoadLevel(Game.CurrentLevel ?? Levels.Tutorial);
+		LoadLevel(Game.CurrentLevel ?? Levels.PortHenry);
 	}
 
 	public void LoadLevel(Level level) {
@@ -68,6 +68,11 @@ public class GameController : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Escape)) {
 			GameObject.Find("MenuOverlay").GetComponent<MenuOverlay>().FadeIn();
+		}
+
+		if(Input.GetKeyDown(KeyCode.Alpha1)) {
+			LoadLevel(Levels.All[1]);
+			return;
 		}
 
 		if(HoverControl.IsOverUI()) {

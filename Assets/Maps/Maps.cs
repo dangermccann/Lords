@@ -21,6 +21,23 @@ namespace Lords {
 			}
 		};
 
+		public static MapConfiguration Wet = new MapConfiguration() {
+			Radius = 10,
+			Seed = 1000,
+			PerlinOctive = 5,
+			TileConfiguration = new List<TileType>() {
+				TileType.Water,
+				TileType.Water,
+				TileType.Sand,
+				TileType.Grass,
+				TileType.Dirt,
+				TileType.Sand,
+				TileType.Water,
+				TileType.Water,
+				TileType.Water,
+			}
+		};
+
 		public static MapConfiguration Tundra = new MapConfiguration() {
 			Radius = 10,
 			Seed = 8888,

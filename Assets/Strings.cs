@@ -135,8 +135,7 @@ namespace Lords {
 		}
 
 		public static string VictoryMessage(Level level) {
-			// TODO: customize per level
-			return "You have achieved a satisfactory rating in the eyes of your contemporaries.";
+			return level.victoryMessage;
 		}
 
 		public static string VictoryConditions(Level level) {
@@ -147,8 +146,7 @@ namespace Lords {
 		}
 
 		public static string LevelDescription(Level level) {
-			// TODO: customize per level
-			return "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis pharetra odio a aliquet.";
+			return level.description;
 		}
 
 		static string PlusMinus(float value) {

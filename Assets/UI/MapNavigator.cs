@@ -18,8 +18,9 @@ namespace Lords {
 
 				EventTrigger.Entry entry = new EventTrigger.Entry();
 				entry.eventID = EventTriggerType.PointerClick;
+				Level finalLevel = level;
 				entry.callback.AddListener( (eventData) => {  
-					CityClicked(level);
+					CityClicked(finalLevel);
 				});
 
 				trigger.delegates.Add(entry);

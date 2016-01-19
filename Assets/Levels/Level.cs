@@ -5,6 +5,8 @@ namespace Lords {
 	public class Level {
 
 		public string name;
+		public string description;
+		public string victoryMessage;
 		public Aggregates victoryConditions;
 		public MapConfiguration mapConfiguration;
 		public float initialFunds, initialRawMaterials;

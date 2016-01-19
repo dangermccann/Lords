@@ -5,7 +5,18 @@ namespace Lords {
 
 		protected override void Start() {
 			base.Start();
-			transform.FindChild("Background/Description").GetComponent<UILabel>().text = Strings.VictoryMessage(Game.CurrentLevel);
+			Game.LevelLoaded += LevelLoaded;
+			LevelLoaded(Game.CurrentLevel);
+		}
+
+		void OnDestroy() {
+			Game.LevelLoaded -= LevelLoaded;
+		}
+
+		void LevelLoaded(Level level) {
+			if(level != null) {
+				transform.FindChild("Background/Description").GetComponent<UILabel>().text = Strings.VictoryMessage(level);
+			}
 		}
 
 		public override bool IsDismissible() {

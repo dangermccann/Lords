@@ -51,6 +51,7 @@ public class GameController : MonoBehaviour {
 		}
 
 		Game.Resume();
+		SelectionController.Reset();
 	}
 
 	public void UnloadLevel() {
@@ -67,13 +68,20 @@ public class GameController : MonoBehaviour {
 
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Escape)) {
-			GameObject.Find("MenuOverlay").GetComponent<MenuOverlay>().FadeIn();
+			if(Dialog.current != null) {
+				if(Dialog.current.IsDismissible()) {
+					Dialog.current.FadeOut();
+				}
+			}
+			else {
+				GameObject.Find("MenuOverlay").GetComponent<MenuOverlay>().FadeIn();
+			}
 		}
 
-		if(Input.GetKeyDown(KeyCode.Alpha1)) {
-			LoadLevel(Levels.All[1]);
+		if(ProcessEasterEggs()) {
 			return;
 		}
+
 
 		if(HoverControl.IsOverUI()) {
 			return;
@@ -145,6 +153,27 @@ public class GameController : MonoBehaviour {
 			Debug.Log("You lose");
 			Game.Pause();
 		}
+	}
+
+	private bool ProcessEasterEggs() {
+
+		if(Input.GetKeyDown(KeyCode.V)) {
+			GameObject.Find("VictoryOverlay").GetComponent<VictoryOverlay>().FadeIn();
+			Game.Pause();
+			return true;
+		}
+
+		if(Input.GetKeyDown(KeyCode.Alpha0)) {
+			LoadLevel(Levels.All[0]);
+			return true;
+		}
+
+		if(Input.GetKeyDown(KeyCode.Alpha1)) {
+			LoadLevel(Levels.All[1]);
+			return true;
+		}
+
+		return false;
 	}
 
 }

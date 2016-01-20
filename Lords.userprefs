@@ -1,15 +1,18 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Models\City.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\UI\Corner.cs">
     <Files>
-      <File FileName="Assets\Models\City.cs" Line="181" Column="17" />
-      <File FileName="Assets\Models\Primatives.cs" Line="18" Column="25" />
-      <File FileName="Assets\Game.cs" Line="72" Column="35" />
-      <File FileName="Assets\Editor\Test\HexTest.cs" Line="11" Column="19" />
-      <File FileName="Assets\Editor\Test\PrimativesTest.cs" Line="37" Column="47" />
-      <File FileName="Assets\Controllers\GameController.cs" Line="119" Column="77" />
-      <File FileName="Assets\Models\Building.cs" Line="157" Column="30" />
-      <File FileName="Assets\Levels\Levels.cs" Line="25" Column="31" />
+      <File FileName="Assets\Controllers\Home.cs" Line="22" Column="4" />
+      <File FileName="Assets\Game.cs" Line="30" Column="18" />
+      <File FileName="Assets\Models\Hex.cs" Line="126" Column="1" />
+      <File FileName="Assets\Controllers\GameController.cs" Line="64" Column="41" />
+      <File FileName="Assets\Controllers\GameAssets.cs" Line="97" Column="4" />
+      <File FileName="Assets\Models\City.cs" Line="58" Column="5" />
+      <File FileName="Assets\UI\SceneTransition.cs" Line="21" Column="18" />
+      <File FileName="Assets\Levels\Levels.cs" Line="34" Column="32" />
+      <File FileName="Assets\Maps\Maps.cs" Line="26" Column="15" />
+      <File FileName="Assets\UI\MapNavigator.cs" Line="23" Column="30" />
+      <File FileName="Assets\UI\Corner.cs" Line="30" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -17,14 +20,10 @@
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Controllers" expanded="True" />
             <Node name="Levels" expanded="True" />
-            <Node name="Models" expanded="True">
-              <Node name="City.cs" selected="True" />
-            </Node>
-            <Node name="UI" expanded="True" />
-          </Node>
-          <Node name="Assembly-CSharp-Editor" expanded="True">
-            <Node name="Editor" expanded="True">
-              <Node name="Test" expanded="True" />
+            <Node name="Maps" expanded="True" />
+            <Node name="Models" expanded="True" />
+            <Node name="UI" expanded="True">
+              <Node name="Corner.cs" selected="True" />
             </Node>
           </Node>
         </State>

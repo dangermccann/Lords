@@ -17,6 +17,10 @@ public class HoverControl : MonoBehaviour {
 		SelectionChanged(SelectionController.selection);
 	}
 
+	void OnDestroy() {
+		SelectionController.SelectionChanged -= SelectionChanged;
+	}
+
 	void Update () {
 		Hex hoverPointHex = Hex.WorldToHex(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 

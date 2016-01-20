@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 namespace Lords {
 	public class Interstitial : MonoBehaviour {
-		public float fadeSpeed = 1f;
-		const float DELAY = 0.5f;
+		public float fadeSpeed = 1.7f;
+		public float delay = 0.25f;
 
 		List<CanvasGroup> items;
 		GameObject continueButton;
@@ -58,7 +58,7 @@ namespace Lords {
 			if(current == -1) { 
 				current++;
 				Debug.Log("Interstitial initial delay. current=" + current);
-				yield return new WaitForSeconds(DELAY * 2);
+				yield return new WaitForSeconds(delay * 2);
 			}
 
 			while(current < items.Count) {
@@ -70,7 +70,7 @@ namespace Lords {
 					items[current].interactable = false;
 					current++;
 					Debug.Log("Interstitial increment " + current);
-					yield return new WaitForSeconds(DELAY);
+					yield return new WaitForSeconds(delay);
 				}
 
 				yield return null;

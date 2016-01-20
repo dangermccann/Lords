@@ -3,17 +3,15 @@ using System;
 using System.Collections.Generic;
 
 namespace Lords {
-	public class BuildingDialog : MonoBehaviour {
+	public class BuildingDialog : Dialog {
 
-		Dialog dialog;
 		GameObject grid;
 		Dictionary<BuildingType, UIButton> buttons;
 		Dictionary<BuildingType, UILabel> costLabels;
 
-
-		void Start () {
+		protected override void Start() {
+			base.Start();
 			grid = this.transform.FindChild("ScrollView/Grid").gameObject;
-			dialog = GetComponent<Dialog>();
 
 			buttons = new Dictionary<BuildingType, UIButton>();
 			costLabels = new Dictionary<BuildingType, UILabel>();
@@ -44,14 +42,19 @@ namespace Lords {
 
 		}
 
+		public override void FadeOut() {
+			SelectionController.Changed();
+			base.FadeOut();
+		}
+
 		void OnClick(BuildingType type) {
 			SelectionController.selection.BuildingType = type;
 			SelectionController.selection.Operation = Operation.Build;
-			dialog.FadeOut();
+			FadeOut();
 		}
 
 		void FixedUpdate() {
-			if(dialog.Visible) {
+			if(Visible) {
 				for(int i = 0; i < grid.transform.childCount; i++) {
 					Transform child = grid.transform.GetChild(i);
 					BuildingType type = (BuildingType) Enum.Parse(typeof(BuildingType), child.name);

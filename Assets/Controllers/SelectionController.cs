@@ -7,27 +7,32 @@ namespace Lords {
 		static SelectionController() {
 			selection = new Selection();
 			selection.OperationChanged += (Selection s) => {
-				if(SelectionChanged != null) {
-					SelectionChanged(selection);
-				}
+				Changed();
 			};
 			selection.BuildingTypeChanged += (Selection s) => {
-				if(SelectionChanged != null) {
-					SelectionChanged(selection);
-				}
+				Changed();
 			};
 			selection.TileChanged += (Selection s) => {
-				if(SelectionChanged != null) {
-					SelectionChanged(selection);
-				}
+				Changed();
 			};
-			selection.Operation = Operation.Build;
-			selection.BuildingType = BuildingType.Villa;
+
+			Reset();
 		}
 
 
 		public static Selection selection;
 
+		public static void Reset() {
+			selection.Operation = Operation.Info;
+			selection.BuildingType = BuildingType.Villa;
+			selection.Tile = null;
+		}
+
+		public static void Changed() {
+			if(SelectionChanged != null) {
+				SelectionChanged(selection);
+			}
+		}
 	}
 
 	public class Selection {

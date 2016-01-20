@@ -9,9 +9,10 @@ public class Dialog : MonoBehaviour {
 
 	UIPanel thisPanel, shadePanel;
 
-	public static Dialog current = null;
+	public static Dialog current;
 
 	protected virtual void Start() {
+		current = null;
 		thisPanel = this.GetComponent<UIPanel>();
 		if(shade != null) {
 			shadePanel = shade.GetComponent<UIPanel>();

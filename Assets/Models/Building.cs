@@ -155,7 +155,7 @@ namespace Lords {
 		}
 
 		public void ResetCreateTime() {
-			CreateTime = 0;
+			CreateTime = -1000;
 		}
 
 

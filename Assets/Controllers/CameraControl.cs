@@ -90,6 +90,8 @@ public class CameraControl : MonoBehaviour {
 	}
 
 	void MoveCamera(Vector3 diff) {
+		//Debug.Log(diff);
+
 		float vertExtent = Camera.main.camera.orthographicSize;
 		float horzExtent = vertExtent * Screen.width / Screen.height;
 		float minX = horzExtent - mapRadius;

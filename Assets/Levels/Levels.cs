@@ -38,9 +38,27 @@ namespace Lords {
 			illustration = LevelIllustration.Fish,
 		};
 
+		public static Level Lewes = new Level() {
+			name = "Lewes",
+			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis pharetra odio a aliquet.",
+			victoryMessage = "You have achieved a satisfactory rating in the eyes of your contemporaries.",
+			victoryConditions = new Aggregates() { 
+				Population = 4000,
+				Happiness = 10,
+				Prosperity = 25,
+				Culture = 15,
+			},
+			mapConfiguration = Maps.Mountains,
+			initialFunds = 1000,
+			initialRawMaterials = 1000,
+			mapLocation = new Vector2(369, 227),
+			illustration = LevelIllustration.Scales,
+		};
+
 		public static List<Level> All = new List<Level> () {
 			Tutorial,
 			PortHenry,
+			Lewes
 		};
 
 		public static Level GetLevel(string name) {

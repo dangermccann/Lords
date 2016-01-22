@@ -38,6 +38,23 @@ namespace Lords {
 			}
 		};
 
+		public static MapConfiguration Mountains = new MapConfiguration() {
+			Radius = 10,
+			Seed = 701,
+			PerlinOctive = 3,
+			TileConfiguration = new List<TileType>() {
+				TileType.Water,
+				TileType.Tundra,
+				TileType.Mountains,
+				TileType.Tundra,
+				TileType.Mountains,
+				TileType.Forest,
+				TileType.Snow,
+				TileType.Mountains,
+				TileType.Forest,
+			}
+		};
+
 		public static MapConfiguration Tundra = new MapConfiguration() {
 			Radius = 10,
 			Seed = 8888,

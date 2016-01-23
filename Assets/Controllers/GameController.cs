@@ -5,8 +5,11 @@ using System.Collections.Generic;
 using Lords;
 
 public class GameController : MonoBehaviour {
+	const float AUTOSAVE_INTERVAL = 120f;
+
 	bool clickStarted = false;
 	GameObject mapRoot;
+	float lastSaveTime;
 
 	// Use this for initialization
 	void Start () {
@@ -32,7 +35,6 @@ public class GameController : MonoBehaviour {
 			Game.CurrentCity = new City(level);
 		}
 
-
 		Game.CurrentLevel = level;
 		
 		MapGenerator generator = new MapGenerator();
@@ -52,6 +54,8 @@ public class GameController : MonoBehaviour {
 
 		Game.Resume();
 		SelectionController.Reset();
+
+		lastSaveTime = Time.time;
 	}
 
 	public void UnloadLevel() {
@@ -146,12 +150,20 @@ public class GameController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.V) || Game.CurrentCity.MeetsVictoryConditions()) {
 			GameObject.Find("VictoryOverlay").GetComponent<VictoryOverlay>().FadeIn();
 			Debug.Log("You win!");
+			Game.Save();
 			Game.Pause();
 		}
 
 		if(Game.CurrentCity.MeetsFailureConditions()) {
 			Debug.Log("You lose");
+			Game.Save();
 			Game.Pause();
+		}
+
+		if(Time.time - lastSaveTime > AUTOSAVE_INTERVAL) {
+			Game.Save();
+			Debug.Log("Auto-saving game");
+			lastSaveTime = Time.time;
 		}
 	}
 

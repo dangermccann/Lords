@@ -111,6 +111,10 @@ namespace Lords {
 		}
 
 		void MoveCamera(Vector3 dest) {
+			if(Game.CurrentLevel == null) {
+				return;
+			}
+
 			float mapRadius = Game.CurrentLevel.mapConfiguration.Radius;
 
 			Vector3 left = mainCamera.WorldToScreenPoint(new Vector3(-1 * mapRadius, 0, 0));

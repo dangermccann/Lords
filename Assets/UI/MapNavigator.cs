@@ -42,7 +42,7 @@ namespace Lords {
 		public void CityClicked(Level level) {
 			Debug.Log ("clicked " + level.name);
 			Game.CurrentLevel = level;
-			SceneTransition.LoadScene("interstitial");
+			SceneTransition.LoadScene(Scenes.Interstitial);
 		}
 	}
 }

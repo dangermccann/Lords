@@ -14,24 +14,28 @@ namespace Lords {
 		}
 
 		public static void LoadScene(string name) {
-			Instance.LoadLevel(name);
+			Instance._LoadScene(name);
 		}
 
-		public void LoadLevel(string name) {
+		void _LoadScene(string name) {
 			Game.Resume();
 			StartCoroutine(FadeOut(CreateShade(), name));
 		}
 
 		public void LoadMap() {
-			LoadLevel("map");
+			_LoadScene(Scenes.Map);
 		}
 
 		public void LoadMain() {
-			LoadLevel("main");
+			_LoadScene(Scenes.Main);
+		}
+
+		public void LoadHome() {
+			_LoadScene(Scenes.Home);
 		}
 
 		public void LoadInterstitial() {
-			LoadLevel("interstitial");
+			_LoadScene(Scenes.Interstitial);
 		}
 
 		static Image CreateShade() {
@@ -78,5 +82,13 @@ namespace Lords {
 		static Color White(float alpha) {
 			return new Color(Color.white.r, Color.white.g, Color.white.b, alpha);
 		}
+	}
+
+	public class Scenes {
+		public const string Home 			= "home";
+		public const string Map 			= "map";
+		public const string Main 			= "main";
+		public const string Interstitial 	= "interstitial";
+
 	}
 }

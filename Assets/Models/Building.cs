@@ -175,9 +175,10 @@ namespace Lords {
 
 		public Building (Tile tile, BuildingType type) {
 			this.Tile = tile;
-			this.Tile.Building = this;
 			this.Type = type;
 			CreateTime = Time.fixedTime;
+
+			this.Tile.Building = this;
 		}
 
 		public Building ResetCreateTime() {

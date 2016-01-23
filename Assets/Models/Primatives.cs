@@ -53,6 +53,20 @@ namespace Lords {
 			return result;
 		}
 
+		public static Primatives operator +(float f, Primatives p1) {
+			Primatives result = new Primatives();
+			result.Food = p1.Food + f;
+			result.Housing = p1.Housing + f;
+			result.Productivity = p1.Productivity + f;
+			result.Health = p1.Health + f;
+			result.Security = p1.Security + f;
+			result.Beauty = p1.Beauty + f;
+			result.Faith = p1.Faith + f;
+			result.Entertainment = p1.Entertainment + f;
+			result.Literacy = p1.Literacy + f;
+			return result;
+		}
+
 		public static Primatives operator *(Primatives p1, float f) {
 			Primatives result = new Primatives();
 			result.Food = p1.Food * f;
@@ -64,6 +78,34 @@ namespace Lords {
 			result.Faith = p1.Faith * f;
 			result.Entertainment = p1.Entertainment * f;
 			result.Literacy = p1.Literacy * f;
+			return result;
+		}
+
+		public static Primatives operator /(Primatives p1, float f) {
+			Primatives result = new Primatives();
+			result.Food = p1.Food / f;
+			result.Housing = p1.Housing / f;
+			result.Productivity = p1.Productivity / f;
+			result.Health = p1.Health / f;
+			result.Security = p1.Security / f;
+			result.Beauty = p1.Beauty / f;
+			result.Faith = p1.Faith / f;
+			result.Entertainment = p1.Entertainment / f;
+			result.Literacy = p1.Literacy / f;
+			return result;
+		}
+
+		public static Primatives operator *(Primatives p1, Primatives p2) {
+			Primatives result = new Primatives();
+			result.Food = p1.Food * p2.Food;
+			result.Housing = p1.Housing * p2.Housing;
+			result.Productivity = p1.Productivity * p2.Productivity;
+			result.Health = p1.Health * p2.Health;
+			result.Security = p1.Security * p2.Security;
+			result.Beauty = p1.Beauty * p2.Beauty;
+			result.Faith = p1.Faith * p2.Faith;
+			result.Entertainment = p1.Entertainment * p2.Entertainment;
+			result.Literacy = p1.Literacy * p2.Literacy;
 			return result;
 		}
 
@@ -80,5 +122,17 @@ namespace Lords {
 				return (float) this.GetType().GetProperty(prop).GetValue(this, null); 
 			}
 		}
+	}
+
+	public class PrimativeValues {
+		public const string Food = "Food";
+		public const string Housing = "Housing";
+		public const string Productivity = "Productivity";
+		public const string Health = "Health";
+		public const string Security = "Security";
+		public const string Beauty = "Beauty";
+		public const string Faith = "Faith";
+		public const string Entertainment = "Entertainment";
+		public const string Literacy = "Literacy";
 	}
 }

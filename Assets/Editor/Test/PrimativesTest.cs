@@ -30,7 +30,53 @@ namespace Lords {
 		}
 
 		[Test]
+		public void TestFloatAddition() {
+			Primatives p1 = new Primatives() {
+				Food = 1, Housing = 1, Productivity = 1,
+				Health = 1, Security = 1, Beauty = 1,
+				Faith = 1, Entertainment = 1, Literacy = 1
+			};
+			
+			Primatives p3 = 2.0f + p1;
+			Assert.AreEqual(3, p3.Food);
+			Assert.AreEqual(3, p3.Housing);
+			Assert.AreEqual(3, p3.Productivity);
+			Assert.AreEqual(3, p3.Health);
+			Assert.AreEqual(3, p3.Security);
+			Assert.AreEqual(3, p3.Beauty);
+			Assert.AreEqual(3, p3.Faith);
+			Assert.AreEqual(3, p3.Entertainment);
+			Assert.AreEqual(3, p3.Literacy);
+		}
+
+		[Test]
 		public void TestMultiplication() {
+			Primatives p1 = new Primatives() {
+				Food = 3, Housing = 3, Productivity = 3,
+				Health = 3, Security = 3, Beauty = 3,
+				Faith = 3, Entertainment = 3, Literacy = 3
+			};
+			Primatives p2 = new Primatives() {
+				Food = 2, Housing = 2, Productivity = 2,
+				Health = 2, Security = 2, Beauty = 2,
+				Faith = 2, Entertainment = 2, Literacy = 2
+			};
+			
+			Primatives p3 = p1 * p2;
+			Assert.AreEqual(6, p3.Food);
+			Assert.AreEqual(6, p3.Housing);
+			Assert.AreEqual(6, p3.Productivity);
+			Assert.AreEqual(6, p3.Health);
+			Assert.AreEqual(6, p3.Security);
+			Assert.AreEqual(6, p3.Beauty);
+			Assert.AreEqual(6, p3.Faith);
+			Assert.AreEqual(6, p3.Entertainment);
+			Assert.AreEqual(6, p3.Literacy);
+		}
+
+
+		[Test]
+		public void TestFloatMultiplication() {
 			Primatives p1 = new Primatives() {
 				Food = 1, Housing = 1, Productivity = 1,
 				Health = 1, Security = 1, Beauty = 1,

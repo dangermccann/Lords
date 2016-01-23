@@ -62,12 +62,29 @@ namespace Lords {
 			Primatives result = new Primatives();
 			foreach(List<Building> buildings in Buildings.Values) {
 				foreach(Building building in buildings) {
+					Primatives buildingYeild = Building.Yields[building.Type];
 					float effectiveness = BuildingEffectiveness(building);
 
-					Primatives buildingYeild = Building.Yields[building.Type];
+					// tile modifiers
 					if(Building.Modifiers[building.Type].ContainsKey(building.Tile.Type)) {
-						buildingYeild += Building.Modifiers[building.Type][building.Tile.Type];
+						buildingYeild *= (1.0f + Building.Modifiers[building.Type][building.Tile.Type]);
 					}
+
+					// nearby building modifiers
+					foreach(BuildingType nearbyBuildingType in Building.NearbyModifiers[building.Type].Keys) {
+						Primatives nearbyModifier = Building.NearbyModifiers[building.Type][nearbyBuildingType];
+
+						// find all nearby buildings of this type
+						foreach(Building nearbyBuilding in Buildings[nearbyBuildingType]) {
+							Debug.Log("this: " + building.Type + " that: " + nearbyBuilding.Type);
+
+							float distance = Hex.Distance(building.Tile.Position, nearbyBuilding.Tile.Position);
+							Primatives thisBuildingModifier = nearbyModifier / distance;
+							buildingYeild *= (1.0f + thisBuildingModifier);
+							Debug.Log("buildingYeild: " + buildingYeild);
+						}
+					}
+
 					buildingYeild *= effectiveness;
 					result += buildingYeild;
 				}
@@ -144,18 +161,23 @@ namespace Lords {
 		}
 
 		float PopulationNearby(Tile tile) {
-			float population = 0;
+			return PrimativeValueNearby(tile, 
+					new BuildingType[] { BuildingType.Villa, BuildingType.Cottages, BuildingType.Slums }, 
+					PrimativeValues.Housing) * FoodLevel();
+		}
 
-			List<BuildingType> types = new List<BuildingType> { BuildingType.Villa, BuildingType.Cottages, BuildingType.Slums };
+		float PrimativeValueNearby(Tile tile, BuildingType[] types, string field) {
+			float value = 0;
+
 			foreach(BuildingType type in types) {
 				List<Building> buildings = Buildings[type];
 				foreach(Building building in buildings) {
 					float distance = Hex.Distance(tile.Position, building.Tile.Position);
-					population += Building.Yields[building.Type].Housing * FoodLevel() / distance;
+					value += Building.Yields[building.Type][field] / distance;
 				}
 			}
-
-			return population;
+			
+			return value;
 		}
 
 		public void AddBuilding(Building b) {

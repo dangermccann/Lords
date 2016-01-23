@@ -30,5 +30,12 @@ namespace Lords {
 			Hex h2 = new Hex(-2, 1);
 			Assert.AreEqual(3, Hex.Distance(h1, h2));
 		}
+
+		[Test]
+		public void TestDistance2() {
+			Hex h1 = new Hex(0, -1);
+			Hex h2 = new Hex(1, -1);
+			Assert.AreEqual(1, Hex.Distance(h1, h2));
+		}
 	}
 }

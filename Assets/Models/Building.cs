@@ -42,6 +42,31 @@ namespace Lords {
 			{ BuildingType.Workshop, 		new Primatives { Productivity = 20, Health = -5, Entertainment = -5 } },
 		};
 
+		public static Dictionary<BuildingType, Dictionary<BuildingType, Primatives>> NearbyModifiers = new Dictionary<BuildingType, Dictionary<BuildingType, Primatives>> {
+			{ BuildingType.Villa, new Dictionary<BuildingType, Primatives>() },
+			{ BuildingType.Slums, new Dictionary<BuildingType, Primatives>() },
+			{ BuildingType.Cottages, new Dictionary<BuildingType, Primatives>() },
+			{ BuildingType.School, new Dictionary<BuildingType, Primatives>() },
+			{ BuildingType.Vegetable_Farm, new Dictionary<BuildingType, Primatives>() },
+			{ BuildingType.Wheat_Farm, new Dictionary<BuildingType, Primatives>() },
+			{ 
+				BuildingType.Tavern, new Dictionary<BuildingType, Primatives>() {
+					{ BuildingType.Fort, 	new Primatives{ Security = -0.20f } }
+				}
+			},
+			{ BuildingType.Amphitheater, new Dictionary<BuildingType, Primatives>() },
+			{ BuildingType.Trading_Post, new Dictionary<BuildingType, Primatives>() },
+			{ BuildingType.Fort, new Dictionary<BuildingType, Primatives>() },
+			{ BuildingType.Hospital, new Dictionary<BuildingType, Primatives>() },
+			{
+				BuildingType.Garden, new Dictionary<BuildingType, Primatives>() {
+					{ BuildingType.Workshop, 	new Primatives{ Beauty = -0.35f } }
+				}
+			},
+			{ BuildingType.Church, new Dictionary<BuildingType, Primatives>() },
+			{ BuildingType.Workshop, new Dictionary<BuildingType, Primatives>() },
+		};
+
 		public static Dictionary<BuildingType, Dictionary<TileType, Primatives>> Modifiers = new Dictionary<BuildingType, Dictionary<TileType, Primatives>> {
 			{ BuildingType.Villa, new Dictionary<TileType, Primatives>() },
 			{ BuildingType.Slums, new Dictionary<TileType, Primatives>() },
@@ -49,18 +74,18 @@ namespace Lords {
 			{ BuildingType.School, new Dictionary<TileType, Primatives>() },
 			{
 				BuildingType.Vegetable_Farm, new Dictionary<TileType, Primatives>() { 
-					{ TileType.Snow, new Primatives{ Food = -2 } },
-					{ TileType.Sand, new Primatives{ Food = -2 } },
-					{ TileType.Tundra, new Primatives{ Food = -1 } },
-					{ TileType.Marsh, new Primatives{ Food = -2 } },
+					{ TileType.Snow, new Primatives{ Food = -0.15f } },
+					{ TileType.Sand, new Primatives{ Food = -0.15f } },
+					{ TileType.Tundra, new Primatives{ Food = -0.10f } },
+					{ TileType.Marsh, new Primatives{ Food = -0.15f } },
 				}
 			},
 			{
 				BuildingType.Wheat_Farm, new Dictionary<TileType, Primatives>() { 
-					{ TileType.Snow, new Primatives{ Food = -3 } },
-					{ TileType.Sand, new Primatives{ Food = -3 } },
-					{ TileType.Tundra, new Primatives{ Food = -2 } },
-					{ TileType.Marsh, new Primatives{ Food = -3 } },
+					{ TileType.Snow, new Primatives{ Food = -0.15f } },
+					{ TileType.Sand, new Primatives{ Food = -0.15f } },
+					{ TileType.Tundra, new Primatives{ Food = -0.10f } },
+					{ TileType.Marsh, new Primatives{ Food = -0.15f } },
 				}
 			},
 			{ BuildingType.Tavern, new Dictionary<TileType, Primatives>() },
@@ -68,14 +93,14 @@ namespace Lords {
 			{ BuildingType.Trading_Post, new Dictionary<TileType, Primatives>() },
 			{ 
 				BuildingType.Fort, new Dictionary<TileType, Primatives>() {
-					{ TileType.Forest, new Primatives{ Security = 10 } },
-					{ TileType.Sand, new Primatives{ Security = -5 } },
+					{ TileType.Forest, new Primatives{ Security = 0.30f } },
+					{ TileType.Sand, new Primatives{ Security = -0.10f } },
 				}
 			},
 			{ BuildingType.Hospital, new Dictionary<TileType, Primatives>() },
 			{ 
 				BuildingType.Garden, new Dictionary<TileType, Primatives>() {
-					{ TileType.Marsh, new Primatives{ Beauty = -5 } },
+					{ TileType.Marsh, new Primatives{ Beauty = -0.30f } },
 				}
 			},
 			{ BuildingType.Church, new Dictionary<TileType, Primatives>() },
@@ -150,12 +175,14 @@ namespace Lords {
 
 		public Building (Tile tile, BuildingType type) {
 			this.Tile = tile;
+			this.Tile.Building = this;
 			this.Type = type;
 			CreateTime = Time.fixedTime;
 		}
 
-		public void ResetCreateTime() {
+		public Building ResetCreateTime() {
 			CreateTime = -1000;
+			return this;
 		}
 
 

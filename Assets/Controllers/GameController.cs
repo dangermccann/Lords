@@ -114,7 +114,6 @@ public class GameController : MonoBehaviour {
 							}
 
 							Building building = new Building(tile, SelectionController.selection.BuildingType);
-							tile.Building = building;
 							Game.CurrentCity.AddBuilding(building);
 						}
 						else {

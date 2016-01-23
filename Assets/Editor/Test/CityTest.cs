@@ -84,8 +84,6 @@ namespace Lords {
 			expected *= (1.0f + Building.NearbyModifiers[BuildingType.Tavern][BuildingType.Fort]).Security;
 			expected += Building.Yields[BuildingType.Fort].Security * Building.Yields[BuildingType.Villa].Housing / Building.PopulationMinimums[BuildingType.Fort];
 
-			Debug.Log ("expected " + expected);
-			
 			Assert.AreEqual(Building.Yields[BuildingType.Villa].Housing, city.Primatives.Housing);
 			Assert.AreEqual(Building.Yields[BuildingType.Wheat_Farm].Food, city.Primatives.Food);
 			Assert.AreEqual(Building.Yields[BuildingType.Villa].Housing, city.Score.Population);

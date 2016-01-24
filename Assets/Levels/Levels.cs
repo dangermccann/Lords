@@ -9,7 +9,7 @@ namespace Lords {
 			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis pharetra odio a aliquet.",
 			victoryMessage = "You have achieved a satisfactory rating in the eyes of your contemporaries.",
 			victoryConditions = new Aggregates() { 
-				Population = 11000,
+				Population = 1000,
 				Happiness = 5,
 				Prosperity = 5,
 				Culture = 0,

@@ -101,10 +101,10 @@ public class GameController : MonoBehaviour {
 
 		if(clickStarted && Input.GetMouseButtonUp(0)) {
 			Hex hex = Hex.WorldToHex(Camera.main.ScreenToWorldPoint(Input.mousePosition));
-			Debug.Log(String.Format("({0}, {1})", hex.q, hex.r));
 
 			if(Game.CurrentCity.Tiles.ContainsKey(hex)) {
 				Tile tile = Game.CurrentCity.Tiles[hex];
+				Debug.Log(TileDebugMessage(tile));
 
 				if(SelectionController.selection.Operation == Operation.Build) {
 					if(tile.CanBuildOn()) {
@@ -138,7 +138,7 @@ public class GameController : MonoBehaviour {
 				}
 			}
 			else {
-				Debug.Log("Not a tile");
+				Debug.Log(hex + " is not a tile");
 			}
 		}
 	}
@@ -164,6 +164,18 @@ public class GameController : MonoBehaviour {
 			Debug.Log("Auto-saving game");
 			lastSaveTime = Time.time;
 		}
+	}
+
+	private string TileDebugMessage(Tile tile) {
+		string msg = tile.Position.ToString() + " " + tile.Type + "; ";;
+
+		if(tile.Building != null) {
+			msg += tile.Building.Type + "; pop: [" + Game.CurrentCity.PopulationMultiplier(tile.Building) + "]\n";
+			msg += "yield: [" + Game.CurrentCity.EffectiveYield(tile.Building) + "]\n";
+			msg += "tile:  [" + Game.CurrentCity.TileModifier(tile.Building) + "]\n";
+			msg += "near:  [" + Game.CurrentCity.NearbyBuildingModifier(tile.Building) + "]";
+		}
+		return msg;
 	}
 
 	private bool ProcessEasterEggs() {

@@ -48,6 +48,10 @@ namespace Lords {
 			return q.GetHashCode() ^ r.GetHashCode() << 2;
 		}
 
+		public override string ToString () {
+			return String.Format("({0}, {1})", q, r);
+		}
+
 		public static Vector2 CubeToAddQOffset(Vector3 cube) {
 			Vector2 result = new Vector2();
 			result.x = cube.x;

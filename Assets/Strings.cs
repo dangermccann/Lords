@@ -95,11 +95,14 @@ namespace Lords {
 			}
 			else {
 				// TODO: figure out how to add in modifiers
-				float value = city.BuildingEffectiveness(building);
-				return (Mathf.Round(value * 100)) + "% Effective";
+				return FormatBuildingEffectiveness(city.BuildingEffectiveness(building));
 			}
 
 
+		}
+
+		public static string FormatBuildingEffectiveness(float value) {
+			return (Mathf.Round(value * 100)) + "% Effective";
 		}
 
 		public static string CityInventory(City city) {

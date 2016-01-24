@@ -5,6 +5,28 @@ namespace Lords {
 	[TestFixture]
 	public class PrimativesTest {
 		[Test]
+		public void TestConstructorsEndEquals() {
+			Primatives p1 = new Primatives(1.0f);
+			Primatives p2 = new Primatives(1.0f);
+			Primatives p3 = new Primatives(3.0f);
+
+			Assert.AreEqual(p1.Security, 1.0f);
+			Assert.AreEqual(p3.Security, 3.0f);
+			Assert.AreEqual(p1, p2);
+			Assert.AreNotEqual(p1, p3);
+		}
+
+		[Test]
+		public void TestHashCodes() {
+			Primatives p1 = new Primatives(1.0f);
+			Primatives p2 = new Primatives(1.0f);
+			Primatives p3 = new Primatives(3.0f);
+			
+			Assert.AreEqual(p1.GetHashCode(), p2.GetHashCode());
+			Assert.AreNotEqual(p1.GetHashCode(), p3.GetHashCode());
+		}
+
+		[Test]
 		public void TestAddition() {
 			Primatives p1 = new Primatives() {
 				Food = 1, Housing = 1, Productivity = 1,

@@ -39,6 +39,7 @@ namespace Lords {
 			Assert.AreEqual(Building.Yields[BuildingType.Villa].Housing, city.Primatives.Housing);
 			Assert.AreEqual(Building.Yields[BuildingType.Wheat_Farm].Food * modifierValue, city.Primatives.Food);
 			Assert.AreEqual(Building.Yields[BuildingType.Villa].Housing, city.Score.Population);
+			Assert.AreEqual(1.0f + Building.Modifiers[BuildingType.Wheat_Farm][TileType.Snow], city.TileModifier(farm));
 		}
 
 		[Test]
@@ -62,6 +63,7 @@ namespace Lords {
 			Assert.AreEqual(Building.Yields[BuildingType.Wheat_Farm].Food, city.Primatives.Food);
 			Assert.AreEqual(Building.Yields[BuildingType.Villa].Housing, city.Score.Population);
 			Assert.AreEqual(Roundish(Building.Yields[BuildingType.Tavern].Entertainment * modifierValue), Roundish(city.Primatives.Entertainment));
+			Assert.AreEqual(Roundish(modifierValue), Roundish(city.PopulationMultiplier(tavern)));
 		}
 
 		[Test]
@@ -88,6 +90,7 @@ namespace Lords {
 			Assert.AreEqual(Building.Yields[BuildingType.Wheat_Farm].Food, city.Primatives.Food);
 			Assert.AreEqual(Building.Yields[BuildingType.Villa].Housing, city.Score.Population);
 			Assert.AreEqual(Roundish(expected), Roundish(city.Primatives.Security));
+			Assert.AreEqual(Roundish((1.0f + Building.NearbyModifiers[BuildingType.Tavern][BuildingType.Fort]).Security), Roundish(city.NearbyBuildingModifier(tavern).Security));
 		}
 
 		float Roundish(float val) {

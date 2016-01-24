@@ -6,6 +6,18 @@ namespace Lords {
 	[TestFixture]
 	public class HexTest {
 		[Test]
+		public void TestOverrides() {
+			Hex h1 = new Hex(3, 4);
+			Hex h2 = new Hex(3, 4);
+			Hex h3 = new Hex(-3, -4);
+
+			Assert.AreEqual(h1, h2);
+			Assert.AreEqual(h1.GetHashCode(), h2.GetHashCode());
+			Assert.AreNotEqual(h1, h3);
+			Assert.AreNotEqual(h1.GetHashCode(), h3.GetHashCode());
+		}
+
+		[Test]
 		public void TestWorldConversion() {
 			Hex hex = new Hex(3, 4);
 			Assert.AreEqual(hex, Hex.WorldToHex(Hex.HexToWorld(hex)));

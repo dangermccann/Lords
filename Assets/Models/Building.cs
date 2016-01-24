@@ -25,6 +25,23 @@ namespace Lords {
 			BuildingType.Workshop,
 		};
 
+		public static Dictionary<BuildingType, string> PositiveYields = new Dictionary<BuildingType, string> {
+			{ BuildingType.Villa, 			PrimativeValues.Housing },
+			{ BuildingType.Slums, 			PrimativeValues.Housing },
+			{ BuildingType.Cottages, 		PrimativeValues.Housing },
+			{ BuildingType.School, 			PrimativeValues.Housing },
+			{ BuildingType.Vegetable_Farm,	PrimativeValues.Food },
+			{ BuildingType.Wheat_Farm, 		PrimativeValues.Food },
+			{ BuildingType.Tavern, 			PrimativeValues.Entertainment },
+			{ BuildingType.Amphitheater, 	PrimativeValues.Entertainment },
+			{ BuildingType.Trading_Post, 	PrimativeValues.Productivity },
+			{ BuildingType.Fort, 			PrimativeValues.Security },
+			{ BuildingType.Hospital, 		PrimativeValues.Health },
+			{ BuildingType.Garden, 			PrimativeValues.Beauty },
+			{ BuildingType.Church, 			PrimativeValues.Faith },
+			{ BuildingType.Workshop, 		PrimativeValues.Productivity },
+		};
+
 		public static Dictionary<BuildingType, Primatives> Yields = new Dictionary<BuildingType, Primatives> {
 			{ BuildingType.Villa, 			new Primatives { Housing = 20, Literacy = 2 } },
 			{ BuildingType.Slums, 			new Primatives { Housing = 100, Security = -4 } },

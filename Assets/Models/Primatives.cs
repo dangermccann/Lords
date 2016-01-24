@@ -17,6 +17,18 @@ namespace Lords {
 
 		public Primatives() {}
 
+		public Primatives(float initial) {
+			Food = initial;
+			Housing = initial;
+			Productivity = initial;
+			Health = initial;
+			Security = initial;
+			Beauty = initial;
+			Faith = initial;
+			Entertainment = initial;
+			Literacy = initial;
+		}
+
 		static string[] properties;
 		static Primatives() {
 			// cache properties by name so we can access them dynamically 
@@ -121,6 +133,42 @@ namespace Lords {
 			get { 
 				return (float) this.GetType().GetProperty(prop).GetValue(this, null); 
 			}
+		}
+
+		public override bool Equals(System.Object obj) {
+			// If parameter cannot be cast to Primatives return false
+			Primatives p = obj as Primatives;
+			if ((object)p == null) {
+				return false;
+			}
+
+			return _Equals(p);
+		}
+
+		bool _Equals(Primatives p) {
+			return  p.Food == Food && 
+					p.Housing == Housing &&
+					p.Productivity == Productivity &&
+					p.Health == Health &&
+					p.Security == Security &&
+					p.Beauty == Beauty &&
+					p.Faith == Faith &&
+					p.Entertainment == Entertainment &&
+					p.Literacy == Literacy;
+		}
+
+		public override int GetHashCode() {
+			int hash = 13;
+			hash = (hash * 7) + Food.GetHashCode();
+			hash = (hash * 7) + Housing.GetHashCode();
+			hash = (hash * 7) + Productivity.GetHashCode();
+			hash = (hash * 7) + Health.GetHashCode();
+			hash = (hash * 7) + Security.GetHashCode();
+			hash = (hash * 7) + Beauty.GetHashCode();
+			hash = (hash * 7) + Faith.GetHashCode();
+			hash = (hash * 7) + Entertainment.GetHashCode();
+			hash = (hash * 7) + Literacy.GetHashCode();
+			return hash;
 		}
 	}
 

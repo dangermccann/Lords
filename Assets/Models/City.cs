@@ -62,45 +62,70 @@ namespace Lords {
 			Primatives result = new Primatives();
 			foreach(List<Building> buildings in Buildings.Values) {
 				foreach(Building building in buildings) {
-					Primatives buildingYeild = Building.Yields[building.Type];
-					float effectiveness = BuildingEffectiveness(building);
-
-					// tile modifiers
-					if(Building.Modifiers[building.Type].ContainsKey(building.Tile.Type)) {
-						buildingYeild *= (1.0f + Building.Modifiers[building.Type][building.Tile.Type]);
-					}
-
-					// nearby building modifiers
-					foreach(BuildingType nearbyBuildingType in Building.NearbyModifiers[building.Type].Keys) {
-						Primatives nearbyModifier = Building.NearbyModifiers[building.Type][nearbyBuildingType];
-
-						// find all nearby buildings of this type
-						foreach(Building nearbyBuilding in Buildings[nearbyBuildingType]) {
-							float distance = Hex.Distance(building.Tile.Position, nearbyBuilding.Tile.Position);
-							Primatives thisBuildingModifier = nearbyModifier / distance;
-							buildingYeild *= (1.0f + thisBuildingModifier);
-						}
-					}
-
-					buildingYeild *= effectiveness;
-					result += buildingYeild;
+					result += EffectiveYield(building);
 				}
 			}
 
 			Primatives = result;
 		}
 
-		public float BuildingEffectiveness(Building building) {
+		public Primatives EffectiveYield(Building building) {
+			Primatives buildingYeild = Building.Yields[building.Type];
+			
+			buildingYeild *= TimeMultiplier(building);
+			buildingYeild *= PopulationMultiplier(building);
+			buildingYeild *= TileModifier(building);
+			buildingYeild *= NearbyBuildingModifier(building);
+			return buildingYeild;
+		}
+
+		public float TimeMultiplier(Building building) {
+			return Math.Min(1, (Time.fixedTime - building.CreateTime) / Building.BUILD_TIME);
+		}
+		
+		public float PopulationMultiplier(Building building) {
 			float popFactor = 1.0f;
 			float minimumPop = Building.PopulationMinimums[building.Type];
 			if(minimumPop > 0) {
 				popFactor = Math.Min(1, PopulationNearby(building.Tile) / minimumPop);
 			}
-			
-			float timeFactor = Math.Min(1, (Time.fixedTime - building.CreateTime) / Building.BUILD_TIME);
-			return popFactor * timeFactor;
+			return popFactor;
 		}
-		
+
+		public Primatives TileModifier(Building building) {
+			if(Building.Modifiers[building.Type].ContainsKey(building.Tile.Type)) {
+				return (1.0f + Building.Modifiers[building.Type][building.Tile.Type]);
+			}
+			return new Primatives(1.0f);
+		}
+
+		public Primatives NearbyBuildingModifier(Building building) {
+			Primatives modifier = new Primatives(1.0f);
+			foreach(BuildingType nearbyBuildingType in Building.NearbyModifiers[building.Type].Keys) {
+				Primatives nearbyModifier = Building.NearbyModifiers[building.Type][nearbyBuildingType];
+				
+				// find all nearby buildings of this type
+				foreach(Building nearbyBuilding in Buildings[nearbyBuildingType]) {
+					float distance = Hex.Distance(building.Tile.Position, nearbyBuilding.Tile.Position);
+					Primatives thisBuildingModifier = nearbyModifier / distance;
+					modifier *= (1.0f + thisBuildingModifier);
+				}
+			}
+
+			return modifier;
+		}
+
+		public float BuildingEffectiveness(Building building) {
+			float effectiveness = 1.0f;
+			string positiveYield = Building.PositiveYields[building.Type];
+
+			effectiveness *= TimeMultiplier(building) * PopulationMultiplier(building);
+			effectiveness *= TileModifier(building)[positiveYield];
+			effectiveness *= NearbyBuildingModifier(building)[positiveYield];
+
+			return effectiveness;
+		}
+
 		public void UpdateScore() {
 			Score.Population = Math.Min(Primatives.Housing, Primatives.Food * Building.FARM_OUTPUT);
 			Score.Happiness = Primatives.Entertainment + Primatives.Health + Primatives.Security;

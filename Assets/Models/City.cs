@@ -106,9 +106,11 @@ namespace Lords {
 				
 				// find all nearby buildings of this type
 				foreach(Building nearbyBuilding in Buildings[nearbyBuildingType]) {
-					float distance = Hex.Distance(building.Tile.Position, nearbyBuilding.Tile.Position);
-					Primatives thisBuildingModifier = nearbyModifier / distance;
-					modifier *= (1.0f + thisBuildingModifier);
+					if(nearbyBuilding != building) {
+						float distance = Hex.Distance(building.Tile.Position, nearbyBuilding.Tile.Position);
+						Primatives thisBuildingModifier = nearbyModifier / distance;
+						modifier *= (1.0f + thisBuildingModifier);
+					}
 				}
 			}
 

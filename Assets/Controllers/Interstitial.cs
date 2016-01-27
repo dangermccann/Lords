@@ -53,6 +53,13 @@ namespace Lords {
 			StopAllCoroutines();
 		}
 
+		void Update () {
+			// Let user skip to end by speeding up time when we detect a click
+			if (Input.GetMouseButtonDown(0)) {
+				Time.timeScale = 100;
+			}
+		}
+
 		// NOTE: Time.timeScale has to be 1 for WaitForSeconds to work correctly. 
 		IEnumerator FadeIn() {
 			if(current == -1) { 
@@ -64,7 +71,7 @@ namespace Lords {
 			while(current < items.Count) {
 				if(items[current].alpha < 1) {
 					//Debug.Log("item " + items[current].alpha);
-					items[current].alpha += Time.unscaledDeltaTime * fadeSpeed;
+					items[current].alpha += Time.deltaTime * fadeSpeed;
 				}
 				else {
 					items[current].interactable = false;
@@ -77,6 +84,7 @@ namespace Lords {
 			}
 
 			continueButton.GetComponent<CanvasGroup>().ignoreParentGroups = true;
+			Time.timeScale = 1;
 		}
 	}
 }

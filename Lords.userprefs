@@ -1,29 +1,35 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\UI\Corner.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestComponent.cs">
     <Files>
-      <File FileName="Assets\Controllers\Home.cs" Line="22" Column="4" />
-      <File FileName="Assets\Game.cs" Line="30" Column="18" />
-      <File FileName="Assets\Models\Hex.cs" Line="126" Column="1" />
-      <File FileName="Assets\Controllers\GameController.cs" Line="64" Column="41" />
-      <File FileName="Assets\Controllers\GameAssets.cs" Line="97" Column="4" />
-      <File FileName="Assets\Models\City.cs" Line="58" Column="5" />
-      <File FileName="Assets\UI\SceneTransition.cs" Line="21" Column="18" />
-      <File FileName="Assets\Levels\Levels.cs" Line="34" Column="32" />
-      <File FileName="Assets\Maps\Maps.cs" Line="26" Column="15" />
-      <File FileName="Assets\UI\MapNavigator.cs" Line="23" Column="30" />
-      <File FileName="Assets\UI\Corner.cs" Line="30" Column="10" />
+      <File FileName="Assets\UI\Corner.cs" Line="79" Column="30" />
+      <File FileName="Assets\Controllers\GameController.cs" Line="176" Column="85" />
+      <File FileName="Assets\Models\City.cs" Line="111" Column="67" />
+      <File FileName="Assets\Levels\Levels.cs" Line="15" Column="17" />
+      <File FileName="Assets\Maps\Maps.cs" Line="50" Column="20" />
+      <File FileName="Assets\Controllers\CameraControl.cs" Line="34" Column="4" />
+      <File FileName="Assets\Models\Building.cs" Line="21" Column="22" />
+      <File FileName="Assets\UI\VictoryOverlay.cs" Line="22" Column="39" />
+      <File FileName="Assets\UI\SceneTransition.cs" Line="29" Column="27" />
+      <File FileName="Assets\UI\MapNavigator.cs" Line="28" Column="4" />
+      <File FileName="Assets\Editor\Test\HexTest.cs" Line="24" Column="4" />
+      <File FileName="Assets\Models\Tile.cs" Line="1" Column="1" />
+      <File FileName="Assets\Models\Primatives.cs" Line="52" Column="4" />
+      <File FileName="Assets\Models\Hex.cs" Line="53" Column="4" />
+      <File FileName="Assets\Strings.cs" Line="104" Column="17" />
+      <File FileName="Assets\Controllers\Interstitial.cs" Line="48" Column="29" />
+      <File FileName="Assets\UnityTestTools\IntegrationTestsFramework\TestRunner\TestComponent.cs" Line="267" Column="55" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Controllers" expanded="True" />
-            <Node name="Levels" expanded="True" />
-            <Node name="Maps" expanded="True" />
-            <Node name="Models" expanded="True" />
-            <Node name="UI" expanded="True">
-              <Node name="Corner.cs" selected="True" />
+            <Node name="UnityTestTools" expanded="True">
+              <Node name="IntegrationTestsFramework" expanded="True">
+                <Node name="TestRunner" expanded="True">
+                  <Node name="TestComponent.cs" selected="True" />
+                </Node>
+              </Node>
             </Node>
           </Node>
         </State>

@@ -1,0 +1,191 @@
+Initialize engine version: 4.7.0f1 (9c73fd3cda99)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 9.0c [nvd3dumx.dll 9.18.13.1106]
+    Renderer: NVIDIA GeForce GTX 260 
+    Vendor:   NVIDIA
+    VRAM:     1763 MB (via DXGI)
+    Caps:     Shader=30 DepthRT=1 NativeDepth=1 NativeShadow=1 DF16=0 INTZ=1 RAWZ=0 NULL=1 RESZ=0 SlowINTZ=0
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\John McCann\Documents\Lords\Output\Lords_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\John McCann\Documents\Lords\Output\Lords_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\John McCann\Documents\Lords\Output\Lords_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\John McCann\Documents\Lords\Output\Lords_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\John McCann\Documents\Lords\Output\Lords_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\John McCann\Documents\Lords\Output\Lords_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.168 seconds
+desktop: 1920x1080 60Hz; virtual: 3840x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\John McCann\Documents\Lords\Output\Lords_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\John McCann\Documents\Lords\Output\Lords_Data\Managed\System.dll (this message is harmless)
+(0.0, 0.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+min: (-582.0, -217.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+rect: (x:0.00, y:0.00, width:1280.00, height:720.00)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Top edge: (-217.1, -217.1, 0.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+UnloadTime: 6.646238 ms
+Unloading 5 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 358.
+Total: 0.962765 ms (FindLiveObjects: 0.017598 ms CreateObjectMapping: 0.013931 ms MarkObjects: 0.188446 ms  DeleteObjects: 0.016864 ms)
+
+level loaded 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+level loaded 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+clicked Port Henry
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+UnloadTime: 1.209873 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 23 unused Assets to reduce memory usage. Loaded Objects now: 383.
+Total: 1.493277 ms (FindLiveObjects: 0.020897 ms CreateObjectMapping: 0.021631 ms MarkObjects: 0.416856 ms  DeleteObjects: 0.046928 ms)
+
+level loaded 3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Starting interstitial
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Interstitial initial delay. current=0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Interstitial increment 1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Interstitial increment 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Interstitial increment 3
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Interstitial increment 4
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Interstitial increment 5
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Interstitial destroy
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+UnloadTime: 1.584200 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 30 unused Assets to reduce memory usage. Loaded Objects now: 599.
+Total: 1.392820 ms (FindLiveObjects: 0.023097 ms CreateObjectMapping: 0.015765 ms MarkObjects: 0.684495 ms  DeleteObjects: 0.037029 ms)
+
+level loaded 1
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Loading C:/Users/John McCann/AppData/LocalLow/BottlenoseBits/Lords/save.lm
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+file exists
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+successfully loaded game
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Found saved version of Port Henry
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+(-1, 2) Dirt; 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+(0, 1) Sand; 
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Background
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Trying to save game
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+Loading C:/Users/John McCann/AppData/LocalLow/BottlenoseBits/Lords/save.lm
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+file exists
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+successfully loaded game
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+successfully saved game
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+UnloadTime: 6.180620 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 78 unused Assets to reduce memory usage. Loaded Objects now: 445.
+Total: 1.687223 ms (FindLiveObjects: 0.023830 ms CreateObjectMapping: 0.020897 ms MarkObjects: 0.746455 ms  DeleteObjects: 0.093123 ms)
+
+level loaded 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+level loaded 2
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+UnloadTime: 0.902272 ms
+Unloading 2 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 27 unused Assets to reduce memory usage. Loaded Objects now: 386.
+Total: 2.187304 ms (FindLiveObjects: 0.021264 ms CreateObjectMapping: 0.022730 ms MarkObjects: 0.978530 ms  DeleteObjects: 0.039229 ms)
+
+level loaded 0
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+(0.0, 0.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+min: (-582.0, -217.0)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+
+rect: (x:0.00, y:0.00, width:1280.00, height:720.00)
+ 
+(Filename: C:/buildslave/unity/build/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 56)
+

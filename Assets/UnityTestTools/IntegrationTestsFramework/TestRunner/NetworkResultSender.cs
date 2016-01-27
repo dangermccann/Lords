@@ -1,5 +1,5 @@
 #if !UNITY_METRO && (UNITY_PRO_LICENSE || !(UNITY_ANDROID || UNITY_IPHONE))
-#define UTT_SOCKETS_SUPPORTED
+//#define UTT_SOCKETS_SUPPORTED
 #endif
 using System;
 using System.Collections.Generic;

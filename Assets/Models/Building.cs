@@ -43,7 +43,7 @@ namespace Lords {
 		};
 
 		public static Dictionary<BuildingType, Primatives> Yields = new Dictionary<BuildingType, Primatives> {
-			{ BuildingType.Villa, 			new Primatives { Housing = 20, Literacy = 2 } },
+			{ BuildingType.Villa, 			new Primatives { Housing = 20, Literacy = 2, Beauty = 1 } },
 			{ BuildingType.Slums, 			new Primatives { Housing = 100, Security = -4 } },
 			{ BuildingType.Cottages, 		new Primatives { Housing = 45, Security = -2 } },
 			{ BuildingType.School, 			new Primatives { Literacy = 30, Entertainment = -4 } },
@@ -60,28 +60,95 @@ namespace Lords {
 		};
 
 		public static Dictionary<BuildingType, Dictionary<BuildingType, Primatives>> NearbyModifiers = new Dictionary<BuildingType, Dictionary<BuildingType, Primatives>> {
-			{ BuildingType.Villa, new Dictionary<BuildingType, Primatives>() },
-			{ BuildingType.Slums, new Dictionary<BuildingType, Primatives>() },
-			{ BuildingType.Cottages, new Dictionary<BuildingType, Primatives>() },
-			{ BuildingType.School, new Dictionary<BuildingType, Primatives>() },
-			{ BuildingType.Vegetable_Farm, new Dictionary<BuildingType, Primatives>() },
-			{ BuildingType.Wheat_Farm, new Dictionary<BuildingType, Primatives>() },
 			{ 
-				BuildingType.Tavern, new Dictionary<BuildingType, Primatives>() {
-					{ BuildingType.Fort, 	new Primatives{ Security = -0.20f } }
+				BuildingType.Villa, new Dictionary<BuildingType, Primatives>() {
+					// Villas grouped together add to the city's Beauty score
+					{ BuildingType.Villa, 	new Primatives{ Beauty = 0.05f } }
 				}
 			},
-			{ BuildingType.Amphitheater, new Dictionary<BuildingType, Primatives>() },
-			{ BuildingType.Trading_Post, new Dictionary<BuildingType, Primatives>() },
-			{ BuildingType.Fort, new Dictionary<BuildingType, Primatives>() },
-			{ BuildingType.Hospital, new Dictionary<BuildingType, Primatives>() },
+			{ 
+				BuildingType.Slums, new Dictionary<BuildingType, Primatives>() {
+					// Slums grouped together increase the negative Security effect
+					{ BuildingType.Slums, 	new Primatives{ Security = 0.05f } }
+				}
+			},
+			{ BuildingType.Cottages, new Dictionary<BuildingType, Primatives>() },
+			{ BuildingType.School, new Dictionary<BuildingType, Primatives>() },
+			{ 
+				BuildingType.Vegetable_Farm, new Dictionary<BuildingType, Primatives>() {
+					// Farms grouped together are more effective - 5% higher Food yield per nearby farm
+					{ BuildingType.Vegetable_Farm, 	new Primatives{ Food = 0.05f } }
+				}
+			},
+			{ 
+				BuildingType.Wheat_Farm, new Dictionary<BuildingType, Primatives>() {
+					// Farms grouped together are more effective - 5% higher Food yield per nearby farm
+					{ BuildingType.Wheat_Farm, 	new Primatives{ Food = 0.05f } }
+				}
+			},
+			{ 
+				BuildingType.Tavern, new Dictionary<BuildingType, Primatives>() {
+					// Nearby forts reduce a tavern's negative Security yield
+					{ BuildingType.Fort, 	new Primatives{ Security = -0.20f } },
+
+					// Don't work well when grouped together
+					{ BuildingType.Tavern, 	new Primatives{ Entertainment = -0.30f } }
+				}
+			},
+			{ 
+				BuildingType.Amphitheater, new Dictionary<BuildingType, Primatives>() {
+					// Amphitheaters with nearby tavers yield higher Entertainment value
+					{ BuildingType.Tavern, 	new Primatives{ Entertainment = 0.20f } },
+
+					// Don't work well when grouped together
+					{ BuildingType.Amphitheater, 	new Primatives{ Entertainment = -0.30f } }
+				}
+			},
+			{ 
+				BuildingType.Trading_Post, new Dictionary<BuildingType, Primatives>() {
+					// Trading posts work better with a nearby workshop
+					{ BuildingType.Workshop, 	new Primatives{ Productivity = 0.20f } },
+
+					// Don't work well when grouped together
+					{ BuildingType.Trading_Post, 	new Primatives{ Productivity = -0.30f } }
+				}
+			},
+			{ 
+				BuildingType.Fort, new Dictionary<BuildingType, Primatives>() {
+					// Don't work well when grouped together
+					{ BuildingType.Fort, 	new Primatives{ Security = -0.30f } }
+				}
+			},
+			{ 
+				BuildingType.Hospital, new Dictionary<BuildingType, Primatives>() {
+					// Don't work well when grouped together
+					{ BuildingType.Hospital, 	new Primatives{ Health = -0.30f } }
+				}
+			},
 			{
 				BuildingType.Garden, new Dictionary<BuildingType, Primatives>() {
+					// Nearby workshops reduce a garden's Beauty yield
 					{ BuildingType.Workshop, 	new Primatives{ Beauty = -0.35f } }
 				}
 			},
-			{ BuildingType.Church, new Dictionary<BuildingType, Primatives>() },
-			{ BuildingType.Workshop, new Dictionary<BuildingType, Primatives>() },
+			{ 
+				BuildingType.Church, new Dictionary<BuildingType, Primatives>() {
+					// Churches are more effective with a garden nearby
+					{ BuildingType.Garden, 	new Primatives{ Faith = 0.20f } },
+
+					// Don't work well when grouped together
+					{ BuildingType.Church, 	new Primatives{ Faith = -0.30f } }
+				}
+			},
+			{ 
+				BuildingType.Workshop, new Dictionary<BuildingType, Primatives>() {
+					// Workshop's negative Health yield is offset by nearby hospital
+					{ BuildingType.Hospital, 	new Primatives{ Health = -0.35f } },
+
+					// Don't work well when grouped together
+					{ BuildingType.Workshop, 	new Primatives{ Productivity = -0.30f } }
+				}
+			},
 		};
 
 		public static Dictionary<BuildingType, Dictionary<TileType, Primatives>> Modifiers = new Dictionary<BuildingType, Dictionary<TileType, Primatives>> {

@@ -52,6 +52,7 @@
      <Compile Include="Assets\Controllers\Home.cs" />
      <Compile Include="Assets\Controllers\HoverControl.cs" />
      <Compile Include="Assets\Controllers\Interstitial.cs" />
+     <Compile Include="Assets\Controllers\MusicController.cs" />
      <Compile Include="Assets\Controllers\SelectionController.cs" />
      <Compile Include="Assets\Game.cs" />
      <Compile Include="Assets\Levels\Level.cs" />

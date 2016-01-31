@@ -31,6 +31,66 @@ namespace Lords {
 			{ TileType.Forest, 		String.Format("{0} :security: from Forts", ColorizeYield(2)) },
 		};
 
+		static Dictionary<BuildingType, string> buildingHelp = new Dictionary<BuildingType, string>() {
+			{ BuildingType.Villa, 			"Although Villas provide less :housing: Housing than Slums or Cottages, " +
+											"they don't suffer from the negative :security: Security output of those building types. \n\n" +
+											"Villas output a small amount of \n" +
+											":literacy: Literacy and :beauty: Beauty, and placing multiple Villas nearby increases the \n:beauty: Beauty output by 5% per building." },
+
+			{ BuildingType.Slums, 			"Slums provide more :housing: Housing than any other building type, but they also substantially reduce the " +
+											"city's \n:security: Security.\n\n" +
+											"Placing multiple Slums near each other increases the negative :security: Security " +
+											"output by 5% per building." },
+
+			{ BuildingType.Cottages, 		"Cottages provide a good balance between :housing: Housing and :security: Security.  Unlike Slums, " +
+											"Cottages do not increase the negative :security: Security output when there are others nearby." },
+
+			{ BuildingType.School, 			"Schools increase the city's :literacy: Literacy output, which is important for improving the " +
+											"city's Prosperity score.\n\n" +
+											"Placing multiple schools near each other will reduce thier :literacy: Literacy output.\n\n" +
+											"Schools work well on all tile types." },
+
+			{ BuildingType.Vegetable_Farm,	"Vegetable Farms output :food: Food, which is necessary for increasing a city's Population.\n\n" +
+											"Placing multiple Vegetable Farms nearby increases their :food: Food output by 15%.\n\n" +
+											"Vegetable Farms output less :food: Food on Snow, Sand, Tundra and Marsh." },
+
+			{ BuildingType.Wheat_Farm, 		"Wheat Farms output :food: Food, which is necessary for increasing a city's Population.\n\n" +
+											"Placing multiple Wheat Farms nearby increases their :food: Food output by 15%.\n\n" +
+											"Wheat Farms output less :food: Food on Snow, Sand, Tundra and Marsh." },
+
+			{ BuildingType.Tavern, 			"Taverns increase a city's \n:entertainment: Entertainment, an important component of its Happiness score.\n\n" +
+											"Nearby Forts will reduce the Tavern's negative :security: Security output.\n\n" +
+											"Placing multiple Taverns near each other reduces their effectiveness." },
+
+			{ BuildingType.Amphitheater, 	"The Amphitheater outputs more \n:entertainment: Entertainment than the Tavern, but also reduces " +
+											"the city's :productivity: Productivity.\n\n" +
+											"Nearby Taverns increase the Amphitheater's effectiveness, increasing its :entertainment: " +
+											"Entertainment output by 20%.\n\n" +
+											"Amphitheaters with others nearby are less effective." },
+
+			{ BuildingType.Trading_Post, 	"The Trading Post improves the city's \n:productivity: Productivity output, at the expense of :beauty: Beauty.\n\n" +
+											"Nearby Workshops increase the Trading Post's effectiveness by 20%.\n\n" +
+											"Trading Posts with others nearby are less effective." },
+
+			{ BuildingType.Fort, 			"Forts provide :security: Security to the city.\n\n" +
+											"When placed on Forest tiles, they are 30% more effective.  Sand tiles reduce their effectiveness by 10%.\n\n" +
+											"Forts are less effective if other Forts are nearby." },
+
+			{ BuildingType.Hospital, 		"The Hospital is the only building that increases the city's :health: Health output, a component of the city's Happiness score.\n\n" +
+											"Hospitals work equally well on any tile, but are less effective if other Hospitals are nearby." },
+
+			{ BuildingType.Garden, 			"Gardens improve the city's :beauty: Beauty, thereby promoting the Culture score of the city.\n\n" +
+											"They are 35% less effective if a Workshop is nearby, and 30% less effective if built on Marsh tiles." },
+
+			{ BuildingType.Church, 			"Chrches promote a city's :faith: Faith output, which adds to the Culture score of the city.\n\n" +
+											"They are 20% more effective with a Garden nearby, and 30% less effective with another Church nearby." },
+
+			{ BuildingType.Workshop, 		"The Workshop yields the same \n:productivity: Productivity output as the Trading Post, but has different " +
+											"negative side effects.\n\n" +
+											"A nearby Hospital reduces the negative :health: Health output by 35%, and other Workshops nearby reduce \n" +
+											":productivity: Productivity output by 30%." },
+		};
+
 		public static string BuildingTitle(BuildingType type) {
 			return type.ToString().Replace('_', ' ');
 		}
@@ -51,7 +111,11 @@ namespace Lords {
 			return FormatPrimative(Building.Yields[type]);
 		}
 
-		public static string FormatPrimative(Primatives p) {
+		public static string BuildingYieldLong(BuildingType type) {
+			return FormatPrimative(Building.Yields[type], true, "\n");
+		}
+
+		public static string FormatPrimative(Primatives p, bool longNames = false, string delimiter = "  ") {
 			// Build a list of all non-zero yields so we can sort them
 			List<KeyValuePair<string, float>> yields = new List<KeyValuePair<string, float>>();
 			foreach(string property in Primatives.Properties()) {
@@ -69,7 +133,10 @@ namespace Lords {
 			// build the result string using the sorted, non-zero yield values
 			string result = "";
 			foreach(KeyValuePair<string, float> pair in yields) {
-				result += Delimt(result) + ColorizeYield(pair.Value) + " " + YieldIcon(pair.Key);
+				result += Delimt(result, delimiter) + ColorizeYield(pair.Value) + " " + YieldIcon(pair.Key);
+				if(longNames) {
+					result += " " + pair.Key;
+				}
 			}
 
 			return result;
@@ -99,6 +166,10 @@ namespace Lords {
 			}
 
 
+		}
+
+		public static string BuildingHelp(BuildingType type){
+			return buildingHelp[type];
 		}
 
 		public static string FormatBuildingEffectiveness(float value) {
@@ -161,9 +232,9 @@ namespace Lords {
 			}
 		}
 
-		static string Delimt(string str) {
+		static string Delimt(string str, string delimiter) {
 			if(str.Length > 0) {
-				return "  ";
+				return delimiter;
 			}
 			return "";
 		}

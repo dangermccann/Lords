@@ -141,6 +141,20 @@ public class GameController : MonoBehaviour {
 				Debug.Log(hex + " is not a tile");
 			}
 		}
+
+		// Right-click for help
+		if(Input.GetMouseButtonDown(1)) {
+			Hex hex = Hex.WorldToHex(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+			
+			if(Game.CurrentCity.Tiles.ContainsKey(hex)) {
+				Tile tile = Game.CurrentCity.Tiles[hex];
+				if(tile.Building != null) {
+					HelpOverlay overlay = GameObject.Find("HelpOverlay").GetComponent<HelpOverlay>();
+					overlay.SelectedBuildingType = tile.Building.Type;
+					overlay.FadeIn();
+				}
+			}
+		}
 	}
 
 	void FixedUpdate() {

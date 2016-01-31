@@ -51,7 +51,7 @@ namespace Lords {
 			{ BuildingType.Wheat_Farm, 		new Primatives { Food = 10, Literacy = -5 } },
 			{ BuildingType.Tavern, 			new Primatives { Entertainment = 10, Security = -5 } },
 			{ BuildingType.Amphitheater, 	new Primatives { Entertainment = 20, Productivity = -10 } },
-			{ BuildingType.Trading_Post, 	new Primatives { Productivity = 20, Beauty = -10 } },
+			{ BuildingType.Trading_Post, 	new Primatives { Productivity = 20, Beauty = -12 } },
 			{ BuildingType.Fort, 			new Primatives { Security = 20, Beauty = -8 } },
 			{ BuildingType.Hospital, 		new Primatives { Health = 30, Faith = -10 } },
 			{ BuildingType.Garden, 			new Primatives { Beauty = 15, Productivity = -5 } },

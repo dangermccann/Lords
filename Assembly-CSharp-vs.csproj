@@ -177,6 +177,7 @@
      <Compile Include="Assets\UI\Corner.cs" />
      <Compile Include="Assets\UI\Dialog.cs" />
      <Compile Include="Assets\UI\DialogShade.cs" />
+     <Compile Include="Assets\UI\HelpOverlay.cs" />
      <Compile Include="Assets\UI\InventoryLabel.cs" />
      <Compile Include="Assets\UI\MapNavigator.cs" />
      <Compile Include="Assets\UI\MenuBar.cs" />

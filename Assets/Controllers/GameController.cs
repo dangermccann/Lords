@@ -82,6 +82,12 @@ public class GameController : MonoBehaviour {
 			}
 		}
 
+		if(Input.GetKey(KeyCode.F1)) {
+			if(Dialog.current == null) {
+				HelpOverlay.Show(BuildingType.Villa);
+			}
+		}
+
 		if(ProcessEasterEggs()) {
 			return;
 		}
@@ -149,9 +155,7 @@ public class GameController : MonoBehaviour {
 			if(Game.CurrentCity.Tiles.ContainsKey(hex)) {
 				Tile tile = Game.CurrentCity.Tiles[hex];
 				if(tile.Building != null) {
-					HelpOverlay overlay = GameObject.Find("HelpOverlay").GetComponent<HelpOverlay>();
-					overlay.SelectedBuildingType = tile.Building.Type;
-					overlay.FadeIn();
+					HelpOverlay.Show(tile.Building.Type);
 				}
 			}
 		}

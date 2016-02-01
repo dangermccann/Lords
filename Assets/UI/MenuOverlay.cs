@@ -12,8 +12,8 @@ namespace Lords {
 			Game.Save();
 		}
 
-		public override void FadeOut() {
-			base.FadeOut();
+		public override void FadeOut(bool dismissShade = true) {
+			base.FadeOut(dismissShade);
 			Game.Resume();
 		}
 

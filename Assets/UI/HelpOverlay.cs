@@ -17,6 +17,12 @@ namespace Lords {
 			}
 		}
 
+		public static void Show(BuildingType type) {
+			HelpOverlay overlay = GameObject.Find("HelpOverlay").GetComponent<HelpOverlay>();
+			overlay.SelectedBuildingType = type;
+			overlay.FadeIn();
+		}
+
 		protected override void Start() {
 			base.Start();
 			list = this.transform.FindChild("Content/Grid").gameObject;
@@ -30,7 +36,6 @@ namespace Lords {
 		public override void FadeIn() {
 			base.FadeIn();
 		}
-
 
 		void Redraw() {
 			foreach (Transform child in list.transform) {

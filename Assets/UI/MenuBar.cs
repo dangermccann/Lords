@@ -11,6 +11,9 @@ namespace Lords {
 			}
 
 			Game.LevelLoaded += LevelLoaded;
+
+			GameObject menu = transform.FindChild("Container/Menu").gameObject;
+			EventDelegate.Add(menu.GetComponent<UIButton>().onClick, OnMenuClick);
 		}
 
 		void OnDestroy() {
@@ -22,7 +25,7 @@ namespace Lords {
 			cityName.text = level.name;
 		}
 
-		public void OnClick() {
+		public void OnMenuClick() {
 			Debug.Log(UICamera.hoveredObject.name);
 			menuOverlay.GetComponent<MenuOverlay>().FadeIn();
 		}

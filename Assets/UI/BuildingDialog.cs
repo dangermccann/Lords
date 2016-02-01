@@ -42,15 +42,21 @@ namespace Lords {
 
 		}
 
-		public override void FadeOut() {
+		public override void FadeOut(bool dismissShade = true) {
 			SelectionController.Changed();
-			base.FadeOut();
+			base.FadeOut(dismissShade);
 		}
 
 		void OnClick(BuildingType type) {
-			SelectionController.selection.BuildingType = type;
-			SelectionController.selection.Operation = Operation.Build;
-			FadeOut();
+			if(UICamera.currentTouchID == -1) {
+				SelectionController.selection.BuildingType = type;
+				SelectionController.selection.Operation = Operation.Build;
+				FadeOut();
+			}
+			else if(UICamera.currentTouchID == -2) {
+				FadeOut(false);
+				HelpOverlay.Show(type);
+			}
 		}
 
 		void FixedUpdate() {

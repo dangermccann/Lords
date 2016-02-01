@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Dialog : MonoBehaviour {
@@ -10,6 +11,7 @@ public class Dialog : MonoBehaviour {
 	UIPanel thisPanel, shadePanel;
 
 	public static Dialog current;
+	public Stack<Dialog> stack = new Stack<Dialog>();
 
 	protected virtual void Start() {
 		current = null;
@@ -39,10 +41,14 @@ public class Dialog : MonoBehaviour {
 		return true;
 	}
 
-	public virtual void FadeOut() {
+	public void Close() {
+		FadeOut();
+	}
+
+	public virtual void FadeOut(bool dismissShade = true) {
 		StartCoroutine(FadeGroupOut(thisPanel));
 		
-		if(shadePanel != null) {
+		if(dismissShade && shadePanel != null) {
 			StartCoroutine(FadeGroupOut(shadePanel));
 		}
 

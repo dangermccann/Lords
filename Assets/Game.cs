@@ -37,16 +37,12 @@ namespace Lords {
 		}
 
 		public static SavedGame Load() {
-			Debug.Log("Loading " + SaveLocation());
-
 			if(File.Exists(SaveLocation())) {
-				Debug.Log("file exists");
-
 				BinaryFormatter bf = new BinaryFormatter();
 				FileStream file = File.Open(SaveLocation(), FileMode.Open);
 				try {
 					SavedGame saved = (SavedGame) bf.Deserialize(file);
-					Debug.Log("successfully loaded game");
+					Debug.Log("Loaded " + SaveLocation());
 					return saved;
 				}
 				catch(IOException ioe) {
@@ -55,6 +51,9 @@ namespace Lords {
 				finally {
 					file.Close();
 				}
+			}
+			else {
+				Debug.Log("File not found: " + SaveLocation());
 			}
 			return null;
 		}
@@ -71,8 +70,6 @@ namespace Lords {
 		}
 
 		static void Persist(SavedGame saved) {
-			Debug.Log("Trying to save game");
-
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Create(SaveLocation());
 			

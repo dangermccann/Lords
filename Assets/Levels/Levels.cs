@@ -19,6 +19,7 @@ namespace Lords {
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(200, 150),
 			illustration = LevelIllustration.House,
+			maxElapsedTime = 2 * 365 / Game.GameSpeed,
 		};
 
 		public static Level PortHenry = new Level() {
@@ -36,6 +37,7 @@ namespace Lords {
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(216, 225),
 			illustration = LevelIllustration.Fish,
+			maxElapsedTime = 4 * 365 / Game.GameSpeed,
 		};
 
 		public static Level Lewes = new Level() {
@@ -53,6 +55,7 @@ namespace Lords {
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(369, 227),
 			illustration = LevelIllustration.Scales,
+			maxElapsedTime = 4 * 365 / Game.GameSpeed,
 		};
 
 		public static List<Level> All = new List<Level> () {

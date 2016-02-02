@@ -51,6 +51,7 @@
      <Compile Include="Assets\Editor\Test\CityTest.cs" />
      <Compile Include="Assets\Editor\Test\HexTest.cs" />
      <Compile Include="Assets\Editor\Test\PrimativesTest.cs" />
+     <Compile Include="Assets\Editor\Test\StringTest.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\ActiveAnimationEditor.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\BMFontReader.cs" />
      <Compile Include="Assets\NGUI\Scripts\Editor\ComponentSelector.cs" />

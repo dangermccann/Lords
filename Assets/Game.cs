@@ -7,6 +7,8 @@ using UnityEngine;
 
 namespace Lords {
 	public class Game {
+		public const float GameSpeed = 1 / 30f; // game days per second
+
 		public static Action<Level> LevelLoaded;
 
 		public static City CurrentCity;
@@ -63,6 +65,7 @@ namespace Lords {
 
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Create(SaveLocation());
+
 			try {
 				bf.Serialize(file, saved);
 				Debug.Log("successfully saved game");
@@ -100,7 +103,7 @@ namespace Lords {
 		}
 
 		static string SaveLocation() { 
-			return Application.persistentDataPath + "/save.lm";
+			return Application.persistentDataPath + "/save-v1.lm";
 		}
 	}
 	
@@ -124,6 +127,7 @@ namespace Lords {
 		public float rawMaterials;
 		public float funds;
 		public string level;
+		public float elapsedTime;
 		public List<SavedBuilding> buildings = new List<SavedBuilding>();
 	}
 

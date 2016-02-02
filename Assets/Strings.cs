@@ -223,6 +223,43 @@ namespace Lords {
 			return level.description;
 		}
 
+		public static string FormatElapsedTime(float elapsedTime) {
+			int days = Mathf.CeilToInt(elapsedTime * Game.GameSpeed);
+			int year = days / 365;
+			days %= 365;
+
+			string result = "";
+			if(year > 0) {
+				result += "Year " + year + ", ";
+			}
+
+			result += "Day " + days;
+			return result;
+		}
+
+		public static string FormatDuration(float elapsedTime) {
+			int days = Mathf.FloorToInt(elapsedTime * Game.GameSpeed);
+			int year = days / 365;
+			days %= 365;
+			
+			string result = "";
+			if(year > 0) {
+				result += year + " Year";
+				if(year != 1) {
+					result += "s";
+				}
+
+				result += ", ";
+			}
+			
+			result += days + " Day";
+			if(days != 1) {
+				result += "s";
+			}
+
+			return result;
+		}
+
 		static string PlusMinus(float value) {
 			if(value > 0) {
 				return "+";

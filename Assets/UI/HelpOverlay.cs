@@ -35,6 +35,7 @@ namespace Lords {
 
 		public override void FadeIn() {
 			base.FadeIn();
+			list.GetComponent<UIGrid>().Reposition();
 		}
 
 		void Redraw() {
@@ -55,6 +56,8 @@ namespace Lords {
 
 				EventDelegate.Add(item.GetComponent<UIToggle>().onChange, OnToggleChanged);
 			}
+
+			list.GetComponent<UIGrid>().Reposition();
 		}
 
 		void OnToggleChanged() {

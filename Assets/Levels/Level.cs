@@ -12,6 +12,7 @@ namespace Lords {
 		public float initialFunds, initialRawMaterials;
 		public Vector2 mapLocation;
 		public LevelIllustration illustration = LevelIllustration.Clock;
+		public float maxElapsedTime;
 
 		public Level() {}
 	}

@@ -15,6 +15,7 @@ namespace Lords {
 		public Dictionary<BuildingType, List<Building>> Buildings { get; protected set; }
 		public float RawMaterials { get; protected set; }
 		public float Funds { get; protected set; }
+		public float ElapsedTime { get; protected set; }
 
 		public float FoodLevel() {
 			if(Primatives.Housing > 0) {
@@ -178,6 +179,7 @@ namespace Lords {
 		}
 
 		public void UpdateEverything(float deltaTime) {
+			ElapsedTime += deltaTime;
 			UpdatePrimatives();
 			UpdateFunds(deltaTime);
 			UpdateRawMaterials(deltaTime);
@@ -238,6 +240,7 @@ namespace Lords {
 			saved.rawMaterials = this.RawMaterials;
 			saved.funds = this.Funds;
 			saved.level = this.Level.name;
+			saved.elapsedTime = this.ElapsedTime;
 			
 			foreach(List<Building> buildings in this.Buildings.Values) {
 				foreach(Building building in buildings) {
@@ -255,6 +258,7 @@ namespace Lords {
 			City city = new City(Levels.GetLevel(saved.level));
 			city.RawMaterials = saved.rawMaterials;
 			city.Funds = saved.funds;
+			city.ElapsedTime = saved.elapsedTime;
 
 			foreach(SavedBuilding savedBuilding in saved.buildings) {
 				Building building = new Building(city.Tiles[savedBuilding.position], savedBuilding.type);

@@ -4,6 +4,7 @@ namespace Lords {
 	public class MenuBar : MonoBehaviour {
 
 		public GameObject menuOverlay;
+		UILabel dateLabel;
 
 		void Start() { 
 			if(Game.CurrentLevel != null) {
@@ -14,6 +15,12 @@ namespace Lords {
 
 			GameObject menu = transform.FindChild("Container/Menu").gameObject;
 			EventDelegate.Add(menu.GetComponent<UIButton>().onClick, OnMenuClick);
+
+			dateLabel = transform.FindChild("Container/Date").gameObject.GetComponent<UILabel>();
+		}
+
+		void FixedUpdate() {
+			dateLabel.text = Strings.FormatElapsedTime(Game.CurrentCity.ElapsedTime);
 		}
 
 		void OnDestroy() {

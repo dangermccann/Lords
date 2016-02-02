@@ -60,12 +60,22 @@ namespace Lords {
 		}
 
 		public static void Save() {
-			Debug.Log("Trying to save game");
+			Persist(GenerateSavedGame());
+		}
+
+		public static void ResetCurrentCity() {
 			SavedGame saved = GenerateSavedGame();
+			int idx = saved.cities.FindIndex(x => x.level == CurrentCity.Level.name);
+			saved.cities[idx].Reset();
+			Persist(saved);
+		}
+
+		static void Persist(SavedGame saved) {
+			Debug.Log("Trying to save game");
 
 			BinaryFormatter bf = new BinaryFormatter();
 			FileStream file = File.Create(SaveLocation());
-
+			
 			try {
 				bf.Serialize(file, saved);
 				Debug.Log("successfully saved game");
@@ -129,6 +139,13 @@ namespace Lords {
 		public string level;
 		public float elapsedTime;
 		public List<SavedBuilding> buildings = new List<SavedBuilding>();
+
+		public void Reset() {
+			rawMaterials = Levels.GetLevel(level).initialRawMaterials;
+			funds = Levels.GetLevel(level).initialFunds;
+			elapsedTime = 0;
+			buildings.Clear();
+		}
 	}
 
 	[System.Serializable] 

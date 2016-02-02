@@ -165,15 +165,18 @@ public class GameController : MonoBehaviour {
 		Game.CurrentCity.UpdateEverything(Time.fixedDeltaTime);
 
 		if(Input.GetKeyDown(KeyCode.V) || Game.CurrentCity.MeetsVictoryConditions()) {
-			GameObject.Find("VictoryOverlay").GetComponent<VictoryOverlay>().FadeIn();
+			VictoryOverlay.Show(VictoryOverlay.Mode.Victory);
+
 			Debug.Log("You win!");
 			Game.Save();
 			Game.Pause();
 		}
 
-		if(Game.CurrentCity.MeetsFailureConditions()) {
+		if(Input.GetKeyDown(KeyCode.F) || Game.CurrentCity.MeetsFailureConditions()) {
+			VictoryOverlay.Show(VictoryOverlay.Mode.Failure);
+
 			Debug.Log("You lose");
-			Game.Save();
+			Game.ResetCurrentCity();
 			Game.Pause();
 		}
 

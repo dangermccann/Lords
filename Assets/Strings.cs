@@ -208,6 +208,10 @@ namespace Lords {
 			                     PlusMinus(value), value);
 		}
 
+		public static string VictoryTitle() {
+			return "Victory!";
+		}
+
 		public static string VictoryMessage(Level level) {
 			return level.victoryMessage;
 		}
@@ -217,6 +221,14 @@ namespace Lords {
 					+ level.victoryConditions.Happiness + "\n"
 					+ level.victoryConditions.Prosperity + "\n"
 					+ level.victoryConditions.Culture;
+		}
+
+		public static string FailureTitle() {
+			return "Failure!";
+		}
+
+		public static string FailureMessage(Level level) {
+			return "Your Lordship, I'm afraid the city of " + level.name + " has not satisfied His Majesty's criteria in the allotted time.";
 		}
 
 		public static string LevelDescription(Level level) {

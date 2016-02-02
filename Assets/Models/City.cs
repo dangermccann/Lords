@@ -230,9 +230,7 @@ namespace Lords {
 		}
 
 		public bool MeetsFailureConditions() {
-
-
-			return false;
+			return (ElapsedTime > Level.maxElapsedTime);
 		}
 
 		public SavedCity SaveCity() {

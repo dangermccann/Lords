@@ -6,8 +6,8 @@ namespace Lords {
 	public class Levels {
 		public static Level Tutorial = new Level() {
 			name = "Tutorial",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis pharetra odio a aliquet.",
-			victoryMessage = "You have achieved a satisfactory rating in the eyes of your contemporaries.",
+			description = "My Lord, for this first task you are to create a town of modest proportion.\nTime limit: {0}",
+			victoryMessage = "You have achieved a satisfactory rating in the eyes of The Crown.",
 			victoryConditions = new Aggregates() { 
 				Population = 1000,
 				Happiness = 5,
@@ -24,8 +24,8 @@ namespace Lords {
 
 		public static Level PortHenry = new Level() {
 			name = "Port Henry",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis pharetra odio a aliquet.",
-			victoryMessage = "You have achieved a satisfactory rating in the eyes of your contemporaries.",
+			description = "Your Lordship's next charge is a moderately larger town with simple but balanced qualities.\nTime limit: {0}",
+			victoryMessage = "You have achieved a satisfactory rating in the eyes of The Crown.",
 			victoryConditions = new Aggregates() { 
 				Population = 2000,
 				Happiness = 15,
@@ -42,8 +42,8 @@ namespace Lords {
 
 		public static Level Lewes = new Level() {
 			name = "Lewes",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas facilisis pharetra odio a aliquet.",
-			victoryMessage = "You have achieved a satisfactory rating in the eyes of your contemporaries.",
+			description = "This next undertaking will require careful attention towards developing the city's Prosperity.\nTime limit: {0}",
+			victoryMessage = "You have achieved a satisfactory rating in the eyes of The Crown.",
 			victoryConditions = new Aggregates() { 
 				Population = 4000,
 				Happiness = 10,

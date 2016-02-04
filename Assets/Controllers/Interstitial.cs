@@ -64,7 +64,6 @@ namespace Lords {
 		IEnumerator FadeIn() {
 			if(current == -1) { 
 				current++;
-				Debug.Log("Interstitial initial delay. current=" + current);
 				yield return new WaitForSeconds(delay * 2);
 			}
 
@@ -76,7 +75,6 @@ namespace Lords {
 				else {
 					items[current].interactable = false;
 					current++;
-					Debug.Log("Interstitial increment " + current);
 					yield return new WaitForSeconds(delay);
 				}
 

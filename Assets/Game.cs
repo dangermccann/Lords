@@ -75,7 +75,7 @@ namespace Lords {
 			
 			try {
 				bf.Serialize(file, saved);
-				Debug.Log("successfully saved game");
+				Debug.Log("successfully saved game to " + SaveLocation());
 			}
 			catch(IOException ioe) {
 				Debug.LogException(ioe);

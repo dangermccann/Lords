@@ -49,4 +49,18 @@ Sheep May Safely Graze - BWV 208
 > Level creation
 > First city / tutorial intro interstitial 
 > Story line?
+> Sound effects 
+
+
+-- Rank Progression --
+> Create ribbons for each and a promotion ceremony screen
+> Ranks:
+  - Apprentice
+  - Gentleman
+  - Esquire 
+  - Knight (Sir)
+  - Baronet (Sir)
+  - Baron (The Honourable)
+  - Lord Mayor (The Right Honourable)
+
 

@@ -10,11 +10,13 @@ public class GameController : MonoBehaviour {
 	bool clickStarted = false;
 	GameObject mapRoot;
 	float lastSaveTime;
+	EffectsController effects;
 
 	// Use this for initialization
 	void Start () {
 		mapRoot = GameObject.Find("Map");
 		LoadLevel(Game.CurrentLevel ?? Levels.PortHenry);
+		effects = GameObject.Find("EffectsController").GetComponent<EffectsController>();
 	}
 
 	public void LoadLevel(Level level) {
@@ -121,6 +123,8 @@ public class GameController : MonoBehaviour {
 
 							Building building = new Building(tile, SelectionController.selection.BuildingType);
 							Game.CurrentCity.AddBuilding(building);
+
+							effects.Place();
 						}
 						else {
 							Debug.Log("Insufficient funds or raw materials");
@@ -134,6 +138,8 @@ public class GameController : MonoBehaviour {
 					if(tile.Building != null) {
 						Game.CurrentCity.RemoveBuilding(tile.Building);
 						tile.Building = null;
+
+						effects.Place();
 					}
 					else {
 						Debug.Log("Nothing to destroy");

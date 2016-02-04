@@ -6,6 +6,7 @@ namespace Lords {
 	public class CameraControl : MonoBehaviour {
 
 		public float intertiaTravelTime = 0.9f;
+		public float inertiaSpeed = 0.25f;
 		public float minZoom = 2;
 		public float maxZoom = 7.5f;
 		public float pinchZoomAmount = 0.5f;
@@ -92,8 +93,7 @@ namespace Lords {
 				lastMousePosition = mainCamera.ScreenToWorldPoint(Input.mousePosition);
 			}
 			else if(inertiaTime > 0) {
-
-				float magnitude = (currentVelocity * 0.8f + previousVelocity * 0.2f) * Time.deltaTime;
+				float magnitude = (currentVelocity * 0.8f + previousVelocity * 0.2f) * Time.deltaTime * inertiaSpeed;
 				Vector3 diff = inertiaVector * magnitude * Mathf.Lerp(0, 1, Mathf.Pow(inertiaTime / intertiaTravelTime, 2));
 				MoveCamera(mainCamera.transform.position + diff);
 				inertiaTime -= Time.deltaTime;

@@ -5,6 +5,9 @@ using System.Collections;
 
 namespace Lords {
 	public class MapNavigator : MonoBehaviour {
+		EffectsController effects;
+
+
 		void Start () {
 
 			foreach(Level level in Levels.All) {
@@ -26,6 +29,8 @@ namespace Lords {
 				trigger.delegates.Add(entry);
 			}
 
+			effects = GameObject.Find("EffectsController").GetComponent<EffectsController>();
+
 		}
 		
 
@@ -41,6 +46,8 @@ namespace Lords {
 
 		public void CityClicked(Level level) {
 			Debug.Log ("clicked " + level.name);
+			effects.Click2();
+
 			Game.CurrentLevel = level;
 
 			SavedGame saved = Game.Load();

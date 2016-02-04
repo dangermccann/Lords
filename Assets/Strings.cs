@@ -232,7 +232,7 @@ namespace Lords {
 		}
 
 		public static string LevelDescription(Level level) {
-			return level.description;
+			return String.Format(level.description, FormatDuration(level.maxElapsedTime));
 		}
 
 		public static string FormatElapsedTime(float elapsedTime) {
@@ -260,13 +260,17 @@ namespace Lords {
 				if(year != 1) {
 					result += "s";
 				}
-
-				result += ", ";
 			}
-			
-			result += days + " Day";
-			if(days != 1) {
-				result += "s";
+
+			if(year == 0 || days > 0) {
+				if(result.Length > 0) {
+					result += ", ";
+				}
+
+				result += days + " Day";
+				if(days != 1) {
+					result += "s";
+				}
 			}
 
 			return result;

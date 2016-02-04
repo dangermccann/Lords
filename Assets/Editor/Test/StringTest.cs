@@ -21,6 +21,7 @@ namespace Lords {
 			Assert.AreEqual("1 Day", Strings.FormatDuration(1.5f / Game.GameSpeed));
 			Assert.AreEqual("30 Days", Strings.FormatDuration(30 / Game.GameSpeed));
 			Assert.AreEqual("1 Year, 30 Days", Strings.FormatDuration(395 / Game.GameSpeed));
+			Assert.AreEqual("2 Years", Strings.FormatDuration(365*2 / Game.GameSpeed));
 			Assert.AreEqual("2 Years, 1 Day", Strings.FormatDuration((365*2 + 1) / Game.GameSpeed));
 		}
 	}

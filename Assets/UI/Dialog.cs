@@ -3,70 +3,77 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dialog : MonoBehaviour {
+namespace Lords {
+	public class Dialog : MonoBehaviour {
 
-	public float fadeSpeed = 8.0f;
-	public GameObject shade = null;
+		public float fadeSpeed = 8.0f;
+		public GameObject shade = null;
 
-	UIPanel thisPanel, shadePanel;
+		UIPanel thisPanel, shadePanel;
 
-	public static Dialog current;
-	public Stack<Dialog> stack = new Stack<Dialog>();
+		public static Dialog current;
+		public Stack<Dialog> stack = new Stack<Dialog>();
 
-	protected virtual void Start() {
-		current = null;
-		thisPanel = this.GetComponent<UIPanel>();
-		if(shade != null) {
-			shadePanel = shade.GetComponent<UIPanel>();
-		}
-	}
+		protected EffectsController effects;
 
-	public virtual void FadeIn() {
-		StartCoroutine(FadeGroupIn(thisPanel, 1));
+		protected virtual void Start() {
+			current = null;
+			thisPanel = this.GetComponent<UIPanel>();
+			if(shade != null) {
+				shadePanel = shade.GetComponent<UIPanel>();
+			}
 
-		if(shadePanel != null) {
-			StartCoroutine(FadeGroupIn(shadePanel, 0.85f));
+			effects = GameObject.Find("EffectsController").GetComponent<EffectsController>();
 		}
 
-		current = this;
-	}
+		public virtual void FadeIn() {
+			StartCoroutine(FadeGroupIn(thisPanel, 1));
 
-	public bool Visible {
-		get {
-			return thisPanel.alpha > 0;
-		}
-	}
+			if(shadePanel != null) {
+				StartCoroutine(FadeGroupIn(shadePanel, 0.85f));
+			}
 
-	public virtual bool IsDismissible() {
-		return true;
-	}
-
-	public void Close() {
-		FadeOut();
-	}
-
-	public virtual void FadeOut(bool dismissShade = true) {
-		StartCoroutine(FadeGroupOut(thisPanel));
-		
-		if(dismissShade && shadePanel != null) {
-			StartCoroutine(FadeGroupOut(shadePanel));
+			current = this;
+			effects.Open();
 		}
 
-		current = null;
-	}
-
-	IEnumerator FadeGroupIn(UIPanel panel, float targetAlpha) {
-		while(panel.alpha < targetAlpha) {
-			panel.alpha += Time.unscaledDeltaTime * fadeSpeed;
-			yield return null;
+		public bool Visible {
+			get {
+				return thisPanel.alpha > 0;
+			}
 		}
-	}
 
-	IEnumerator FadeGroupOut(UIPanel panel) {
+		public virtual bool IsDismissible() {
+			return true;
+		}
 
-		while(panel.alpha > 0) {
-			panel.alpha -= Time.unscaledDeltaTime * fadeSpeed;
-			yield return null;
+		public void Close() {
+			FadeOut();
+		}
+
+		public virtual void FadeOut(bool dismissShade = true) {
+			StartCoroutine(FadeGroupOut(thisPanel));
+			
+			if(dismissShade && shadePanel != null) {
+				StartCoroutine(FadeGroupOut(shadePanel));
+			}
+
+			current = null;
+		}
+
+		IEnumerator FadeGroupIn(UIPanel panel, float targetAlpha) {
+			while(panel.alpha < targetAlpha) {
+				panel.alpha += Time.unscaledDeltaTime * fadeSpeed;
+				yield return null;
+			}
+		}
+
+		IEnumerator FadeGroupOut(UIPanel panel) {
+
+			while(panel.alpha > 0) {
+				panel.alpha -= Time.unscaledDeltaTime * fadeSpeed;
+				yield return null;
+			}
 		}
 	}
 }

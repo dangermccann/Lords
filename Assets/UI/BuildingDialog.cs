@@ -52,6 +52,8 @@ namespace Lords {
 				SelectionController.selection.BuildingType = type;
 				SelectionController.selection.Operation = Operation.Build;
 				FadeOut();
+
+				effects.Click3();
 			}
 			else if(UICamera.currentTouchID == -2) {
 				FadeOut(false);

@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mapRoot = GameObject.Find("Map");
-		LoadLevel(Game.CurrentLevel ?? Levels.PortHenry);
+		LoadLevel(Game.CurrentLevel ?? Levels.Greencastle);
 		effects = GameObject.Find("EffectsController").GetComponent<EffectsController>();
 	}
 
@@ -40,7 +40,8 @@ public class GameController : MonoBehaviour {
 		Game.CurrentLevel = level;
 		
 		MapGenerator generator = new MapGenerator();
-		Map map = generator.GenerateMap(level.mapConfiguration.Radius, level.mapConfiguration.TileConfiguration, level.mapConfiguration.Seed);
+		Map map = generator.GenerateMap(level.mapConfiguration.Radius, level.mapConfiguration.TileConfiguration, 
+		                                level.mapConfiguration.Seed, level.mapConfiguration.PerlinOctive);
 		Game.CurrentCity.SetMap(map);
 		
 		foreach(Tile tile in Game.CurrentCity.Tiles.Values) {
@@ -67,8 +68,9 @@ public class GameController : MonoBehaviour {
 			}
 		}
 
-		foreach (Transform child in mapRoot.transform) {
-			GameObject.Destroy(child.gameObject);
+		// TODO: is this right?
+		while (mapRoot.transform.childCount > 0) {
+			GameObject.DestroyImmediate(mapRoot.transform.GetChild(0).gameObject);
 		}
 	}
 

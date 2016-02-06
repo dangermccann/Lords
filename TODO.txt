@@ -49,18 +49,44 @@ Sheep May Safely Graze - BWV 208
 > Level creation
 > First city / tutorial intro interstitial 
 > Story line?
-> Sound effects 
++ Sound effects  (http://www.bfxr.net/)
 
 
 -- Rank Progression --
 > Create ribbons for each and a promotion ceremony screen
 > Ranks:
-  - Apprentice
   - Gentleman
-  - Esquire 
+  - Esquire - Companion to the Royal XX Order
   - Knight (Sir)
   - Baronet (Sir)
   - Baron (The Honourable)
   - Lord Mayor (The Right Honourable)
+  
+https://en.wikipedia.org/wiki/Royal_and_noble_ranks
+https://en.wikipedia.org/wiki/Forms_of_address_in_the_United_Kingdom
+https://en.wikipedia.org/wiki/Orders,_decorations,_and_medals_of_the_United_Kingdom
+
+
+-- City Names --
+> Port Henry
+> Galloway
+> Greencastle
+> Craig Bay
+> Aberdeen
+> Crosswell
+> Southgate
+> Mayfield
+> Little Ash
+> Easton
+> Welburn
+> Dunham
+> Old Milddleton
+> Normantown
+> Shelbey
+> Woodhouse Cove
+
+
+
+
 
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Lords {
 	public class Maps {
 
-		public static MapConfiguration Basic = new MapConfiguration() {
+		public static MapConfiguration Tutorial = new MapConfiguration() {
 			Radius = 10,
 			Seed = 1111,
 			PerlinOctive = 5,
@@ -21,7 +21,7 @@ namespace Lords {
 			}
 		};
 
-		public static MapConfiguration Wet = new MapConfiguration() {
+		public static MapConfiguration PortHenry = new MapConfiguration() {
 			Radius = 10,
 			Seed = 1000,
 			PerlinOctive = 5,
@@ -38,10 +38,10 @@ namespace Lords {
 			}
 		};
 
-		public static MapConfiguration Mountains = new MapConfiguration() {
+		public static MapConfiguration Galloway = new MapConfiguration() {
 			Radius = 10,
 			Seed = 701,
-			PerlinOctive = 3,
+			PerlinOctive = 5,
 			TileConfiguration = new List<TileType>() {
 				TileType.Water,
 				TileType.Tundra,
@@ -51,6 +51,22 @@ namespace Lords {
 				TileType.Forest,
 				TileType.Snow,
 				TileType.Mountains,
+				TileType.Forest,
+			}
+		};
+
+		public static MapConfiguration Greencastle = new MapConfiguration() {
+			Radius = 10,
+			Seed = 670,
+			PerlinOctive = 5,
+			TileConfiguration = new List<TileType>() {
+				TileType.Snow,
+				TileType.Tundra,
+				TileType.Forest,
+				TileType.Mountains,
+				TileType.Tundra,
+				TileType.Grass,
+				TileType.Grass,
 				TileType.Forest,
 			}
 		};

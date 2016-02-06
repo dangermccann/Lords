@@ -5,9 +5,13 @@ using System.Collections.Generic;
 namespace Lords {
 	public class MapGenerator {
 
-		public Map GenerateMap(int radius, List<TileType> tileConfiguration, int seed) {
+		float persistance = 0.5f;
+
+		public Map GenerateMap(int radius, List<TileType> tileConfiguration, int seed, int octiveCount, float persistance = 0.5f) {
+			this.persistance = persistance;
+
 			float[][] baseNoise = GenerateWhiteNoise(radius * 3, radius * 3, seed);
-			float[][] pNoise = GeneratePerlinNoise(baseNoise, 5);
+			float[][] pNoise = GeneratePerlinNoise(baseNoise, octiveCount);
 
 			return new Map(radius, pNoise, tileConfiguration);
 		}
@@ -87,8 +91,6 @@ namespace Lords {
 			int height = baseNoise[0].Length;
 			
 			float[][][] smoothNoise = new float[octaveCount][][]; //an array of 2D arrays containing
-			
-			float persistance = 0.5f;
 			
 			//generate smooth noise
 			for (int i = 0; i < octaveCount; i++)

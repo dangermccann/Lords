@@ -6,7 +6,7 @@ using System.Collections;
 namespace Lords {
 	public class MapNavigator : MonoBehaviour {
 		EffectsController effects;
-
+		public float wheelScrollAmount = 100;
 
 		void Start () {
 
@@ -38,7 +38,7 @@ namespace Lords {
 			float wheelAmount = Input.GetAxis("Mouse ScrollWheel");
 			if(wheelAmount != 0) {
 				float tt = transform.localScale.x;
-				tt += wheelAmount * Time.deltaTime * 400;
+				tt += wheelAmount * Time.deltaTime * wheelScrollAmount;
 				tt = Mathf.Clamp(tt, 1, 3);
 				transform.localScale = new Vector3(tt, tt, tt);
 			}

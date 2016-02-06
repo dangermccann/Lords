@@ -39,8 +39,10 @@ namespace Lords {
 		}
 
 		void Redraw() {
-			foreach (Transform child in list.transform) {
-				GameObject.Destroy(child.gameObject);
+
+			// TODO: is this right?
+			while (list.transform.childCount > 0) {
+				GameObject.DestroyImmediate(list.transform.GetChild(0).gameObject);
 			}
 
 			foreach(BuildingType type in Building.Types) {

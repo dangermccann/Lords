@@ -1,8 +1,23 @@
-﻿using UnityEngine;
+﻿/// 
+/// This work is licensed under the Creative Commons Attribution 4.0 International License. 
+/// To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+/// 
+/// The work below was created for Lord Mayor, a realtime strategy game.  Find out more at:
+/// https://lordmayorgame.tumblr.com/
+/// 
+/// Special thanks to Red Blob Games for authoring a blog post that was the inspiration for
+/// the game and this code: http://www.redblobgames.com/grids/hexagons/
+/// 
+
+using UnityEngine;
 using System.Collections;
 using NUnit.Framework;
 
 namespace Lords {
+	/// <summary>
+	/// Unit test coverage for the functions in the Hex class.
+	/// </summary>
+
 	[TestFixture]
 	public class HexTest {
 		[Test]

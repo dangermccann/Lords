@@ -1,8 +1,20 @@
-﻿using UnityEngine;
+﻿/// 
+/// This work is licensed under the Creative Commons Attribution 4.0 International License. 
+/// To view a copy of this license, visit http://creativecommons.org/licenses/by/4.0/.
+/// 
+/// The work below was created for Lord Mayor, a realtime strategy game.  Find out more at:
+/// https://lordmayorgame.tumblr.com/
+/// 
+/// Special thanks to Red Blob Games for authoring a blog post that was the inspiration for
+/// the game and this code: http://www.redblobgames.com/grids/hexagons/
+/// 
+using UnityEngine;
 using System;
 
-// http://www.redblobgames.com/grids/hexagons/
 namespace Lords {
+	/// <summary>
+	/// Represents a hexagon in Axial coordinates.  
+	/// </summary>
 	[System.Serializable] 
 	public class Hex {
 		public const float HEX_SIZE = 0.5f;
@@ -15,10 +27,18 @@ namespace Lords {
 
 		public Hex() : this(0, 0) { }
 
+		/// <summary>
+		/// Returns the Cube coordinates of the Hex.
+		/// </summary>
+		/// <returns>The Hex's location in Cube coordinates.</returns>
 		public Vector3 ToCube() {
 			return HexToCube(this);
 		}
 
+		/// <summary>
+		/// Returns the location of the Hex in World coordinates.
+		/// </summary>
+		/// <returns>The location of the Hex in World coordinates.</returns>
 		public Vector3 ToWorld() {
 			return HexToWorld(this);
 		}
@@ -100,7 +120,11 @@ namespace Lords {
 			return CubeToHex(CubeRound(HexToCube(hex)));
 		}
 		
-
+		/// <summary>
+		/// Converts a hex into world coordinates.
+		/// </summary>
+		/// <returns>The world coordinates of the Hex</returns>
+		/// <param name="hex">The Hex to convert.</param>
 		public static Vector3 HexToWorld(Hex hex) {
 			Vector3 result = new Vector3();
 			
@@ -110,7 +134,12 @@ namespace Lords {
 			
 			return result;
 		}
-		
+
+		/// <summary>
+		/// Converts a point in world coordinates into a Hex addressed in Axial coordinates.
+		/// </summary>
+		/// <returns>The converted Hex</returns>
+		/// <param name="world">A point in world coordinates</param>
 		public static Hex WorldToHex(Vector3 world) {
 			Hex result = new Hex();
 			
@@ -120,6 +149,11 @@ namespace Lords {
 			return HexRound(result);
 		}
 
+		/// <summary>
+		/// Calculates the distance between two hexes.
+		/// </summary>
+		/// <param name="a">The first hex.</param>
+		/// <param name="b">The second hex.</param>
 		public static float Distance(Hex a, Hex b) {
 			Vector3 ac = HexToCube(a);
 			Vector3 bc = HexToCube(b);

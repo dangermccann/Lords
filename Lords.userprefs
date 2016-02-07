@@ -1,22 +1,32 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Controllers\LevelDesigner.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Maps\Maps.cs">
     <Files>
-      <File FileName="Assets\Levels\Levels.cs" Line="62" Column="34" />
-      <File FileName="Assets\Maps\Maps.cs" Line="58" Column="68" />
-      <File FileName="Assets\Controllers\GameController.cs" Line="70" Column="1" />
-      <File FileName="Assets\Maps\MapGenerator.cs" Line="8" Column="28" />
-      <File FileName="Assets\Controllers\LevelDesigner.cs" Line="35" Column="50" />
-      <File FileName="Assets\Maps\Map.cs" Line="6" Column="18" />
-      <File FileName="Assets\Maps\MapConfiguration.cs" Line="6" Column="31" />
-      <File FileName="Assets\Models\Hex.cs" Line="47" Column="1" />
+      <File FileName="Assets\Maps\MapGenerator.cs" Line="21" Column="36" />
+      <File FileName="Assets\Controllers\LevelDesigner.cs" Line="24" Column="20" />
+      <File FileName="Assets\Editor\LevelDesignEditor.cs" Line="9" Column="105" />
+      <File FileName="Assets\Levels\Level.cs" Line="20" Column="1" />
+      <File FileName="Assets\Controllers\GameController.cs" Line="48" Column="39" />
+      <File FileName="Assets\Controllers\GameAssets.cs" Line="102" Column="108" />
+      <File FileName="Assets\Models\Tile.cs" Line="1" Column="1" />
+      <File FileName="Assets\Models\Hex.cs" Line="21" Column="21" />
+      <File FileName="Assets\Editor\Test\HexTest.cs" Line="26" Column="27" />
+      <File FileName="Assets\Maps\Maps.cs" Line="116" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Maps" expanded="True" />
+            <Node name="Controllers" expanded="True" />
+            <Node name="Maps" expanded="True">
+              <Node name="Maps.cs" selected="True" />
+            </Node>
             <Node name="Models" expanded="True" />
+          </Node>
+          <Node name="Assembly-CSharp-Editor" expanded="True">
+            <Node name="Editor" expanded="True">
+              <Node name="Test" expanded="True" />
+            </Node>
           </Node>
         </State>
       </Pad>

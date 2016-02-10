@@ -276,6 +276,10 @@ namespace Lords {
 			return result;
 		}
 
+		public static string FormatRank(Ranks rank) {
+			return rank.ToString().Replace('_', ' ');
+		}
+
 		static string PlusMinus(float value) {
 			if(value > 0) {
 				return "+";

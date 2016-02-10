@@ -4,8 +4,10 @@ using System.Collections;
 
 namespace Lords {
 	public class SceneTransition : MonoBehaviour {
-		private static float fadeSpeed = 2;
+		const float fadeSpeed = 2;
 		private static bool fadeSceneIn = false;
+
+		bool isTransitioning = false;
 
 		private static SceneTransition Instance {
 			get	{
@@ -19,7 +21,10 @@ namespace Lords {
 
 		void _LoadScene(string name) {
 			Game.Resume();
-			StartCoroutine(FadeOut(CreateShade(), name));
+
+			if(!isTransitioning) {
+				StartCoroutine(FadeOut(CreateShade(), name));
+			}
 		}
 
 		public void LoadMap() {
@@ -38,6 +43,19 @@ namespace Lords {
 			_LoadScene(Scenes.Interstitial);
 		}
 
+		public void LoadPromotion() {
+			_LoadScene(Scenes.Promotion);
+		}
+
+		public void LevelComplete() {
+			if(Game.CurrentLevel.promotesTo != Ranks.None) {
+				LoadPromotion();
+			}
+			else {
+				LoadMap();
+			}
+		}
+
 		static Image CreateShade() {
 			GameObject canvas = GameObject.Find("Canvas");
 			GameObject shade = (GameObject) GameObject.Instantiate(Resources.Load ("transition"));
@@ -51,12 +69,15 @@ namespace Lords {
 		}
 
 		IEnumerator FadeOut(Image image, string sceneName) {
+			isTransitioning = true;
+
 			while(image.color.a < 1) {
 				image.color = White(image.color.a + Time.unscaledDeltaTime * fadeSpeed);
 				yield return null;
 			}
 
 			fadeSceneIn = true;
+			isTransitioning = false;
 			Application.LoadLevel(sceneName);
 		}
 
@@ -89,6 +110,6 @@ namespace Lords {
 		public const string Map 			= "map";
 		public const string Main 			= "main";
 		public const string Interstitial 	= "interstitial";
-
+		public const string Promotion		= "promotion";
 	}
 }

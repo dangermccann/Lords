@@ -13,6 +13,7 @@ namespace Lords {
 		public Vector2 mapLocation;
 		public LevelIllustration illustration = LevelIllustration.Clock;
 		public float maxElapsedTime;
+		public Ranks promotesTo = Ranks.None;
 
 		public Level() {}
 	}

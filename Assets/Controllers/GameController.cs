@@ -92,10 +92,11 @@ public class GameController : MonoBehaviour {
 			}
 		}
 
-		if(ProcessEasterEggs()) {
-			return;
+		if(Debug.isDebugBuild) {
+			if(ProcessEasterEggs()) {
+				return;
+			}
 		}
-
 
 		if(HoverControl.IsOverUI()) {
 			return;
@@ -209,8 +210,18 @@ public class GameController : MonoBehaviour {
 
 	private bool ProcessEasterEggs() {
 
+		if(Dialog.current != null) {
+			return false;
+		}
+
 		if(Input.GetKeyDown(KeyCode.V)) {
-			GameObject.Find("VictoryOverlay").GetComponent<VictoryOverlay>().FadeIn();
+			VictoryOverlay.Show(VictoryOverlay.Mode.Victory);
+			Game.Pause();
+			return true;
+		}
+
+		if(Input.GetKeyDown(KeyCode.F)) {
+			VictoryOverlay.Show(VictoryOverlay.Mode.Failure);
 			Game.Pause();
 			return true;
 		}

@@ -104,6 +104,10 @@ namespace Lords {
 			
 			if(CurrentCity.MeetsVictoryConditions() && !saved.completedLevels.Contains(CurrentCity.Level.name)) {
 				saved.completedLevels.Add(CurrentCity.Level.name);
+
+				if(CurrentCity.Level.promotesTo > saved.rank) {
+					CurrentCity.Level.promotesTo = saved.rank;
+				}
 			}
 
 			return saved;
@@ -118,6 +122,7 @@ namespace Lords {
 	public class SavedGame {
 		public List<SavedCity> cities = new List<SavedCity>();
 		public List<string> completedLevels = new List<string>();
+		public Ranks rank;
 
 		public SavedCity FindCity(string level) {
 			foreach(SavedCity city in cities) {

@@ -20,6 +20,7 @@ namespace Lords {
 			mapLocation = new Vector2(200, 150),
 			illustration = LevelIllustration.House,
 			maxElapsedTime = 2 * 365 / Game.GameSpeed,
+			promotesTo = Ranks.Gentleman
 		};
 
 		public static Level PortHenry = new Level() {
@@ -56,6 +57,7 @@ namespace Lords {
 			mapLocation = new Vector2(369, 227),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			promotesTo = Ranks.Esquire
 		};
 
 		// HERE
@@ -111,6 +113,7 @@ namespace Lords {
 			mapLocation = new Vector2(364, 26),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			promotesTo = Ranks.Knight
 		};
 
 		public static Level Crosswell = new Level() {
@@ -183,6 +186,7 @@ namespace Lords {
 			mapLocation = new Vector2(65, 106),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			promotesTo = Ranks.Baronet
 		};
 
 		public static Level Easton = new Level() {
@@ -237,6 +241,7 @@ namespace Lords {
 			mapLocation = new Vector2(638, 143),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			promotesTo = Ranks.Baron
 		};
 
 		public static Level OldMilddleton = new Level() {
@@ -273,6 +278,7 @@ namespace Lords {
 			mapLocation = new Vector2(602, 216),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			promotesTo = Ranks.Lord_Mayor
 		};
 
 		public static List<Level> All = new List<Level> () {

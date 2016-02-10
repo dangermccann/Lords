@@ -55,6 +55,7 @@
      <Compile Include="Assets\Controllers\Interstitial.cs" />
      <Compile Include="Assets\Controllers\LevelDesigner.cs" />
      <Compile Include="Assets\Controllers\MusicController.cs" />
+     <Compile Include="Assets\Controllers\Promotion.cs" />
      <Compile Include="Assets\Controllers\SelectionController.cs" />
      <Compile Include="Assets\Game.cs" />
      <Compile Include="Assets\Levels\Level.cs" />
@@ -68,6 +69,7 @@
      <Compile Include="Assets\Models\City.cs" />
      <Compile Include="Assets\Models\Hex.cs" />
      <Compile Include="Assets\Models\Primatives.cs" />
+     <Compile Include="Assets\Models\Ranks.cs" />
      <Compile Include="Assets\Models\Tile.cs" />
      <Compile Include="Assets\NGUI\Scripts\Interaction\LanguageSelection.cs" />
      <Compile Include="Assets\NGUI\Scripts\Interaction\TypewriterEffect.cs" />

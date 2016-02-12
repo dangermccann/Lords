@@ -44,13 +44,14 @@ Sheep May Safely Graze - BWV 208
 
 
 -- TODO -- 
-> Lock unavailable cities on map screen
++ Lock unavailable cities on map screen
 > Game options dialog
 > Level creation
 > First city / tutorial intro interstitial 
-> Story line?
++ Story line?
 + Sound effects  (http://www.bfxr.net/)
-> Credits Page
++ Credits Page
+> Menu Bar clicks don't work
 
 
 

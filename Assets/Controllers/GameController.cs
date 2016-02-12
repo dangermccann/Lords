@@ -86,9 +86,23 @@ public class GameController : MonoBehaviour {
 			}
 		}
 
-		if(Input.GetKey(KeyCode.F1)) {
-			if(Dialog.current == null) {
+		// shortcut keys
+		if(Dialog.current == null) {
+			if(Input.GetKey(KeyCode.F1)) {
 				HelpOverlay.Show(BuildingType.Villa);
+			}
+
+			if(Input.GetKey(KeyCode.B)) {
+				GameObject.Find("BuildingOverlay").GetComponent<BuildingDialog>().FadeIn();
+			}
+
+			if(Input.GetKey(KeyCode.D)) {
+				SelectionController.selection.Operation = Operation.Destroy;
+			}
+
+			if(Input.GetKey(KeyCode.I)) {
+				SelectionController.selection.Operation = Operation.Info;
+				SelectionController.selection.Tile = null;
 			}
 		}
 

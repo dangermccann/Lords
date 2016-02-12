@@ -48,6 +48,13 @@ namespace Lords {
 				direction.y = UnityEngine.Random.Range(-1, -0.1f);
 			}
 		}
+
+		public void ShowOptions() {
+		}
+
+		public void Exit() {
+			Application.Quit();
+		}
 	}
 }
 

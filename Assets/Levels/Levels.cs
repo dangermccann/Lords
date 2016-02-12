@@ -6,7 +6,7 @@ namespace Lords {
 	public class Levels {
 		public static Level Tutorial = new Level() {
 			name = "Tutorial",
-			description = "My Lord, for this first task you are to create a town of modest proportion.\nTime limit: {0}",
+			description = "My good fellow, for this first task you are to create a town of modest proportion.\nTime limit: {0}",
 			victoryMessage = "You have achieved a satisfactory rating in the eyes of The Crown.",
 			victoryConditions = new Aggregates() { 
 				Population = 1000,
@@ -25,7 +25,7 @@ namespace Lords {
 
 		public static Level PortHenry = new Level() {
 			name = "Port Henry",
-			description = "Your Lordship's next charge is a moderately larger town with simple but balanced qualities.\nTime limit: {0}",
+			description = "Your next charge is a moderately larger town with simple but balanced qualities.\nTime limit: {0}",
 			victoryMessage = "You have achieved a satisfactory rating in the eyes of The Crown.",
 			victoryConditions = new Aggregates() { 
 				Population = 2000,
@@ -33,12 +33,13 @@ namespace Lords {
 				Prosperity = 15,
 				Culture = 10,
 			},
-			mapConfiguration = Maps.PortHenry,
+			mapConfiguration = Maps.Standard,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(216, 225),
 			illustration = LevelIllustration.Fish,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			prerequisites = new Level[1] { Levels.Tutorial }
 		};
 
 		public static Level Galloway = new Level() {
@@ -51,13 +52,14 @@ namespace Lords {
 				Prosperity = 25,
 				Culture = 15,
 			},
-			mapConfiguration = Maps.Galloway,
+			mapConfiguration = Maps.MountainsForest,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(369, 227),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
-			promotesTo = Ranks.Esquire
+			promotesTo = Ranks.Esquire,
+			prerequisites = new Level[1] { Levels.PortHenry }
 		};
 
 		// HERE
@@ -77,6 +79,7 @@ namespace Lords {
 			mapLocation = new Vector2(50, 306),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			prerequisites = new Level[1] { Levels.Galloway }
 		};
 		
 		public static Level CraigBay = new Level() {
@@ -89,12 +92,13 @@ namespace Lords {
 				Prosperity = 25,
 				Culture = 15,
 			},
-			mapConfiguration = Maps.Tundra,
+			mapConfiguration = Maps.MarshWater,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(283.8f, 35.8f),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			prerequisites = new Level[1] { Levels.Galloway }
 		};
 
 		public static Level Aberdeen = new Level() {
@@ -107,13 +111,14 @@ namespace Lords {
 				Prosperity = 25,
 				Culture = 15,
 			},
-			mapConfiguration = Maps.Tundra,
+			mapConfiguration = Maps.Mountains,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(364, 26),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
-			promotesTo = Ranks.Knight
+			promotesTo = Ranks.Knight,
+			prerequisites = new Level[2] { Levels.CraigBay, Levels.Greencastle }
 		};
 
 		public static Level Crosswell = new Level() {
@@ -126,12 +131,13 @@ namespace Lords {
 				Prosperity = 25,
 				Culture = 15,
 			},
-			mapConfiguration = Maps.Tundra,
+			mapConfiguration = Maps.SmallerSand,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(295, 331),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			prerequisites = new Level[1] { Levels.Aberdeen }
 		};
 
 		public static Level Southgate = new Level() {
@@ -150,6 +156,7 @@ namespace Lords {
 			mapLocation = new Vector2(432, 105),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			prerequisites = new Level[1] { Levels.Crosswell }
 		};
 
 		public static Level Mayfield = new Level() {
@@ -162,12 +169,13 @@ namespace Lords {
 				Prosperity = 25,
 				Culture = 15,
 			},
-			mapConfiguration = Maps.Tundra,
+			mapConfiguration = Maps.Smaller,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(497, 143),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			prerequisites = new Level[1] { Levels.Crosswell }
 		};
 
 		public static Level LittleAsh = new Level() {
@@ -180,13 +188,14 @@ namespace Lords {
 				Prosperity = 25,
 				Culture = 15,
 			},
-			mapConfiguration = Maps.Tundra,
+			mapConfiguration = Maps.SmallLake,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(65, 106),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
-			promotesTo = Ranks.Baronet
+			promotesTo = Ranks.Baronet,
+			prerequisites = new Level[2] { Levels.Mayfield, Levels.Southgate }
 		};
 
 		public static Level Easton = new Level() {
@@ -199,12 +208,13 @@ namespace Lords {
 				Prosperity = 25,
 				Culture = 15,
 			},
-			mapConfiguration = Maps.Tundra,
+			mapConfiguration = Maps.LargeEasy,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(681, 271),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			prerequisites = new Level[1] { Levels.LittleAsh }
 		};
 
 		public static Level Welburn = new Level() {
@@ -217,12 +227,13 @@ namespace Lords {
 				Prosperity = 25,
 				Culture = 15,
 			},
-			mapConfiguration = Maps.Tundra,
+			mapConfiguration = Maps.TinyRiver,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(497, 269),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			prerequisites = new Level[1] { Levels.LittleAsh }
 		};
 
 		public static Level Dunham = new Level() {
@@ -235,13 +246,14 @@ namespace Lords {
 				Prosperity = 25,
 				Culture = 15,
 			},
-			mapConfiguration = Maps.Tundra,
+			mapConfiguration = Maps.TinyHard,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(638, 143),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
-			promotesTo = Ranks.Baron
+			promotesTo = Ranks.Baron,
+			prerequisites = new Level[2] { Levels.Welburn, Levels.Easton }
 		};
 
 		public static Level OldMilddleton = new Level() {
@@ -254,12 +266,13 @@ namespace Lords {
 				Prosperity = 25,
 				Culture = 15,
 			},
-			mapConfiguration = Maps.Tundra,
+			mapConfiguration = Maps.HugeSand,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(562, 20),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			prerequisites = new Level[1] { Levels.Dunham }
 		};
 
 		public static Level Normantown = new Level() {
@@ -272,13 +285,14 @@ namespace Lords {
 				Prosperity = 25,
 				Culture = 15,
 			},
-			mapConfiguration = Maps.Tundra,
+			mapConfiguration = Maps.MediumCold,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(602, 216),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
-			promotesTo = Ranks.Lord_Mayor
+			promotesTo = Ranks.Lord_Mayor,
+			prerequisites = new Level[1] { Levels.OldMilddleton }
 		};
 
 		public static List<Level> All = new List<Level> () {

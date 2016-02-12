@@ -21,7 +21,8 @@ namespace Lords {
 			}
 		};
 
-		public static MapConfiguration PortHenry = new MapConfiguration() {
+		// standard
+		public static MapConfiguration Standard = new MapConfiguration() {
 			Radius = 10,
 			Seed = 1000,
 			PerlinOctive = 5,
@@ -38,7 +39,8 @@ namespace Lords {
 			}
 		};
 
-		public static MapConfiguration Galloway = new MapConfiguration() {
+		// mountains and forest
+		public static MapConfiguration MountainsForest = new MapConfiguration() {
 			Radius = 10,
 			Seed = 701,
 			PerlinOctive = 5,
@@ -71,6 +73,7 @@ namespace Lords {
 			}
 		};
 
+		// marsh and water
 		public static MapConfiguration MarshWater = new MapConfiguration() {
 			Radius = 9,
 			Seed = 3333,
@@ -86,6 +89,7 @@ namespace Lords {
 			}
 		};
 
+		// mountains
 		public static MapConfiguration Mountains = new MapConfiguration() {
 			Radius = 9,
 			Seed = 11111,
@@ -101,6 +105,7 @@ namespace Lords {
 			}
 		};
 
+		// smaller with sand
 		public static MapConfiguration SmallerSand = new MapConfiguration() {
 			Radius = 8,
 			Seed = 1,
@@ -116,6 +121,7 @@ namespace Lords {
 			}
 		};
 
+		// tundra
 		public static MapConfiguration Tundra = new MapConfiguration() {
 			Radius = 10,
 			Seed = 123,
@@ -133,6 +139,7 @@ namespace Lords {
 			}
 		};
 
+		// smaller
 		public static MapConfiguration Smaller = new MapConfiguration() {
 			Radius = 7,
 			Seed = 222,
@@ -150,7 +157,7 @@ namespace Lords {
 			}
 		};
 
-		// 10
+		// smaller lake (10)
 		public static MapConfiguration SmallLake = new MapConfiguration() {
 			Radius = 7,
 			Seed = 33,
@@ -168,6 +175,7 @@ namespace Lords {
 			}
 		};
 
+		// large easy
 		public static MapConfiguration LargeEasy = new MapConfiguration() {
 			Radius = 10,
 			Seed = 1,
@@ -185,6 +193,7 @@ namespace Lords {
 			}
 		};
 
+		// tiny with river
 		public static MapConfiguration TinyRiver = new MapConfiguration() {
 			Radius = 6,
 			Seed = 11,
@@ -202,6 +211,7 @@ namespace Lords {
 			}
 		};
 
+		// tiny and hard
 		public static MapConfiguration TinyHard = new MapConfiguration() {
 			Radius = 6,
 			Seed = 44,
@@ -217,6 +227,7 @@ namespace Lords {
 			}
 		};
 
+		// huge and sandy
 		public static MapConfiguration HugeSand = new MapConfiguration() {
 			Radius = 12,
 			Seed = 111,
@@ -234,6 +245,7 @@ namespace Lords {
 			}
 		};
 
+		// medium and cold
 		public static MapConfiguration MediumCold = new MapConfiguration() {
 			Radius = 9,
 			Seed = 2,

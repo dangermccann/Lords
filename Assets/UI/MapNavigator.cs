@@ -16,6 +16,8 @@ namespace Lords {
 
 			SavedGame game = Game.Load();
 
+			GameObject.Find("Rank").gameObject.GetComponent<Text>().text = "Current Rank: " + Strings.FormatRank(game.rank);
+
 			foreach(Level level in Levels.All) {
 				GameObject cityGO = (GameObject) Instantiate(Resources.Load("City"));
 				cityGO.transform.localPosition = new Vector3(level.mapLocation.x, level.mapLocation.y, 0);
@@ -27,26 +29,22 @@ namespace Lords {
 
 				if(game.completedLevels.Contains(level.name)) {
 					icon.color = completeColor;
+
+					if(Debug.isDebugBuild) {
+						AddEventTrigger(icon.gameObject, level);
+					}
 				}
-				else if(false) {
-					// TODO: detect locked cities 
+				else if(!Game.IsLevelUnlocked(game, level)) {
 					icon.color = disabledColor;
 					label.color = disabledColor;
+
+					if(Debug.isDebugBuild) {
+						AddEventTrigger(icon.gameObject, level);
+					}
 				}
 				else {
 					icon.color = normalColor;
-
-					// install click handler for icon
-					EventTrigger trigger = icon.gameObject.GetComponent<EventTrigger>();
-					
-					EventTrigger.Entry entry = new EventTrigger.Entry();
-					entry.eventID = EventTriggerType.PointerClick;
-					Level finalLevel = level;
-					entry.callback.AddListener( (eventData) => {  
-						CityClicked(finalLevel);
-					});
-					
-					trigger.delegates.Add(entry);
+					AddEventTrigger(icon.gameObject, level);
 				}
 
 				label.text = level.name;
@@ -55,8 +53,21 @@ namespace Lords {
 			effects = GameObject.Find("EffectsController").GetComponent<EffectsController>();
 
 		}
-		
 
+		void AddEventTrigger(GameObject gameObject, Level level) {
+			// install click handler for icon
+			EventTrigger trigger = gameObject.GetComponent<EventTrigger>();
+			
+			EventTrigger.Entry entry = new EventTrigger.Entry();
+			entry.eventID = EventTriggerType.PointerClick;
+			entry.callback.AddListener( (eventData) => {  
+				CityClicked(level);
+			});
+			
+			trigger.delegates.Add(entry);
+		}
+		
+		
 		void Update () {
 			float wheelAmount = Input.GetAxis("Mouse ScrollWheel");
 			if(wheelAmount != 0) {

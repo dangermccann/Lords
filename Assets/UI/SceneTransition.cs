@@ -111,5 +111,6 @@ namespace Lords {
 		public const string Main 			= "main";
 		public const string Interstitial 	= "interstitial";
 		public const string Promotion		= "promotion";
+		public const string Credits			= "credits";
 	}
 }

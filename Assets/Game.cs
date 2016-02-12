@@ -102,11 +102,13 @@ namespace Lords {
 				}
 			}
 			
-			if(CurrentCity.MeetsVictoryConditions() && !saved.completedLevels.Contains(CurrentCity.Level.name)) {
-				saved.completedLevels.Add(CurrentCity.Level.name);
+			if(CurrentCity.MeetsVictoryConditions()) {
+				if(!saved.completedLevels.Contains(CurrentCity.Level.name)) {
+					saved.completedLevels.Add(CurrentCity.Level.name);
+				}
 
 				if(CurrentCity.Level.promotesTo > saved.rank) {
-					CurrentCity.Level.promotesTo = saved.rank;
+					saved.rank = CurrentCity.Level.promotesTo;
 				}
 			}
 
@@ -115,6 +117,17 @@ namespace Lords {
 
 		static string SaveLocation() { 
 			return Application.persistentDataPath + "/save-v1.lm";
+		}
+
+		public static bool IsLevelUnlocked(SavedGame saved, Level level) {
+			bool unlocked = true;
+			foreach(Level prereq in level.prerequisites) {
+				if(!saved.completedLevels.Contains(prereq.name)) {
+					unlocked = false;
+				}
+			}
+
+			return unlocked;
 		}
 	}
 	

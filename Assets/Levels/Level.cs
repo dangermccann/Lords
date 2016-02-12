@@ -14,6 +14,7 @@ namespace Lords {
 		public LevelIllustration illustration = LevelIllustration.Clock;
 		public float maxElapsedTime;
 		public Ranks promotesTo = Ranks.None;
+		public Level[] prerequisites = new Level[0];
 
 		public Level() {}
 	}

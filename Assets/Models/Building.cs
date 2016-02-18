@@ -250,6 +250,7 @@ namespace Lords {
 
 		public static Dictionary<BuildingType, float> RawMaterialProduction = new Dictionary<BuildingType, float> {
 			{ BuildingType.Slums, 		0.2f },
+			{ BuildingType.Villa, 		0.1f },
 			{ BuildingType.Cottages, 	0.2f },
 		};
 

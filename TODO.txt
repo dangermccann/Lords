@@ -108,4 +108,14 @@ Level Editor
 Sound Effects
 
 
+-- Trailer --
+To Whom It May Concern:
+His Royal Highness seeks an enterprising candidate to govern the kingdom's expansion into new territories.  
+Persons that fancy themselves worthy of the charge may inquire within. 
+Build Vast Cities
+Unravel Intricate Challenges
+Become 
+Lord Mayor
+
+
 

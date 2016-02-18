@@ -96,7 +96,7 @@ public class GameController : MonoBehaviour {
 				GameObject.Find("BuildingOverlay").GetComponent<BuildingDialog>().FadeIn();
 			}
 
-			if(Input.GetKey(KeyCode.D)) {
+			if(Input.GetKey(KeyCode.T)) {
 				SelectionController.selection.Operation = Operation.Destroy;
 			}
 

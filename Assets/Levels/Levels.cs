@@ -142,20 +142,20 @@ namespace Lords {
 
 		public static Level Southgate = new Level() {
 			name = "Southgate",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",
+			description = "My good Sir, His Majesty requires that Southgate be a culturally advanced city of moderate size.\nTime limit: {0}",
 			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
 			victoryConditions = new Aggregates() { 
-				Population = 2000,
-				Happiness = 10,
-				Prosperity = 25,
-				Culture = 15,
+				Population = 3000,
+				Happiness = 25,
+				Prosperity = 30,
+				Culture = 45,
 			},
 			mapConfiguration = Maps.Tundra,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(432, 105),
-			illustration = LevelIllustration.Scales,
-			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			illustration = LevelIllustration.Flowers,
+			maxElapsedTime = 2 * 365 / Game.GameSpeed,
 			prerequisites = new Level[1] { Levels.Crosswell }
 		};
 
@@ -203,10 +203,10 @@ namespace Lords {
 			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",
 			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
 			victoryConditions = new Aggregates() { 
-				Population = 2000,
-				Happiness = 10,
-				Prosperity = 25,
-				Culture = 15,
+				Population = 20000,
+				Happiness = 50,
+				Prosperity = 75,
+				Culture = 75,
 			},
 			mapConfiguration = Maps.LargeEasy,
 			initialFunds = 1000,

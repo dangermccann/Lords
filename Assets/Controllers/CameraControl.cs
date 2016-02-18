@@ -37,11 +37,20 @@ namespace Lords {
 		void UpdateZoom() {
 			float zoomChange = 0f;
 			float zoom = Input.GetAxis("Mouse ScrollWheel");
-			if (zoom > 0) {
-				zoomChange = -1 * mainCamera.orthographicSize / 10;
+
+			if(Input.GetKey(KeyCode.PageUp) || Input.GetKey(KeyCode.Q)) {
+				zoom += 1 * Time.deltaTime;
 			}
-			else if (zoom < 0) {
-				zoomChange = mainCamera.orthographicSize / 10;
+			if(Input.GetKey(KeyCode.PageDown) || Input.GetKey(KeyCode.E)) {
+				zoom -= 1 * Time.deltaTime;
+			}
+
+			if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
+				zoom = zoom * 0.1f;
+			}
+
+			if (zoom != 0) {
+				zoomChange = -1 * zoom * mainCamera.orthographicSize / 2;
 			}
 
 			// TODO: test this
@@ -108,6 +117,32 @@ namespace Lords {
 					inertiaTime = intertiaTravelTime;
 				}
 			}
+
+			// keyboard shortcuts
+			if(IsDragging == false) {
+				Vector3 keyDiff = new Vector3(0, 0, 0);
+				if(Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) {
+					keyDiff.y += 2 * Time.deltaTime;
+				}
+				if(Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) {
+					keyDiff.y += -2 * Time.deltaTime;
+				}
+				if(Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) {
+					keyDiff.x += -2 * Time.deltaTime;
+				}
+				if(Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) {
+					keyDiff.x += 2 * Time.deltaTime;
+				}
+
+				if(Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) {
+					keyDiff = keyDiff * 0.1f;
+				}
+
+				if(keyDiff != Vector3.zero) {
+					MoveCamera(mainCamera.transform.position + keyDiff);
+				}
+			}
+
 		}
 
 		void MoveCamera(Vector3 dest) {

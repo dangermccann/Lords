@@ -45,7 +45,7 @@ Sheep May Safely Graze - BWV 208
 
 -- TODO -- 
 + Lock unavailable cities on map screen
-> Game options dialog
++ Game options dialog
 > Level creation
 > First city / tutorial intro interstitial 
 + Story line?

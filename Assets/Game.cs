@@ -12,6 +12,7 @@ namespace Lords {
 		public static Action<Level> LevelLoaded;
 
 		public static City CurrentCity;
+		public static GameOptions Options = new GameOptions();
 
 		static Level currentLevel = null;
 		public static Level CurrentLevel {
@@ -129,6 +130,33 @@ namespace Lords {
 
 			return unlocked;
 		}
+
+		public static void SaveOptions() {
+			SavedGame saved = Load();
+			if(saved == null) {
+				saved = new SavedGame();
+			}
+
+			saved.options = Game.Options;
+			Persist(saved);
+		}
+
+		public static void LoadOptions() {
+			SavedGame saved = Load();
+			if(saved != null && saved.options != null) {
+				Game.Options = saved.options;
+			}
+			else {
+				Game.Options.resolutionWidth = Screen.currentResolution.width;
+				Game.Options.resolutionHeight = Screen.currentResolution.height;
+				Game.Options.fullScreen = Screen.fullScreen;
+			}
+		}
+
+		public static void ApplyOptions() {
+			Screen.SetResolution(Game.Options.resolutionWidth, Game.Options.resolutionHeight, Game.Options.fullScreen);
+			MusicController.Instance.Volume = Game.Options.musicVolume;
+		}
 	}
 	
 	[System.Serializable] 
@@ -136,6 +164,7 @@ namespace Lords {
 		public List<SavedCity> cities = new List<SavedCity>();
 		public List<string> completedLevels = new List<string>();
 		public Ranks rank;
+		public GameOptions options;
 
 		public SavedCity FindCity(string level) {
 			foreach(SavedCity city in cities) {
@@ -167,5 +196,14 @@ namespace Lords {
 	public class SavedBuilding {
 		public Hex position;
 		public BuildingType type;
+	}
+
+	[System.Serializable]
+	public class GameOptions {
+		public int resolutionWidth = 1280;
+		public int resolutionHeight = 720;	
+		public bool fullScreen = false;
+		public float musicVolume = 1.0f;
+		public float effectsVolume = 1.0f;
 	}
 }

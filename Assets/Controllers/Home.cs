@@ -23,6 +23,9 @@ namespace Lords {
 			Debug.Log("rect: " + map.rect);
 
 			direction = new Vector2(-0.5f, -0.5f);
+
+			Game.LoadOptions();
+			Game.ApplyOptions();
 		}
 
 		void Update() {

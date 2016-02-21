@@ -34,7 +34,7 @@ namespace Lords {
 		}
 
 		void Play(AudioClip clip) {
-			AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position);
+			AudioSource.PlayClipAtPoint(clip, Camera.main.transform.position, Game.Options.effectsVolume);
 		}
 	}
 }

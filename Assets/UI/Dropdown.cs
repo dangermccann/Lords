@@ -25,16 +25,19 @@ namespace Lords {
 			}
 		}
 
+		public List<DropdownItem> Items {
+			get { return items; }
+		}
+
 		void Awake() {
 			items = new List<DropdownItem>();
 			popup = transform.FindChild("Popup").gameObject;
 			itemContainer = popup.transform.FindChild("ContentScroller/ContentContainer").gameObject;
+			label = transform.FindChild("Text").GetComponent<Text>();
 		}
 
 		void Start() {
 			popup.SetActive(false);
-
-			label = transform.FindChild("Text").GetComponent<Text>();
 
 			GetComponent<Button>().onClick.AddListener(new UnityAction(() => { 
 				open = !open;
@@ -43,7 +46,7 @@ namespace Lords {
 
 		}
 
-		public void AddItem(string text, object value) {
+		public void AddItem(string text, object value, bool selected = false) {
 			GameObject go = (GameObject) GameObject.Instantiate(itemTemplate);
 			go.name = text;
 			go.SetActive(true);
@@ -66,15 +69,10 @@ namespace Lords {
 					OnChanged(this, EventArgs.Empty);
 				}
 			}));
-		}
 
-		public DropdownItem FindItem(object value) {
-			foreach(DropdownItem item in items) {
-				if(item.Value == value) {
-					return item;
-				}
+			if(selected) {
+				SelectItem(item);
 			}
-			return null;
 		}
 
 		public void SelectItem(DropdownItem item) {
@@ -86,6 +84,9 @@ namespace Lords {
 				label.text = item.Text;
 				item.Checked = true;
 				selectedItem = item;
+			}
+			else {
+				Debug.LogWarning("Attempting to select a null item in Dropdown");
 			}
 		}
 	}

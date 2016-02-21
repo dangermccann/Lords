@@ -5,7 +5,7 @@ namespace Lords {
 	public class DropdownItem : MonoBehaviour {
 		private Text _text;
 		private GameObject _check;
-		private bool _checked;
+		private bool _checked = false;
 		
 		public bool Checked {
 			get {
@@ -30,7 +30,7 @@ namespace Lords {
 		}
 
 		void Start() {
-			Checked = false;
+			_check.SetActive(_checked);
 		}
 	}
 }

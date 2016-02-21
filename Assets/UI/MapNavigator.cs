@@ -38,9 +38,9 @@ namespace Lords {
 					icon.color = disabledColor;
 					label.color = disabledColor;
 
-					if(Debug.isDebugBuild) {
+					//if(Debug.isDebugBuild) {
 						AddEventTrigger(icon.gameObject, level);
-					}
+					//}
 				}
 				else {
 					icon.color = normalColor;

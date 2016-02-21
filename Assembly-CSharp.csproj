@@ -181,11 +181,14 @@
      <Compile Include="Assets\UI\Corner.cs" />
      <Compile Include="Assets\UI\Dialog.cs" />
      <Compile Include="Assets\UI\DialogShade.cs" />
+     <Compile Include="Assets\UI\Dropdown.cs" />
+     <Compile Include="Assets\UI\DropdownItem.cs" />
      <Compile Include="Assets\UI\HelpOverlay.cs" />
      <Compile Include="Assets\UI\InventoryLabel.cs" />
      <Compile Include="Assets\UI\MapNavigator.cs" />
      <Compile Include="Assets\UI\MenuBar.cs" />
      <Compile Include="Assets\UI\MenuOverlay.cs" />
+     <Compile Include="Assets\UI\OptionsDialog.cs" />
      <Compile Include="Assets\UI\SceneTransition.cs" />
      <Compile Include="Assets\UI\Slider.cs" />
      <Compile Include="Assets\UI\StatsPanel.cs" />

@@ -8,6 +8,8 @@ namespace Lords {
 		Vector2 min, max, direction;
 		float speed = 25f;
 
+		public GameObject optionsDialogParent;
+
 		void Start() {
 			RectTransform mask = transform.FindChild("Panel/Mask").gameObject.GetComponent<RectTransform>();
 			map = transform.FindChild("Panel/Mask/Map").gameObject.GetComponent<RectTransform>();
@@ -50,6 +52,7 @@ namespace Lords {
 		}
 
 		public void ShowOptions() {
+			optionsDialogParent.SetActive(true);
 		}
 
 		public void Exit() {

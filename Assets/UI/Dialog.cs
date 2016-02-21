@@ -12,7 +12,6 @@ namespace Lords {
 		UIPanel thisPanel, shadePanel;
 
 		public static Dialog current;
-		public Stack<Dialog> stack = new Stack<Dialog>();
 
 		protected EffectsController effects;
 

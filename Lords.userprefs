@@ -1,28 +1,25 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\UI\MapNavigator.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\UI\UpgradeBuildingToggle.cs">
     <Files>
-      <File FileName="Assets\Levels\Levels.cs" Line="209" Column="17" />
-      <File FileName="Assets\Game.cs" Line="1" Column="1" />
-      <File FileName="Assets\Models\Ranks.cs" Line="1" Column="1" />
-      <File FileName="Assets\Levels\Level.cs" Line="1" Column="1" />
-      <File FileName="Assets\Controllers\GameController.cs" Line="80" Column="41" />
-      <File FileName="Assets\UI\SceneTransition.cs" Line="1" Column="1" />
-      <File FileName="Assets\Maps\Maps.cs" Line="1" Column="1" />
-      <File FileName="Assets\UI\Corner.cs" Line="1" Column="1" />
-      <File FileName="Assets\Models\City.cs" Line="1" Column="1" />
-      <File FileName="Assets\Models\Building.cs" Line="1" Column="1" />
-      <File FileName="Assets\UI\MapNavigator.cs" Line="43" Column="8" />
-      <File FileName="Assets\Controllers\CameraControl.cs" Line="134" Column="20" />
+      <File FileName="Assets\Controllers\GameAssets.cs" Line="74" Column="50" />
+      <File FileName="Assets\Models\Building.cs" Line="595" Column="25" />
+      <File FileName="c:\Users\John McCann\Documents\Lords\Assets\Strings.cs" Line="206" Column="29" />
+      <File FileName="Assets\Models\City.cs" Line="219" Column="26" />
+      <File FileName="Assets\UI\UpgradeBuildingToggle.cs" Line="30" Column="43" />
+      <File FileName="Assets\UI\UpgradeOverlay.cs" Line="30" Column="44" />
+      <File FileName="Assets\Controllers\GameController.cs" Line="169" Column="63" />
+      <File FileName="Assets\Models\Tile.cs" Line="27" Column="9" />
+      <File FileName="Assets\UI\Dialog.cs" Line="54" Column="28" />
+      <File FileName="Assets\UI\BuildingDialog.cs" Line="78" Column="75" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Controllers" expanded="True" />
-            <Node name="Levels" expanded="True" />
+            <Node name="Models" expanded="True" />
             <Node name="UI" expanded="True">
-              <Node name="MapNavigator.cs" selected="True" />
+              <Node name="UpgradeBuildingToggle.cs" selected="True" />
             </Node>
           </Node>
         </State>

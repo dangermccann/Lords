@@ -50,6 +50,9 @@ namespace Lords {
 											"Placing multiple schools near each other will reduce thier :literacy: Literacy output.\n\n" +
 											"Schools work well on all tile types." },
 
+			{ BuildingType.Upper_School, 	"TODO" },
+			{ BuildingType.University,	 	"TODO" },
+
 			{ BuildingType.Vegetable_Farm,	"Vegetable Farms output :food: Food, which is necessary for increasing a city's Population.\n\n" +
 											"Placing multiple Vegetable Farms nearby increases their :food: Food output by 15%.\n\n" +
 											"Vegetable Farms output less :food: Food on Snow, Sand, Tundra and Marsh." },
@@ -58,9 +61,13 @@ namespace Lords {
 											"Placing multiple Wheat Farms nearby increases their :food: Food output by 15%.\n\n" +
 											"Wheat Farms output less :food: Food on Snow, Sand, Tundra and Marsh." },
 
+			{ BuildingType.Berry_Farm,	 	"TODO" },
+
 			{ BuildingType.Tavern, 			"Taverns increase a city's \n:entertainment: Entertainment, an important component of its Happiness score.\n\n" +
 											"Nearby Forts will reduce the Tavern's negative :security: Security output.\n\n" +
 											"Placing multiple Taverns near each other reduces their effectiveness." },
+
+			{ BuildingType.Hotel,		 	"TODO" },
 
 			{ BuildingType.Amphitheater, 	"The Amphitheater outputs more \n:entertainment: Entertainment than the Tavern, but also reduces " +
 											"the city's :productivity: Productivity.\n\n" +
@@ -68,13 +75,20 @@ namespace Lords {
 											"Entertainment output by 20%.\n\n" +
 											"Amphitheaters with others nearby are less effective." },
 
+			{ BuildingType.Coloseum,	 	"TODO" },
+
 			{ BuildingType.Trading_Post, 	"The Trading Post improves the city's \n:productivity: Productivity output, at the expense of :beauty: Beauty.\n\n" +
 											"Nearby Workshops increase the Trading Post's effectiveness by 20%.\n\n" +
 											"Trading Posts with others nearby are less effective." },
 
-			{ BuildingType.Fort, 			"Forts provide :security: Security to the city.\n\n" +
+			{ BuildingType.Constabulary, 	"TODO" },
+
+			{ BuildingType.Military_Fort,	"Forts provide :security: Security to the city.\n\n" +
 											"When placed on Forest tiles, they are 30% more effective.  Sand tiles reduce their effectiveness by 10%.\n\n" +
 											"Forts are less effective if other Forts are nearby." },
+
+			{ BuildingType.Clinic,		 	"TODO" },
+			{ BuildingType.Dispensary,	 	"TODO" },
 
 			{ BuildingType.Hospital, 		"The Hospital is the only building that increases the city's :health: Health output, a component of the city's Happiness score.\n\n" +
 											"Hospitals work equally well on any tile, but are less effective if other Hospitals are nearby." },
@@ -82,13 +96,22 @@ namespace Lords {
 			{ BuildingType.Garden, 			"Gardens improve the city's :beauty: Beauty, thereby promoting the Culture score of the city.\n\n" +
 											"They are 35% less effective if a Workshop is nearby, and 30% less effective if built on Marsh tiles." },
 
+			{ BuildingType.Plaza,		 	"TODO" },
+			{ BuildingType.Statue,		 	"TODO" },
+
 			{ BuildingType.Church, 			"Chrches promote a city's :faith: Faith output, which adds to the Culture score of the city.\n\n" +
 											"They are 20% more effective with a Garden nearby, and 30% less effective with another Church nearby." },
+
+			{ BuildingType.Monestary,	 	"TODO" },
+			{ BuildingType.Cathedral,	 	"TODO" },
 
 			{ BuildingType.Workshop, 		"The Workshop yields the same \n:productivity: Productivity output as the Trading Post, but has different " +
 											"negative side effects.\n\n" +
 											"A nearby Hospital reduces the negative :health: Health output by 35%, and other Workshops nearby reduce \n" +
 											":productivity: Productivity output by 30%." },
+
+			{ BuildingType.Blacksmith,	 	"TODO" },
+			{ BuildingType.Factory,		 	"TODO" },
 		};
 
 		public static string BuildingTitle(BuildingType type) {
@@ -111,8 +134,8 @@ namespace Lords {
 			return FormatPrimative(Building.Yields[type]);
 		}
 
-		public static string BuildingYieldLong(BuildingType type) {
-			return FormatPrimative(Building.Yields[type], true, "\n");
+		public static string BuildingYieldLong(BuildingType type, string delimiter = "\n") {
+			return FormatPrimative(Building.Yields[type], true, delimiter);
 		}
 
 		public static string FormatPrimative(Primatives p, bool longNames = false, string delimiter = "  ") {

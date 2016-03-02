@@ -16,7 +16,7 @@ namespace Lords {
 			buttons = new Dictionary<BuildingType, UIButton>();
 			costLabels = new Dictionary<BuildingType, UILabel>();
 
-			foreach(BuildingType type in Building.Types) {
+			foreach(BuildingType type in Building.PrimativeTypes) {
 				GameObject item = (GameObject) Instantiate(Resources.Load("BuildingOverlayItem"), Vector3.zero, Quaternion.identity);
 
 				UILabel costLabel = item.transform.FindChild("Cost").gameObject.GetComponent<UILabel>();

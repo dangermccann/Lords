@@ -192,6 +192,8 @@
      <Compile Include="Assets\UI\SceneTransition.cs" />
      <Compile Include="Assets\UI\Slider.cs" />
      <Compile Include="Assets\UI\StatsPanel.cs" />
+     <Compile Include="Assets\UI\UpgradeBuildingToggle.cs" />
+     <Compile Include="Assets\UI\UpgradeOverlay.cs" />
      <Compile Include="Assets\UI\VictoryOverlay.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\AssertionComponent.cs" />
      <Compile Include="Assets\UnityTestTools\Assertions\AssertionException.cs" />

@@ -72,7 +72,7 @@ namespace Lords {
 			Building villa = new Building(city.Tiles[new Hex(0, 0)], BuildingType.Villa).ResetCreateTime();
 			Building farm = new Building(city.Tiles[new Hex(0, 1)], BuildingType.Wheat_Farm).ResetCreateTime();
 			Building tavern = new Building(city.Tiles[new Hex(0, -1)], BuildingType.Tavern).ResetCreateTime();
-			Building fort = new Building(city.Tiles[new Hex(1, -1)], BuildingType.Fort).ResetCreateTime();
+			Building fort = new Building(city.Tiles[new Hex(1, -1)], BuildingType.Military_Fort).ResetCreateTime();
 			
 			city.AddBuilding(villa);
 			city.AddBuilding(farm);
@@ -83,14 +83,14 @@ namespace Lords {
 			city.UpdateScore();
 			
 			float expected = Building.Yields[BuildingType.Tavern].Security * Building.Yields[BuildingType.Villa].Housing / Building.PopulationMinimums[BuildingType.Tavern];
-			expected *= (1.0f + Building.NearbyModifiers[BuildingType.Tavern][BuildingType.Fort]).Security;
-			expected += Building.Yields[BuildingType.Fort].Security * Building.Yields[BuildingType.Villa].Housing / Building.PopulationMinimums[BuildingType.Fort];
+			expected *= (1.0f + Building.NearbyModifiers[BuildingType.Tavern][BuildingType.Military_Fort]).Security;
+			expected += Building.Yields[BuildingType.Military_Fort].Security * Building.Yields[BuildingType.Villa].Housing / Building.PopulationMinimums[BuildingType.Military_Fort];
 
 			Assert.AreEqual(Building.Yields[BuildingType.Villa].Housing, city.Primatives.Housing);
 			Assert.AreEqual(Building.Yields[BuildingType.Wheat_Farm].Food, city.Primatives.Food);
 			Assert.AreEqual(Building.Yields[BuildingType.Villa].Housing, city.Score.Population);
 			Assert.AreEqual(Roundish(expected), Roundish(city.Primatives.Security));
-			Assert.AreEqual(Roundish((1.0f + Building.NearbyModifiers[BuildingType.Tavern][BuildingType.Fort]).Security), Roundish(city.NearbyBuildingModifier(tavern).Security));
+			Assert.AreEqual(Roundish((1.0f + Building.NearbyModifiers[BuildingType.Tavern][BuildingType.Military_Fort]).Security), Roundish(city.NearbyBuildingModifier(tavern).Security));
 		}
 
 		float Roundish(float val) {

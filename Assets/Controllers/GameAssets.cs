@@ -28,7 +28,7 @@ namespace Lords {
 		const string INTERSTITIAL = "Interstitial-Sprite-Sheet";
 
 		public static Dictionary<TileType, int> TileIndexes = new Dictionary<TileType, int> {
-			{ TileType.Empty, 		16 },
+			{ TileType.Empty, 		23 },
 			{ TileType.Sand, 		14 },
 			{ TileType.Dirt, 		1 },
 			{ TileType.Snow, 		0 },
@@ -45,16 +45,30 @@ namespace Lords {
 			{ BuildingType.Slums, 			3 },
 			{ BuildingType.Cottages,		4 },
 			{ BuildingType.School, 			5 },
+			{ BuildingType.Upper_School, 	25 },
+			{ BuildingType.University, 		24 },
 			{ BuildingType.Vegetable_Farm, 	6 },
 			{ BuildingType.Wheat_Farm, 		7 },
+			{ BuildingType.Berry_Farm, 		26 },
 			{ BuildingType.Tavern, 			8 },
+			{ BuildingType.Hotel, 			27 },
 			{ BuildingType.Amphitheater,	9 },
+			{ BuildingType.Coloseum,		28 },
 			{ BuildingType.Trading_Post, 	10 },
-			{ BuildingType.Fort, 			11 },
+			{ BuildingType.Military_Fort,	11 },
+			{ BuildingType.Constabulary,	29 },
 			{ BuildingType.Hospital, 		12 },
+			{ BuildingType.Clinic, 			30 },
+			{ BuildingType.Dispensary, 		31 },
 			{ BuildingType.Garden,			13 },
+			{ BuildingType.Plaza,			32 },
+			{ BuildingType.Statue,			33 },
 			{ BuildingType.Church,			17 },
-			{ BuildingType.Workshop,		18 },
+			{ BuildingType.Monestary,		34 },
+			{ BuildingType.Cathedral,		35 },
+			{ BuildingType.Blacksmith,		36 },
+			{ BuildingType.Workshop,		37 },
+			{ BuildingType.Factory,			38 },
 		};
 
 		public static Sprite GetSprite(TileType type) {

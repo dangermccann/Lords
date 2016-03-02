@@ -8,25 +8,44 @@
   - Villas        --> Housing & Literacy
   - Cottages      --> Housing 
   - Slums         --> Housing & -Security
- > Workshop       --> Productivity & -Health
+ > Workshop       --> Productivity & -Health + Clothes
+ > Blackmith*     --> Productivity & -Health + Tools
+ > Factory*       --> Productivity & -Health + Manufactured Goods
  > Trading Post   --> Productivity & -Beauty
- > Fort           --> Security & -Beauty
- > Ampitheater    --> Entertainment & -Productivity
+ > Constabulary   --> Security & -Beauty
+ > Military Fort* --> Security & -Beauty
+ > Amphitheater   --> Entertainment & -Productivity
+ > Coloseum*      --> Entertainment & -Productivity
  > Church         --> Faith & Beauty & -Literacy
+ > Cathedral*     --> Faith & Beauty & -Literacy
+ > Monestary*     --> Faith & Beauty & -Literacy
  > Farms
-  - Wheat         --> Food & -Literacy
-  - Vegetable     --> Food & -Literacy
+  - Wheat         --> Food & -Literacy + Wheat
+  - Vegetable*    --> Food & -Literacy + Vegetables
+  - Berry*        --> Food & -Literacy + Berries
  > Tavern         --> Entertainment & -Security
+ > Hotel*         --> Entertainment & -Security
  > Garden         --> Beauty & -Productivity
+ > Plaza*         --> Beauty & -Productivity
+ > Statue*        --> Beauty & -Productivity
  > School         --> Literacy & -Entertainment
- > Hospital       --> Health & -Faith
+ > Upper School*  --> Literacy & -Entertainment
+ > Universary*    --> Literacy & -Entertainment
+ > Clinic         --> Health & -Faith
+ > Dispensary*    --> Health & -Faith
+ > Hospital*      --> Health & -Faith
 
- 
+ * Available through upgrade only
+
 -- Game Mechanics -- 
  > Population => Food + Housing
  > Happiness => Entertainment + Health + Security
  > Prosperity => Productivity + Literacy
  > Culture => Faith + Beauty
+
+ > Trading Post: Can trade food or items produced in workshops
+   - Exports: Wheat, Vegetables, Berries, Manufactured Goods, Tools, Textiles
+   - Imports: Spirits, Medicine, Books, Incense, Jewlery 
  
  
 -- Music --
@@ -120,4 +139,6 @@ Become
 Lord Mayor
 
 
+editors@indiegames.com
+news@gamasutra.com
 

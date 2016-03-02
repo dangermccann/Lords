@@ -15,6 +15,10 @@ namespace Lords {
 			Assert.AreEqual(Building.Types.Count, Building.RequiredFunds.Count);
 			Assert.AreEqual(Building.Types.Count, Building.RequiredMaterials.Count);
 			Assert.AreEqual(Building.Types.Count, Building.PositiveYields.Count);
+
+			foreach(BuildingType type in Building.Types) {
+				Assert.IsNotNull(Strings.BuildingHelp(type));
+			}
 		}
 	}
 }

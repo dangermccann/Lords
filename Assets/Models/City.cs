@@ -208,6 +208,9 @@ namespace Lords {
 
 		public void AddBuilding(Building b) {
 			Buildings[b.Type].Add(b);
+
+			Debug.Log("Deducting " + Building.RequiredFunds[b.Type] + " for type " + b.Type);
+
 			Funds -= Building.RequiredFunds[b.Type];
 			RawMaterials -= Building.RequiredMaterials[b.Type];
 		}

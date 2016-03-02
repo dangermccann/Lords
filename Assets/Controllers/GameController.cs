@@ -164,6 +164,12 @@ public class GameController : MonoBehaviour {
 				}
 				else if(SelectionController.selection.Operation == Operation.Info) {
 					SelectionController.selection.Tile = tile;
+
+					if(tile.Building != null && Building.CanUpgrade(tile.Building.Type)) {
+						UpgradeOverlay overlay = GameObject.Find("UpgradeOverlay").GetComponent<UpgradeOverlay>();
+						overlay.SetBuilding(tile.Building);
+						overlay.FadeIn();
+					}
 				}
 			}
 			else {

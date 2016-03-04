@@ -92,6 +92,10 @@ public class GameController : MonoBehaviour {
 				HelpOverlay.Show(BuildingType.Villa);
 			}
 
+			if(Input.GetKey(KeyCode.F2)) {
+				GameObject.Find("TradeOverlay").GetComponent<TradeOverlay>().FadeIn();
+			}
+
 			if(Input.GetKey(KeyCode.B)) {
 				GameObject.Find("BuildingOverlay").GetComponent<BuildingDialog>().FadeIn();
 			}
@@ -165,10 +169,15 @@ public class GameController : MonoBehaviour {
 				else if(SelectionController.selection.Operation == Operation.Info) {
 					SelectionController.selection.Tile = tile;
 
-					if(tile.Building != null && Building.CanUpgrade(tile.Building.Type)) {
-						UpgradeOverlay overlay = GameObject.Find("UpgradeOverlay").GetComponent<UpgradeOverlay>();
-						overlay.SetBuilding(tile.Building);
-						overlay.FadeIn();
+					if(tile.Building != null) {
+						if(Building.CanUpgrade(tile.Building.Type)) {
+							UpgradeOverlay overlay = GameObject.Find("UpgradeOverlay").GetComponent<UpgradeOverlay>();
+							overlay.SetBuilding(tile.Building);
+							overlay.FadeIn();
+						}
+						else if(tile.Building.Type == BuildingType.Trading_Post) {
+							GameObject.Find("TradeOverlay").GetComponent<TradeOverlay>().FadeIn();
+						}
 					}
 				}
 			}

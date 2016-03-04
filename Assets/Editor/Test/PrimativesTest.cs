@@ -126,6 +126,21 @@ namespace Lords {
 			Assert.AreEqual(1, p1["Food"]);
 			Assert.AreEqual(1, p1["Housing"]);
 		}
+
+		[Test]
+		public void TestPropSet() {
+			Primatives p1 = new Primatives() {
+				Food = 1, Housing = 1, Productivity = 1,
+				Health = 1, Security = 1, Beauty = 1,
+				Faith = 1, Entertainment = 1, Literacy = 1
+			};
+
+			p1["Food"] = 2;
+			p1["Housing"] = 3;
+
+			Assert.AreEqual(2, p1.Food);
+			Assert.AreEqual(3, p1.Housing);
+		}
 	}
 }
 

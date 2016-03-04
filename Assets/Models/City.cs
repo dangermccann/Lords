@@ -16,6 +16,9 @@ namespace Lords {
 		public float RawMaterials { get; protected set; }
 		public float Funds { get; protected set; }
 		public float ElapsedTime { get; protected set; }
+		public Dictionary<Exports, float> Exports { get; protected set; }
+		public float ExportTotal { get; protected set; }
+		public Dictionary<Imports, float> ImportAllocation { get; protected set; }
 
 		public float FoodLevel() {
 			if(Primatives.Housing > 0) {
@@ -29,6 +32,12 @@ namespace Lords {
 			Tiles = new Dictionary<Hex, Tile>();
 			Primatives = new Primatives();
 			Score = new Aggregates();
+			Exports = new Dictionary<Exports, float>();
+
+			ImportAllocation = new Dictionary<Imports, float>();
+			foreach(Imports import in Trade.ImportLookupTable.Keys) {
+				ImportAllocation[import] = 1.0f / Trade.ImportLookupTable.Keys.Count;
+			}
 
 			Buildings = new Dictionary<BuildingType, List<Building>>();
 			foreach(BuildingType type in Building.Types) {
@@ -68,6 +77,27 @@ namespace Lords {
 			}
 
 			Primatives = result;
+		}
+
+		public void UpdateExports() {
+			ExportTotal = 0;
+			foreach(Exports export in Trade.ExportLookupTable.Keys) {
+				float count = 0;
+				foreach(Building b in Buildings[Trade.ExportLookupTable[export]]) {
+					count += Trade.EXPORT_QTY_PER_BUILDING * BuildingEffectiveness(b);
+				}
+				this.Exports[export] = count;
+				ExportTotal += count * Game.CurrentLevel.exportPrices[export];
+			}
+		}
+
+		public void UpdateImports() {
+			foreach(Imports import in Trade.ImportLookupTable.Keys) {
+				float amount = ExportTotal / Level.importPrices[import] * ImportAllocation[import];
+
+				// Map the value from the Imports enum to the Primative field and increment the amount
+				Primatives[Trade.ImportLookupTable[import]] += amount;
+			}
 		}
 
 		public Primatives EffectiveYield(Building building) {
@@ -181,6 +211,8 @@ namespace Lords {
 		public void UpdateEverything(float deltaTime) {
 			ElapsedTime += deltaTime;
 			UpdatePrimatives();
+			UpdateExports();
+			UpdateImports();
 			UpdateFunds(deltaTime);
 			UpdateRawMaterials(deltaTime);
 			UpdateScore();
@@ -242,6 +274,7 @@ namespace Lords {
 			saved.funds = this.Funds;
 			saved.level = this.Level.name;
 			saved.elapsedTime = this.ElapsedTime;
+			saved.importAllocation = this.ImportAllocation;
 			
 			foreach(List<Building> buildings in this.Buildings.Values) {
 				foreach(Building building in buildings) {
@@ -260,6 +293,9 @@ namespace Lords {
 			city.RawMaterials = saved.rawMaterials;
 			city.Funds = saved.funds;
 			city.ElapsedTime = saved.elapsedTime;
+	
+			if(saved.importAllocation != null)	// backwards compatibility - remove later
+				city.ImportAllocation = saved.importAllocation;
 
 			foreach(SavedBuilding savedBuilding in saved.buildings) {
 				Building building = new Building(city.Tiles[savedBuilding.position], savedBuilding.type);

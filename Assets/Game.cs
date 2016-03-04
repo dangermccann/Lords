@@ -183,12 +183,14 @@ namespace Lords {
 		public string level;
 		public float elapsedTime;
 		public List<SavedBuilding> buildings = new List<SavedBuilding>();
+		public Dictionary<Imports, float> importAllocation = new Dictionary<Imports, float>();
 
 		public void Reset() {
 			rawMaterials = Levels.GetLevel(level).initialRawMaterials;
 			funds = Levels.GetLevel(level).initialFunds;
 			elapsedTime = 0;
 			buildings.Clear();
+			importAllocation.Clear();
 		}
 	}
 

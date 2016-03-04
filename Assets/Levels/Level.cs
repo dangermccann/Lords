@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Lords {
@@ -15,6 +16,21 @@ namespace Lords {
 		public float maxElapsedTime;
 		public Ranks promotesTo = Ranks.None;
 		public Level[] prerequisites = new Level[0];
+
+		public Dictionary<Exports, float> exportPrices = new Dictionary<Exports, float>() {
+			{ Exports.Clothes,            10 },
+			{ Exports.Tools,              10 },
+			{ Exports.Manufactured_Goods, 10 }
+		};
+
+		public Dictionary<Imports, float> importPrices = new Dictionary<Imports, float>() {
+			{ Imports.Books,    15 },
+			{ Imports.Incense,  15 },
+			{ Imports.Jewlery,  15 },
+			{ Imports.Medicine, 15 },
+			{ Imports.Spirits,  15 },
+			{ Imports.Weapons,  15 },
+		};
 
 		public Level() {}
 	}

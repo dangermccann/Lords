@@ -45,7 +45,7 @@
 
  > Trading Post: Can trade food or items produced in workshops
    - Exports: Wheat, Vegetables, Berries, Manufactured Goods, Tools, Textiles
-   - Imports: Spirits, Medicine, Books, Incense, Jewlery 
+   - Imports: Spirits, Medicine, Books, Incense, Jewlery, Weapons
  
  
 -- Music --
@@ -70,7 +70,9 @@ Sheep May Safely Graze - BWV 208
 + Story line?
 + Sound effects  (http://www.bfxr.net/)
 + Credits Page
-> Menu Bar clicks don't work
++ Menu Bar clicks don't work
+> Garden / Plaza / Statue tile horizontal alignment
+> Trade
 
 
 

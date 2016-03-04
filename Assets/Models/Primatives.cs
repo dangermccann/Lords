@@ -133,6 +133,9 @@ namespace Lords {
 			get { 
 				return (float) this.GetType().GetProperty(prop).GetValue(this, null); 
 			}
+			set {
+				this.GetType().GetProperty(prop).SetValue(this, value, null);
+			}
 		}
 
 		public override bool Equals(System.Object obj) {

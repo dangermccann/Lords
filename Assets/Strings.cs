@@ -303,6 +303,14 @@ namespace Lords {
 			return rank.ToString().Replace('_', ' ');
 		}
 
+		public static string FormatImportYield(Imports import, float value) {
+			return PlusMinus(value) + Mathf.Floor(value) + " " + YieldIcon(Trade.ImportLookupTable[import]);
+		}
+
+		public static string FormatCurrency(float value) {
+			return ":gold: " + Mathf.Floor(value);
+		}
+
 		static string PlusMinus(float value) {
 			if(value > 0) {
 				return "+";

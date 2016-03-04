@@ -71,6 +71,7 @@
      <Compile Include="Assets\Models\Primatives.cs" />
      <Compile Include="Assets\Models\Ranks.cs" />
      <Compile Include="Assets\Models\Tile.cs" />
+     <Compile Include="Assets\Models\Trade.cs" />
      <Compile Include="Assets\NGUI\Scripts\Interaction\LanguageSelection.cs" />
      <Compile Include="Assets\NGUI\Scripts\Interaction\TypewriterEffect.cs" />
      <Compile Include="Assets\NGUI\Scripts\Interaction\UIButton.cs" />
@@ -188,10 +189,12 @@
      <Compile Include="Assets\UI\MapNavigator.cs" />
      <Compile Include="Assets\UI\MenuBar.cs" />
      <Compile Include="Assets\UI\MenuOverlay.cs" />
+     <Compile Include="Assets\UI\MultiSlider.cs" />
      <Compile Include="Assets\UI\OptionsDialog.cs" />
      <Compile Include="Assets\UI\SceneTransition.cs" />
      <Compile Include="Assets\UI\Slider.cs" />
      <Compile Include="Assets\UI\StatsPanel.cs" />
+     <Compile Include="Assets\UI\TradeOverlay.cs" />
      <Compile Include="Assets\UI\UpgradeBuildingToggle.cs" />
      <Compile Include="Assets\UI\UpgradeOverlay.cs" />
      <Compile Include="Assets\UI\VictoryOverlay.cs" />

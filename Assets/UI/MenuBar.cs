@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Lords {
 	public class MenuBar : MonoBehaviour {
 
-		public GameObject menuOverlay;
+		public GameObject menuOverlay, helpOverlay;
 		UILabel dateLabel;
 
 		void Start() { 
@@ -12,10 +12,6 @@ namespace Lords {
 			}
 
 			Game.LevelLoaded += LevelLoaded;
-
-			GameObject menu = transform.FindChild("Container/Menu").gameObject;
-			EventDelegate.Add(menu.GetComponent<UIButton>().onClick, OnMenuClick);
-
 			dateLabel = transform.FindChild("Container/Date").gameObject.GetComponent<UILabel>();
 		}
 
@@ -32,17 +28,12 @@ namespace Lords {
 			cityName.text = level.name;
 		}
 
-		public void OnMenuClick() {
-			Debug.Log(UICamera.hoveredObject.name);
+		public void Menu() {
 			menuOverlay.GetComponent<MenuOverlay>().FadeIn();
 		}
 
-		public void Menu() {
-			Debug.Log("Opening menu");
-		}
-
 		public void Help() {
-			Debug.Log("Opening help");
+			helpOverlay.GetComponent<HelpOverlay>().FadeIn();
 		}
 
 	}

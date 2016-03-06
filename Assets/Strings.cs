@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Lords {
 	public enum Colors {
+		Normal,
 		PositiveYield,
 		NegativeYield,
 		Requirement
@@ -13,6 +14,7 @@ namespace Lords {
 	public class Strings {
 
 		static Dictionary<Colors, string> colors = new Dictionary<Colors, string>() {
+			{ Colors.Normal, "ffffff" },
 			{ Colors.PositiveYield, "189b0a" },
 			{ Colors.NegativeYield, "c02f2f" },
 			{ Colors.Requirement, "823111" },
@@ -203,7 +205,7 @@ namespace Lords {
 			return String.Format ("{0} :gold: {1} :rawmaterials:", Mathf.Floor(city.Funds), Mathf.Floor(city.RawMaterials));
 		}
 
-		public static string CanNotBuildMessage(City city, BuildingType type) {
+		public static string CanNotBuildMessage(City city, BuildingType type, Colors color = Colors.Requirement) {
 			string message = "";
 			if(city.Funds < Building.RequiredFunds[type]) {
 				message = String.Format("{0} :gold:", Building.RequiredFunds[type]);;
@@ -215,7 +217,7 @@ namespace Lords {
 				message = String.Format("{0} Population", Building.PopulationMinimums[type]);;
 			}
 
-			return Colorize(message, Colors.Requirement);;
+			return Colorize(message, color);
 		}
 
 		public static string YieldIcon(string property) {
@@ -309,6 +311,11 @@ namespace Lords {
 
 		public static string FormatCurrency(float value) {
 			return ":gold: " + Mathf.Floor(value);
+		}
+
+		public static string FormatScore(float value) {
+			float rounded = Mathf.Round(value);
+			return Colorize (rounded.ToString(), rounded < 0 ? Colors.NegativeYield : Colors.Normal);
 		}
 
 		static string PlusMinus(float value) {

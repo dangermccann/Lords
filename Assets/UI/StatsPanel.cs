@@ -3,7 +3,7 @@ using Lords;
 
 public class StatsPanel : MonoBehaviour {
 	
-	UILabel population; 
+	UILabel population, happinessValue, properityValue, cultureValue; 
 	Lords.Slider happiness, prosperity, culture;
 
 	void Start() {
@@ -11,6 +11,9 @@ public class StatsPanel : MonoBehaviour {
 		happiness = GetSlider("Table/HappinessSlider");
 		prosperity = GetSlider("Table/ProsperitySlider");
 		culture = GetSlider("Table/CultureSlider");
+		happinessValue = GetUIText("Table/HappinessValue");
+		properityValue = GetUIText("Table/ProsperityValue");
+		cultureValue = GetUIText("Table/CultureValue");
 	}
 
 	UILabel GetUIText(string name) {
@@ -26,6 +29,10 @@ public class StatsPanel : MonoBehaviour {
 		happiness.Value = SliderValue(Game.CurrentLevel.victoryConditions.Happiness, Game.CurrentCity.Score.Happiness);
 		prosperity.Value = SliderValue(Game.CurrentLevel.victoryConditions.Prosperity, Game.CurrentCity.Score.Prosperity);
 		culture.Value = SliderValue(Game.CurrentLevel.victoryConditions.Culture, Game.CurrentCity.Score.Culture);
+
+		happinessValue.text = Strings.FormatScore(Game.CurrentCity.Score.Happiness);
+		properityValue.text = Strings.FormatScore(Game.CurrentCity.Score.Prosperity);
+		cultureValue.text = Strings.FormatScore(Game.CurrentCity.Score.Culture);
 	}
 
 	float SliderValue(float target, float actual) {

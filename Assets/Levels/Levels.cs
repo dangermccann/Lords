@@ -19,7 +19,7 @@ namespace Lords {
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(200, 150),
 			illustration = LevelIllustration.House,
-			maxElapsedTime = 2 * 365 / Game.GameSpeed,
+			maxElapsedTime = 365 / Game.GameSpeed,
 			promotesTo = Ranks.Gentleman
 		};
 
@@ -38,7 +38,7 @@ namespace Lords {
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(216, 225),
 			illustration = LevelIllustration.Fish,
-			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			maxElapsedTime = 200 / Game.GameSpeed,
 			prerequisites = new Level[1] { Levels.Tutorial }
 		};
 
@@ -49,7 +49,7 @@ namespace Lords {
 			victoryConditions = new Aggregates() { 
 				Population = 2000,
 				Happiness = 10,
-				Prosperity = 25,
+				Prosperity = 35,
 				Culture = 15,
 			},
 			mapConfiguration = Maps.MountainsForest,
@@ -57,7 +57,7 @@ namespace Lords {
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(369, 227),
 			illustration = LevelIllustration.Scales,
-			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			maxElapsedTime = 200 / Game.GameSpeed,
 			promotesTo = Ranks.Esquire,
 			prerequisites = new Level[1] { Levels.PortHenry }
 		};

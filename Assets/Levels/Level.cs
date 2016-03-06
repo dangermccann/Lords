@@ -24,12 +24,12 @@ namespace Lords {
 		};
 
 		public Dictionary<Imports, float> importPrices = new Dictionary<Imports, float>() {
-			{ Imports.Books,    15 },
-			{ Imports.Incense,  15 },
-			{ Imports.Jewlery,  15 },
-			{ Imports.Medicine, 15 },
-			{ Imports.Spirits,  15 },
-			{ Imports.Weapons,  15 },
+			{ Imports.Books,    75 },
+			{ Imports.Incense,  75 },
+			{ Imports.Jewlery,  75 },
+			{ Imports.Medicine, 75 },
+			{ Imports.Spirits,  75 },
+			{ Imports.Weapons,  75 },
 		};
 
 		public Level() {}

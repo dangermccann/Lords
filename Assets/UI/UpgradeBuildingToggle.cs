@@ -25,11 +25,20 @@ namespace Lords {
 
 		public void SetBuildingType(BuildingType _type) {
 			this.type = _type;
+			Redraw();
+		}
 
+		void Redraw() {
 			transform.FindChild("Preview/Icon").gameObject.GetComponent<UI2DSprite>().sprite2D = GameAssets.GetSprite(type);
 			transform.FindChild("Title").gameObject.GetComponent<UILabel>().text = Strings.BuildingTitle(type);
 			transform.FindChild("Yield").gameObject.GetComponent<UILabel>().text = "Yield: " + Strings.BuildingYield(type);
-			transform.FindChild("Cost").gameObject.GetComponent<UILabel>().text = "Cost: " + Strings.BuildingCost(type);
+
+			if(Enabled) {
+				transform.FindChild("Cost").gameObject.GetComponent<UILabel>().text = "Cost: " + Strings.BuildingCost(type);
+			}
+			else {
+				transform.FindChild("Cost").gameObject.GetComponent<UILabel>().text = Strings.CanNotBuildMessage(Game.CurrentCity, type, Colors.Normal) + " Required";
+			}
 		}
 
 		public void Select() {
@@ -49,6 +58,7 @@ namespace Lords {
 			}
 			set {
 				button.isEnabled = value;
+				Redraw();
 			}
 		}
 

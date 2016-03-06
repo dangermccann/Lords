@@ -28,7 +28,7 @@ namespace Lords {
 		void UpdateEnabledButtons() {
 			if(Visible && currentBuilding != null) {
 				for(int i = 0; i < types.Length; i++) {
-					if(!toggles[i].Selected) {
+					if(!toggles[i].Selected && toggles[i].gameObject.activeSelf) {
 						toggles[i].Enabled = Game.CurrentCity.CanBuild(types[i]);
 					}
 				}

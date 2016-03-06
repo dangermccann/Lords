@@ -173,7 +173,6 @@ public class GameController : MonoBehaviour {
 						if(Building.CanUpgrade(tile.Building.Type)) {
 							UpgradeOverlay overlay = GameObject.Find("UpgradeOverlay").GetComponent<UpgradeOverlay>();
 							overlay.SetBuilding(tile.Building);
-							overlay.FadeIn();
 						}
 						else if(tile.Building.Type == BuildingType.Trading_Post) {
 							GameObject.Find("TradeOverlay").GetComponent<TradeOverlay>().FadeIn();

@@ -6,7 +6,7 @@ namespace Lords {
 
 		public GameObject importsRowPrefab;
 
-		GameObject importsTable, exportsTable;
+		GameObject importsTable, exportsTable, noTradingPost;
 		UILabel exportsTotal;
 		GameObject[] rows;
 		UIPanel panel;
@@ -17,6 +17,7 @@ namespace Lords {
 			exportsTable = transform.FindChild("Background/Exports/Table").gameObject;
 			importsTable = transform.FindChild("Background/Imports/Table").gameObject;
 			exportsTotal = transform.FindChild("Background/Exports/Total").gameObject.GetComponent<UILabel>();
+			noTradingPost = transform.FindChild("Background/Exports/NoTradingPost").gameObject;
 			panel = GetComponent<UIPanel>();
 		}
 
@@ -90,6 +91,13 @@ namespace Lords {
 			base.FadeIn();
 			PopulateImports();
 			UpdateExports();
+
+			if(Game.CurrentCity.Buildings[BuildingType.Trading_Post].Count == 0) {
+				noTradingPost.SetActive(true);
+			}
+			else {
+				noTradingPost.SetActive(false);
+			}
 		}
 
 		public override void FadeOut (bool dismissShade) {

@@ -82,17 +82,21 @@ namespace Lords {
 		public void UpdateExports() {
 			ExportTotal = 0;
 
-			// Must have at least one trading post to trade
-			if(Buildings[BuildingType.Trading_Post].Count > 0) {
-				foreach(Exports export in Trade.ExportLookupTable.Keys) {
-					float count = 0;
+
+			foreach(Exports export in Trade.ExportLookupTable.Keys) {
+				float count = 0;
+
+				// Must have a Trading Post to trade
+				if(Buildings[BuildingType.Trading_Post].Count > 0) {
 					foreach(Building b in Buildings[Trade.ExportLookupTable[export]]) {
 						count += Trade.EXPORT_QTY_PER_BUILDING * BuildingEffectiveness(b);
 					}
-					this.Exports[export] = count;
-					ExportTotal += count * Game.CurrentLevel.exportPrices[export];
 				}
+
+				this.Exports[export] = count;
+				ExportTotal += count * Game.CurrentLevel.exportPrices[export];
 			}
+
 		}
 
 		public void UpdateImports() {

@@ -25,7 +25,7 @@ namespace Lords {
 
 		public static Level PortHenry = new Level() {
 			name = "Port Henry",
-			description = "Your next charge is a moderately larger town with simple but balanced qualities.\nTime limit: {0}",
+			description = "Your next charge is a somewhat larger town with simple but balanced qualities.\nTime limit: {0}",
 			victoryMessage = "You have achieved a satisfactory rating in the eyes of The Crown.",
 			victoryConditions = new Aggregates() { 
 				Population = 2000,
@@ -65,20 +65,20 @@ namespace Lords {
 		// HERE
 		public static Level Greencastle = new Level() {
 			name = "Greencastle",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",
+			description = "The Crown requires a moderately sized city that must be established rather quickly.\nTime limit: {0}",
 			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
 			victoryConditions = new Aggregates() { 
-				Population = 2000,
-				Happiness = 10,
-				Prosperity = 25,
-				Culture = 15,
+				Population = 2500,
+				Happiness = 15,
+				Prosperity = 10,
+				Culture = 10,
 			},
 			mapConfiguration = Maps.Greencastle,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(50, 306),
-			illustration = LevelIllustration.Scales,
-			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			illustration = LevelIllustration.Clock,
+			maxElapsedTime = 90 / Game.GameSpeed,
 			prerequisites = new Level[1] { Levels.Galloway }
 		};
 		

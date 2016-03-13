@@ -5,6 +5,7 @@ namespace Lords {
 	public class HelpOverlay : Dialog {
 
 		GameObject list;
+		UIScrollView listScroller, detailsScroller;
 		UILabel title, yields, details;
 		UI2DSprite icon;
 
@@ -25,17 +26,19 @@ namespace Lords {
 
 		protected override void Start() {
 			base.Start();
-			list = this.transform.FindChild("Content/Grid").gameObject;
+			list = this.transform.FindChild("Content/Scroller/Grid").gameObject;
+			listScroller = this.transform.FindChild("Content/Scroller").gameObject.GetComponent<UIScrollView>();
 			title = this.transform.FindChild("Content/Title").gameObject.GetComponent<UILabel>();
 			yields = this.transform.FindChild("Content/Yields").gameObject.GetComponent<UILabel>();
-			details = this.transform.FindChild("Content/Details").gameObject.GetComponent<UILabel>();
+			details = this.transform.FindChild("Content/DetailsScroller/Details").gameObject.GetComponent<UILabel>();
+			detailsScroller = this.transform.FindChild("Content/DetailsScroller").gameObject.GetComponent<UIScrollView>();
 			icon = this.transform.FindChild("Content/Graphic/Icon").gameObject.GetComponent<UI2DSprite>();
 			Redraw();
 		}
 
 		public override void FadeIn() {
 			base.FadeIn();
-			list.GetComponent<UIGrid>().Reposition();
+			UpdateListScroller();
 		}
 
 		void Redraw() {
@@ -60,6 +63,24 @@ namespace Lords {
 			}
 
 			list.GetComponent<UIGrid>().Reposition();
+			UpdateListScroller();
+		}
+
+		void UpdateListScroller() {
+			listScroller.ResetPosition();
+
+			Transform centered = listScroller.transform.FindChild("Grid/" + SelectedBuildingType);
+			if(centered != null) {
+				UIPanel panel = NGUITools.FindInParents<UIPanel>(listScroller.gameObject);
+				
+				Vector3 offset = new Vector3(); //-panel.cachedTransform.InverseTransformPoint(centered.position);
+				offset.x = panel.cachedTransform.localPosition.x;
+				offset.y = -1 * panel.cachedTransform.InverseTransformPoint(centered.position).y;
+
+				float min = panel.transform.localPosition.y + (list.transform.childCount * list.GetComponent<UIGrid>().cellHeight - panel.height + 8);
+				offset.y = Mathf.Max(panel.transform.localPosition.y, Mathf.Min(offset.y, min));
+				SpringPanel.Begin(panel.cachedGameObject, offset, 10f);
+			}
 		}
 
 		void OnToggleChanged() {
@@ -76,6 +97,7 @@ namespace Lords {
 			details.text = "Cost:  " + Strings.BuildingCost(SelectedBuildingType) + "\n\n";
 			details.text += Strings.BuildingHelp(SelectedBuildingType);
 			icon.sprite2D = GameAssets.GetSprite(SelectedBuildingType);
+			detailsScroller.ResetPosition();
 		}
 
 		UIToggle FindListItem(BuildingType type) {

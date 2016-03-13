@@ -73,6 +73,7 @@ Sheep May Safely Graze - BWV 208
 + Menu Bar clicks don't work
 > Garden / Plaza / Statue tile horizontal alignment
 > Trade
+> Help dialog scrolling
 
 
 
@@ -130,7 +131,10 @@ Sound Effects
 
 
 -- Trailer --
-https://youtu.be/4gLdZKLtUXM
+-- https://youtu.be/4gLdZKLtUXM
+https://youtu.be/NazxWiToFdo
+
+
 
 To Whom It May Concern:
 His Royal Highness seeks an enterprising candidate to govern the kingdom's expansion into new territories.  

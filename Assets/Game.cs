@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Lords {
 	public class Game {
-		public const float GameSpeed = 1 / 30f; // game days per second
+		public const float GameSpeed = 1 / 15f; // game days per second
 
 		public static Action<Level> LevelLoaded;
 
@@ -114,6 +114,11 @@ namespace Lords {
 			}
 
 			return saved;
+		}
+
+		public static void DeleteGame() {
+			Debug.LogWarning("Deleting game");
+			File.Move(SaveLocation(), SaveLocation()+".bak");
 		}
 
 		static string SaveLocation() { 

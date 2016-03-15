@@ -49,27 +49,38 @@ namespace Lords {
 
 			{ BuildingType.School, 			"Schools increase the city's :literacy: Literacy output, which is important for improving the " +
 											"city's Prosperity score.\n\n" +
-											"Placing multiple schools near each other will reduce thier :literacy: Literacy output.\n\n" +
+											"Placing multiple Schools near each other will reduce thier :literacy: Literacy output.\n\n" +
 											"Schools work well on all tile types." },
 
-			{ BuildingType.Upper_School, 	"TODO" },
-			{ BuildingType.University,	 	"TODO" },
+			{ BuildingType.Upper_School, 	"Upper Schools are more effective than Schools at generating :literacy: Literacy output, which is important for improving the " +
+											"city's Prosperity score.\n\n" +
+											"Placing multiple Upper Schools near each other will reduce thier \n:literacy: Literacy output.\n\n" +
+											"Upper Schools work well on all tile types." },
 
-			{ BuildingType.Vegetable_Farm,	"Vegetable Farms output :food: Food, which is necessary for increasing a city's Population.\n\n" +
+			{ BuildingType.University,	 	"Universities are the most effective building for generating :literacy: Literacy, which is important for improving the " +
+											"city's Prosperity score.\n\n" +
+											"Placing multiple Universities near each other will reduce thier \n:literacy: Literacy output.\n\n" +
+											"Universities work well on all tile types." },
+
+			{ BuildingType.Vegetable_Farm,	"Vegetable Farms output the same amount of :food: Food as Wheat Farms, but have less of an impact on :literacy: Literacy.\n\n" +
 											"Placing multiple Vegetable Farms nearby increases their :food: Food output by 15%.\n\n" +
-											"Vegetable Farms output less :food: Food on Snow, Sand, Tundra and Marsh." },
+											"Vegetable Farms get a bonus when built on Grass and output less :food: Food on Snow, Sand, Tundra and Marsh." },
 
 			{ BuildingType.Wheat_Farm, 		"Wheat Farms output :food: Food, which is necessary for increasing a city's Population.\n\n" +
 											"Placing multiple Wheat Farms nearby increases their :food: Food output by 15%.\n\n" +
-											"Wheat Farms output less :food: Food on Snow, Sand, Tundra and Marsh." },
+											"Wheat Farms get a bonus when built on Grass and output less :food: Food on Snow, Sand, Tundra and Marsh." },
 
-			{ BuildingType.Berry_Farm,	 	"TODO" },
+			{ BuildingType.Berry_Farm,	 	"Berry Farms output the same amount of :food: Food as Wheat Farms, but have less of an impact on :literacy: Literacy.\n\n" +
+											"Placing multiple Berry Farms nearby increases their :food: Food output by 15%.\n\n" +
+											"Berry Farms get a bonus when built on Grass and output less :food: Food on Snow, Sand, Tundra and Marsh." },
 
 			{ BuildingType.Tavern, 			"Taverns increase a city's \n:entertainment: Entertainment, an important component of its Happiness score.\n\n" +
-											"Nearby Forts will reduce the Tavern's negative :security: Security output.\n\n" +
+											"Nearby Forts and Constabularies will reduce the Tavern's negative :security: Security output.\n\n" +
 											"Placing multiple Taverns near each other reduces their effectiveness." },
 
-			{ BuildingType.Hotel,		 	"TODO" },
+			{ BuildingType.Hotel,		 	"Hotels are an upgrade from Taverns, producing more :entertainment: Entertainment with less of an impact on :security: Security." +
+											"Nearby Forts and Constabularies will reduce the Hotels's negative :security: Security output.\n\n" +
+											"Placing multiple Hotels near each other reduces their effectiveness." },
 
 			{ BuildingType.Amphitheater, 	"The Amphitheater outputs more \n:entertainment: Entertainment than the Tavern, but also reduces " +
 											"the city's :productivity: Productivity.\n\n" +

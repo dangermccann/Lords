@@ -202,6 +202,10 @@ public class GameController : MonoBehaviour {
 		Game.CurrentCity.UpdateEverything(Time.fixedDeltaTime);
 
 		if(Input.GetKeyDown(KeyCode.V) || Game.CurrentCity.MeetsVictoryConditions()) {
+			if(Dialog.current != null) {
+				Dialog.current.FadeOut(false);
+			}
+
 			VictoryOverlay.Show(VictoryOverlay.Mode.Victory);
 
 			Debug.Log("You win!");
@@ -210,6 +214,10 @@ public class GameController : MonoBehaviour {
 		}
 
 		if(Input.GetKeyDown(KeyCode.F) || Game.CurrentCity.MeetsFailureConditions()) {
+			if(Dialog.current != null) {
+				Dialog.current.FadeOut(false);
+			}
+
 			VictoryOverlay.Show(VictoryOverlay.Mode.Failure);
 
 			Debug.Log("You lose");

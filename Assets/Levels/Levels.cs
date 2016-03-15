@@ -19,7 +19,7 @@ namespace Lords {
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(200, 150),
 			illustration = LevelIllustration.House,
-			maxElapsedTime = 365 / Game.GameSpeed,
+			maxElapsedTime = 180 / Game.GameSpeed,
 			promotesTo = Ranks.Gentleman
 		};
 
@@ -38,7 +38,7 @@ namespace Lords {
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(216, 225),
 			illustration = LevelIllustration.Fish,
-			maxElapsedTime = 200 / Game.GameSpeed,
+			maxElapsedTime = 120 / Game.GameSpeed,
 			prerequisites = new Level[1] { Levels.Tutorial }
 		};
 
@@ -49,24 +49,23 @@ namespace Lords {
 			victoryConditions = new Aggregates() { 
 				Population = 2000,
 				Happiness = 10,
-				Prosperity = 35,
-				Culture = 15,
+				Prosperity = 30,
+				Culture = 10,
 			},
 			mapConfiguration = Maps.MountainsForest,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(369, 227),
 			illustration = LevelIllustration.Scales,
-			maxElapsedTime = 200 / Game.GameSpeed,
+			maxElapsedTime = 120 / Game.GameSpeed,
 			promotesTo = Ranks.Esquire,
 			prerequisites = new Level[1] { Levels.PortHenry }
 		};
 
-		// HERE
 		public static Level Greencastle = new Level() {
 			name = "Greencastle",
 			description = "The Crown requires a moderately sized city that must be established rather quickly.\nTime limit: {0}",
-			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
+			victoryMessage = "SYou have achieved a satisfactory rating in the eyes of The Crown.",
 			victoryConditions = new Aggregates() { 
 				Population = 2500,
 				Happiness = 15,
@@ -78,10 +77,11 @@ namespace Lords {
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(50, 306),
 			illustration = LevelIllustration.Clock,
-			maxElapsedTime = 90 / Game.GameSpeed,
+			maxElapsedTime = 60 / Game.GameSpeed,
 			prerequisites = new Level[1] { Levels.Galloway }
 		};
-		
+
+		// HERE
 		public static Level CraigBay = new Level() {
 			name = "Craig Bay",
 			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",

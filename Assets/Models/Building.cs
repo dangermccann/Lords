@@ -88,34 +88,34 @@ namespace Lords {
 		};
 
 		public static Dictionary<BuildingType, Primatives> Yields = new Dictionary<BuildingType, Primatives> {
-			{ BuildingType.Villa, 			new Primatives { Housing = 20,			Literacy = 2, 		Beauty = 1 			} },
+			{ BuildingType.Villa, 			new Primatives { Housing = 20,			Literacy = 0.1f, 		Beauty = 0.1f	} },
 			{ BuildingType.Slums, 			new Primatives { Housing = 100,			Security = -4 							} },
-			{ BuildingType.Cottages, 		new Primatives { Housing = 45,			Security = -2 							} },
-			{ BuildingType.School, 			new Primatives { Literacy = 10,			Entertainment = -8 						} },
-			{ BuildingType.Upper_School,	new Primatives { Literacy = 20,			Entertainment = -10 					} },
-			{ BuildingType.University,		new Primatives { Literacy = 30,			Entertainment = -12 					} },
+			{ BuildingType.Cottages, 		new Primatives { Housing = 45,			Security = -1 							} },
+			{ BuildingType.School, 			new Primatives { Literacy = 10,			Entertainment = -6 						} },
+			{ BuildingType.Upper_School,	new Primatives { Literacy = 20,			Entertainment = -8	 					} },
+			{ BuildingType.University,		new Primatives { Literacy = 30,			Entertainment = -10 					} },
 			{ BuildingType.Wheat_Farm, 		new Primatives { Food = 10,				Literacy = -5 							} },
-			{ BuildingType.Vegetable_Farm,	new Primatives { Food = 8,				Literacy = -3 							} },
-			{ BuildingType.Berry_Farm, 		new Primatives { Food = 8,				Literacy = -2 							} },
-			{ BuildingType.Tavern, 			new Primatives { Entertainment = 10,	Security = -8							} },
+			{ BuildingType.Vegetable_Farm,	new Primatives { Food = 10,				Literacy = -3 							} },
+			{ BuildingType.Berry_Farm, 		new Primatives { Food = 10,				Literacy = -2 							} },
+			{ BuildingType.Tavern, 			new Primatives { Entertainment = 10,	Security = -6							} },
 			{ BuildingType.Hotel, 			new Primatives { Entertainment = 15,	Security = -7 							} },
-			{ BuildingType.Amphitheater, 	new Primatives { Entertainment = 20,	Productivity = -15 						} },
-			{ BuildingType.Coloseum, 		new Primatives { Entertainment = 30,	Productivity = -15 						} },
+			{ BuildingType.Amphitheater, 	new Primatives { Entertainment = 20,	Productivity = -12 						} },
+			{ BuildingType.Coloseum, 		new Primatives { Entertainment = 30,	Productivity = -14 						} },
 			{ BuildingType.Trading_Post, 	new Primatives { Productivity = 20,		Beauty = -12 							} },
-			{ BuildingType.Constabulary,	new Primatives { Security = 15,			Beauty = -10 							} },
-			{ BuildingType.Military_Fort,	new Primatives { Security = 25,			Beauty = -12 							} },
-			{ BuildingType.Clinic, 			new Primatives { Health = 20,			Faith = -15 							} },
+			{ BuildingType.Constabulary,	new Primatives { Security = 15,			Beauty = -9 							} },
+			{ BuildingType.Military_Fort,	new Primatives { Security = 25,			Beauty = -11 							} },
+			{ BuildingType.Clinic, 			new Primatives { Health = 20,			Faith = -12 							} },
 			{ BuildingType.Dispensary, 		new Primatives { Health = 20,			Faith = -10 							} },
-			{ BuildingType.Hospital, 		new Primatives { Health = 25,			Faith = -15 							} },
-			{ BuildingType.Garden, 			new Primatives { Beauty = 15,			Productivity = -10 						} },
+			{ BuildingType.Hospital, 		new Primatives { Health = 30,			Faith = -14 							} },
+			{ BuildingType.Garden, 			new Primatives { Beauty = 15,			Productivity = -9 						} },
 			{ BuildingType.Plaza, 			new Primatives { Beauty = 20,			Entertainment = -10 					} },
-			{ BuildingType.Statue, 			new Primatives { Beauty = 15,			Faith = -7 								} },
-			{ BuildingType.Church, 			new Primatives { Faith = 20,			Literacy = -12 							} },
-			{ BuildingType.Monestary,		new Primatives { Faith = 20,			Literacy = -7 							} },
-			{ BuildingType.Cathedral,		new Primatives { Faith = 30,			Literacy = -15 							} },
-			{ BuildingType.Workshop, 		new Primatives { Productivity = 20,		Health = -10, 		Entertainment = -10 } },
-			{ BuildingType.Blacksmith, 		new Primatives { Productivity = 20,		Health = -8, 		Entertainment = -8 	} },
-			{ BuildingType.Factory, 		new Primatives { Productivity = 30,		Health = -12, 		Entertainment = -10 } },
+			{ BuildingType.Statue, 			new Primatives { Beauty = 20,			Faith = -10								} },
+			{ BuildingType.Church, 			new Primatives { Faith = 10,			Literacy = -6 							} },
+			{ BuildingType.Monestary,		new Primatives { Faith = 20,			Literacy = -8 							} },
+			{ BuildingType.Cathedral,		new Primatives { Faith = 30,			Literacy = -10 							} },
+			{ BuildingType.Workshop, 		new Primatives { Productivity = 20,		Health = -6, 		Entertainment = -6	} },
+			{ BuildingType.Blacksmith, 		new Primatives { Productivity = 20,		Health = -4, 		Entertainment = -4 	} },
+			{ BuildingType.Factory, 		new Primatives { Productivity = 30,		Health = -5, 		Entertainment = -5	} },
 		};
 
 		public static Dictionary<BuildingType, Dictionary<BuildingType, Primatives>> NearbyModifiers = new Dictionary<BuildingType, Dictionary<BuildingType, Primatives>> {
@@ -368,26 +368,29 @@ namespace Lords {
 			{ BuildingType.University, 	new Dictionary<TileType, Primatives>() },
 			{
 				BuildingType.Vegetable_Farm, new Dictionary<TileType, Primatives>() { 
-					{ TileType.Snow,	new Primatives{ Food = -0.15f } },
-					{ TileType.Sand,	new Primatives{ Food = -0.15f } },
-					{ TileType.Tundra,	new Primatives{ Food = -0.10f } },
-					{ TileType.Marsh,	new Primatives{ Food = -0.15f } },
+					{ TileType.Snow,	new Primatives { Food = -0.15f } },
+					{ TileType.Sand,	new Primatives { Food = -0.15f } },
+					{ TileType.Tundra,	new Primatives { Food = -0.10f } },
+					{ TileType.Marsh,	new Primatives { Food = -0.15f } },
+					{ TileType.Grass,	new Primatives { Food =  0.05f } },
 				}
 			},
 			{
 				BuildingType.Wheat_Farm, new Dictionary<TileType, Primatives>() { 
-					{ TileType.Snow,	new Primatives{ Food = -0.15f } },
-					{ TileType.Sand,	new Primatives{ Food = -0.15f } },
-					{ TileType.Tundra,	new Primatives{ Food = -0.10f } },
-					{ TileType.Marsh,	new Primatives{ Food = -0.15f } },
+					{ TileType.Snow,	new Primatives { Food = -0.15f } },
+					{ TileType.Sand,	new Primatives { Food = -0.15f } },
+					{ TileType.Tundra,	new Primatives { Food = -0.10f } },
+					{ TileType.Marsh,	new Primatives { Food = -0.15f } },
+					{ TileType.Grass,	new Primatives { Food =  0.05f } },
 				}
 			},
 			{
 				BuildingType.Berry_Farm, new Dictionary<TileType, Primatives>() { 
-					{ TileType.Snow,	new Primatives{ Food = -0.15f } },
-					{ TileType.Sand,	new Primatives{ Food = -0.15f } },
-					{ TileType.Tundra,	new Primatives{ Food = -0.10f } },
-					{ TileType.Marsh,	new Primatives{ Food = -0.15f } },
+					{ TileType.Snow,	new Primatives { Food = -0.15f } },
+					{ TileType.Sand,	new Primatives { Food = -0.15f } },
+					{ TileType.Tundra,	new Primatives { Food = -0.10f } },
+					{ TileType.Marsh,	new Primatives { Food = -0.15f } },
+					{ TileType.Grass,	new Primatives { Food =  0.05f } },
 				}
 			},
 			{ BuildingType.Tavern, 		new Dictionary<TileType, Primatives>() },
@@ -398,8 +401,8 @@ namespace Lords {
 			{ BuildingType.Constabulary,new Dictionary<TileType, Primatives>() },
 			{ 
 				BuildingType.Military_Fort, new Dictionary<TileType, Primatives>() {
-					{ TileType.Forest,	new Primatives{ Security = 0.30f } },
-					{ TileType.Sand,	new Primatives{ Security = -0.10f } },
+					{ TileType.Forest,	new Primatives { Security = 0.30f } },
+					{ TileType.Sand,	new Primatives { Security = -0.10f } },
 				}
 			},
 			{ BuildingType.Clinic,		new Dictionary<TileType, Primatives>() },
@@ -407,17 +410,17 @@ namespace Lords {
 			{ BuildingType.Hospital,	new Dictionary<TileType, Primatives>() },
 			{ 
 				BuildingType.Garden, new Dictionary<TileType, Primatives>() {
-					{ TileType.Marsh, new Primatives{ Beauty = -0.30f } },
+					{ TileType.Marsh, new Primatives { Beauty = -0.30f } },
 				}
 			},
 			{ 
 				BuildingType.Plaza, new Dictionary<TileType, Primatives>() {
-					{ TileType.Marsh, new Primatives{ Beauty = -0.30f } },
+					{ TileType.Marsh, new Primatives { Beauty = -0.30f } },
 				}
 			},
 			{ 
 				BuildingType.Statue, new Dictionary<TileType, Primatives>() {
-					{ TileType.Marsh, new Primatives{ Beauty = -0.30f } },
+					{ TileType.Marsh, new Primatives { Beauty = -0.30f } },
 				}
 			},
 			{ BuildingType.Church,		new Dictionary<TileType, Primatives>() },

@@ -52,6 +52,12 @@ namespace Lords {
 				Debug.Log("Bottom edge: " + pos);
 				direction.y = UnityEngine.Random.Range(-1, -0.1f);
 			}
+
+			if(Debug.isDebugBuild) {
+				if(Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.D)) {
+					Game.DeleteGame();
+				}
+			}
 		}
 
 		public void ShowOptions() {

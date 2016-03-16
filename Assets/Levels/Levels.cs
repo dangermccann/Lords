@@ -26,7 +26,7 @@ namespace Lords {
 		public static Level PortHenry = new Level() {
 			name = "Port Henry",
 			description = "Your next charge is a somewhat larger town with simple but balanced qualities.\nTime limit: {0}",
-			victoryMessage = "You have achieved a satisfactory rating in the eyes of The Crown.",
+			victoryMessage = "Congratulations, your accomplishment has piqued the interest of the King.",
 			victoryConditions = new Aggregates() { 
 				Population = 2000,
 				Happiness = 15,
@@ -45,7 +45,7 @@ namespace Lords {
 		public static Level Galloway = new Level() {
 			name = "Galloway",
 			description = "This next undertaking will require careful attention towards developing the city's Prosperity.\nTime limit: {0}",
-			victoryMessage = "You have achieved a satisfactory rating in the eyes of The Crown.",
+			victoryMessage = "The King sends his sincere gratitude for your dedicated service.",
 			victoryConditions = new Aggregates() { 
 				Population = 2000,
 				Happiness = 10,
@@ -65,12 +65,12 @@ namespace Lords {
 		public static Level Greencastle = new Level() {
 			name = "Greencastle",
 			description = "The Crown requires a moderately sized city that must be established rather quickly.\nTime limit: {0}",
-			victoryMessage = "SYou have achieved a satisfactory rating in the eyes of The Crown.",
+			victoryMessage = "Nicely done.  You appear to be ready for the more difficult challenges ahead.",
 			victoryConditions = new Aggregates() { 
 				Population = 2500,
-				Happiness = 15,
-				Prosperity = 10,
-				Culture = 10,
+				Happiness = 20,
+				Prosperity = 15,
+				Culture = 15,
 			},
 			mapConfiguration = Maps.Greencastle,
 			initialFunds = 1000,
@@ -81,53 +81,52 @@ namespace Lords {
 			prerequisites = new Level[1] { Levels.Galloway }
 		};
 
-		// HERE
 		public static Level CraigBay = new Level() {
 			name = "Craig Bay",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",
-			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
+			description = "The Crown now requires a large city to be created within a peculiar landscape.\nTime limit: {0}",
+			victoryMessage = "Well done, Esquire.  The King sends his appreciation for your diligence.",
 			victoryConditions = new Aggregates() { 
-				Population = 2000,
-				Happiness = 10,
-				Prosperity = 25,
-				Culture = 15,
+				Population = 4000,
+				Happiness = 15,
+				Prosperity = 15,
+				Culture = 25,
 			},
 			mapConfiguration = Maps.MarshWater,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(283.8f, 35.8f),
-			illustration = LevelIllustration.Scales,
-			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			illustration = LevelIllustration.Sun,
+			maxElapsedTime = 120 / Game.GameSpeed,
 			prerequisites = new Level[1] { Levels.Galloway }
 		};
 
 		public static Level Aberdeen = new Level() {
 			name = "Aberdeen",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",
-			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
+			description = "You must next build your largest city yet in the mountainous regions of Aberdeen.\nTime limit: {0}",
+			victoryMessage = "Very impressive indeed.  Your upcoming promotion is well deserved.",
 			victoryConditions = new Aggregates() { 
-				Population = 2000,
-				Happiness = 10,
+				Population = 5000,
+				Happiness = 25,
 				Prosperity = 25,
-				Culture = 15,
+				Culture = 25,
 			},
 			mapConfiguration = Maps.Mountains,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(364, 26),
-			illustration = LevelIllustration.Scales,
-			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			illustration = LevelIllustration.Paddles,
+			maxElapsedTime = 160 / Game.GameSpeed,
 			promotesTo = Ranks.Knight,
 			prerequisites = new Level[2] { Levels.CraigBay, Levels.Greencastle }
 		};
 
 		public static Level Crosswell = new Level() {
 			name = "Crosswell",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",
-			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
+			description = "This next city must be assembled in short order.  You must hurry if you wish to meet your objective.\nTime limit: {0}",
+			victoryMessage = "Excellent work, Sir.  You've met this challenge with prestige and valor.",
 			victoryConditions = new Aggregates() { 
-				Population = 2000,
-				Happiness = 10,
+				Population = 3500,
+				Happiness = 15,
 				Prosperity = 25,
 				Culture = 15,
 			},
@@ -135,15 +134,15 @@ namespace Lords {
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(295, 331),
-			illustration = LevelIllustration.Scales,
-			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			illustration = LevelIllustration.Hourglass,
+			maxElapsedTime = 45 / Game.GameSpeed,
 			prerequisites = new Level[1] { Levels.Aberdeen }
 		};
 
 		public static Level Southgate = new Level() {
 			name = "Southgate",
 			description = "My good Sir, His Majesty requires that Southgate be a culturally advanced city of moderate size.\nTime limit: {0}",
-			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
+			victoryMessage = "Your achievements in cultural progress have been acknowledged by the Crown.",
 			victoryConditions = new Aggregates() { 
 				Population = 3000,
 				Happiness = 25,
@@ -159,6 +158,7 @@ namespace Lords {
 			prerequisites = new Level[1] { Levels.Crosswell }
 		};
 
+		// HERE
 		public static Level Mayfield = new Level() {
 			name = "Mayfield",
 			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",

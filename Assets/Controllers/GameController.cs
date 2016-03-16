@@ -181,7 +181,7 @@ public class GameController : MonoBehaviour {
 				}
 			}
 			else {
-				Debug.Log(hex + " is not a tile");
+				Debug.LogWarning(hex + " is not a tile");
 			}
 		}
 
@@ -201,26 +201,24 @@ public class GameController : MonoBehaviour {
 	void FixedUpdate() {
 		Game.CurrentCity.UpdateEverything(Time.fixedDeltaTime);
 
-		if(Input.GetKeyDown(KeyCode.V) || Game.CurrentCity.MeetsVictoryConditions()) {
+		if(Game.CurrentCity.MeetsVictoryConditions()) {
 			if(Dialog.current != null) {
 				Dialog.current.FadeOut(false);
 			}
 
 			VictoryOverlay.Show(VictoryOverlay.Mode.Victory);
 
-			Debug.Log("You win!");
 			Game.Save();
 			Game.Pause();
 		}
 
-		if(Input.GetKeyDown(KeyCode.F) || Game.CurrentCity.MeetsFailureConditions()) {
+		if(Game.CurrentCity.MeetsFailureConditions()) {
 			if(Dialog.current != null) {
 				Dialog.current.FadeOut(false);
 			}
 
 			VictoryOverlay.Show(VictoryOverlay.Mode.Failure);
 
-			Debug.Log("You lose");
 			Game.ResetCurrentCity();
 			Game.Pause();
 		}

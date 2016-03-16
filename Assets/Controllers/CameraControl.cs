@@ -10,6 +10,7 @@ namespace Lords {
 		public float minZoom = 2;
 		public float maxZoom = 7.5f;
 		public float pinchZoomAmount = 0.5f;
+		float dragThreshold = 0.01f;
 
 		public static bool IsDragging { get; protected set; }
 
@@ -89,7 +90,7 @@ namespace Lords {
 			if(lastMousePosition != Vector3.zero) {
 				Vector3 diff = lastMousePosition - currentPosition;
 
-				if(diff.magnitude > 0.005) {
+				if(diff.magnitude > dragThreshold) {
 					IsDragging = true;
 				}
 

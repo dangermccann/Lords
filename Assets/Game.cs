@@ -90,6 +90,7 @@ namespace Lords {
 			SavedGame saved = Load();
 			if(saved == null) {
 				saved = new SavedGame();
+				saved.rank = Ranks.None;
 				saved.cities.Add(CurrentCity.SaveCity());
 			}
 			else {

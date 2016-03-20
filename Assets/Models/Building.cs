@@ -6,7 +6,6 @@ namespace Lords {
 	public class Building {
 		public const float FARM_OUTPUT = 20;
 		public const float BUILD_TIME = 10;
-		public const float WORKSHOP_BONUS = 0.1f;
 
 		public static HashSet<BuildingType> PrimativeTypes = new HashSet<BuildingType> () {
 			BuildingType.Villa,
@@ -435,7 +434,7 @@ namespace Lords {
 			{ BuildingType.Villa, 			0 },
 			{ BuildingType.Slums, 			0 },
 			{ BuildingType.Cottages, 		0 },
-			{ BuildingType.School, 			200 },
+			{ BuildingType.School, 			250 },
 			{ BuildingType.Upper_School,	800 },
 			{ BuildingType.University, 		1200 },
 			{ BuildingType.Vegetable_Farm,	200 },
@@ -445,10 +444,10 @@ namespace Lords {
 			{ BuildingType.Hotel, 			1500 },
 			{ BuildingType.Amphitheater, 	650 },
 			{ BuildingType.Coloseum,	 	2000 },
-			{ BuildingType.Trading_Post, 	400 },
-			{ BuildingType.Constabulary, 	450 },
+			{ BuildingType.Trading_Post, 	500 },
+			{ BuildingType.Constabulary, 	400 },
 			{ BuildingType.Military_Fort, 	850 },
-			{ BuildingType.Clinic,	 		500 },
+			{ BuildingType.Clinic,	 		350 },
 			{ BuildingType.Dispensary, 		1500 },
 			{ BuildingType.Hospital, 		2500 },
 			{ BuildingType.Garden, 			400 },
@@ -460,6 +459,37 @@ namespace Lords {
 			{ BuildingType.Workshop, 		350 },
 			{ BuildingType.Blacksmith, 		1350 },
 			{ BuildingType.Factory, 		2050 },
+		};
+
+		public static Dictionary<BuildingType, float> RequiredNearbyPeople = new Dictionary<BuildingType, float> {
+			{ BuildingType.Villa, 			0 },
+			{ BuildingType.Slums, 			0 },
+			{ BuildingType.Cottages, 		0 },
+			{ BuildingType.School, 			200 },
+			{ BuildingType.Upper_School,	200 },
+			{ BuildingType.University, 		200 },
+			{ BuildingType.Vegetable_Farm,	0 },
+			{ BuildingType.Wheat_Farm, 		0 },
+			{ BuildingType.Berry_Farm, 		0 },
+			{ BuildingType.Tavern, 			250 },
+			{ BuildingType.Hotel, 			250 },
+			{ BuildingType.Amphitheater, 	500 },
+			{ BuildingType.Coloseum,	 	500 },
+			{ BuildingType.Trading_Post, 	400 },
+			{ BuildingType.Constabulary, 	350 },
+			{ BuildingType.Military_Fort, 	350 },
+			{ BuildingType.Clinic,	 		250 },
+			{ BuildingType.Dispensary, 		250 },
+			{ BuildingType.Hospital, 		250 },
+			{ BuildingType.Garden, 			100 },
+			{ BuildingType.Plaza, 			100 },
+			{ BuildingType.Statue, 			100 },
+			{ BuildingType.Church, 			200 },
+			{ BuildingType.Monestary, 		200 },
+			{ BuildingType.Cathedral, 		200 },
+			{ BuildingType.Workshop, 		350 },
+			{ BuildingType.Blacksmith, 		350 },
+			{ BuildingType.Factory, 		350 },
 		};
 
 		public static Dictionary<BuildingType, float> RequiredFunds = new Dictionary<BuildingType, float> {
@@ -503,20 +533,20 @@ namespace Lords {
 			{ BuildingType.Vegetable_Farm,	0 },
 			{ BuildingType.Wheat_Farm, 		0 },
 			{ BuildingType.Berry_Farm, 		100 },
-			{ BuildingType.Tavern, 			600 },
+			{ BuildingType.Tavern, 			500 },
 			{ BuildingType.Hotel, 			1000 },
-			{ BuildingType.Amphitheater, 	1000 },
+			{ BuildingType.Amphitheater, 	700 },
 			{ BuildingType.Coloseum, 		1400 },
-			{ BuildingType.Trading_Post, 	450 },
-			{ BuildingType.Constabulary, 	750 },
+			{ BuildingType.Trading_Post, 	750 },
+			{ BuildingType.Constabulary, 	450 },
 			{ BuildingType.Military_Fort, 	1050 },
-			{ BuildingType.Clinic, 			700 },
-			{ BuildingType.Dispensary, 		800 },
+			{ BuildingType.Clinic, 			400 },
+			{ BuildingType.Dispensary, 		900 },
 			{ BuildingType.Hospital, 		1100 },
 			{ BuildingType.Garden, 			400 },
-			{ BuildingType.Plaza, 			400 },
-			{ BuildingType.Statue, 			400 },
-			{ BuildingType.Church, 			350 },
+			{ BuildingType.Plaza, 			600 },
+			{ BuildingType.Statue, 			600 },
+			{ BuildingType.Church, 			400 },
 			{ BuildingType.Monestary, 		900 },
 			{ BuildingType.Cathedral, 		1200 },
 			{ BuildingType.Workshop, 		450 },
@@ -525,15 +555,15 @@ namespace Lords {
 		};
 
 		public static Dictionary<BuildingType, float> TaxRates = new Dictionary<BuildingType, float> {
-			{ BuildingType.Villa, 		0.3f },
-			{ BuildingType.Slums, 		0.03f },
-			{ BuildingType.Cottages, 	0.075f },
+			{ BuildingType.Villa, 		0.6f },
+			{ BuildingType.Slums, 		0.15f },
+			{ BuildingType.Cottages, 	0.3f },
 		};
 
 		public static Dictionary<BuildingType, float> RawMaterialProduction = new Dictionary<BuildingType, float> {
-			{ BuildingType.Slums, 		0.2f },
-			{ BuildingType.Villa, 		0.1f },
-			{ BuildingType.Cottages, 	0.2f },
+			{ BuildingType.Slums, 		0.5f },
+			{ BuildingType.Villa, 		0.25f },
+			{ BuildingType.Cottages, 	0.5f },
 		};
 
 		public static Dictionary<BuildingType, List<BuildingType>> Upgrades = new Dictionary<BuildingType, List<BuildingType>>() {

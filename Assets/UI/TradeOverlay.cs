@@ -53,7 +53,7 @@ namespace Lords {
 				rows[i] = row;
 
 				SetColumnText(row, "Name", import.ToString());
-				SetColumnText(row, "Yield", Strings.FormatImportYield(import, 1));
+				SetColumnText(row, "Yield", Strings.FormatImportYield(import));
 				SetColumnText(row, "Cost", Strings.FormatCurrency(Game.CurrentLevel.importPrices[import]));
 				GameObject slider = row.transform.FindChild("slider-2").gameObject;
 				slider.name = import.ToString() + "_slider-2";

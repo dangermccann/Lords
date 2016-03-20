@@ -4,6 +4,9 @@ using Lords;
 public class HoverControl : MonoBehaviour {
 	static Vector3 OFFSCREEN = new Vector3(0, 0, -100);
 
+	static Color CAN_BUILD = new Color(1f, 1f, 1f, 0.6f);
+	static Color CAN_NOT_BUILD = new Color(1f, 0.3f, 0.3f, 0.4f);
+
 	SpriteRenderer sprite;
 	public GameObject shovel;
 
@@ -45,6 +48,12 @@ public class HoverControl : MonoBehaviour {
 
 				if(tile.CanBuildOn()) {
 					gameObject.transform.position = Hex.HexToWorld(hoverPointHex);
+					if(Game.CurrentCity.CanBuild(SelectionController.selection.BuildingType)) {
+						sprite.color = CAN_BUILD;
+					}
+					else {
+						sprite.color = CAN_NOT_BUILD;
+					}
 				}
 				else {
 					gameObject.transform.position = OFFSCREEN;

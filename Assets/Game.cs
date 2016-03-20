@@ -119,7 +119,9 @@ namespace Lords {
 
 		public static void DeleteGame() {
 			Debug.LogWarning("Deleting game");
-			File.Move(SaveLocation(), SaveLocation()+".bak");
+			string backupFile = SaveLocation()+".bak";
+			File.Delete(backupFile);
+			File.Move(SaveLocation(), backupFile);
 		}
 
 		static string SaveLocation() { 

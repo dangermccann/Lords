@@ -32,6 +32,9 @@ namespace Lords {
 			{ Imports.Weapons,  75 },
 		};
 
+		public float additionalFundsPerSecond = 12f;
+		public float additionalRawMaterialsPerSecond = 24f;
+
 		public Level() {}
 	}
 }

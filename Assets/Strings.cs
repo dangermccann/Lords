@@ -194,7 +194,9 @@ namespace Lords {
 			if(building.Type == BuildingType.Villa || 
 			   building.Type == BuildingType.Cottages || 
 			   building.Type == BuildingType.Slums) {
-				return "Population: " + Mathf.Floor(city.FoodLevel() * city.BuildingEffectiveness(building) * Building.Yields[building.Type].Housing);
+				string message = "Residents: " + Mathf.Floor(city.FoodLevel() * city.BuildingEffectiveness(building) * Building.Yields[building.Type].Housing);
+				message += "\nAvailable Food: " +  FormatPercent(city.FoodPerCapita());
+				return message;
 			}
 			else {
 				// TODO: figure out how to add in modifiers
@@ -209,7 +211,7 @@ namespace Lords {
 		}
 
 		public static string FormatBuildingEffectiveness(float value) {
-			return (Mathf.Round(value * 100)) + "% Effective";
+			return FormatPercent(value) + " Effective";
 		}
 
 		public static string CityInventory(City city) {
@@ -271,6 +273,10 @@ namespace Lords {
 			return String.Format(level.description, FormatDuration(level.maxElapsedTime));
 		}
 
+		public static string FormatPercent(float value) {
+			return (Mathf.Round(value * 100)) + "%";
+		}
+
 		public static string FormatElapsedTime(float elapsedTime) {
 			int days = Mathf.CeilToInt(elapsedTime * Game.GameSpeed);
 			int year = days / 365;
@@ -316,8 +322,8 @@ namespace Lords {
 			return rank.ToString().Replace('_', ' ');
 		}
 
-		public static string FormatImportYield(Imports import, float value) {
-			return PlusMinus(value) + Mathf.Floor(value) + " " + YieldIcon(Trade.ImportLookupTable[import]);
+		public static string FormatImportYield(Imports import) {
+			return YieldIcon(Trade.ImportLookupTable[import]);
 		}
 
 		public static string FormatCurrency(float value) {

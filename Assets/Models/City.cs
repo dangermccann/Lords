@@ -27,6 +27,13 @@ namespace Lords {
 			else return 0;
 		}
 
+		public float FoodPerCapita() {
+			if(Primatives.Housing > 0) {
+				return Primatives.Food * Building.FARM_OUTPUT / Primatives.Housing;
+			}
+			else return 0;
+		}
+
 		public City(Level level) {
 			this.Level = level;
 			Tiles = new Dictionary<Hex, Tile>();
@@ -124,7 +131,7 @@ namespace Lords {
 		
 		public float PopulationMultiplier(Building building) {
 			float popFactor = 1.0f;
-			float minimumPop = Building.PopulationMinimums[building.Type];
+			float minimumPop = Building.RequiredNearbyPeople[building.Type];
 			if(minimumPop > 0) {
 				popFactor = Math.Min(1, PopulationNearby(building.Tile) / minimumPop);
 			}
@@ -175,42 +182,39 @@ namespace Lords {
 		}
 
 		public void UpdateFunds(float deltaTime) {
+			if(Score.Population == 0) 
+				return;
+
+			Funds += Level.additionalFundsPerSecond * deltaTime;
+
 			float foodLevel = FoodLevel();
 
 			foreach(List<Building> buildings in Buildings.Values) {
 				foreach(Building building in buildings) {
 					if(Building.TaxRates.ContainsKey(building.Type)) {
-						float housingYield = Building.Yields[building.Type].Housing;
 						float taxRate = Building.TaxRates[building.Type];
-						Funds += foodLevel * housingYield * taxRate * deltaTime;
+						Funds += foodLevel * taxRate * deltaTime;
 					}
 				}
 			}
-
 			Funds = Math.Min(Funds, MAX_FUNDS);
 		}
 
 		public void UpdateRawMaterials(float deltaTime) {
+			if(Score.Population == 0) 
+				return;
+
+			RawMaterials += Level.additionalRawMaterialsPerSecond * deltaTime;
+
 			float foodLevel = FoodLevel();
 
 			foreach(List<Building> buildings in Buildings.Values) {
 				foreach(Building building in buildings) {
 					if(Building.RawMaterialProduction.ContainsKey(building.Type)) {
-						float housingYield = Building.Yields[building.Type].Housing;
 						float production = Building.RawMaterialProduction[building.Type];
-						RawMaterials += foodLevel * housingYield * production * deltaTime;
+						RawMaterials += foodLevel * production * deltaTime;
 					}
 				}
-			}
-
-			foreach(Building workshop in Buildings[BuildingType.Workshop]) {
-				float popFactor = 1.0f;
-				float minimumPop = Building.PopulationMinimums[BuildingType.Workshop];
-				if(minimumPop > 0) {
-					popFactor = Math.Min(1, PopulationNearby(workshop.Tile) / minimumPop);
-				}
-
-				RawMaterials += popFactor * Building.WORKSHOP_BONUS * deltaTime;
 			}
 
 			RawMaterials = Math.Min(RawMaterials, MAX_RAW_MATERIALS);

@@ -57,7 +57,7 @@ namespace Lords {
 			city.UpdateScore();
 			
 			float modifierValue = 1 / Hex.Distance(villa.Tile.Position, tavern.Tile.Position); 
-			modifierValue *= Building.Yields[BuildingType.Villa].Housing / Building.PopulationMinimums[BuildingType.Tavern];
+			modifierValue *= Building.Yields[BuildingType.Villa].Housing / Building.RequiredNearbyPeople[BuildingType.Tavern];
 
 			Assert.AreEqual(Building.Yields[BuildingType.Villa].Housing, city.Primatives.Housing);
 			Assert.AreEqual(Building.Yields[BuildingType.Wheat_Farm].Food, city.Primatives.Food);
@@ -82,9 +82,9 @@ namespace Lords {
 			city.UpdatePrimatives();
 			city.UpdateScore();
 			
-			float expected = Building.Yields[BuildingType.Tavern].Security * Building.Yields[BuildingType.Villa].Housing / Building.PopulationMinimums[BuildingType.Tavern];
+			float expected = Building.Yields[BuildingType.Tavern].Security * Building.Yields[BuildingType.Villa].Housing / Building.RequiredNearbyPeople[BuildingType.Tavern];
 			expected *= (1.0f + Building.NearbyModifiers[BuildingType.Tavern][BuildingType.Military_Fort]).Security;
-			expected += Building.Yields[BuildingType.Military_Fort].Security * Building.Yields[BuildingType.Villa].Housing / Building.PopulationMinimums[BuildingType.Military_Fort];
+			expected += Building.Yields[BuildingType.Military_Fort].Security * Building.Yields[BuildingType.Villa].Housing / Building.RequiredNearbyPeople[BuildingType.Military_Fort];
 
 			Assert.AreEqual(Building.Yields[BuildingType.Villa].Housing, city.Primatives.Housing);
 			Assert.AreEqual(Building.Yields[BuildingType.Wheat_Farm].Food, city.Primatives.Food);

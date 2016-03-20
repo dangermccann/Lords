@@ -102,20 +102,20 @@ namespace Lords {
 
 		public static Level Aberdeen = new Level() {
 			name = "Aberdeen",
-			description = "You must next build your largest city yet in the mountainous regions of Aberdeen.\nTime limit: {0}",
+			description = "You must next build a prosperous city in the mountainous regions of Aberdeen.\nTime limit: {0}",
 			victoryMessage = "Very impressive indeed.  Your upcoming promotion is well deserved.",
 			victoryConditions = new Aggregates() { 
-				Population = 5000,
-				Happiness = 25,
-				Prosperity = 25,
-				Culture = 25,
+				Population = 2500,
+				Happiness = 35,
+				Prosperity = 40,
+				Culture = 30,
 			},
 			mapConfiguration = Maps.Mountains,
 			initialFunds = 1000,
 			initialRawMaterials = 1000,
 			mapLocation = new Vector2(364, 26),
-			illustration = LevelIllustration.Paddles,
-			maxElapsedTime = 160 / Game.GameSpeed,
+			illustration = LevelIllustration.Grapes,
+			maxElapsedTime = 120 / Game.GameSpeed,
 			promotesTo = Ranks.Knight,
 			prerequisites = new Level[2] { Levels.CraigBay, Levels.Greencastle }
 		};

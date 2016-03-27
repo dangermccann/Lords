@@ -75,7 +75,7 @@ namespace Lords {
 											"Berry Farms get a bonus when built on Grass and output less :food: Food on Snow, Sand, Tundra and Marsh." },
 
 			{ BuildingType.Tavern, 			"Taverns increase a city's \n:entertainment: Entertainment, an important component of its Happiness score.\n\n" +
-											"Nearby Forts and Constabularies will reduce the Tavern's negative :security: Security output.\n\n" +
+											"Nearby Forts and Constabularies will reduce the Tavern's negative \n:security: Security output.\n\n" +
 											"Placing multiple Taverns near each other reduces their effectiveness." },
 
 			{ BuildingType.Hotel,		 	"Hotels are an upgrade from Taverns, producing more :entertainment: Entertainment with less of an impact on :security: Security." +
@@ -84,47 +84,75 @@ namespace Lords {
 
 			{ BuildingType.Amphitheater, 	"The Amphitheater outputs more \n:entertainment: Entertainment than the Tavern, but also reduces " +
 											"the city's :productivity: Productivity.\n\n" +
-											"Nearby Taverns increase the Amphitheater's effectiveness, increasing its :entertainment: " +
+											"Nearby Taverns and Hotels increase the Amphitheater's effectiveness, increasing its :entertainment: " +
 											"Entertainment output by 20%.\n\n" +
 											"Amphitheaters with others nearby are less effective." },
 
-			{ BuildingType.Coloseum,	 	"TODO" },
+			{ BuildingType.Coloseum,	 	"The Coloseum yields more \n:entertainment: Entertainment than any other building in the game.  It's negative \n" +
+											":productivity: Productivity output is comparable to the Amphitheater.\n\n" +
+											"Nearby Taverns and Hotels increase the Amphitheater's effectiveness, increasing its :entertainment: " +
+											"Entertainment output by 25%.\n\n" +
+											"Coloseums with others nearby are less effective."  },
 
-			{ BuildingType.Trading_Post, 	"The Trading Post improves the city's \n:productivity: Productivity output, at the expense of :beauty: Beauty.\n\n" +
-											"Nearby Workshops increase the Trading Post's effectiveness by 20%.\n\n" +
+			{ BuildingType.Trading_Post, 	"The Trading Post allows a city to import and export goods, providing a powerful way to improve many different " +
+											"aspects of the city.\n\n" +
+											"Trading Posts improve the city's \n:productivity: Productivity output, at the expense of :beauty: Beauty.\n\n" +
+											"Nearby Workshops, Blacksmiths and Factories increase the Trading Post's effectiveness by 20%.\n\n" +
 											"Trading Posts with others nearby are less effective." },
 
-			{ BuildingType.Constabulary, 	"TODO" },
+			{ BuildingType.Constabulary, 	"Constabularies provide :security: Security to the city at the expense of :beauty: Beauty.\n\n" +
+											"Constabularies work well on all tiles, but are less effective if other Constabularies are nearby." },
 
-			{ BuildingType.Military_Fort,	"Forts provide :security: Security to the city.\n\n" +
-											"When placed on Forest tiles, they are 30% more effective.  Sand tiles reduce their effectiveness by 10%.\n\n" +
+			{ BuildingType.Military_Fort,	"Forts are an upgrade from Constabularies, yielding more \n:security: Security to the city.\n\n" +
+											"When placed on Forest tiles they are 30% more effective.  Sand tiles reduce their effectiveness by 10%.\n\n" +
 											"Forts are less effective if other Forts are nearby." },
 
-			{ BuildingType.Clinic,		 	"TODO" },
-			{ BuildingType.Dispensary,	 	"TODO" },
+			{ BuildingType.Clinic,		 	"The Clinic increases the city's :health: Health output, a component of the city's Happiness score, but decreases the " +
+											"city's :faith: Faith output.\n\n" +
+											"Clinics are less effective if Taverns or other Clinics are nearby."  },
 
-			{ BuildingType.Hospital, 		"The Hospital is the only building that increases the city's :health: Health output, a component of the city's Happiness score.\n\n" +
+			{ BuildingType.Dispensary,	 	"Dispensares are an upgrade from Clinics, providing the same :health: Health output with a lower negative :faith: Faith penalty.\n\n" +
+											"Dispensares are less effective if other Dispensares are nearby." },
+
+			{ BuildingType.Hospital, 		"The Hospital is an upgrade from the Clinic, providing a higher :health: Health output with a modest :faith: Faith penalty.\n\n" +
 											"Hospitals work equally well on any tile, but are less effective if other Hospitals are nearby." },
 
-			{ BuildingType.Garden, 			"Gardens improve the city's :beauty: Beauty, thereby promoting the Culture score of the city.\n\n" +
-											"They are 35% less effective if a Workshop is nearby, and 30% less effective if built on Marsh tiles." },
+			{ BuildingType.Garden, 			"Gardens improve the city's :beauty: Beauty, thereby promoting the Culture score of the city, but decrease " +
+											"city's \n:entertainment: Entertainment output.\n\n" +
+											"They are 35% less effective if a Workshop, Blacksmith or Factory is nearby, and 30% less effective if built on Marsh tiles." },
 
-			{ BuildingType.Plaza,		 	"TODO" },
-			{ BuildingType.Statue,		 	"TODO" },
+			{ BuildingType.Plaza,		 	"The Plaza is an upgrade from the Garden, improving the city's :beauty: Beauty ouput at the expense of \n" +
+											":entertainment: Entertainment.\n\n" +
+											"Nearby Hotels offset the negative \n:entertainment: Entertainment penalty by 35%.\n\n" +
+											"Plazas are 35% less effective if a Workshop, Blacksmith or Factory is nearby, and 30% less effective if built on Marsh tiles." },
+
+			{ BuildingType.Statue,		 	"The Statue is an upgrade from the Garden, improving the city's :beauty: Beauty ouput at the expense of \n" +
+											":entertainment: Entertainment.\n\n" +
+											"Nearby Cathedrals and Monestaries offset the negative :entertainment: Entertainment penalty by 35%.\n\n" +
+											"Plazas are 35% less effective if a Workshop, Blacksmith or Factory is nearby, and 30% less effective if built on Marsh tiles." },
 
 			{ BuildingType.Church, 			"Chrches promote a city's :faith: Faith output, which adds to the Culture score of the city.\n\n" +
-											"They are 20% more effective with a Garden nearby, and 30% less effective with another Church nearby." },
+											"They are 20% more effective with a Garden nearby, and 30% less effective with another Church or Cathedral nearby." },
 
-			{ BuildingType.Monestary,	 	"TODO" },
-			{ BuildingType.Cathedral,	 	"TODO" },
+			{ BuildingType.Monestary,	 	"Monestaries output substantially more :faith: Faith than Churches do, with a similar negative :literacy: Literacy yield.\n\n" +
+											"They are more effective with a Church or Monestary nearby, and 30% less effective with another Monestary nearby." },
 
-			{ BuildingType.Workshop, 		"The Workshop yields the same \n:productivity: Productivity output as the Trading Post, but has different " +
-											"negative side effects.\n\n" +
+			{ BuildingType.Cathedral,	 	"Cathedrals output substantially more :faith: Faith than Churches or Monestaries do, with a similar negative :literacy: Literacy yield.\n\n" +
+											"They are 20% more effective with a Statue nearby, and 30% less effective with a Church or another Cathedral nearby." },
+
+			{ BuildingType.Workshop, 		"The Workshop supplies the city with \n:productivity: Productivity while decreasing it's \n:health: Health and :entertainment: Entertainment scores.\n\n" +
 											"A nearby Hospital reduces the negative :health: Health output by 35%, and other Workshops nearby reduce \n" +
 											":productivity: Productivity output by 30%." },
 
-			{ BuildingType.Blacksmith,	 	"TODO" },
-			{ BuildingType.Factory,		 	"TODO" },
+			{ BuildingType.Blacksmith,	 	"The Blacksmith is an upgrade from the Workshop, providing the same amount of :productivity: Productivity with lower :health: Health " +
+											"and :entertainment: Entertainment penalties.\n\n" +
+											"A nearby Hospital reduces the negative :health: Health output by 35%, and other Blacksmiths nearby reduce \n" +
+											":productivity: Productivity output by 30%."  },
+
+			{ BuildingType.Factory,		 	"The Factory is an upgrade from the Workshop, providing more \n:productivity: Productivity with similar :health: Health " +
+											"and :entertainment: Entertainment penalties.\n\n" +
+											"A nearby Hospital reduces the negative :health: Health output by 35%, and other Factories nearby reduce \n" +
+											":productivity: Productivity output by 30%." },
 		};
 
 		public static string BuildingTitle(BuildingType type) {

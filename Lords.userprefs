@@ -1,31 +1,34 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Models\City.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Levels\Level.cs">
     <Files>
-      <File FileName="Assets\Models\Building.cs" Line="595" Column="25" />
-      <File FileName="c:\Users\John McCann\Documents\Lords\Assets\Strings.cs" Line="316" Column="35" />
-      <File FileName="Assets\Models\City.cs" Line="98" Column="32" />
-      <File FileName="Assets\UI\MultiSlider.cs" Line="28" Column="3" />
-      <File FileName="Assets\Models\Trade.cs" Line="36" Column="53" />
-      <File FileName="Assets\Models\Primatives.cs" Line="138" Column="5" />
-      <File FileName="Assets\UI\TradeOverlay.cs" Line="70" Column="64" />
-      <File FileName="Assets\Levels\Level.cs" Line="32" Column="25" />
-      <File FileName="Assets\Controllers\GameController.cs" Line="175" Column="43" />
-      <File FileName="Assets\UI\MenuBar.cs" Line="25" Column="3" />
-      <File FileName="Assets\Game.cs" Line="178" Column="2" />
-      <File FileName="Assets\UI\UpgradeOverlay.cs" Line="30" Column="44" />
-      <File FileName="Assets\UI\UpgradeBuildingToggle.cs" Line="40" Column="153" />
-      <File FileName="Assets\UI\Corner.cs" Line="81" Column="77" />
-      <File FileName="Assets\Levels\Levels.cs" Line="67" Column="25" />
-      <File FileName="Assets\UI\StatsPanel.cs" Line="20" Column="71" />
-      <File FileName="Assets\Controllers\Home.cs" Line="1" Column="1" />
+      <File FileName="Assets\Models\Building.cs" Line="509" Column="35" />
+      <File FileName="c:\Users\John McCann\Documents\Lords\Assets\Strings.cs" Line="185" Column="62" />
+      <File FileName="Assets\Models\City.cs" Line="30" Column="29" />
+      <File FileName="Assets\Models\Trade.cs" Line="1" Column="1" />
+      <File FileName="Assets\UI\TradeOverlay.cs" Line="56" Column="68" />
+      <File FileName="Assets\Controllers\GameController.cs" Line="256" Column="3" />
+      <File FileName="Assets\Levels\Levels.cs" Line="103" Column="47" />
+      <File FileName="Assets\Levels\Level.cs" Line="35" Column="45" />
+      <File FileName="Assets\UI\UpgradeOverlay.cs" Line="36" Column="4" />
+      <File FileName="Assets\Controllers\HoverControl.cs" Line="21" Column="3" />
+      <File FileName="Assets\Models\Tile.cs" Line="68" Column="5" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
-            <Node name="Models" expanded="True">
-              <Node name="City.cs" selected="True" />
+            <Node name="Controllers" expanded="True" />
+            <Node name="Levels" expanded="True">
+              <Node name="Level.cs" selected="True" />
+            </Node>
+            <Node name="Models" expanded="True" />
+            <Node name="NGUI" expanded="True" />
+            <Node name="UI" expanded="True" />
+          </Node>
+          <Node name="Assembly-CSharp-Editor" expanded="True">
+            <Node name="Editor" expanded="True">
+              <Node name="Test" expanded="True" />
             </Node>
           </Node>
         </State>

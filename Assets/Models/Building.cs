@@ -310,8 +310,9 @@ namespace Lords {
 			},
 			{ 
 				BuildingType.Monestary, new Dictionary<BuildingType, Primatives>() {
-					// Churches are more effective with a church nearby
-					{ BuildingType.Church, 	new Primatives{ Faith = 0.20f } },
+					// Monestaries are more effective with a church or cathedral nearby
+					{ BuildingType.Church, 	new Primatives{ Faith = 0.10f } },
+					{ BuildingType.Cathedral, 	new Primatives{ Faith = 0.20f } },
 					
 					// Don't work well when grouped together
 					{ BuildingType.Monestary, 	new Primatives{ Faith = -0.30f } }
@@ -319,7 +320,7 @@ namespace Lords {
 			},
 			{ 
 				BuildingType.Cathedral, new Dictionary<BuildingType, Primatives>() {
-					// Churches are more effective with a statue nearby
+					// Cathedrals are more effective with a statue nearby
 					{ BuildingType.Statue, 	new Primatives{ Faith = 0.20f } },
 					
 					// Don't work well when grouped together or near cathedrals
@@ -506,13 +507,13 @@ namespace Lords {
 			{ BuildingType.Hotel, 			1000 },
 			{ BuildingType.Amphitheater, 	600 },
 			{ BuildingType.Coloseum, 		2000 },
-			{ BuildingType.Trading_Post, 	200 },
+			{ BuildingType.Trading_Post, 	500 },
 			{ BuildingType.Constabulary, 	550 },
-			{ BuildingType.Military_Fort, 	550 },
+			{ BuildingType.Military_Fort, 	950 },
 			{ BuildingType.Clinic,	 		500 },
 			{ BuildingType.Dispensary, 		1500 },
 			{ BuildingType.Hospital, 		2500 },
-			{ BuildingType.Garden, 			200 },
+			{ BuildingType.Garden, 			400 },
 			{ BuildingType.Plaza, 			800 },
 			{ BuildingType.Statue, 			800 },
 			{ BuildingType.Church, 			300 },

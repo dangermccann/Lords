@@ -49,17 +49,17 @@ namespace Lords {
 
 			{ BuildingType.School, 			"Schools increase the city's :literacy: Literacy output, which is important for improving the " +
 											"city's Prosperity score.\n\n" +
-											"Placing multiple Schools near each other will reduce thier :literacy: Literacy output.\n\n" +
+											"Placing multiple Schools near each other will reduce their :literacy: Literacy output.\n\n" +
 											"Schools work well on all tile types." },
 
 			{ BuildingType.Upper_School, 	"Upper Schools are more effective than Schools at generating :literacy: Literacy output, which is important for improving the " +
 											"city's Prosperity score.\n\n" +
-											"Placing multiple Upper Schools near each other will reduce thier \n:literacy: Literacy output.\n\n" +
+											"Placing multiple Upper Schools near each other will reduce their \n:literacy: Literacy output.\n\n" +
 											"Upper Schools work well on all tile types." },
 
 			{ BuildingType.University,	 	"Universities are the most effective building for generating :literacy: Literacy, which is important for improving the " +
 											"city's Prosperity score.\n\n" +
-											"Placing multiple Universities near each other will reduce thier \n:literacy: Literacy output.\n\n" +
+											"Placing multiple Universities near each other will reduce their \n:literacy: Literacy output.\n\n" +
 											"Universities work well on all tile types." },
 
 			{ BuildingType.Vegetable_Farm,	"Vegetable Farms output the same amount of :food: Food as Wheat Farms, but have less of an impact on :literacy: Literacy.\n\n" +
@@ -79,7 +79,7 @@ namespace Lords {
 											"Placing multiple Taverns near each other reduces their effectiveness." },
 
 			{ BuildingType.Hotel,		 	"Hotels are an upgrade from Taverns, producing more :entertainment: Entertainment with less of an impact on :security: Security." +
-											"Nearby Forts and Constabularies will reduce the Hotels's negative :security: Security output.\n\n" +
+											"Nearby Forts and Constabularies will reduce the Hotel's negative :security: Security output.\n\n" +
 											"Placing multiple Hotels near each other reduces their effectiveness." },
 
 			{ BuildingType.Amphitheater, 	"The Amphitheater outputs more \n:entertainment: Entertainment than the Tavern, but also reduces " +
@@ -88,11 +88,11 @@ namespace Lords {
 											"Entertainment output by 20%.\n\n" +
 											"Amphitheaters with others nearby are less effective." },
 
-			{ BuildingType.Coloseum,	 	"The Coloseum yields more \n:entertainment: Entertainment than any other building in the game.  It's negative \n" +
+			{ BuildingType.Coliseum,	 	"The Coliseum yields more \n:entertainment: Entertainment than any other building in the game.  It's negative \n" +
 											":productivity: Productivity output is comparable to the Amphitheater.\n\n" +
 											"Nearby Taverns and Hotels increase the Amphitheater's effectiveness, increasing its :entertainment: " +
 											"Entertainment output by 25%.\n\n" +
-											"Coloseums with others nearby are less effective."  },
+											"Coliseums with others nearby are less effective."  },
 
 			{ BuildingType.Trading_Post, 	"The Trading Post allows a city to import and export goods, providing a powerful way to improve many different " +
 											"aspects of the city.\n\n" +
@@ -111,8 +111,8 @@ namespace Lords {
 											"city's :faith: Faith output.\n\n" +
 											"Clinics are less effective if Taverns or other Clinics are nearby."  },
 
-			{ BuildingType.Dispensary,	 	"Dispensares are an upgrade from Clinics, providing the same :health: Health output with a lower negative :faith: Faith penalty.\n\n" +
-											"Dispensares are less effective if other Dispensares are nearby." },
+			{ BuildingType.Dispensary,	 	"Dispensaries are an upgrade from Clinics, providing the same :health: Health output with a lower negative :faith: Faith penalty.\n\n" +
+											"Dispensaries  are less effective if other Dispensaries are nearby." },
 
 			{ BuildingType.Hospital, 		"The Hospital is an upgrade from the Clinic, providing a higher :health: Health output with a modest :faith: Faith penalty.\n\n" +
 											"Hospitals work equally well on any tile, but are less effective if other Hospitals are nearby." },
@@ -121,23 +121,23 @@ namespace Lords {
 											"city's \n:entertainment: Entertainment output.\n\n" +
 											"They are 35% less effective if a Workshop, Blacksmith or Factory is nearby, and 30% less effective if built on Marsh tiles." },
 
-			{ BuildingType.Plaza,		 	"The Plaza is an upgrade from the Garden, improving the city's :beauty: Beauty ouput at the expense of \n" +
+			{ BuildingType.Plaza,		 	"The Plaza is an upgrade from the Garden, improving the city's :beauty: Beauty output at the expense of \n" +
 											":entertainment: Entertainment.\n\n" +
 											"Nearby Hotels offset the negative \n:entertainment: Entertainment penalty by 35%.\n\n" +
 											"Plazas are 35% less effective if a Workshop, Blacksmith or Factory is nearby, and 30% less effective if built on Marsh tiles." },
 
-			{ BuildingType.Statue,		 	"The Statue is an upgrade from the Garden, improving the city's :beauty: Beauty ouput at the expense of \n" +
+			{ BuildingType.Statue,		 	"The Statue is an upgrade from the Garden, improving the city's :beauty: Beauty output at the expense of \n" +
 											":entertainment: Entertainment.\n\n" +
-											"Nearby Cathedrals and Monestaries offset the negative :entertainment: Entertainment penalty by 35%.\n\n" +
+											"Nearby Cathedrals and Monasteries offset the negative :entertainment: Entertainment penalty by 35%.\n\n" +
 											"Plazas are 35% less effective if a Workshop, Blacksmith or Factory is nearby, and 30% less effective if built on Marsh tiles." },
 
-			{ BuildingType.Church, 			"Chrches promote a city's :faith: Faith output, which adds to the Culture score of the city.\n\n" +
+			{ BuildingType.Church, 			"Chuches promote a city's :faith: Faith output, which adds to the Culture score of the city.\n\n" +
 											"They are 20% more effective with a Garden nearby, and 30% less effective with another Church or Cathedral nearby." },
 
-			{ BuildingType.Monestary,	 	"Monestaries output substantially more :faith: Faith than Churches do, with a similar negative :literacy: Literacy yield.\n\n" +
-											"They are more effective with a Church or Monestary nearby, and 30% less effective with another Monestary nearby." },
+			{ BuildingType.Monastery,	 	"Monasteries output substantially more :faith: Faith than Churches do, with a similar negative :literacy: Literacy yield.\n\n" +
+											"They are more effective with a Church or Monestary nearby, and 30% less effective with another Monastery nearby." },
 
-			{ BuildingType.Cathedral,	 	"Cathedrals output substantially more :faith: Faith than Churches or Monestaries do, with a similar negative :literacy: Literacy yield.\n\n" +
+			{ BuildingType.Cathedral,	 	"Cathedrals output substantially more :faith: Faith than Churches or Monasteries do, with a similar negative :literacy: Literacy yield.\n\n" +
 											"They are 20% more effective with a Statue nearby, and 30% less effective with a Church or another Cathedral nearby." },
 
 			{ BuildingType.Workshop, 		"The Workshop supplies the city with \n:productivity: Productivity while decreasing it's \n:health: Health and :entertainment: Entertainment scores.\n\n" +

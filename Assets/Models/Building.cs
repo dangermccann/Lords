@@ -36,7 +36,7 @@ namespace Lords {
 			BuildingType.Tavern,
 			BuildingType.Hotel,
 			BuildingType.Amphitheater,
-			BuildingType.Coloseum,
+			BuildingType.Coliseum,
 			BuildingType.Trading_Post,
 			BuildingType.Constabulary,
 			BuildingType.Military_Fort,
@@ -48,7 +48,7 @@ namespace Lords {
 			BuildingType.Statue,
 			BuildingType.Church,
 			BuildingType.Cathedral,
-			BuildingType.Monestary,
+			BuildingType.Monastery,
 			BuildingType.Workshop,
 			BuildingType.Blacksmith,
 			BuildingType.Factory
@@ -68,7 +68,7 @@ namespace Lords {
 			{ BuildingType.Tavern, 			PrimativeValues.Entertainment },
 			{ BuildingType.Hotel, 			PrimativeValues.Entertainment },
 			{ BuildingType.Amphitheater, 	PrimativeValues.Entertainment },
-			{ BuildingType.Coloseum, 		PrimativeValues.Entertainment },
+			{ BuildingType.Coliseum, 		PrimativeValues.Entertainment },
 			{ BuildingType.Trading_Post, 	PrimativeValues.Productivity },
 			{ BuildingType.Constabulary, 	PrimativeValues.Security },
 			{ BuildingType.Military_Fort, 	PrimativeValues.Security },
@@ -79,7 +79,7 @@ namespace Lords {
 			{ BuildingType.Plaza, 			PrimativeValues.Beauty },
 			{ BuildingType.Statue, 			PrimativeValues.Beauty },
 			{ BuildingType.Church, 			PrimativeValues.Faith },
-			{ BuildingType.Monestary,		PrimativeValues.Faith },
+			{ BuildingType.Monastery,		PrimativeValues.Faith },
 			{ BuildingType.Cathedral,		PrimativeValues.Faith },
 			{ BuildingType.Workshop, 		PrimativeValues.Productivity },
 			{ BuildingType.Blacksmith, 		PrimativeValues.Productivity },
@@ -99,7 +99,7 @@ namespace Lords {
 			{ BuildingType.Tavern, 			new Primatives { Entertainment = 10,	Security = -6							} },
 			{ BuildingType.Hotel, 			new Primatives { Entertainment = 15,	Security = -7 							} },
 			{ BuildingType.Amphitheater, 	new Primatives { Entertainment = 20,	Productivity = -12 						} },
-			{ BuildingType.Coloseum, 		new Primatives { Entertainment = 30,	Productivity = -14 						} },
+			{ BuildingType.Coliseum, 		new Primatives { Entertainment = 30,	Productivity = -14 						} },
 			{ BuildingType.Trading_Post, 	new Primatives { Productivity = 20,		Beauty = -12 							} },
 			{ BuildingType.Constabulary,	new Primatives { Security = 15,			Beauty = -9 							} },
 			{ BuildingType.Military_Fort,	new Primatives { Security = 25,			Beauty = -11 							} },
@@ -110,7 +110,7 @@ namespace Lords {
 			{ BuildingType.Plaza, 			new Primatives { Beauty = 20,			Entertainment = -10 					} },
 			{ BuildingType.Statue, 			new Primatives { Beauty = 20,			Faith = -10								} },
 			{ BuildingType.Church, 			new Primatives { Faith = 10,			Literacy = -6 							} },
-			{ BuildingType.Monestary,		new Primatives { Faith = 20,			Literacy = -8 							} },
+			{ BuildingType.Monastery,		new Primatives { Faith = 20,			Literacy = -8 							} },
 			{ BuildingType.Cathedral,		new Primatives { Faith = 30,			Literacy = -10 							} },
 			{ BuildingType.Workshop, 		new Primatives { Productivity = 20,		Health = -6, 		Entertainment = -6	} },
 			{ BuildingType.Blacksmith, 		new Primatives { Productivity = 20,		Health = -4, 		Entertainment = -4 	} },
@@ -204,13 +204,13 @@ namespace Lords {
 				}
 			},
 			{ 
-				BuildingType.Coloseum, new Dictionary<BuildingType, Primatives>() {
+				BuildingType.Coliseum, new Dictionary<BuildingType, Primatives>() {
 					// Amphitheaters with nearby tavers yield higher Entertainment value
 					{ BuildingType.Tavern, 	new Primatives{ Entertainment = 0.25f } },
 					{ BuildingType.Hotel, 	new Primatives{ Entertainment = 0.25f } },
 					
 					// Don't work well when grouped together
-					{ BuildingType.Coloseum, 	new Primatives{ Entertainment = -0.30f } }
+					{ BuildingType.Coliseum, 	new Primatives{ Entertainment = -0.30f } }
 				}
 			},
 
@@ -293,7 +293,7 @@ namespace Lords {
 
 					// Cathedral or monstary will offset the faith penalty
 					{ BuildingType.Cathedral, 	new Primatives{ Faith = -0.35f } },
-					{ BuildingType.Monestary, 	new Primatives{ Faith = -0.35f } },
+					{ BuildingType.Monastery, 	new Primatives{ Faith = -0.35f } },
 				}
 			},
 
@@ -309,13 +309,13 @@ namespace Lords {
 				}
 			},
 			{ 
-				BuildingType.Monestary, new Dictionary<BuildingType, Primatives>() {
+				BuildingType.Monastery, new Dictionary<BuildingType, Primatives>() {
 					// Monestaries are more effective with a church or cathedral nearby
 					{ BuildingType.Church, 	new Primatives{ Faith = 0.10f } },
 					{ BuildingType.Cathedral, 	new Primatives{ Faith = 0.20f } },
 					
 					// Don't work well when grouped together
-					{ BuildingType.Monestary, 	new Primatives{ Faith = -0.30f } }
+					{ BuildingType.Monastery, 	new Primatives{ Faith = -0.30f } }
 				}
 			},
 			{ 
@@ -396,7 +396,7 @@ namespace Lords {
 			{ BuildingType.Tavern, 		new Dictionary<TileType, Primatives>() },
 			{ BuildingType.Hotel,		new Dictionary<TileType, Primatives>() },
 			{ BuildingType.Amphitheater,new Dictionary<TileType, Primatives>() },
-			{ BuildingType.Coloseum,	new Dictionary<TileType, Primatives>() },
+			{ BuildingType.Coliseum,	new Dictionary<TileType, Primatives>() },
 			{ BuildingType.Trading_Post,new Dictionary<TileType, Primatives>() },
 			{ BuildingType.Constabulary,new Dictionary<TileType, Primatives>() },
 			{ 
@@ -424,7 +424,7 @@ namespace Lords {
 				}
 			},
 			{ BuildingType.Church,		new Dictionary<TileType, Primatives>() },
-			{ BuildingType.Monestary,	new Dictionary<TileType, Primatives>() },
+			{ BuildingType.Monastery,	new Dictionary<TileType, Primatives>() },
 			{ BuildingType.Cathedral,	new Dictionary<TileType, Primatives>() },
 			{ BuildingType.Workshop,	new Dictionary<TileType, Primatives>() },
 			{ BuildingType.Blacksmith,	new Dictionary<TileType, Primatives>() },
@@ -444,7 +444,7 @@ namespace Lords {
 			{ BuildingType.Tavern, 			350 },
 			{ BuildingType.Hotel, 			1500 },
 			{ BuildingType.Amphitheater, 	650 },
-			{ BuildingType.Coloseum,	 	2000 },
+			{ BuildingType.Coliseum,	 	2000 },
 			{ BuildingType.Trading_Post, 	500 },
 			{ BuildingType.Constabulary, 	400 },
 			{ BuildingType.Military_Fort, 	850 },
@@ -455,7 +455,7 @@ namespace Lords {
 			{ BuildingType.Plaza, 			800 },
 			{ BuildingType.Statue, 			800 },
 			{ BuildingType.Church, 			300 },
-			{ BuildingType.Monestary, 		1300 },
+			{ BuildingType.Monastery, 		1300 },
 			{ BuildingType.Cathedral, 		2000 },
 			{ BuildingType.Workshop, 		350 },
 			{ BuildingType.Blacksmith, 		1350 },
@@ -475,7 +475,7 @@ namespace Lords {
 			{ BuildingType.Tavern, 			250 },
 			{ BuildingType.Hotel, 			250 },
 			{ BuildingType.Amphitheater, 	500 },
-			{ BuildingType.Coloseum,	 	500 },
+			{ BuildingType.Coliseum,	 	500 },
 			{ BuildingType.Trading_Post, 	400 },
 			{ BuildingType.Constabulary, 	350 },
 			{ BuildingType.Military_Fort, 	350 },
@@ -486,7 +486,7 @@ namespace Lords {
 			{ BuildingType.Plaza, 			100 },
 			{ BuildingType.Statue, 			100 },
 			{ BuildingType.Church, 			200 },
-			{ BuildingType.Monestary, 		200 },
+			{ BuildingType.Monastery, 		200 },
 			{ BuildingType.Cathedral, 		200 },
 			{ BuildingType.Workshop, 		350 },
 			{ BuildingType.Blacksmith, 		350 },
@@ -506,7 +506,7 @@ namespace Lords {
 			{ BuildingType.Tavern, 			300 },
 			{ BuildingType.Hotel, 			1000 },
 			{ BuildingType.Amphitheater, 	600 },
-			{ BuildingType.Coloseum, 		2000 },
+			{ BuildingType.Coliseum, 		2000 },
 			{ BuildingType.Trading_Post, 	500 },
 			{ BuildingType.Constabulary, 	550 },
 			{ BuildingType.Military_Fort, 	950 },
@@ -517,7 +517,7 @@ namespace Lords {
 			{ BuildingType.Plaza, 			800 },
 			{ BuildingType.Statue, 			800 },
 			{ BuildingType.Church, 			300 },
-			{ BuildingType.Monestary, 		1500 },
+			{ BuildingType.Monastery, 		1500 },
 			{ BuildingType.Cathedral, 		2500 },
 			{ BuildingType.Workshop, 		350 },
 			{ BuildingType.Blacksmith, 		900 },
@@ -537,7 +537,7 @@ namespace Lords {
 			{ BuildingType.Tavern, 			500 },
 			{ BuildingType.Hotel, 			1000 },
 			{ BuildingType.Amphitheater, 	700 },
-			{ BuildingType.Coloseum, 		1400 },
+			{ BuildingType.Coliseum, 		1400 },
 			{ BuildingType.Trading_Post, 	750 },
 			{ BuildingType.Constabulary, 	450 },
 			{ BuildingType.Military_Fort, 	1050 },
@@ -548,7 +548,7 @@ namespace Lords {
 			{ BuildingType.Plaza, 			600 },
 			{ BuildingType.Statue, 			600 },
 			{ BuildingType.Church, 			400 },
-			{ BuildingType.Monestary, 		900 },
+			{ BuildingType.Monastery, 		900 },
 			{ BuildingType.Cathedral, 		1200 },
 			{ BuildingType.Workshop, 		450 },
 			{ BuildingType.Blacksmith, 		600 },
@@ -571,11 +571,11 @@ namespace Lords {
 			{ BuildingType.School, 		new List<BuildingType>() { BuildingType.Upper_School,	BuildingType.University } },
 			{ BuildingType.Wheat_Farm, 	new List<BuildingType>() { BuildingType.Vegetable_Farm,	BuildingType.Berry_Farm } },
 			{ BuildingType.Tavern, 		new List<BuildingType>() { BuildingType.Hotel 									} },
-			{ BuildingType.Amphitheater,new List<BuildingType>() { BuildingType.Coloseum 								} },
+			{ BuildingType.Amphitheater,new List<BuildingType>() { BuildingType.Coliseum 								} },
 			{ BuildingType.Constabulary,new List<BuildingType>() { BuildingType.Military_Fort 							} },
 			{ BuildingType.Clinic,		new List<BuildingType>() { BuildingType.Dispensary,		BuildingType.Hospital 	} },
 			{ BuildingType.Garden,		new List<BuildingType>() { BuildingType.Plaza,			BuildingType.Statue 	} },
-			{ BuildingType.Church,		new List<BuildingType>() { BuildingType.Monestary,		BuildingType.Cathedral 	} },
+			{ BuildingType.Church,		new List<BuildingType>() { BuildingType.Monastery,		BuildingType.Cathedral 	} },
 			{ BuildingType.Workshop,	new List<BuildingType>() { BuildingType.Blacksmith,		BuildingType.Factory	} },
 		};
 
@@ -646,7 +646,7 @@ namespace Lords {
 		Tavern,
 		Hotel,
 		Amphitheater,
-		Coloseum,
+		Coliseum,
 		Trading_Post,
 		Constabulary,
 		Military_Fort,
@@ -658,7 +658,7 @@ namespace Lords {
 		Statue,
 		Church,
 		Cathedral,
-		Monestary,
+		Monastery,
 		Workshop,
 		Blacksmith,
 		Factory

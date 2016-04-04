@@ -557,14 +557,14 @@ namespace Lords {
 
 		public static Dictionary<BuildingType, float> TaxRates = new Dictionary<BuildingType, float> {
 			{ BuildingType.Villa, 		0.6f },
-			{ BuildingType.Slums, 		0.15f },
-			{ BuildingType.Cottages, 	0.3f },
+			{ BuildingType.Slums, 		0.2f },
+			{ BuildingType.Cottages, 	0.4f },
 		};
 
 		public static Dictionary<BuildingType, float> RawMaterialProduction = new Dictionary<BuildingType, float> {
-			{ BuildingType.Slums, 		0.5f },
-			{ BuildingType.Villa, 		0.25f },
-			{ BuildingType.Cottages, 	0.5f },
+			{ BuildingType.Slums, 		0.6f },
+			{ BuildingType.Villa, 		0.2f },
+			{ BuildingType.Cottages, 	0.4f },
 		};
 
 		public static Dictionary<BuildingType, List<BuildingType>> Upgrades = new Dictionary<BuildingType, List<BuildingType>>() {
@@ -577,6 +577,16 @@ namespace Lords {
 			{ BuildingType.Garden,		new List<BuildingType>() { BuildingType.Plaza,			BuildingType.Statue 	} },
 			{ BuildingType.Church,		new List<BuildingType>() { BuildingType.Monastery,		BuildingType.Cathedral 	} },
 			{ BuildingType.Workshop,	new List<BuildingType>() { BuildingType.Blacksmith,		BuildingType.Factory	} },
+		};
+
+		public static Dictionary<BuildingType, int> BuildingLimits = new Dictionary<BuildingType, int>() {
+			{ BuildingType.University, 		1 },
+			{ BuildingType.Factory,    		1 },
+			{ BuildingType.Military_Fort,   1 },
+			{ BuildingType.Coliseum,    	1 },
+			{ BuildingType.Cathedral,    	1 },
+			{ BuildingType.Hotel,	    	1 },
+			{ BuildingType.Hospital,    	1 }
 		};
 
 		public static BuildingType FindUpgradeBaseType(BuildingType type) {

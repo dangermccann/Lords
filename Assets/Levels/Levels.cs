@@ -4,6 +4,25 @@ using UnityEngine;
 
 namespace Lords {
 	public class Levels {
+		static Dictionary<Exports, float> EXPORT_PRICES_EASY = new Dictionary<Exports, float>() {
+			{ Exports.Clothes,            10 },
+			{ Exports.Tools,              10 },
+			{ Exports.Manufactured_Goods, 10 }
+		};
+		
+		static Dictionary<Exports, float> EXPORT_PRICES_MEDIUM = new Dictionary<Exports, float>() {
+			{ Exports.Clothes,            8 },
+			{ Exports.Tools,              8 },
+			{ Exports.Manufactured_Goods, 8 }
+		};
+		
+		static Dictionary<Exports, float> EXPORT_PRICES_HARD = new Dictionary<Exports, float>() {
+			{ Exports.Clothes,            6 },
+			{ Exports.Tools,              6 },
+			{ Exports.Manufactured_Goods, 6 }
+		};
+
+
 		public static Level Tutorial = new Level() {
 			name = "Tutorial",
 			description = "My good fellow, for this first task you are to create a town of modest proportion.\nTime limit: {0}",
@@ -15,8 +34,6 @@ namespace Lords {
 				Culture = 0,
 			},
 			mapConfiguration = Maps.Tutorial,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(200, 150),
 			illustration = LevelIllustration.House,
 			maxElapsedTime = 180 / Game.GameSpeed,
@@ -34,8 +51,6 @@ namespace Lords {
 				Culture = 10,
 			},
 			mapConfiguration = Maps.Standard,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(216, 225),
 			illustration = LevelIllustration.Fish,
 			maxElapsedTime = 120 / Game.GameSpeed,
@@ -53,8 +68,6 @@ namespace Lords {
 				Culture = 10,
 			},
 			mapConfiguration = Maps.MountainsForest,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(369, 227),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 120 / Game.GameSpeed,
@@ -73,11 +86,9 @@ namespace Lords {
 				Culture = 20,
 			},
 			mapConfiguration = Maps.Greencastle,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(50, 306),
 			illustration = LevelIllustration.Clock,
-			maxElapsedTime = 60 / Game.GameSpeed,
+			maxElapsedTime = 75 / Game.GameSpeed,
 			prerequisites = new Level[1] { Levels.Galloway }
 		};
 
@@ -92,8 +103,6 @@ namespace Lords {
 				Culture = 35,
 			},
 			mapConfiguration = Maps.MarshWater,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(283.8f, 35.8f),
 			illustration = LevelIllustration.Sun,
 			maxElapsedTime = 120 / Game.GameSpeed,
@@ -105,38 +114,36 @@ namespace Lords {
 			description = "You must next build a prosperous city in the mountainous regions of Aberdeen.\nTime limit: {0}",
 			victoryMessage = "Very impressive indeed.  Your upcoming promotion is well deserved.",
 			victoryConditions = new Aggregates() { 
-				Population = 2500,
+				Population = 2800,
 				Happiness = 35,
 				Prosperity = 45,
 				Culture = 30,
 			},
 			mapConfiguration = Maps.Mountains,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(364, 26),
 			illustration = LevelIllustration.Grapes,
 			maxElapsedTime = 120 / Game.GameSpeed,
 			promotesTo = Ranks.Knight,
-			prerequisites = new Level[2] { Levels.CraigBay, Levels.Greencastle }
+			prerequisites = new Level[2] { Levels.CraigBay, Levels.Greencastle },
+			exportPrices = EXPORT_PRICES_MEDIUM
 		};
 
 		public static Level Crosswell = new Level() {
 			name = "Crosswell",
-			description = "This next city must be assembled in short order.  You must hurry if you wish to meet your objective.\nTime limit: {0}",
+			description = "This next city must be assembled in short order.  You must act quickly if you wish to meet your objective.\nTime limit: {0}",
 			victoryMessage = "Excellent work, Sir.  You've met this challenge with prestige and valor.",
 			victoryConditions = new Aggregates() { 
-				Population = 3500,
-				Happiness = 15,
+				Population = 3000,
+				Happiness = 35,
 				Prosperity = 25,
-				Culture = 15,
+				Culture = 35,
 			},
 			mapConfiguration = Maps.SmallerSand,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(295, 331),
 			illustration = LevelIllustration.Hourglass,
-			maxElapsedTime = 45 / Game.GameSpeed,
-			prerequisites = new Level[1] { Levels.Aberdeen }
+			maxElapsedTime = 65 / Game.GameSpeed,
+			prerequisites = new Level[1] { Levels.Aberdeen },
+			exportPrices = EXPORT_PRICES_MEDIUM
 		};
 
 		public static Level Southgate = new Level() {
@@ -144,118 +151,112 @@ namespace Lords {
 			description = "My good Sir, His Majesty requires that Southgate be a culturally advanced city of moderate size.\nTime limit: {0}",
 			victoryMessage = "Your achievements in cultural progress have been acknowledged by the Crown.",
 			victoryConditions = new Aggregates() { 
-				Population = 3000,
+				Population = 3500,
 				Happiness = 25,
-				Prosperity = 30,
-				Culture = 45,
+				Prosperity = 35,
+				Culture = 50,
 			},
 			mapConfiguration = Maps.Tundra,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(432, 105),
 			illustration = LevelIllustration.Flowers,
-			maxElapsedTime = 2 * 365 / Game.GameSpeed,
-			prerequisites = new Level[1] { Levels.Crosswell }
+			maxElapsedTime = 75 / Game.GameSpeed,
+			prerequisites = new Level[1] { Levels.Crosswell },
+			exportPrices = EXPORT_PRICES_MEDIUM
 		};
 
-		// HERE
 		public static Level Mayfield = new Level() {
 			name = "Mayfield",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",
-			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
+			description = "The challenge at Mayfield involves careful planning to arrive at a large population in a small area.\nTime limit: {0}",
+			victoryMessage = "Outstanding accomplishment, Sir.  The Crown sends its appreciation.",
 			victoryConditions = new Aggregates() { 
-				Population = 2000,
-				Happiness = 10,
-				Prosperity = 25,
-				Culture = 15,
+				Population = 4000,
+				Happiness = 45,
+				Prosperity = 45,
+				Culture = 45,
 			},
 			mapConfiguration = Maps.Smaller,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(497, 143),
-			illustration = LevelIllustration.Scales,
-			maxElapsedTime = 4 * 365 / Game.GameSpeed,
-			prerequisites = new Level[1] { Levels.Crosswell }
+			illustration = LevelIllustration.Drinker,
+			maxElapsedTime = 90 / Game.GameSpeed,
+			prerequisites = new Level[1] { Levels.Crosswell },
+			exportPrices = EXPORT_PRICES_MEDIUM
 		};
 
 		public static Level LittleAsh = new Level() {
 			name = "Little Ash",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",
-			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
+			description = "Trade will become much more difficult when building this small but illustrious city.\nTime limit: {0}",
+			victoryMessage = "A job well done.  You will be receiving another well deserved promotion.",
 			victoryConditions = new Aggregates() { 
-				Population = 2000,
-				Happiness = 10,
-				Prosperity = 25,
-				Culture = 15,
+				Population = 1800,
+				Happiness = 60,
+				Prosperity = 55,
+				Culture = 65,
 			},
 			mapConfiguration = Maps.SmallLake,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(65, 106),
-			illustration = LevelIllustration.Scales,
-			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			illustration = LevelIllustration.CoatOfArms,
+			maxElapsedTime = 120 / Game.GameSpeed,
 			promotesTo = Ranks.Baronet,
-			prerequisites = new Level[2] { Levels.Mayfield, Levels.Southgate }
+			prerequisites = new Level[2] { Levels.Mayfield, Levels.Southgate },
+			exportPrices = EXPORT_PRICES_HARD
 		};
 
 		public static Level Easton = new Level() {
 			name = "Easton",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",
-			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
+			description = "The King now requires an enormous city, perhaps your most challenging charge thus far.\nTime limit: {0}",
+			victoryMessage = "This splendid achievement is yet another example of your undying dedication.",
 			victoryConditions = new Aggregates() { 
-				Population = 20000,
+				Population = 8000,
 				Happiness = 50,
-				Prosperity = 75,
-				Culture = 75,
+				Prosperity = 50,
+				Culture = 50,
 			},
 			mapConfiguration = Maps.LargeEasy,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(681, 271),
-			illustration = LevelIllustration.Scales,
-			maxElapsedTime = 4 * 365 / Game.GameSpeed,
-			prerequisites = new Level[1] { Levels.LittleAsh }
+			illustration = LevelIllustration.House,
+			maxElapsedTime = 190 / Game.GameSpeed,
+			prerequisites = new Level[1] { Levels.LittleAsh },
+			exportPrices = EXPORT_PRICES_HARD
 		};
 
 		public static Level Welburn = new Level() {
 			name = "Welburn",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",
-			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
+			description = "With limited terrain available for building, you must establish a city that reaches a high Happiness score.\nTime limit: {0}",
+			victoryMessage = "You have demonstrated yet again that you are a wise and capable mayor.",
 			victoryConditions = new Aggregates() { 
-				Population = 2000,
-				Happiness = 10,
-				Prosperity = 25,
-				Culture = 15,
+				Population = 1500,
+				Happiness = 65,
+				Prosperity = 45,
+				Culture = 45,
 			},
 			mapConfiguration = Maps.TinyRiver,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(497, 269),
-			illustration = LevelIllustration.Scales,
-			maxElapsedTime = 4 * 365 / Game.GameSpeed,
-			prerequisites = new Level[1] { Levels.LittleAsh }
+			illustration = LevelIllustration.Drinks,
+			maxElapsedTime = 90 / Game.GameSpeed,
+			prerequisites = new Level[1] { Levels.LittleAsh },
+			exportPrices = EXPORT_PRICES_HARD
 		};
 
 		public static Level Dunham = new Level() {
 			name = "Dunham",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",
-			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
+			description = "To reach the rank of Baron you must erect an impressive city on the most difficult of terrain.\nTime limit: {0}",
+			victoryMessage = "Congratulations on proving your worthiness to The Crown once again.",
 			victoryConditions = new Aggregates() { 
 				Population = 2000,
-				Happiness = 10,
-				Prosperity = 25,
-				Culture = 15,
+				Happiness = 50,
+				Prosperity = 50,
+				Culture = 55,
 			},
 			mapConfiguration = Maps.TinyHard,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(638, 143),
-			illustration = LevelIllustration.Scales,
-			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			illustration = LevelIllustration.Paddles,
+			maxElapsedTime = 100 / Game.GameSpeed,
 			promotesTo = Ranks.Baron,
-			prerequisites = new Level[2] { Levels.Welburn, Levels.Easton }
+			prerequisites = new Level[2] { Levels.Welburn, Levels.Easton },
+			exportPrices = EXPORT_PRICES_HARD
 		};
 
+		// HERE
 		public static Level OldMilddleton = new Level() {
 			name = "Old Milddleton",
 			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",
@@ -272,7 +273,8 @@ namespace Lords {
 			mapLocation = new Vector2(562, 20),
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
-			prerequisites = new Level[1] { Levels.Dunham }
+			prerequisites = new Level[1] { Levels.Dunham },
+			exportPrices = EXPORT_PRICES_HARD
 		};
 
 		public static Level Normantown = new Level() {
@@ -292,7 +294,8 @@ namespace Lords {
 			illustration = LevelIllustration.Scales,
 			maxElapsedTime = 4 * 365 / Game.GameSpeed,
 			promotesTo = Ranks.Lord_Mayor,
-			prerequisites = new Level[1] { Levels.OldMilddleton }
+			prerequisites = new Level[1] { Levels.OldMilddleton },
+			exportPrices = EXPORT_PRICES_HARD
 		};
 
 		public static List<Level> All = new List<Level> () {

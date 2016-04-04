@@ -94,7 +94,11 @@ namespace Lords {
 			Debug.Log("Redrawing help contents for " + SelectedBuildingType.ToString());
 			title.text = Strings.BuildingTitle(SelectedBuildingType);
 			yields.text = Strings.BuildingYieldLong(SelectedBuildingType);
-			details.text = "Cost:  " + Strings.BuildingCost(SelectedBuildingType) + "\n\n";
+			details.text = "Cost:  " + Strings.BuildingCost(SelectedBuildingType);
+			if(Building.BuildingLimits.ContainsKey(SelectedBuildingType)) {
+				details.text += String.Format("\nLimit {0} per city", Building.BuildingLimits[SelectedBuildingType]);
+			}
+			details.text += "\n\n";
 			details.text += Strings.BuildingHelp(SelectedBuildingType);
 			icon.sprite2D = GameAssets.GetSprite(SelectedBuildingType);
 			detailsScroller.ResetPosition();

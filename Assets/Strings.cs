@@ -37,15 +37,18 @@ namespace Lords {
 			{ BuildingType.Villa, 			"Although Villas provide less :housing: Housing than Slums or Cottages, " +
 											"they don't suffer from the negative :security: Security output of those building types. \n\n" +
 											"Villas output a small amount of \n" +
-											":literacy: Literacy and :beauty: Beauty, and placing multiple Villas nearby increases the \n:beauty: Beauty output by 5% per building." },
+											":literacy: Literacy and :beauty: Beauty, and placing multiple Villas nearby increases the \n:beauty: Beauty output by 5% per building.\n\n" +
+											"Each Villa produces a substantial amount of :gold: and a small amount of :rawmaterials: every day." },
 
 			{ BuildingType.Slums, 			"Slums provide more :housing: Housing than any other building type, but they also substantially reduce the " +
 											"city's \n:security: Security.\n\n" +
 											"Placing multiple Slums near each other increases the negative :security: Security " +
-											"output by 5% per building." },
+											"output by 5% per building.\n\n" +
+											"Each Slum produces a small amount of :gold: and a substantial amount of :rawmaterials: every day." },
 
 			{ BuildingType.Cottages, 		"Cottages provide a good balance between :housing: Housing and :security: Security.  Unlike Slums, " +
-											"Cottages do not increase the negative :security: Security output when there are others nearby." },
+											"Cottages do not increase the negative :security: Security output when there are others nearby.\n\n" +
+											"Each Cottage produces a moderate amount of :gold: and :rawmaterials: every day." },
 
 			{ BuildingType.School, 			"Schools increase the city's :literacy: Literacy output, which is important for improving the " +
 											"city's Prosperity score.\n\n" +
@@ -246,16 +249,23 @@ namespace Lords {
 			return String.Format ("{0} :gold: {1} :rawmaterials:", Mathf.Floor(city.Funds), Mathf.Floor(city.RawMaterials));
 		}
 
-		public static string CanNotBuildMessage(City city, BuildingType type, Colors color = Colors.Requirement) {
+		public static string CanNotBuildMessage(City city, BuildingType type, Colors color = Colors.Requirement, string append = "") {
 			string message = "";
-			if(city.Funds < Building.RequiredFunds[type]) {
-				message = String.Format("{0} :gold:", Building.RequiredFunds[type]);;
-			}
-			if(city.RawMaterials < Building.RequiredMaterials[type]) {
-				message = String.Format("{0} :rawmaterials:", Building.RequiredMaterials[type]);;
-			}
+
 			if(city.Score.Population < Building.PopulationMinimums[type]) {
-				message = String.Format("{0} Population", Building.PopulationMinimums[type]);;
+				message = String.Format("{0} Population {1}", Building.PopulationMinimums[type], append);
+			}
+			else if(city.Funds < Building.RequiredFunds[type]) {
+				message = String.Format("{0} :gold: {1}", Building.RequiredFunds[type], append);
+			}
+			else if(city.RawMaterials < Building.RequiredMaterials[type]) {
+				message = String.Format("{0} :rawmaterials: {1}", Building.RequiredMaterials[type], append);
+			}
+
+			if(Building.BuildingLimits.ContainsKey(type)) {
+				if(city.Buildings[type].Count >= Building.BuildingLimits[type]) {
+					message = String.Format("Limit {0} per city", Building.BuildingLimits[type]);
+				}
 			}
 
 			return Colorize(message, color);

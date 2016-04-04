@@ -10,7 +10,7 @@ namespace Lords {
 		public string victoryMessage;
 		public Aggregates victoryConditions;
 		public MapConfiguration mapConfiguration;
-		public float initialFunds, initialRawMaterials;
+		public float initialFunds = 1000, initialRawMaterials = 1000;
 		public Vector2 mapLocation;
 		public LevelIllustration illustration = LevelIllustration.Clock;
 		public float maxElapsedTime;
@@ -32,7 +32,7 @@ namespace Lords {
 			{ Imports.Weapons,  75 },
 		};
 
-		public float additionalFundsPerSecond = 10f;
+		public float additionalFundsPerSecond = 12f;
 		public float additionalRawMaterialsPerSecond = 24f;
 
 		public Level() {}

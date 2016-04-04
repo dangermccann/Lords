@@ -37,7 +37,7 @@ namespace Lords {
 				transform.FindChild("Cost").gameObject.GetComponent<UILabel>().text = "Cost: " + Strings.BuildingCost(type);
 			}
 			else {
-				transform.FindChild("Cost").gameObject.GetComponent<UILabel>().text = Strings.CanNotBuildMessage(Game.CurrentCity, type, Colors.Normal) + " Required";
+				transform.FindChild("Cost").gameObject.GetComponent<UILabel>().text = Strings.CanNotBuildMessage(Game.CurrentCity, type, Colors.Normal, "Required");
 			}
 		}
 

@@ -72,8 +72,8 @@ Sheep May Safely Graze - BWV 208
 + Credits Page
 + Menu Bar clicks don't work
 > Garden / Plaza / Statue tile horizontal alignment
-> Trade
-> Help dialog scrolling
++ Trade
++ Help dialog scrolling
 
 
 
@@ -131,9 +131,10 @@ Sound Effects
 
 
 -- Trailer --
--- https://youtu.be/4gLdZKLtUXM
+XXXX https://youtu.be/4gLdZKLtUXM XXXXX
 https://youtu.be/NazxWiToFdo
 
+http://imgur.com/a/mZo73
 
 
 To Whom It May Concern:
@@ -150,7 +151,8 @@ Sales: https://indiegamestand.com/developerSignUp.php
 Review: http://indiegamereviewer.com/contact-indie-game-reviewer/
 Review: https://www.rockpapershotgun.com/hey-prs-and-developers/
 Marketing: http://www.indiegamegirl.com/press-release-example/
-
+Sales (bundled): http://www.indieroyale.com/contact
+                 https://www.indiegala.com/
 
 
 editors@indiegames.com

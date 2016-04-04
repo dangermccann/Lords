@@ -264,6 +264,12 @@ namespace Lords {
 		}
 
 		public Boolean CanBuild(BuildingType type) {
+			if(Building.BuildingLimits.ContainsKey(type)) {
+				if(Buildings[type].Count >= Building.BuildingLimits[type]) {
+					return false;
+				}
+			}
+
 			return Funds >= Building.RequiredFunds[type] && 
 				RawMaterials >= Building.RequiredMaterials[type] &&
 				Score.Population >= Building.PopulationMinimums[type];
@@ -306,7 +312,7 @@ namespace Lords {
 			city.Funds = saved.funds;
 			city.ElapsedTime = saved.elapsedTime;
 	
-			if(saved.importAllocation != null)	// backwards compatibility - remove later
+			if(saved.importAllocation != null && saved.importAllocation.Count > 0)	// backwards compatibility - remove later
 				city.ImportAllocation = saved.importAllocation;
 
 			foreach(SavedBuilding savedBuilding in saved.buildings) {

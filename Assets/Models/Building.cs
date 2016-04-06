@@ -556,15 +556,15 @@ namespace Lords {
 		};
 
 		public static Dictionary<BuildingType, float> TaxRates = new Dictionary<BuildingType, float> {
-			{ BuildingType.Villa, 		0.6f },
-			{ BuildingType.Slums, 		0.2f },
-			{ BuildingType.Cottages, 	0.4f },
+			{ BuildingType.Villa, 		0.9f },
+			{ BuildingType.Slums, 		0.3f },
+			{ BuildingType.Cottages, 	0.6f },
 		};
 
 		public static Dictionary<BuildingType, float> RawMaterialProduction = new Dictionary<BuildingType, float> {
-			{ BuildingType.Slums, 		0.6f },
-			{ BuildingType.Villa, 		0.2f },
-			{ BuildingType.Cottages, 	0.4f },
+			{ BuildingType.Slums, 		0.9f },
+			{ BuildingType.Villa, 		0.3f },
+			{ BuildingType.Cottages, 	0.6f },
 		};
 
 		public static Dictionary<BuildingType, List<BuildingType>> Upgrades = new Dictionary<BuildingType, List<BuildingType>>() {

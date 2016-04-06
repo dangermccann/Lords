@@ -152,7 +152,7 @@ namespace Lords {
 			victoryMessage = "Your achievements in cultural progress have been acknowledged by the Crown.",
 			victoryConditions = new Aggregates() { 
 				Population = 3500,
-				Happiness = 25,
+				Happiness = 35,
 				Prosperity = 35,
 				Culture = 50,
 			},
@@ -194,7 +194,7 @@ namespace Lords {
 			},
 			mapConfiguration = Maps.SmallLake,
 			mapLocation = new Vector2(65, 106),
-			illustration = LevelIllustration.CoatOfArms,
+			illustration = LevelIllustration.Pear,
 			maxElapsedTime = 120 / Game.GameSpeed,
 			promotesTo = Ranks.Baronet,
 			prerequisites = new Level[2] { Levels.Mayfield, Levels.Southgate },
@@ -213,7 +213,7 @@ namespace Lords {
 			},
 			mapConfiguration = Maps.LargeEasy,
 			mapLocation = new Vector2(681, 271),
-			illustration = LevelIllustration.House,
+			illustration = LevelIllustration.Factory,
 			maxElapsedTime = 190 / Game.GameSpeed,
 			prerequisites = new Level[1] { Levels.LittleAsh },
 			exportPrices = EXPORT_PRICES_HARD
@@ -256,43 +256,38 @@ namespace Lords {
 			exportPrices = EXPORT_PRICES_HARD
 		};
 
-		// HERE
 		public static Level OldMilddleton = new Level() {
 			name = "Old Milddleton",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",
-			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
+			description = "The King requires a city of epic proportions in the desert of Old Middleton.\nTime limit: {0}",
+			victoryMessage = "Tremendous accopmlishment, my Lord.  You are well prepared for your final challenge.",
 			victoryConditions = new Aggregates() { 
-				Population = 2000,
-				Happiness = 10,
-				Prosperity = 25,
-				Culture = 15,
+				Population = 7000,
+				Happiness = 60,
+				Prosperity = 60,
+				Culture = 60,
 			},
 			mapConfiguration = Maps.HugeSand,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(562, 20),
-			illustration = LevelIllustration.Scales,
-			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			illustration = LevelIllustration.Sun,
+			maxElapsedTime = 150 / Game.GameSpeed,
 			prerequisites = new Level[1] { Levels.Dunham },
 			exportPrices = EXPORT_PRICES_HARD
 		};
 
 		public static Level Normantown = new Level() {
 			name = "Normantown",
-			description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur magna sem, condimentum in ornare ac.\nTime limit: {0}",
-			victoryMessage = "Suspendisse potenti. Etiam non augue sed massa scelerisque auctor.",
+			description = "You must complete this final city in frigid Normantown to earn the title of Lord Mayor.\nTime limit: {0}",
+			victoryMessage = "You have done it!  Congratulations Lord Mayor!",
 			victoryConditions = new Aggregates() { 
-				Population = 2000,
-				Happiness = 10,
-				Prosperity = 25,
-				Culture = 15,
+				Population = 5000,
+				Happiness = 70,
+				Prosperity = 70,
+				Culture = 70,
 			},
 			mapConfiguration = Maps.MediumCold,
-			initialFunds = 1000,
-			initialRawMaterials = 1000,
 			mapLocation = new Vector2(602, 216),
-			illustration = LevelIllustration.Scales,
-			maxElapsedTime = 4 * 365 / Game.GameSpeed,
+			illustration = LevelIllustration.CoatOfArms,
+			maxElapsedTime = 150 / Game.GameSpeed,
 			promotesTo = Ranks.Lord_Mayor,
 			prerequisites = new Level[1] { Levels.OldMilddleton },
 			exportPrices = EXPORT_PRICES_HARD

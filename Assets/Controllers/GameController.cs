@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		mapRoot = GameObject.Find("Map");
-		LoadLevel(Game.CurrentLevel ?? Levels.Greencastle);
+		LoadLevel(Game.CurrentLevel ?? Levels.LittleAsh);
 		effects = GameObject.Find("EffectsController").GetComponent<EffectsController>();
 	}
 
@@ -52,6 +52,11 @@ public class GameController : MonoBehaviour {
 			};
 			tile.BuildingChanged += (Tile tt) => {
 				GameAssets.MakeBuilding(go, tt.Building);
+
+				// If this tile is the selected tile, trigger a changed event so we redraw
+				if(SelectionController.selection.Tile == tt) {
+					SelectionController.selection.Tile = tt;
+				}
 			};
 		}
 

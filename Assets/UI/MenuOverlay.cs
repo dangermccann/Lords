@@ -4,17 +4,15 @@ namespace Lords {
 	public class MenuOverlay : Dialog {
 
 
+		protected override bool PauseWhileVisible {
+			get { return true; }
+		}
+
 		public override void FadeIn() {
 			base.FadeIn();
-			Game.Pause();
 			Redraw();
 
 			Game.Save();
-		}
-
-		public override void FadeOut(bool dismissShade = true) {
-			base.FadeOut(dismissShade);
-			Game.Resume();
 		}
 
 		public void Redraw() {

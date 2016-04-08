@@ -9,6 +9,10 @@ namespace Lords {
 		UILabel title, yields, details;
 		UI2DSprite icon;
 
+		protected override bool PauseWhileVisible {
+			get { return true; }
+		}
+
 		BuildingType selectedBuildingType = BuildingType.Villa;
 		public BuildingType SelectedBuildingType {
 			get { return selectedBuildingType; }

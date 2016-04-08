@@ -10,16 +10,22 @@ namespace Lords {
 		public GameObject shade = null;
 
 		UIPanel thisPanel, shadePanel;
+		GameObject pauseLabel;
 
 		public static Dialog current;
 
 		protected EffectsController effects;
+
+		protected virtual bool PauseWhileVisible {
+			get { return false; }
+		}
 
 		protected virtual void Start() {
 			current = null;
 			thisPanel = this.GetComponent<UIPanel>();
 			if(shade != null) {
 				shadePanel = shade.GetComponent<UIPanel>();
+				pauseLabel = shadePanel.transform.FindChild("PausedLabel").gameObject;
 			}
 
 			effects = GameObject.Find("EffectsController").GetComponent<EffectsController>();
@@ -27,6 +33,13 @@ namespace Lords {
 
 		public virtual void FadeIn() {
 			StartCoroutine(FadeGroupIn(thisPanel, 1));
+
+			if(PauseWhileVisible) {
+				Game.Pause();
+			}
+			if(pauseLabel != null) {
+				pauseLabel.SetActive(PauseWhileVisible);
+			}
 
 			if(shadePanel != null) {
 				StartCoroutine(FadeGroupIn(shadePanel, 0.85f));
@@ -52,6 +65,13 @@ namespace Lords {
 
 		public virtual void FadeOut(bool dismissShade = true) {
 			StartCoroutine(FadeGroupOut(thisPanel));
+
+			if(PauseWhileVisible) {
+				Game.Resume();
+			}
+			if(pauseLabel != null) {
+				pauseLabel.SetActive(false);
+			}
 			
 			if(dismissShade && shadePanel != null) {
 				StartCoroutine(FadeGroupOut(shadePanel));

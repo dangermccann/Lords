@@ -3,6 +3,7 @@ using UnityEngine.EventSystems;
 using System;
 using System.Collections.Generic;
 using Lords;
+using UnityEngine.Cloud.Analytics;
 
 public class GameController : MonoBehaviour {
 	const float AUTOSAVE_INTERVAL = 120f;
@@ -215,6 +216,11 @@ public class GameController : MonoBehaviour {
 
 			Game.Save();
 			Game.Pause();
+
+			UnityAnalytics.CustomEvent("victory", new Dictionary<string, object> {
+				{ "level", Game.CurrentLevel.name },
+				{ "elapsedTime", Game.CurrentCity.ElapsedTime },
+			});
 		}
 
 		if(Game.CurrentCity.MeetsFailureConditions()) {
@@ -240,6 +246,12 @@ public class GameController : MonoBehaviour {
 
 			Game.ResetCurrentCity();
 			Game.Pause();
+
+			UnityAnalytics.CustomEvent("failure", new Dictionary<string, object> {
+				{ "level", Game.CurrentLevel.name },
+				{ "reason", reason.ToString() },
+				{ "elapsedTime", Game.CurrentCity.ElapsedTime },
+			});
 		}
 
 		if(Time.time - lastSaveTime > AUTOSAVE_INTERVAL) {

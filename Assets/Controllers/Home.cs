@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System;
+using UnityEngine.Cloud.Analytics;
 
 namespace Lords {
 	public class Home : MonoBehaviour {
@@ -10,7 +11,10 @@ namespace Lords {
 
 		public GameObject optionsDialogParent;
 
+		const string projectId = "6b63e915-a865-43e4-bc3f-83fe163dcbef";
+
 		void Start() {
+
 			RectTransform mask = transform.FindChild("Panel/Mask").gameObject.GetComponent<RectTransform>();
 			map = transform.FindChild("Panel/Mask/Map").gameObject.GetComponent<RectTransform>();
 
@@ -26,6 +30,8 @@ namespace Lords {
 
 			Game.LoadOptions();
 			Game.ApplyOptions();
+
+			UnityAnalytics.StartSDK(projectId);
 		}
 
 		void Update() {

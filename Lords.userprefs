@@ -1,32 +1,28 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Levels\Levels.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Models\City.cs">
     <Files>
-      <File FileName="Assets\Models\Building.cs" Line="582" Column="53" />
-      <File FileName="c:\Users\John McCann\Documents\Lords\Assets\Strings.cs" Line="271" Column="19" />
-      <File FileName="Assets\Models\City.cs" Line="116" Column="4" />
-      <File FileName="Assets\UI\TradeOverlay.cs" Line="1" Column="1" />
-      <File FileName="Assets\Controllers\GameController.cs" Line="256" Column="3" />
-      <File FileName="Assets\Levels\Levels.cs" Line="282" Column="23" />
-      <File FileName="Assets\UI\UpgradeOverlay.cs" Line="91" Column="14" />
-      <File FileName="Assets\Controllers\HoverControl.cs" Line="1" Column="1" />
-      <File FileName="Assets\Models\Tile.cs" Line="1" Column="1" />
-      <File FileName="Assets\UI\Corner.cs" Line="80" Column="41" />
-      <File FileName="Assets\Levels\Level.cs" Line="35" Column="45" />
-      <File FileName="Assets\UI\HelpOverlay.cs" Line="99" Column="34" />
-      <File FileName="Assets\Models\Trade.cs" Line="12" Column="11" />
-      <File FileName="Assets\UI\UpgradeBuildingToggle.cs" Line="40" Column="153" />
-      <File FileName="Assets\Game.cs" Line="10" Column="17" />
+      <File FileName="Assets\Models\Building.cs" Line="635" Column="25" />
+      <File FileName="c:\Users\John McCann\Documents\Lords\Assets\Strings.cs" Line="311" Column="12" />
+      <File FileName="Assets\Models\City.cs" Line="106" Column="4" />
+      <File FileName="Assets\Controllers\GameController.cs" Line="209" Column="50" />
+      <File FileName="Assets\Levels\Levels.cs" Line="7" Column="1" />
+      <File FileName="Assets\Controllers\MusicController.cs" Line="25" Column="26" />
+      <File FileName="Assets\UI\SceneTransition.cs" Line="48" Column="4" />
+      <File FileName="Assets\UI\VictoryOverlay.cs" Line="40" Column="76" />
+      <File FileName="Assets\Levels\Level.cs" Line="38" Column="59" />
+      <File FileName="Assets\Models\Aggregates.cs" Line="8" Column="23" />
+      <File FileName="Assets\Game.cs" Line="69" Column="27" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Controllers" expanded="True" />
-            <Node name="Levels" expanded="True">
-              <Node name="Levels.cs" selected="True" />
+            <Node name="Levels" expanded="True" />
+            <Node name="Models" expanded="True">
+              <Node name="City.cs" selected="True" />
             </Node>
-            <Node name="Models" expanded="True" />
             <Node name="NGUI" expanded="True" />
             <Node name="UI" expanded="True" />
           </Node>
@@ -51,9 +47,7 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="C:\Users\John McCann\Documents\Lords\Assets\Models\City.cs" line="44" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

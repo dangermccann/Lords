@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
+using UnityEngine.Cloud.Analytics;
 
 namespace Lords {
 	public class SceneTransition : MonoBehaviour {
@@ -25,6 +27,10 @@ namespace Lords {
 			if(!isTransitioning) {
 				StartCoroutine(FadeOut(CreateShade(), name));
 			}
+
+			UnityAnalytics.CustomEvent("loadScene", new Dictionary<string, object> {
+				{ "scene", name },
+			});
 		}
 
 		public void LoadMap() {

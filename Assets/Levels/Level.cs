@@ -35,6 +35,12 @@ namespace Lords {
 		public float additionalFundsPerSecond = 12f;
 		public float additionalRawMaterialsPerSecond = 24f;
 
+		public Aggregates failureConditions = new Aggregates() {
+			Happiness = -50,
+			Prosperity = -50,
+			Culture = -50
+		};
+
 		public Level() {}
 	}
 }

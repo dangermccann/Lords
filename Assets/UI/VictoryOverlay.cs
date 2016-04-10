@@ -8,11 +8,21 @@ namespace Lords {
 			Failure
 		};
 
-		public Mode OverlayMode = Mode.Victory;
+		public enum FailureReason {
+			TimeLimit,
+			Culture,
+			Happiness,
+			Prosperity
+		}
 
-		public static void Show(Mode mode) {
+		public Mode OverlayMode = Mode.Victory;
+		public FailureReason Reason = FailureReason.TimeLimit;
+		public GameObject sceneTransition;
+
+		public static void Show(Mode mode, FailureReason reason = FailureReason.TimeLimit) {
 			VictoryOverlay overlay = GameObject.Find("VictoryOverlay").GetComponent<VictoryOverlay>();
 			overlay.OverlayMode = mode;
+			overlay.Reason = reason;
 			overlay.FadeIn();
 		}
 
@@ -27,7 +37,7 @@ namespace Lords {
 			}
 			else {
 				Title().text = "Failure!";
-				Description().text = Strings.FailureMessage(Game.CurrentLevel);
+				Description().text = Strings.FailureMessage(Game.CurrentLevel, Reason);
 			}
 			base.FadeIn();
 		}
@@ -42,6 +52,22 @@ namespace Lords {
 
 		UILabel Title() {
 			return transform.FindChild("Background/Title").GetComponent<UILabel>();
+		}
+
+		public void ExitButtonClicked() {
+			SceneTransition t = sceneTransition.GetComponent<SceneTransition>();
+
+			if(OverlayMode == Mode.Victory) {
+				if(Game.CurrentLevel.promotesTo != Ranks.None) {
+					t.LoadPromotion();
+				}
+				else {
+					t.LoadMap();
+				}
+			}
+			else {
+				t.LoadMap();
+			}
 		}
 	}
 }

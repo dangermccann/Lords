@@ -4,12 +4,6 @@ using UnityEngine;
 
 namespace Lords {
 	public class Levels {
-		static Dictionary<Exports, float> EXPORT_PRICES_EASY = new Dictionary<Exports, float>() {
-			{ Exports.Clothes,            10 },
-			{ Exports.Tools,              10 },
-			{ Exports.Manufactured_Goods, 10 }
-		};
-		
 		static Dictionary<Exports, float> EXPORT_PRICES_MEDIUM = new Dictionary<Exports, float>() {
 			{ Exports.Clothes,            8 },
 			{ Exports.Tools,              8 },

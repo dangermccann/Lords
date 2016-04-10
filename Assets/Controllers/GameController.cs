@@ -222,7 +222,21 @@ public class GameController : MonoBehaviour {
 				Dialog.current.FadeOut(false);
 			}
 
-			VictoryOverlay.Show(VictoryOverlay.Mode.Failure);
+			VictoryOverlay.FailureReason reason = VictoryOverlay.FailureReason.TimeLimit;
+
+			if(Game.CurrentCity.Score.Happiness <= Game.CurrentLevel.failureConditions.Happiness) {
+				reason = VictoryOverlay.FailureReason.Happiness;
+			}
+
+			if(Game.CurrentCity.Score.Culture <= Game.CurrentLevel.failureConditions.Culture) {
+				reason = VictoryOverlay.FailureReason.Culture;
+			}
+
+			if(Game.CurrentCity.Score.Prosperity <= Game.CurrentLevel.failureConditions.Prosperity) {
+				reason = VictoryOverlay.FailureReason.Prosperity;
+			}
+
+			VictoryOverlay.Show(VictoryOverlay.Mode.Failure, reason);
 
 			Game.ResetCurrentCity();
 			Game.Pause();
@@ -260,7 +274,7 @@ public class GameController : MonoBehaviour {
 		}
 
 		if(Input.GetKeyDown(KeyCode.F)) {
-			VictoryOverlay.Show(VictoryOverlay.Mode.Failure);
+			VictoryOverlay.Show(VictoryOverlay.Mode.Failure, VictoryOverlay.FailureReason.Happiness);
 			Game.Pause();
 			return true;
 		}

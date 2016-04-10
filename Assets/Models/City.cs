@@ -283,6 +283,12 @@ namespace Lords {
 		}
 
 		public bool MeetsFailureConditions() {
+			if(Score.Culture <= Level.failureConditions.Culture ||
+			   Score.Happiness <= Level.failureConditions.Happiness ||
+			   Score.Prosperity <= Level.failureConditions.Prosperity) {
+				return true;
+			}
+
 			return (ElapsedTime > Level.maxElapsedTime);
 		}
 

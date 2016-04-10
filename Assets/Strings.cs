@@ -303,8 +303,13 @@ namespace Lords {
 			return "Failure!";
 		}
 
-		public static string FailureMessage(Level level) {
-			return "Your Lordship, I'm afraid the city of " + level.name + " has not satisfied His Majesty's criteria in the allotted time.";
+		public static string FailureMessage(Level level, VictoryOverlay.FailureReason reason) {
+			if(reason == VictoryOverlay.FailureReason.TimeLimit) {
+				return "Your Lordship, I'm afraid the city of " + level.name + " has not satisfied His Majesty's requirements in the allotted time.";
+			}
+			else {
+				return String.Format("Your Lordship, I'm afraid the {0} in {1} has fallen to an unacceptable level, and we must not carry on like this.", reason.ToString(), level.name);
+			}
 		}
 
 		public static string LevelDescription(Level level) {

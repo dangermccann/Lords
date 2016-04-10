@@ -47,15 +47,6 @@ namespace Lords {
 			_LoadScene(Scenes.Promotion);
 		}
 
-		public void LevelComplete() {
-			if(Game.CurrentLevel.promotesTo != Ranks.None) {
-				LoadPromotion();
-			}
-			else {
-				LoadMap();
-			}
-		}
-
 		static Image CreateShade() {
 			GameObject canvas = GameObject.Find("Canvas");
 			GameObject shade = (GameObject) GameObject.Instantiate(Resources.Load ("transition"));

@@ -18,6 +18,13 @@ namespace Lords {
 			"Audio/Sheep May Safely Graze - BWV 208",
 			"Audio/Sonatina",
 			"Audio/Trio for Piano Violin and Viola",
+			"Audio/baroquechestra02",
+			"Audio/elusive-butterfly",
+			"Audio/bach-air",
+			"Audio/bach-cello-suite-1",
+			"Audio/kings-gardens",
+			"Audio/string-quartet-no-10-e-flat",
+			"Audio/inspiration-classical-piano",
 		};
 
 		static System.Random random;

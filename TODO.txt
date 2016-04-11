@@ -72,10 +72,10 @@ https://commons.wikimedia.org/wiki/Commons:Free_media_resources/Music
 + Sound effects  (http://www.bfxr.net/)
 + Credits Page
 + Menu Bar clicks don't work
-> Garden / Plaza / Statue tile horizontal alignment
++ Garden / Plaza / Statue tile horizontal alignment
 + Trade
 + Help dialog scrolling
-
++ Trade changes require time lerp
 
 
 

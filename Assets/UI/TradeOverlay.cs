@@ -1,15 +1,20 @@
 using UnityEngine;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Lords {
 	public class TradeOverlay : Dialog {
 
 		public GameObject importsRowPrefab;
+		public float speed = 0.75f;
 
 		GameObject importsTable, exportsTable, noTradingPost;
 		UILabel exportsTotal;
 		GameObject[] rows;
+		Dictionary<Imports, UISlider> importSliders;
 		UIPanel panel;
+		Coroutine changeCoroutine;
 
 		protected override void Start() {
 			base.Start();
@@ -65,6 +70,16 @@ namespace Lords {
 			importsTable.GetComponent<UITable>().Reposition();
 			importsTable.GetComponent<MultiSlider>().SetSliders(sliders);
 			importsTable.GetComponent<MultiSlider>().BulkUpdate(sliderValues);
+
+			importSliders = new Dictionary<Imports, UISlider>();
+			
+			for(int i = 0; i < imports.Length; i++) {
+				Imports import = imports[i];
+				string sliderPath = import.ToString() + "_row/" + import.ToString() + "_slider-2";
+				UISlider slider = importsTable.transform.FindChild(sliderPath).gameObject.GetComponent<UISlider>();
+				importSliders.Add(import, slider);
+				slider.onDragFinished += OnSliderDragFinished;
+			}
 		}
 
 		void UpdateExports() {
@@ -87,6 +102,59 @@ namespace Lords {
 			}
 		}
 
+		void OnSliderDragFinished() {
+			if(changeCoroutine != null) {
+				StopCoroutine(changeCoroutine);
+				changeCoroutine = null;
+			}
+
+			Dictionary<Imports, float> from = new Dictionary<Imports, float>();
+			Dictionary<Imports, float> to = new Dictionary<Imports, float>();
+
+			foreach(Imports import in importSliders.Keys) {
+				UISlider slider = importSliders[import];
+				from.Add(import, Game.CurrentCity.ImportAllocation[import]);
+				to.Add(import, slider.value);
+			}
+
+			changeCoroutine = StartCoroutine(ImportChangeRoutine(from, to));
+		}
+
+		IEnumerator ImportChangeRoutine(Dictionary<Imports, float> from, Dictionary<Imports, float> to) {
+			bool done = false;
+
+			while(!done) {
+				bool changedSomething = false;
+
+				foreach(Imports import in from.Keys) {
+					float delta = (to[import] - from[import]) * Time.deltaTime * speed;
+
+					if(delta == 0) {
+						continue;
+					}
+
+					// make sure we don't overshoot our target
+					if((delta > 0 && Game.CurrentCity.ImportAllocation[import] + delta > to[import]) || 
+					    delta < 0 && Game.CurrentCity.ImportAllocation[import] + delta < to[import]) {
+						delta = to[import] - Game.CurrentCity.ImportAllocation[import];
+					}
+
+					if(delta != 0) {
+						changedSomething = true;
+					}
+
+					Game.CurrentCity.ImportAllocation[import] += delta;
+				}
+
+				if(changedSomething) {
+					yield return null;
+				}
+				else {
+					done = true;
+				}
+			}
+		}
+
 		public override void FadeIn () {
 			base.FadeIn();
 			PopulateImports();
@@ -102,15 +170,6 @@ namespace Lords {
 
 		public override void FadeOut (bool dismissShade) {
 			base.FadeOut(dismissShade);
-
-			Imports[] imports = (Imports[]) Enum.GetValues(typeof(Imports));
-
-			for(int i = 0; i < imports.Length; i++) {
-				Imports import = imports[i];
-				string sliderPath = import.ToString() + "_row/" + import.ToString() + "_slider-2";
-				UISlider slider = importsTable.transform.FindChild(sliderPath).gameObject.GetComponent<UISlider>();
-				Game.CurrentCity.ImportAllocation[import] = slider.value;
-			}
 		}
 
 

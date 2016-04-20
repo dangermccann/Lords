@@ -18,6 +18,8 @@ namespace Lords {
 	}
 
 	public class Trade {
+		public const float ImportItemCount = 6;
+
 		public static Dictionary<Imports, string> ImportLookupTable = new Dictionary<Imports, string> {
 			{ Imports.Medicine, PrimativeValues.Health },
 			{ Imports.Spirits,  PrimativeValues.Entertainment },

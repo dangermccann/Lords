@@ -22,7 +22,6 @@ namespace Lords {
 		}
 
 		void _LoadScene(string name) {
-			Game.Resume();
 
 			if(!isTransitioning) {
 				StartCoroutine(FadeOut(CreateShade(), name));
@@ -76,6 +75,8 @@ namespace Lords {
 			fadeSceneIn = true;
 			isTransitioning = false;
 			Application.LoadLevel(sceneName);
+
+			Game.Resume();
 		}
 
 		void OnLevelWasLoaded(int level) {

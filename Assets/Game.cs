@@ -198,7 +198,7 @@ namespace Lords {
 			funds = Levels.GetLevel(level).initialFunds;
 			elapsedTime = 0;
 			buildings.Clear();
-			importAllocation.Clear();
+			importAllocation = City.DEFAULT_IMPORT_ALLOCATION;
 		}
 	}
 

@@ -11,12 +11,13 @@ public class GameController : MonoBehaviour {
 	bool clickStarted = false;
 	GameObject mapRoot;
 	float lastSaveTime;
+	float levelLoadTime = 0;
 	EffectsController effects;
 
 	// Use this for initialization
 	void Start () {
 		mapRoot = GameObject.Find("Map");
-		LoadLevel(Game.CurrentLevel ?? Levels.LittleAsh);
+		LoadLevel(Game.CurrentLevel ?? Levels.OldMilddleton);
 		effects = GameObject.Find("EffectsController").GetComponent<EffectsController>();
 	}
 
@@ -65,6 +66,7 @@ public class GameController : MonoBehaviour {
 		SelectionController.Reset();
 
 		lastSaveTime = Time.time;
+		levelLoadTime = Time.time;
 	}
 
 	public void UnloadLevel() {
@@ -81,6 +83,11 @@ public class GameController : MonoBehaviour {
 	}
 
 	void Update () {
+		ProcessInputs();
+		UpdateGame();
+	}
+
+	void ProcessInputs() {
 		if(Input.GetKeyDown(KeyCode.Escape)) {
 			if(Dialog.current != null) {
 				if(Dialog.current.IsDismissible()) {
@@ -204,10 +211,13 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	void FixedUpdate() {
+	void UpdateGame() {
 		Game.CurrentCity.UpdateEverything(Time.fixedDeltaTime);
 
-		if(Game.CurrentCity.MeetsVictoryConditions()) {
+		// It takes a few ticks to correctly calculate score
+		float elapsedSinceLoad = Time.time - levelLoadTime;
+
+		if(elapsedSinceLoad >= 1 && Game.CurrentCity.MeetsVictoryConditions()) {
 			if(Dialog.current != null) {
 				Dialog.current.FadeOut(false);
 			}
@@ -223,23 +233,27 @@ public class GameController : MonoBehaviour {
 			});
 		}
 
-		if(Game.CurrentCity.MeetsFailureConditions()) {
+		if(elapsedSinceLoad >= 1 && Game.CurrentCity.MeetsFailureConditions()) {
 			if(Dialog.current != null) {
 				Dialog.current.FadeOut(false);
 			}
 
 			VictoryOverlay.FailureReason reason = VictoryOverlay.FailureReason.TimeLimit;
+			float actualValue = Game.CurrentCity.ElapsedTime;
 
 			if(Game.CurrentCity.Score.Happiness <= Game.CurrentLevel.failureConditions.Happiness) {
 				reason = VictoryOverlay.FailureReason.Happiness;
+				actualValue = Game.CurrentCity.Score.Happiness;
 			}
 
 			if(Game.CurrentCity.Score.Culture <= Game.CurrentLevel.failureConditions.Culture) {
 				reason = VictoryOverlay.FailureReason.Culture;
+				actualValue = Game.CurrentCity.Score.Culture;
 			}
 
 			if(Game.CurrentCity.Score.Prosperity <= Game.CurrentLevel.failureConditions.Prosperity) {
 				reason = VictoryOverlay.FailureReason.Prosperity;
+				actualValue = Game.CurrentCity.Score.Prosperity;
 			}
 
 			VictoryOverlay.Show(VictoryOverlay.Mode.Failure, reason);
@@ -247,10 +261,13 @@ public class GameController : MonoBehaviour {
 			Game.ResetCurrentCity();
 			Game.Pause();
 
+			Debug.Log("Level Failed because " + reason.ToString() + " is " + actualValue);
+
 			UnityAnalytics.CustomEvent("failure", new Dictionary<string, object> {
 				{ "level", Game.CurrentLevel.name },
 				{ "reason", reason.ToString() },
 				{ "elapsedTime", Game.CurrentCity.ElapsedTime },
+				{ "actualValue", actualValue },
 			});
 		}
 

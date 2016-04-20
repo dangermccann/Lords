@@ -8,6 +8,15 @@ namespace Lords {
 		static float MAX_FUNDS = 10000;
 		static float MAX_RAW_MATERIALS = 10000;
 
+		public static Dictionary<Imports, float> DEFAULT_IMPORT_ALLOCATION = new Dictionary<Imports, float>() {
+			{ Imports.Medicine, 1 / Trade.ImportItemCount },
+			{ Imports.Spirits,  1 / Trade.ImportItemCount },
+			{ Imports.Books,    1 / Trade.ImportItemCount },
+			{ Imports.Incense,  1 / Trade.ImportItemCount },
+			{ Imports.Jewlery,  1 / Trade.ImportItemCount },
+			{ Imports.Weapons,  1 / Trade.ImportItemCount }
+		};
+
 		public Dictionary<Hex, Tile> Tiles { get; protected set; }
 		public Level Level { get; protected set; }
 		public Primatives Primatives { get; protected set; }
@@ -40,11 +49,7 @@ namespace Lords {
 			Primatives = new Primatives();
 			Score = new Aggregates();
 			Exports = new Dictionary<Exports, float>();
-
-			ImportAllocation = new Dictionary<Imports, float>();
-			foreach(Imports import in Trade.ImportLookupTable.Keys) {
-				ImportAllocation[import] = 1.0f / Trade.ImportLookupTable.Keys.Count;
-			}
+			ImportAllocation = DEFAULT_IMPORT_ALLOCATION;
 
 			Buildings = new Dictionary<BuildingType, List<Building>>();
 			foreach(BuildingType type in Building.Types) {
@@ -154,8 +159,10 @@ namespace Lords {
 				foreach(Building nearbyBuilding in Buildings[nearbyBuildingType]) {
 					if(nearbyBuilding != building) {
 						float distance = Hex.Distance(building.Tile.Position, nearbyBuilding.Tile.Position);
-						Primatives thisBuildingModifier = nearbyModifier / distance;
-						modifier *= (1.0f + thisBuildingModifier);
+						if(distance < 5) {
+							Primatives thisBuildingModifier = nearbyModifier / Mathf.Pow(distance, 1.5f);
+							modifier *= (1.0f + thisBuildingModifier);
+						}
 					}
 				}
 			}
@@ -236,6 +243,7 @@ namespace Lords {
 					PrimativeValues.Housing) * FoodLevel();
 		}
 
+		// TODO: This cuts my framerate in half on large maps!!!!
 		float PrimativeValueNearby(Tile tile, BuildingType[] types, string field) {
 			float value = 0;
 
@@ -252,8 +260,6 @@ namespace Lords {
 
 		public void AddBuilding(Building b) {
 			Buildings[b.Type].Add(b);
-
-			Debug.Log("Deducting " + Building.RequiredFunds[b.Type] + " for type " + b.Type);
 
 			Funds -= Building.RequiredFunds[b.Type];
 			RawMaterials -= Building.RequiredMaterials[b.Type];
@@ -317,9 +323,7 @@ namespace Lords {
 			city.RawMaterials = saved.rawMaterials;
 			city.Funds = saved.funds;
 			city.ElapsedTime = saved.elapsedTime;
-	
-			if(saved.importAllocation != null && saved.importAllocation.Count > 0)	// backwards compatibility - remove later
-				city.ImportAllocation = saved.importAllocation;
+			city.ImportAllocation = saved.importAllocation;
 
 			foreach(SavedBuilding savedBuilding in saved.buildings) {
 				Building building = new Building(city.Tiles[savedBuilding.position], savedBuilding.type);

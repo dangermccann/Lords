@@ -95,7 +95,7 @@ namespace Lords {
 		}
 
 		void RedrawContents() {
-			Debug.Log("Redrawing help contents for " + SelectedBuildingType.ToString());
+			Debug.Log("HelpOverlay - Redrawing help contents for " + SelectedBuildingType.ToString());
 			title.text = Strings.BuildingTitle(SelectedBuildingType);
 			yields.text = Strings.BuildingYieldLong(SelectedBuildingType);
 			details.text = "Cost:  " + Strings.BuildingCost(SelectedBuildingType);

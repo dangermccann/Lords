@@ -10,6 +10,7 @@
 /// 
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 namespace Lords {
 	/// <summary>
@@ -26,6 +27,12 @@ namespace Lords {
 		}
 
 		public Hex() : this(0, 0) { }
+
+		public static Hex operator +(Hex h1, Hex h2) {
+			Vector3 c1 = h1.ToCube();
+			Vector3 c2 = h2.ToCube();
+			return Hex.CubeToHex(c1 + c2);
+		}
 
 		/// <summary>
 		/// Returns the Cube coordinates of the Hex.
@@ -158,6 +165,22 @@ namespace Lords {
 			Vector3 ac = HexToCube(a);
 			Vector3 bc = HexToCube(b);
 			return Mathf.Max(Math.Abs(ac.x - bc.x), Math.Abs(ac.y - bc.y), Math.Abs(ac.z - bc.z));
+		}
+
+
+		public static List<Hex> HexesInRange(Hex center, int range) {
+			Vector3 centerCube = center.ToCube();
+
+			List<Hex> results = new List<Hex>();
+			for(int dx = -range; dx <= range; dx++) {
+				for(int dy = Math.Max(-range, -dx-range); dy <= Math.Min(range, -dx+range); dy++) {
+					int dz = -dx-dy;
+					Vector3 cube = centerCube + new Vector3(dx, dy, dz);
+					results.Add(Hex.CubeToHex(cube));
+				}
+			}
+
+			return results;
 		}
 	}
 }

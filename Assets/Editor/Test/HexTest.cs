@@ -10,7 +10,7 @@
 /// 
 
 using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using NUnit.Framework;
 
 namespace Lords {
@@ -64,5 +64,38 @@ namespace Lords {
 			Hex h2 = new Hex(1, -1);
 			Assert.AreEqual(1, Hex.Distance(h1, h2));
 		}
+
+		[Test]
+		public void TestAddition() {
+			Hex h1 = new Hex(1, 0);
+			Hex h2 = new Hex(2, 1);
+			Hex sum = h1 + h2;
+			Assert.AreEqual(h1.ToCube() + h2.ToCube(), sum.ToCube());
+		}
+
+		[Test]
+		public void TestRange1() {
+			List<Hex> result = Hex.HexesInRange(new Hex(0, 0), 1);
+			Assert.AreEqual(7, result.Count);
+			Assert.Contains(new Hex(0, 0), result);
+			Assert.Contains(new Hex(1, 0), result);
+			Assert.Contains(new Hex(0, 1), result);
+			Assert.Contains(new Hex(-1, 1), result);
+			Assert.That( result.Contains(new Hex(1, 1)) == false );
+		}
+
+		[Test]
+		public void TestRange2() {
+			List<Hex> result = Hex.HexesInRange(new Hex(-2, 2), 3);
+			Assert.AreEqual(37, result.Count);
+			Assert.Contains(new Hex(-2, 2), result);
+			Assert.Contains(new Hex(0, 0), result);
+			Assert.Contains(new Hex(0, -1), result);
+			Assert.Contains(new Hex(1, 2), result);
+			Assert.Contains(new Hex(-3, 3), result);
+			Assert.That( result.Contains(new Hex(2, -1)) == false );
+			Assert.That( result.Contains(new Hex(2, 1)) == false );
+		}
+
 	}
 }

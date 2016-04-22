@@ -81,7 +81,7 @@ https://commons.wikimedia.org/wiki/Commons:Free_media_resources/Music
   Garden modified by Workshop at a distance of 6 resulting in value Food: 1 | Housing: 1 | Productivity: 1 | Health: 1 | Security: 1 | Beauty: 0.9416667 | Faith: 1 | Entertainment: 1 | Literacy: 1
 + Make Vegetable Farms less useless
 + Bug: exiting & returning results in immediate failure
-> Bug: Easton when full gets really slow (PrimativeValueNearby)
++ Bug: Easton when full gets really slow (PrimativeValueNearby)
 
 
 -- Rank Progression --

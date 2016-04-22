@@ -188,30 +188,12 @@ namespace Lords {
 			Score.Culture = Primatives.Faith + Primatives.Beauty;
 		}
 
-		public void UpdateFunds(float deltaTime) {
-			if(Score.Population == 0) 
-				return;
-
-			Funds += Level.additionalFundsPerSecond * deltaTime;
-
-			float foodLevel = FoodLevel();
-
-			foreach(List<Building> buildings in Buildings.Values) {
-				foreach(Building building in buildings) {
-					if(Building.TaxRates.ContainsKey(building.Type)) {
-						float taxRate = Building.TaxRates[building.Type];
-						Funds += foodLevel * taxRate * deltaTime;
-					}
-				}
-			}
-			Funds = Math.Min(Funds, MAX_FUNDS);
-		}
-
-		public void UpdateRawMaterials(float deltaTime) {
+		public void UpdateRawMaterialsAndFunds(float deltaTime) {
 			if(Score.Population == 0) 
 				return;
 
 			RawMaterials += Level.additionalRawMaterialsPerSecond * deltaTime;
+			Funds += Level.additionalFundsPerSecond * deltaTime;
 
 			float foodLevel = FoodLevel();
 
@@ -221,10 +203,16 @@ namespace Lords {
 						float production = Building.RawMaterialProduction[building.Type];
 						RawMaterials += foodLevel * production * deltaTime;
 					}
+
+					if(Building.TaxRates.ContainsKey(building.Type)) {
+						float taxRate = Building.TaxRates[building.Type];
+						Funds += foodLevel * taxRate * deltaTime;
+					}
 				}
 			}
 
 			RawMaterials = Math.Min(RawMaterials, MAX_RAW_MATERIALS);
+			Funds = Math.Min(Funds, MAX_FUNDS);
 		}
 
 		public void UpdateEverything(float deltaTime) {
@@ -232,31 +220,36 @@ namespace Lords {
 			UpdatePrimatives();
 			UpdateExports();
 			UpdateImports();
-			UpdateFunds(deltaTime);
-			UpdateRawMaterials(deltaTime);
+			UpdateRawMaterialsAndFunds(deltaTime);
 			UpdateScore();
 		}
 
 		float PopulationNearby(Tile tile) {
-			return PrimativeValueNearby(tile, 
-					new BuildingType[] { BuildingType.Villa, BuildingType.Cottages, BuildingType.Slums }, 
-					PrimativeValues.Housing) * FoodLevel();
-		}
-
-		// TODO: This cuts my framerate in half on large maps!!!!
-		float PrimativeValueNearby(Tile tile, BuildingType[] types, string field) {
 			float value = 0;
-
-			foreach(BuildingType type in types) {
-				List<Building> buildings = Buildings[type];
-				foreach(Building building in buildings) {
-					float distance = Hex.Distance(tile.Position, building.Tile.Position);
-					value += Building.Yields[building.Type][field] / distance;
+			
+			List<Hex> range = Hex.HexesInRange(tile.Position, 5);
+			foreach(Hex hex in range) {
+				if(hex.Equals(tile.Position))
+					continue;
+				
+				if(Tiles.ContainsKey(hex)) {
+					Tile t = Tiles[hex];
+					if(t.Building != null &&
+					  (t.Building.Type == BuildingType.Villa || t.Building.Type == BuildingType.Cottages || t.Building.Type == BuildingType.Slums )) {
+						float distance = Hex.Distance(tile.Position, t.Position);
+						if(distance > 0) {
+							value += Building.Yields[t.Building.Type].Housing / distance;
+						}
+						else {
+							Debug.LogWarning(String.Format("Zero distance???   {0} | {1} | {2}", tile.Position, hex,  hex.Equals(tile.Position)));
+						}
+					}
 				}
 			}
 			
 			return value;
 		}
+
 
 		public void AddBuilding(Building b) {
 			Buildings[b.Type].Add(b);

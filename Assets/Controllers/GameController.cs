@@ -66,7 +66,7 @@ public class GameController : MonoBehaviour {
 		SelectionController.Reset();
 
 		lastSaveTime = Time.time;
-		levelLoadTime = Time.time;
+		levelLoadTime = 0;
 	}
 
 	public void UnloadLevel() {
@@ -212,12 +212,12 @@ public class GameController : MonoBehaviour {
 	}
 
 	void UpdateGame() {
-		Game.CurrentCity.UpdateEverything(Time.fixedDeltaTime);
+		Game.CurrentCity.UpdateEverything(Time.deltaTime);
 
 		// It takes a few ticks to correctly calculate score
-		float elapsedSinceLoad = Time.time - levelLoadTime;
+		levelLoadTime++;
 
-		if(elapsedSinceLoad >= 1 && Game.CurrentCity.MeetsVictoryConditions()) {
+		if(levelLoadTime > 30 && Game.CurrentCity.MeetsVictoryConditions()) {
 			if(Dialog.current != null) {
 				Dialog.current.FadeOut(false);
 			}
@@ -233,7 +233,7 @@ public class GameController : MonoBehaviour {
 			});
 		}
 
-		if(elapsedSinceLoad >= 1 && Game.CurrentCity.MeetsFailureConditions()) {
+		if(levelLoadTime > 30 && Game.CurrentCity.MeetsFailureConditions()) {
 			if(Dialog.current != null) {
 				Dialog.current.FadeOut(false);
 			}

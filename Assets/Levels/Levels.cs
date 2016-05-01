@@ -25,12 +25,12 @@ namespace Lords {
 				Population = 1000,
 				Happiness = 5,
 				Prosperity = 5,
-				Culture = 0,
+				Culture = 5,
 			},
 			mapConfiguration = Maps.Tutorial,
 			mapLocation = new Vector2(200, 150),
 			illustration = LevelIllustration.House,
-			maxElapsedTime = 180 / Game.GameSpeed,
+			maxElapsedTime = 120 / Game.GameSpeed,
 			promotesTo = Ranks.Gentleman
 		};
 
@@ -201,9 +201,9 @@ namespace Lords {
 			victoryMessage = "This splendid achievement is yet another example of your undying dedication.",
 			victoryConditions = new Aggregates() { 
 				Population = 8000,
-				Happiness = 50,
-				Prosperity = 50,
-				Culture = 50,
+				Happiness = 60,
+				Prosperity = 60,
+				Culture = 60,
 			},
 			mapConfiguration = Maps.LargeEasy,
 			mapLocation = new Vector2(681, 271),
@@ -237,9 +237,9 @@ namespace Lords {
 			victoryMessage = "Congratulations on proving your worthiness to The Crown once again.",
 			victoryConditions = new Aggregates() { 
 				Population = 2500,
-				Happiness = 55,
-				Prosperity = 55,
-				Culture = 60,
+				Happiness = 65,
+				Prosperity = 65,
+				Culture = 70,
 			},
 			mapConfiguration = Maps.TinyHard,
 			mapLocation = new Vector2(638, 143),
@@ -256,14 +256,14 @@ namespace Lords {
 			victoryMessage = "Tremendous accopmlishment, my Lord.  You are well prepared for your final challenge.",
 			victoryConditions = new Aggregates() { 
 				Population = 7000,
-				Happiness = 60,
-				Prosperity = 60,
-				Culture = 60,
+				Happiness = 85,
+				Prosperity = 85,
+				Culture = 80,
 			},
 			mapConfiguration = Maps.HugeSand,
 			mapLocation = new Vector2(562, 20),
 			illustration = LevelIllustration.Sun,
-			maxElapsedTime = 150 / Game.GameSpeed,
+			maxElapsedTime = 90 / Game.GameSpeed,
 			prerequisites = new Level[1] { Levels.Dunham },
 			exportPrices = EXPORT_PRICES_HARD
 		};
@@ -274,14 +274,14 @@ namespace Lords {
 			victoryMessage = "You have done it!  Congratulations Lord Mayor!",
 			victoryConditions = new Aggregates() { 
 				Population = 5000,
-				Happiness = 75,
-				Prosperity = 75,
-				Culture = 75,
+				Happiness = 100,
+				Prosperity = 100,
+				Culture = 100,
 			},
 			mapConfiguration = Maps.MediumCold,
 			mapLocation = new Vector2(602, 216),
 			illustration = LevelIllustration.CoatOfArms,
-			maxElapsedTime = 150 / Game.GameSpeed,
+			maxElapsedTime = 100 / Game.GameSpeed,
 			promotesTo = Ranks.Lord_Mayor,
 			prerequisites = new Level[1] { Levels.OldMilddleton },
 			exportPrices = EXPORT_PRICES_HARD

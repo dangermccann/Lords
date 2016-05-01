@@ -4,7 +4,7 @@ using System;
 namespace Lords {
 	public class Slider : MonoBehaviour {
 		float _value = 0;
-		float paddingLeft = 0, paddingRight = 10;
+		float paddingLeft = 0, paddingRight = 15;
 		float width;
 		Transform knob;
 

@@ -73,6 +73,18 @@ namespace Lords {
 		public void Exit() {
 			Application.Quit();
 		}
+
+		public void Play() {
+			SavedGame saved = Game.Load();
+
+			if(saved == null || !saved.completedLevels.Contains(Levels.Tutorial.name)) {
+				Game.CurrentLevel = Levels.Tutorial;
+				SceneTransition.LoadScene(Scenes.Interstitial);
+			}
+			else {
+				SceneTransition.LoadScene(Scenes.Map);
+			}
+		}
 	}
 }
 

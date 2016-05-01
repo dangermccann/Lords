@@ -154,6 +154,7 @@ Lord Mayor
 
 -- Sales / Marketing --
 Sales: https://indiegamestand.com/developerSignUp.php
+Sales: itch.io
 Review: http://indiegamereviewer.com/contact-indie-game-reviewer/
 Review: https://www.rockpapershotgun.com/hey-prs-and-developers/
 Marketing: http://www.indiegamegirl.com/press-release-example/
@@ -167,7 +168,7 @@ contact@gamejolt.com
 stuff@haymarket.com
 editors@indiegamemag.com
 tips@kotaku.com
-tyler@pcgamer
+tyler@pcgamer.com
 tips@destructoid.com
 press@theindiemine.com
 contact@game-sphere.fr
@@ -179,6 +180,7 @@ pr@gamewatcher.com
 editorial@metacritic.com
 trailers@gametrailers.com
 webmaster@g4tv.com
+editor@thenextdigit.com
 
 http://www.cnet.com/profiles/jbakalar/
 http://www.jumptogamer.com/contact-us/
@@ -188,4 +190,14 @@ http://gamerwife.com/about/contact/
 
 @GameSpy
 @DJGameCentral
+
+
+-- Greenlight Concept -- 
+http://steamcommunity.com/sharedfiles/filedetails/?id=671218526
+
+
+--- Greenlight for reals --- 
+http://steamcommunity.com/sharedfiles/filedetails/?id=675051623
+
+
 

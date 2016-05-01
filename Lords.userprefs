@@ -1,29 +1,29 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Models\City.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Levels\Levels.cs">
     <Files>
-      <File FileName="Assets\Models\Building.cs" Line="635" Column="25" />
-      <File FileName="c:\Users\John McCann\Documents\Lords\Assets\Strings.cs" Line="311" Column="12" />
-      <File FileName="Assets\Models\City.cs" Line="106" Column="4" />
-      <File FileName="Assets\Controllers\GameController.cs" Line="209" Column="50" />
-      <File FileName="Assets\Levels\Levels.cs" Line="7" Column="1" />
-      <File FileName="Assets\Controllers\MusicController.cs" Line="25" Column="26" />
-      <File FileName="Assets\UI\SceneTransition.cs" Line="48" Column="4" />
-      <File FileName="Assets\UI\VictoryOverlay.cs" Line="40" Column="76" />
-      <File FileName="Assets\Levels\Level.cs" Line="38" Column="59" />
-      <File FileName="Assets\Models\Aggregates.cs" Line="8" Column="23" />
-      <File FileName="Assets\Game.cs" Line="69" Column="27" />
+      <File FileName="Assets\Models\Building.cs" Line="472" Column="33" />
+      <File FileName="c:\Users\John McCann\Documents\Lords\Assets\Strings.cs" Line="234" Column="75" />
+      <File FileName="Assets\Models\City.cs" Line="244" Column="124" />
+      <File FileName="Assets\Controllers\GameController.cs" Line="225" Column="27" />
+      <File FileName="Assets\Levels\Levels.cs" Line="262" Column="6" />
+      <File FileName="Assets\UI\SceneTransition.cs" Line="84" Column="21" />
+      <File FileName="Assets\Game.cs" Line="201" Column="54" />
+      <File FileName="Assets\UI\Corner.cs" Line="80" Column="41" />
+      <File FileName="Assets\Models\Trade.cs" Line="29" Column="21" />
+      <File FileName="Assets\Models\Primatives.cs" Line="54" Column="70" />
+      <File FileName="Assets\Editor\Test\HexTest.cs" Line="97" Column="44" />
+      <File FileName="Assets\Editor\Test\CityTest.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State expanded="True">
           <Node name="Assembly-CSharp" expanded="True">
             <Node name="Controllers" expanded="True" />
-            <Node name="Levels" expanded="True" />
-            <Node name="Models" expanded="True">
-              <Node name="City.cs" selected="True" />
+            <Node name="Levels" expanded="True">
+              <Node name="Levels.cs" selected="True" />
             </Node>
-            <Node name="NGUI" expanded="True" />
+            <Node name="Models" expanded="True" />
             <Node name="UI" expanded="True" />
           </Node>
           <Node name="Assembly-CSharp-Editor" expanded="True">
@@ -47,7 +47,9 @@
     </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\John McCann\Documents\Lords\Assets\Editor\Test\HexTest.cs" line="13" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

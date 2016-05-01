@@ -79,20 +79,9 @@ namespace Lords {
 		}
 
 		public void CityClicked(Level level) {
-			Debug.Log ("clicked " + level.name);
 			effects.Click2();
 
 			Game.CurrentLevel = level;
-
-			SavedGame saved = Game.Load();
-			if(saved != null) {
-				SavedCity city = saved.FindCity(level.name);
-				if(city != null && city.elapsedTime > 0) {
-					//SceneTransition.LoadScene(Scenes.Main);
-					//return;
-				}
-			}
-
 			SceneTransition.LoadScene(Scenes.Interstitial);
 		}
 	}

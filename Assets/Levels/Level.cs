@@ -36,9 +36,9 @@ namespace Lords {
 		public float additionalRawMaterialsPerSecond = 24f;
 
 		public Aggregates failureConditions = new Aggregates() {
-			Happiness = -50,
-			Prosperity = -50,
-			Culture = -50
+			Happiness = -30,
+			Prosperity = -30,
+			Culture = -30
 		};
 
 		public Level() {}

@@ -219,6 +219,12 @@
  <Reference Include="UnityEditor.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.7.0/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
+ <Reference Include="UnityEngine.Cloud.Analytics">
+ <HintPath>C:/Users/John McCann/Documents/Lords/Assets/Plugins/UnityEngine.Cloud.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Cloud.Analytics.Util">
+ <HintPath>C:/Users/John McCann/Documents/Lords/Assets/Plugins/UnityEngine.Cloud.Analytics.Util.dll</HintPath>
+ </Reference>
  <Reference Include="NSubstitute">
  <HintPath>C:/Users/John McCann/Documents/Lords/Assets/UnityTestTools/UnitTesting/Editor/NSubstitute/NSubstitute.dll</HintPath>
  </Reference>
@@ -239,12 +245,6 @@
  </Reference>
  <Reference Include="UnityEditor.Graphs">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Cloud.Analytics">
- <HintPath>C:/Users/John McCann/Documents/Lords/Assets/Plugins/UnityEngine.Cloud.Analytics.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Cloud.Analytics.Util">
- <HintPath>C:/Users/John McCann/Documents/Lords/Assets/Plugins/UnityEngine.Cloud.Analytics.Util.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

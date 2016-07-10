@@ -141,6 +141,8 @@ XXXX https://youtu.be/4gLdZKLtUXM XXXXX
 https://youtu.be/NazxWiToFdo
 
 http://imgur.com/a/mZo73
+https://bottlenosebits.itch.io/lord-mayor
+
 
 
 To Whom It May Concern:
@@ -152,9 +154,14 @@ Become
 Lord Mayor
 
 
+http://www.indiedb.com/games/lord-mayor
+
 -- Sales / Marketing --
 Sales: https://indiegamestand.com/developerSignUp.php
 Sales: itch.io
+Sales: Desura
+Sales: https://www.gog.com/indie
+Free only: http://gamejolt.com/
 Review: http://indiegamereviewer.com/contact-indie-game-reviewer/
 Review: https://www.rockpapershotgun.com/hey-prs-and-developers/
 Marketing: http://www.indiegamegirl.com/press-release-example/
@@ -200,4 +207,18 @@ http://steamcommunity.com/sharedfiles/filedetails/?id=671218526
 http://steamcommunity.com/sharedfiles/filedetails/?id=675051623
 
 
+https://contractual.ly/contracts/bt8t8/signed
 
+https://analytics.cloud.unity3d.com/g
+
+-- sites selling game --
+https://partners.groupees.com/bundles/721
+https://bottlenosebits.itch.io/lord-mayor
+https://indiegamestand.com/developers/?mode=game&sid=1683&id=2879#details
+
+http://gamejolt.com/dashboard/games/162866
+http://gamejolt.com/games/lord-mayor/162866
+https://partner.steamgames.com/apps/landing/499330
+
+-- icon converter -- 
+https://iconverticons.com/
